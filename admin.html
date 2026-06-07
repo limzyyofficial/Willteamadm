@@ -1,0 +1,1115 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>Admin Panel · WILZXITERZ VN</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#07080f;--bg2:#0d0f1c;--bg3:#111424;--card:#0f1221;
+  --border:rgba(255,255,255,.07);--border2:rgba(255,255,255,.14);
+  --text:#e8eaf6;--muted:#5a6080;--dim:#2e3350;
+  --sp:#1ed760;--sp2:#17b34e;--spg:rgba(30,215,96,.12);
+  --nf:#e50914;--nfg:rgba(229,9,20,.12);
+  --ds:#0072d2;--dsg:rgba(0,114,210,.12);
+  --cv:#8B5CF6;--cvg:rgba(139,92,246,.12);
+  --gold:#f5c842;--gold2:#d4a900;
+  --err:#ff4757;--warn:#ffa502;
+  --r:12px;--rxl:18px;--pill:99px;
+  --t:all .28s cubic-bezier(.4,0,.2,1);
+  --sh:0 8px 32px rgba(0,0,0,.5);
+  --nav-h:64px;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+::-webkit-scrollbar{width:3px;height:3px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:var(--dim);border-radius:99px}
+body{
+  background:var(--bg);font-family:'DM Sans',sans-serif;
+  color:var(--text);min-height:100vh;overflow-x:hidden;
+}
+
+/* BG */
+.mesh{position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:
+    radial-gradient(ellipse 600px 400px at 20% 10%,rgba(30,215,96,.03) 0%,transparent 60%),
+    radial-gradient(ellipse 500px 400px at 80% 90%,rgba(139,92,246,.035) 0%,transparent 60%)}
+.grid-bg{position:fixed;inset:0;z-index:0;pointer-events:none;
+  background-image:linear-gradient(rgba(255,255,255,.012) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.012) 1px,transparent 1px);
+  background-size:48px 48px}
+
+/* ════════════════════════════
+   LOGIN
+════════════════════════════ */
+#loginPage{
+  position:fixed;inset:0;z-index:9999;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:1.2rem;background:var(--bg);
+}
+.login-outer{width:100%;max-width:380px;animation:riseUp .55s cubic-bezier(.34,1.45,.64,1) both}
+@keyframes riseUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+
+.login-brand{text-align:center;margin-bottom:1.8rem}
+.login-logo-mark{
+  width:60px;height:60px;border-radius:18px;margin:0 auto .75rem;
+  background:linear-gradient(135deg,rgba(30,215,96,.15),rgba(139,92,246,.15));
+  border:1px solid rgba(30,215,96,.25);
+  display:grid;place-items:center;font-size:1.6rem;
+}
+.login-wordmark{font-family:'Syne',sans-serif;font-size:1.5rem;font-weight:800;letter-spacing:-.5px}
+.login-wordmark em{color:var(--sp);font-style:normal}
+.login-tagline{font-family:'JetBrains Mono',monospace;font-size:.56rem;letter-spacing:3px;color:var(--muted);text-transform:uppercase;margin-top:.25rem}
+
+.login-card{
+  background:var(--card);border:1px solid var(--border2);
+  border-radius:var(--rxl);padding:1.8rem 1.6rem;
+  position:relative;overflow:hidden;
+  box-shadow:0 24px 60px rgba(0,0,0,.5),0 0 0 1px rgba(255,255,255,.03) inset;
+}
+.login-card-stripe{position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--sp),var(--gold),var(--cv),var(--nf))}
+
+.lc-head{margin-bottom:1.4rem}
+.lc-title{font-family:'Syne',sans-serif;font-size:1.05rem;font-weight:800}
+.lc-sub{font-size:.74rem;color:var(--muted);margin-top:.2rem}
+
+.field{margin-bottom:.85rem}
+.field-label{
+  display:flex;align-items:center;gap:.38rem;
+  font-family:'JetBrains Mono',monospace;font-size:.6rem;
+  letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);
+  margin-bottom:.38rem;
+}
+.field-wrap{position:relative}
+.field-ico{
+  position:absolute;left:.82rem;top:50%;transform:translateY(-50%);
+  color:var(--muted);font-size:.82rem;pointer-events:none;transition:color .2s;
+}
+.field-inp{
+  width:100%;background:rgba(255,255,255,.04);
+  border:1px solid var(--border);border-radius:10px;
+  padding:.68rem .88rem .68rem 2.35rem;
+  color:var(--text);font-family:'DM Sans',sans-serif;font-size:.9rem;
+  outline:none;transition:var(--t);
+}
+.field-inp:focus{border-color:var(--sp);background:rgba(30,215,96,.04);box-shadow:0 0 0 3px rgba(30,215,96,.09)}
+.field-inp:focus + .field-ico, .field-wrap:focus-within .field-ico{color:var(--sp)}
+.field-inp::placeholder{color:var(--dim)}
+.pw-toggle{position:absolute;right:.82rem;top:50%;transform:translateY(-50%);background:none;border:none;color:var(--muted);cursor:pointer;font-size:.85rem;padding:4px;transition:color .2s}
+.pw-toggle:hover{color:var(--sp)}
+
+.login-alert{
+  display:none;align-items:center;gap:.45rem;
+  background:rgba(255,71,87,.08);border:1px solid rgba(255,71,87,.2);
+  border-radius:9px;padding:.55rem .78rem;
+  font-size:.76rem;color:var(--err);margin-bottom:.85rem;
+}
+.login-alert.on{display:flex}
+
+.login-submit{
+  width:100%;padding:.82rem;border-radius:var(--pill);
+  background:linear-gradient(135deg,var(--sp),#38f9a0);
+  border:none;font-family:'Syne',sans-serif;font-weight:800;
+  font-size:.95rem;color:#000;cursor:pointer;transition:var(--t);
+  display:flex;align-items:center;justify-content:center;gap:.45rem;
+  position:relative;overflow:hidden;
+}
+.login-submit::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.15),transparent);opacity:0;transition:opacity .2s}
+.login-submit:hover::before{opacity:1}
+.login-submit:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(30,215,96,.35)}
+.login-submit:active{transform:translateY(0)}
+.login-submit:disabled{background:var(--dim);color:var(--muted);cursor:not-allowed;transform:none;box-shadow:none}
+.ls-spin{width:16px;height:16px;border:2.5px solid rgba(0,0,0,.25);border-top-color:#000;border-radius:50%;animation:spin .65s linear infinite;display:none}
+@keyframes spin{to{transform:rotate(360deg)}}
+.login-hint{text-align:center;font-size:.67rem;color:var(--dim);font-family:'JetBrains Mono',monospace;margin-top:.9rem}
+
+/* ════════════════════════════
+   ADMIN SHELL
+════════════════════════════ */
+#adminPage{display:none;flex-direction:column;min-height:100vh}
+
+/* TOP BAR */
+.topbar{
+  position:sticky;top:0;z-index:100;
+  background:rgba(7,8,15,.95);backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);
+  padding:.75rem 1rem;
+  display:flex;align-items:center;justify-content:space-between;
+  gap:.6rem;
+}
+.tb-brand{font-family:'Syne',sans-serif;font-size:1rem;font-weight:800;letter-spacing:-.3px}
+.tb-brand em{color:var(--sp);font-style:normal}
+.tb-mid{flex:1;text-align:center}
+.tb-page{font-family:'Syne',sans-serif;font-size:.88rem;font-weight:700}
+.tb-sub{font-size:.6rem;color:var(--muted);font-family:'JetBrains Mono',monospace}
+.tb-right{display:flex;align-items:center;gap:.45rem}
+.tb-pill{
+  display:inline-flex;align-items:center;gap:.35rem;
+  background:rgba(30,215,96,.08);border:1px solid rgba(30,215,96,.18);
+  padding:.22rem .65rem;border-radius:99px;
+  font-family:'JetBrains Mono',monospace;font-size:.58rem;color:var(--sp);
+}
+.ldot{width:5px;height:5px;background:var(--sp);border-radius:50%;animation:blink 1.4s ease-in-out infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.15}}
+.tb-icon-btn{
+  width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.04);
+  border:1px solid var(--border);display:grid;place-items:center;
+  cursor:pointer;color:var(--muted);font-size:.82rem;transition:var(--t);
+}
+.tb-icon-btn:hover{background:rgba(255,255,255,.1);color:var(--text)}
+.tb-icon-btn.danger:hover{background:rgba(255,71,87,.15);color:var(--err);border-color:rgba(255,71,87,.3)}
+
+/* SCROLL CONTENT */
+.page-scroll{
+  flex:1;overflow-y:auto;
+  padding:1rem 1rem calc(var(--nav-h) + 1.5rem);
+  position:relative;z-index:1;
+}
+
+/* BOTTOM NAV */
+.bottom-nav{
+  position:fixed;bottom:0;left:0;right:0;z-index:200;
+  height:var(--nav-h);
+  background:rgba(7,8,15,.97);backdrop-filter:blur(24px);
+  border-top:1px solid var(--border);
+  display:flex;align-items:stretch;
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+.bn-item{
+  flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:.22rem;cursor:pointer;transition:var(--t);position:relative;
+  border:none;background:none;color:var(--muted);font-family:'DM Sans',sans-serif;
+  padding:.3rem 0;
+}
+.bn-item::before{content:'';position:absolute;top:0;left:20%;right:20%;height:2px;border-radius:99px;background:var(--sp);opacity:0;transition:opacity .2s}
+.bn-item.active{color:var(--sp)}
+.bn-item.active::before{opacity:1}
+.bn-ico{font-size:1.1rem;transition:transform .2s}
+.bn-item.active .bn-ico{transform:translateY(-1px)}
+.bn-lbl{font-size:.58rem;font-weight:600;letter-spacing:.5px;text-transform:uppercase;font-family:'JetBrains Mono',monospace}
+.bn-badge{
+  position:absolute;top:.22rem;right:calc(50% - 14px);
+  min-width:16px;height:16px;padding:0 4px;
+  background:var(--err);border-radius:99px;
+  font-size:.55rem;font-weight:700;color:#fff;
+  display:none;place-items:center;border:2px solid var(--bg);
+  font-family:'JetBrains Mono',monospace;
+}
+.bn-badge.on{display:grid}
+
+/* ════════════════════════════
+   STAT CARDS
+════════════════════════════ */
+.stats-row{display:grid;grid-template-columns:1fr 1fr;gap:.7rem;margin-bottom:1rem}
+.stat-card{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:var(--rxl);padding:1rem;
+  position:relative;overflow:hidden;transition:var(--t);
+}
+.stat-card:active{transform:scale(.98)}
+.stat-glow{position:absolute;top:-20px;right:-20px;width:80px;height:80px;border-radius:50%;opacity:.12;filter:blur(20px)}
+.stat-ico{width:34px;height:34px;border-radius:9px;display:grid;place-items:center;font-size:.88rem;margin-bottom:.6rem}
+.stat-num{font-family:'Syne',sans-serif;font-size:1.6rem;font-weight:800;line-height:1}
+.stat-lbl{font-size:.68rem;color:var(--muted);margin-top:.22rem}
+.stat-note{font-size:.62rem;font-family:'JetBrains Mono',monospace;margin-top:.28rem}
+
+/* ════════════════════════════
+   SECTION CARDS
+════════════════════════════ */
+.sec{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:var(--rxl);margin-bottom:.85rem;overflow:hidden;
+}
+.sec-top{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:.85rem 1rem;border-bottom:1px solid var(--border);
+}
+.sec-title{font-family:'Syne',sans-serif;font-size:.88rem;font-weight:800;display:flex;align-items:center;gap:.45rem}
+.sec-body{padding:.85rem 1rem}
+.sec-action{
+  display:inline-flex;align-items:center;gap:.3rem;
+  font-size:.7rem;font-weight:600;color:var(--muted);
+  background:rgba(255,255,255,.04);border:1px solid var(--border);
+  padding:.28rem .72rem;border-radius:99px;cursor:pointer;transition:var(--t);
+}
+.sec-action:hover{color:var(--text);background:rgba(255,255,255,.09)}
+.sec-action.green{background:rgba(30,215,96,.09);border-color:rgba(30,215,96,.2);color:var(--sp)}
+
+/* REVENUE HERO */
+.rev-hero{
+  background:linear-gradient(135deg,rgba(30,215,96,.08),rgba(139,92,246,.06));
+  border:1px solid rgba(30,215,96,.15);border-radius:var(--rxl);
+  padding:1.2rem;margin-bottom:.85rem;text-align:center;
+  position:relative;overflow:hidden;
+}
+.rev-hero::before{content:'';position:absolute;top:-30px;left:50%;transform:translateX(-50%);width:200px;height:80px;background:rgba(30,215,96,.08);border-radius:50%;filter:blur(24px);pointer-events:none}
+.rev-label{font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:.5rem}
+.rev-amount{font-family:'Syne',sans-serif;font-size:2rem;font-weight:800;color:var(--sp)}
+.rev-sub{font-size:.7rem;color:var(--muted);margin-top:.3rem}
+
+/* ORDER CARDS (portrait style) */
+.order-list{display:flex;flex-direction:column;gap:.6rem}
+.o-card{
+  background:rgba(255,255,255,.025);border:1px solid var(--border);
+  border-radius:var(--r);padding:.82rem .9rem;transition:var(--t);
+}
+.o-card:active{background:rgba(255,255,255,.04)}
+.o-card-top{display:flex;align-items:flex-start;justify-content:space-between;gap:.5rem;margin-bottom:.55rem}
+.o-id{font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--sp)}
+.o-name{font-family:'Syne',sans-serif;font-weight:700;font-size:.88rem;margin-bottom:.12rem}
+.o-contact{font-size:.72rem;color:var(--muted)}
+.o-meta{display:flex;align-items:center;justify-content:space-between;gap:.5rem;margin-bottom:.6rem}
+.o-items{font-size:.72rem;color:var(--muted);flex:1;line-height:1.5}
+.o-total{font-family:'Syne',sans-serif;font-weight:800;font-size:.92rem;color:var(--sp);white-space:nowrap}
+.o-footer{display:flex;align-items:center;justify-content:space-between;gap:.45rem}
+.o-date{font-family:'JetBrains Mono',monospace;font-size:.62rem;color:var(--dim)}
+.o-actions{display:flex;gap:.35rem;flex-wrap:wrap}
+
+/* BADGES */
+.badge{display:inline-flex;align-items:center;gap:.25rem;font-family:'JetBrains Mono',monospace;font-size:.6rem;padding:.2rem .58rem;border-radius:99px;white-space:nowrap}
+.b-pending{background:rgba(255,165,2,.12);color:var(--warn);border:1px solid rgba(255,165,2,.25)}
+.b-confirmed{background:rgba(30,215,96,.12);color:var(--sp);border:1px solid rgba(30,215,96,.25)}
+.b-rejected{background:rgba(255,71,87,.12);color:var(--err);border:1px solid rgba(255,71,87,.25)}
+.b-delivered{background:rgba(139,92,246,.12);color:var(--cv);border:1px solid rgba(139,92,246,.25)}
+
+/* ACTION BTNS */
+.abtn{
+  display:inline-flex;align-items:center;gap:.28rem;
+  padding:.3rem .72rem;border-radius:99px;
+  border:1px solid var(--border);background:rgba(255,255,255,.04);
+  color:var(--muted);font-size:.7rem;font-weight:600;
+  cursor:pointer;transition:var(--t);font-family:'DM Sans',sans-serif;
+  white-space:nowrap;
+}
+.abtn:active{transform:scale(.96)}
+.abtn.confirm{background:rgba(30,215,96,.1);border-color:rgba(30,215,96,.25);color:var(--sp)}
+.abtn.deliver{background:rgba(139,92,246,.1);border-color:rgba(139,92,246,.25);color:var(--cv)}
+.abtn.reject{background:rgba(255,71,87,.08);border-color:rgba(255,71,87,.2);color:var(--err)}
+.abtn.ghost{color:var(--muted)}
+.abtn.del{color:var(--err)}
+
+/* FILTER PILLS */
+.filter-scroll{display:flex;gap:.4rem;overflow-x:auto;padding-bottom:.3rem;margin-bottom:.85rem;scrollbar-width:none}
+.filter-scroll::-webkit-scrollbar{display:none}
+.fpill{
+  flex-shrink:0;padding:.35rem .85rem;border-radius:99px;
+  border:1px solid var(--border);background:rgba(255,255,255,.03);
+  color:var(--muted);font-size:.74rem;font-weight:600;cursor:pointer;transition:var(--t);
+}
+.fpill.on{background:var(--text);color:#000;border-color:var(--text)}
+.search-bar{
+  width:100%;background:rgba(255,255,255,.04);
+  border:1px solid var(--border);border-radius:10px;
+  padding:.58rem .82rem;color:var(--text);
+  font-family:'DM Sans',sans-serif;font-size:.88rem;outline:none;transition:var(--t);
+  margin-bottom:.85rem;
+}
+.search-bar:focus{border-color:var(--sp)}
+.search-bar::placeholder{color:var(--dim)}
+
+/* STOCK CARDS */
+.stk-list{display:flex;flex-direction:column;gap:.7rem}
+.stk-card{
+  background:rgba(255,255,255,.025);border:1px solid var(--border);
+  border-radius:var(--r);overflow:hidden;
+}
+.stk-head{
+  display:flex;align-items:center;gap:.65rem;
+  padding:.75rem .9rem;border-bottom:1px solid var(--border);
+  background:rgba(255,255,255,.018);
+}
+.stk-icon{width:36px;height:36px;border-radius:9px;display:grid;place-items:center;font-size:.95rem;flex-shrink:0}
+.stk-icon.spotify{background:var(--spg);color:var(--sp)}
+.stk-icon.netflix{background:var(--nfg);color:var(--nf)}
+.stk-icon.disney{background:var(--dsg);color:var(--ds)}
+.stk-icon.canva{background:var(--cvg);color:var(--cv)}
+.stk-name{font-family:'Syne',sans-serif;font-weight:800;font-size:.9rem}
+.stk-total{font-family:'JetBrains Mono',monospace;font-size:.65rem;margin-top:.1rem}
+.stk-rows{padding:.5rem .9rem}
+.stk-row{display:flex;align-items:center;justify-content:space-between;padding:.42rem 0;border-bottom:1px solid rgba(255,255,255,.04);gap:.5rem}
+.stk-row:last-child{border-bottom:none}
+.stk-dur{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--muted);flex:1}
+.stk-cnt{font-family:'Syne',sans-serif;font-weight:700;font-size:.82rem;margin-right:.5rem}
+.stk-cnt.ok{color:var(--sp)}.stk-cnt.warn{color:var(--warn)}.stk-cnt.empty{color:var(--err)}
+.stk-row-acts{display:flex;gap:.3rem}
+
+/* IMPORT AREA */
+.import-card{
+  background:rgba(255,255,255,.025);border:1px solid rgba(30,215,96,.12);
+  border-radius:var(--r);padding:.9rem;margin-top:.85rem;
+}
+.import-title{font-family:'Syne',sans-serif;font-weight:700;font-size:.85rem;margin-bottom:.2rem;display:flex;align-items:center;gap:.4rem}
+.import-sub{font-size:.72rem;color:var(--muted);margin-bottom:.85rem}
+.form-row{display:flex;gap:.55rem;margin-bottom:.7rem}
+.form-row>*{flex:1}
+.flabel{font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-bottom:.3rem;display:block}
+.finp{
+  width:100%;background:rgba(255,255,255,.04);border:1px solid var(--border);
+  border-radius:9px;padding:.58rem .75rem;color:var(--text);
+  font-family:'DM Sans',sans-serif;font-size:.85rem;outline:none;transition:var(--t);
+}
+.finp:focus{border-color:var(--sp);box-shadow:0 0 0 3px rgba(30,215,96,.09)}
+.finp::placeholder{color:var(--dim)}
+select.finp{cursor:pointer}
+textarea.finp{resize:vertical;min-height:90px;font-family:'JetBrains Mono',monospace;font-size:.76rem;line-height:1.7}
+.fhelp{font-size:.65rem;color:var(--dim);font-family:'JetBrains Mono',monospace;margin-top:.28rem}
+.green-btn{
+  width:100%;padding:.72rem;border-radius:var(--pill);
+  background:var(--sp);border:none;
+  font-family:'Syne',sans-serif;font-weight:800;font-size:.88rem;color:#000;
+  cursor:pointer;transition:var(--t);display:flex;align-items:center;justify-content:center;gap:.4rem;
+  margin-top:.65rem;
+}
+.green-btn:hover{background:var(--sp2);transform:translateY(-1px)}
+.green-btn:active{transform:scale(.98)}
+
+/* SETTINGS */
+.setting-block{
+  background:rgba(255,255,255,.025);border:1px solid var(--border);
+  border-radius:var(--r);padding:.9rem;margin-bottom:.7rem;
+}
+.setting-title{font-family:'Syne',sans-serif;font-weight:800;font-size:.9rem;margin-bottom:.18rem}
+.setting-sub{font-size:.72rem;color:var(--muted);margin-bottom:.9rem}
+.danger-zone{display:flex;flex-direction:column;gap:.45rem}
+.danger-btn{
+  width:100%;padding:.65rem;border-radius:10px;
+  background:rgba(255,71,87,.07);border:1px solid rgba(255,71,87,.18);
+  color:var(--err);font-family:'Syne',sans-serif;font-weight:700;font-size:.82rem;
+  cursor:pointer;transition:var(--t);display:flex;align-items:center;justify-content:center;gap:.38rem;
+}
+.danger-btn:active{background:rgba(255,71,87,.18)}
+.info-grid{display:flex;flex-direction:column;gap:.35rem}
+.info-row{display:flex;justify-content:space-between;align-items:center;padding:.35rem 0;border-bottom:1px solid rgba(255,255,255,.04);font-size:.78rem}
+.info-row:last-child{border-bottom:none}
+.info-key{color:var(--muted);font-family:'JetBrains Mono',monospace;font-size:.7rem}
+.info-val{color:var(--text);font-weight:600}
+
+/* MODAL */
+.modal-bg{
+  display:none;position:fixed;inset:0;
+  background:rgba(0,0,0,.88);backdrop-filter:blur(18px);
+  z-index:3000;align-items:flex-end;justify-content:center;padding:0;
+}
+.modal-bg.on{display:flex;animation:fadeIn .2s ease}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.modal-sheet{
+  width:100%;max-width:520px;max-height:92vh;overflow-y:auto;
+  background:var(--card);border:1px solid var(--border2);
+  border-radius:22px 22px 0 0;padding:1.5rem 1.3rem;
+  position:relative;animation:sheetUp .32s cubic-bezier(.34,1.2,.64,1);
+  box-shadow:0 -8px 40px rgba(0,0,0,.5);
+}
+@keyframes sheetUp{from{transform:translateY(60px);opacity:0}to{transform:translateY(0);opacity:1}}
+.sheet-handle{width:36px;height:3.5px;background:var(--dim);border-radius:99px;margin:0 auto 1.2rem}
+.modal-stripe{position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--sp),var(--gold),var(--cv));border-radius:22px 22px 0 0}
+.modal-close{position:absolute;top:.9rem;right:.9rem;width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,.06);border:1px solid var(--border);display:grid;place-items:center;cursor:pointer;color:var(--muted);font-size:.75rem;transition:var(--t)}
+.modal-close:hover{background:var(--err);color:#fff;border-color:var(--err)}
+.modal-title{font-family:'Syne',sans-serif;font-size:1.05rem;font-weight:800;margin-bottom:.2rem}
+.modal-sub{font-size:.74rem;color:var(--muted);margin-bottom:1.1rem}
+.modal-actions{display:flex;flex-direction:column;gap:.45rem;margin-top:1.1rem}
+.modal-btn{
+  width:100%;padding:.78rem;border-radius:var(--pill);border:none;
+  font-family:'Syne',sans-serif;font-weight:800;font-size:.9rem;
+  cursor:pointer;transition:var(--t);display:flex;align-items:center;justify-content:center;gap:.4rem;
+}
+.modal-btn:active{transform:scale(.98)}
+.modal-btn.primary{background:var(--sp);color:#000}
+.modal-btn.primary:hover{background:var(--sp2)}
+.modal-btn.danger{background:rgba(255,71,87,.12);color:var(--err);border:1px solid rgba(255,71,87,.22)}
+.modal-btn.danger:hover{background:rgba(255,71,87,.2)}
+.modal-btn.secondary{background:rgba(255,255,255,.06);color:var(--muted);border:1px solid var(--border)}
+.modal-btn.secondary:hover{background:rgba(255,255,255,.12);color:var(--text)}
+.modal-btn.gold{background:var(--gold);color:#000}
+.modal-btn.gold:hover{background:var(--gold2)}
+
+/* TOAST */
+#toasts{position:fixed;bottom:calc(var(--nav-h) + .7rem);left:1rem;right:1rem;z-index:9999;display:flex;flex-direction:column;gap:.35rem;align-items:center;pointer-events:none}
+.toast{
+  background:var(--card);border:1px solid var(--border);
+  border-left:3px solid var(--sp);padding:.55rem .9rem;border-radius:10px;
+  font-size:.76rem;font-family:'JetBrains Mono',monospace;
+  display:flex;align-items:center;gap:.45rem;
+  max-width:340px;width:100%;color:var(--text);
+  animation:toastIn .3s cubic-bezier(.34,1.4,.64,1);
+  box-shadow:0 4px 20px rgba(0,0,0,.45);pointer-events:all;
+}
+.toast.err{border-left-color:var(--err)}.toast.warn{border-left-color:var(--warn)}
+@keyframes toastIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+
+/* EMPTY */
+.empty{text-align:center;padding:2.2rem 1rem}
+.empty-ico{font-size:2rem;opacity:.3;margin-bottom:.55rem}
+.empty-t{font-family:'Syne',sans-serif;font-weight:700;font-size:.88rem;margin-bottom:.25rem}
+.empty-s{font-size:.76rem;color:var(--muted)}
+
+/* STOCK SUMMARY MINI */
+.stk-mini-grid{display:grid;grid-template-columns:1fr 1fr;gap:.5rem}
+.stk-mini{background:rgba(255,255,255,.025);border:1px solid var(--border);border-radius:10px;padding:.65rem .75rem;display:flex;align-items:center;gap:.55rem}
+.stk-mini-ico{width:30px;height:30px;border-radius:8px;display:grid;place-items:center;font-size:.82rem;flex-shrink:0}
+.stk-mini-name{font-size:.75rem;font-weight:600;line-height:1.3}
+.stk-mini-cnt{font-family:'JetBrains Mono',monospace;font-size:.65rem;margin-top:.1rem}
+</style>
+</head>
+<body>
+<div class="mesh"></div>
+<div class="grid-bg"></div>
+
+<!-- ═══════ LOGIN ═══════ -->
+<div id="loginPage">
+  <div class="login-outer">
+    <div class="login-brand">
+      <div class="login-logo-mark">🛡️</div>
+      <div class="login-wordmark">WILZXITERZ<em>VN</em></div>
+      <div class="login-tagline">Admin Panel · Restricted Access</div>
+    </div>
+    <div class="login-card">
+      <div class="login-card-stripe"></div>
+      <div class="lc-head">
+        <div class="lc-title">Masuk ke Dashboard</div>
+        <div class="lc-sub">Masukkan kredensial administrator kamu</div>
+      </div>
+      <div class="login-alert" id="loginAlert"><i class="fas fa-exclamation-triangle"></i><span id="loginAlertMsg">Username atau password salah</span></div>
+      <div class="field">
+        <div class="field-label"><i class="fas fa-user"></i>USERNAME</div>
+        <div class="field-wrap">
+          <input class="field-inp" id="loginUser" type="text" placeholder="Masukkan username..." autocomplete="username" style="padding-left:2.35rem">
+          <i class="fas fa-user field-ico"></i>
+        </div>
+      </div>
+      <div class="field">
+        <div class="field-label"><i class="fas fa-lock"></i>PASSWORD</div>
+        <div class="field-wrap">
+          <input class="field-inp" id="loginPass" type="password" placeholder="Masukkan password..." autocomplete="current-password" style="padding-left:2.35rem;padding-right:2.5rem">
+          <i class="fas fa-lock field-ico"></i>
+          <button class="pw-toggle" id="pwToggle" type="button"><i class="fas fa-eye" id="pwEyeIco"></i></button>
+        </div>
+      </div>
+      <button class="login-submit" id="loginBtn" onclick="doLogin()">
+        <span id="loginBtnLbl"><i class="fas fa-sign-in-alt"></i>&nbsp;Masuk ke Panel</span>
+        <div class="ls-spin" id="loginSpin"></div>
+      </button>
+      <div class="login-hint">Default: admin / admin123</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════ ADMIN ═══════ -->
+<div id="adminPage" style="display:none;flex-direction:column;min-height:100vh">
+
+  <!-- TOPBAR -->
+  <div class="topbar">
+    <div class="tb-brand">WXV<em>N</em></div>
+    <div class="tb-mid">
+      <div class="tb-page" id="tbTitle">Dashboard</div>
+      <div class="tb-sub" id="tbSub">Overview</div>
+    </div>
+    <div class="tb-right">
+      <div class="tb-pill"><div class="ldot"></div>LIVE</div>
+      <div class="tb-icon-btn danger" title="Logout" onclick="doLogout()"><i class="fas fa-sign-out-alt"></i></div>
+    </div>
+  </div>
+
+  <!-- PAGE CONTENT -->
+  <div class="page-scroll" id="pageScroll"></div>
+
+  <!-- BOTTOM NAV -->
+  <nav class="bottom-nav">
+    <button class="bn-item active" data-p="dashboard" onclick="goPage('dashboard')">
+      <span class="bn-ico">📊</span>
+      <span class="bn-lbl">Dashboard</span>
+    </button>
+    <button class="bn-item" data-p="orders" onclick="goPage('orders')">
+      <span class="bn-ico">🛍️</span>
+      <span class="bn-lbl">Order</span>
+      <span class="bn-badge" id="pendBadge">0</span>
+    </button>
+    <button class="bn-item" data-p="stock" onclick="goPage('stock')">
+      <span class="bn-ico">📦</span>
+      <span class="bn-lbl">Stok</span>
+    </button>
+    <button class="bn-item" data-p="settings" onclick="goPage('settings')">
+      <span class="bn-ico">⚙️</span>
+      <span class="bn-lbl">Settings</span>
+    </button>
+  </nav>
+</div>
+
+<!-- MODAL (bottom sheet) -->
+<div class="modal-bg" id="modal" onclick="handleModalBgClick(event)">
+  <div class="modal-sheet" id="modalSheet">
+    <div class="modal-stripe"></div>
+    <div class="sheet-handle"></div>
+    <div class="modal-close" onclick="closeModal()"><i class="fas fa-times"></i></div>
+    <div id="modalBody"></div>
+  </div>
+</div>
+
+<div id="toasts"></div>
+
+<script>
+/* ══════════════════════════════
+   STORAGE  (shared dengan index.html)
+══════════════════════════════ */
+var STOCK={}, ORDERS=[], CREDS={user:'admin',pass:'admin123'};
+
+var PRODS=[
+  {brand:'spotify', name:'Spotify Premium', icon:'fab fa-spotify', plans:['1 Bulan','3 Bulan','6 Bulan','1 Tahun']},
+  {brand:'netflix', name:'Netflix Premium', icon:'fas fa-film',    plans:['1 Bulan','3 Bulan','6 Bulan','1 Tahun']},
+  {brand:'disney',  name:'Disney+ Hotstar', icon:'fas fa-star',    plans:['1 Bulan','3 Bulan','6 Bulan','1 Tahun']},
+  {brand:'canva',   name:'Canva Pro',       icon:'fas fa-palette', plans:['1 Bulan','3 Bulan','6 Bulan','1 Tahun']}
+];
+var BC={spotify:'var(--sp)',netflix:'var(--nf)',disney:'var(--ds)',canva:'var(--cv)'};
+var BRAND_CLS={spotify:'spotify',netflix:'netflix',disney:'disney',canva:'canva'};
+
+function sKey(b,p){return b+'_'+p.replace(/\s+/g,'').toLowerCase();}
+function sc(b,p){return (STOCK[sKey(b,p)]||[]).length;}
+function fmt(n){return 'Rp'+Number(n).toLocaleString('id-ID');}
+
+function loadAll(){
+  try{var s=localStorage.getItem('wxvn_stk');STOCK=s?JSON.parse(s):{};}catch(e){STOCK={};}
+  try{var o=localStorage.getItem('wxvn_ord');ORDERS=o?JSON.parse(o):[];}catch(e){ORDERS=[];}
+  try{var c=localStorage.getItem('wxvn_creds');if(c)CREDS=JSON.parse(c);}catch(e){}
+}
+function saveStock(){try{localStorage.setItem('wxvn_stk',JSON.stringify(STOCK));}catch(e){}}
+function saveOrders(){try{localStorage.setItem('wxvn_ord',JSON.stringify(ORDERS));}catch(e){}}
+function saveCreds(){try{localStorage.setItem('wxvn_creds',JSON.stringify(CREDS));}catch(e){}}
+
+/* ══════════════════════════════
+   LOGIN
+══════════════════════════════ */
+document.getElementById('pwToggle').onclick=function(){
+  var p=document.getElementById('loginPass');
+  var ico=document.getElementById('pwEyeIco');
+  if(p.type==='password'){p.type='text';ico.className='fas fa-eye-slash';}
+  else{p.type='password';ico.className='fas fa-eye';}
+};
+['loginUser','loginPass'].forEach(function(id){
+  document.getElementById(id).addEventListener('keydown',function(e){if(e.key==='Enter')doLogin();});
+});
+
+function doLogin(){
+  loadAll();
+  var u=document.getElementById('loginUser').value.trim();
+  var p=document.getElementById('loginPass').value;
+  var alert=document.getElementById('loginAlert');
+  var btn=document.getElementById('loginBtn');
+  var spin=document.getElementById('loginSpin');
+  var lbl=document.getElementById('loginBtnLbl');
+  alert.classList.remove('on');
+  btn.disabled=true;spin.style.display='block';lbl.style.display='none';
+  setTimeout(function(){
+    if(u===CREDS.user&&p===CREDS.pass){
+      document.getElementById('loginPage').style.display='none';
+      var ap=document.getElementById('adminPage');
+      ap.style.display='flex';
+      loadAll();goPage('dashboard');startClock();
+    } else {
+      alert.classList.add('on');
+      document.getElementById('loginAlertMsg').textContent='Username atau password salah!';
+      btn.disabled=false;spin.style.display='none';lbl.style.display='flex';
+    }
+  },900);
+}
+
+function doLogout(){
+  document.getElementById('adminPage').style.display='none';
+  document.getElementById('loginPage').style.display='flex';
+  document.getElementById('loginUser').value='';
+  document.getElementById('loginPass').value='';
+  document.getElementById('loginAlert').classList.remove('on');
+  document.getElementById('loginBtn').disabled=false;
+  document.getElementById('loginSpin').style.display='none';
+  document.getElementById('loginBtnLbl').style.display='flex';
+}
+
+/* ══════════════════════════════
+   CLOCK
+══════════════════════════════ */
+function startClock(){
+  function tick(){
+    var n=new Date();
+    document.getElementById('tbSub').textContent=
+      n.toLocaleDateString('id-ID',{weekday:'short',day:'numeric',month:'short'})+' · '+
+      n.toLocaleTimeString('id-ID',{hour:'2-digit',minute:'2-digit',second:'2-digit'});
+  }
+  tick();setInterval(tick,1000);
+}
+
+/* ══════════════════════════════
+   NAVIGATION
+══════════════════════════════ */
+var curPage='dashboard';
+var ordFilter='all', ordSearch='';
+var PAGE_INFO={
+  dashboard:{t:'Dashboard',s:'Ringkasan bisnis'},
+  orders:{t:'Manajemen Order',s:'Konfirmasi & kirim akun'},
+  stock:{t:'Manajemen Stok',s:'Kelola stok akun premium'},
+  settings:{t:'Settings',s:'Konfigurasi admin'}
+};
+
+function goPage(p){
+  curPage=p;
+  document.querySelectorAll('.bn-item').forEach(function(b){b.classList.toggle('active',b.dataset.p===p);});
+  var info=PAGE_INFO[p];
+  document.getElementById('tbTitle').textContent=info.t;
+  loadAll();updateBadge();
+  var el=document.getElementById('pageScroll');
+  el.scrollTop=0;
+  if(p==='dashboard') renderDashboard();
+  else if(p==='orders') renderOrders();
+  else if(p==='stock') renderStock();
+  else if(p==='settings') renderSettings();
+}
+
+function updateBadge(){
+  var n=ORDERS.filter(function(o){return o.status==='pending';}).length;
+  var b=document.getElementById('pendBadge');
+  if(n>0){b.classList.add('on');b.textContent=n;}else{b.classList.remove('on');}
+}
+
+/* ══════════════════════════════
+   DASHBOARD
+══════════════════════════════ */
+function renderDashboard(){
+  var total=ORDERS.length;
+  var pending=ORDERS.filter(function(o){return o.status==='pending';}).length;
+  var delivered=ORDERS.filter(function(o){return o.status==='delivered';}).length;
+  var revenue=ORDERS.filter(function(o){return o.status==='confirmed'||o.status==='delivered';}).reduce(function(s,o){return s+o.total;},0);
+  var totalStk=Object.values(STOCK).reduce(function(s,a){return s+a.length;},0);
+
+  var html='<div class="stats-row">'
+    +'<div class="stat-card"><div class="stat-glow" style="background:var(--sp)"></div>'
+    +'<div class="stat-ico" style="background:rgba(30,215,96,.1);color:var(--sp)"><i class="fas fa-shopping-bag"></i></div>'
+    +'<div class="stat-num">'+total+'</div><div class="stat-lbl">Total Order</div></div>'
+    +'<div class="stat-card"><div class="stat-glow" style="background:var(--warn)"></div>'
+    +'<div class="stat-ico" style="background:rgba(255,165,2,.1);color:var(--warn)"><i class="fas fa-clock"></i></div>'
+    +'<div class="stat-num" style="color:'+(pending>0?'var(--warn)':'var(--text)')+'">'+pending+'</div>'
+    +'<div class="stat-lbl">Pending</div>'+(pending>0?'<div class="stat-note" style="color:var(--warn)">⚠️ Perlu konfirmasi</div>':'')+'</div>'
+    +'<div class="stat-card"><div class="stat-glow" style="background:var(--cv)"></div>'
+    +'<div class="stat-ico" style="background:rgba(139,92,246,.1);color:var(--cv)"><i class="fas fa-check-circle"></i></div>'
+    +'<div class="stat-num">'+delivered+'</div><div class="stat-lbl">Terkirim</div></div>'
+    +'<div class="stat-card"><div class="stat-glow" style="background:var(--ds)"></div>'
+    +'<div class="stat-ico" style="background:rgba(0,114,210,.1);color:var(--ds)"><i class="fas fa-layer-group"></i></div>'
+    +'<div class="stat-num">'+totalStk+'</div><div class="stat-lbl">Total Stok</div></div>'
+    +'</div>';
+
+  html+='<div class="rev-hero">'
+    +'<div class="rev-label"><i class="fas fa-coins"></i>&nbsp; Revenue Terkonfirmasi</div>'
+    +'<div class="rev-amount">'+fmt(revenue)+'</div>'
+    +'<div class="rev-sub">Dari '+ORDERS.filter(function(o){return o.status==='confirmed'||o.status==='delivered';}).length+' order dikonfirmasi</div>'
+    +'</div>';
+
+  // Stok mini
+  html+='<div class="sec"><div class="sec-top"><div class="sec-title"><i class="fas fa-layer-group" style="color:var(--cv)"></i>&nbsp;Stok Tersedia</div>'
+    +'<span class="sec-action" onclick="goPage(\'stock\')">Kelola <i class="fas fa-arrow-right"></i></span></div>'
+    +'<div class="sec-body"><div class="stk-mini-grid">';
+  PRODS.forEach(function(p){
+    var tot=p.plans.reduce(function(s,pl){return s+sc(p.brand,pl);},0);
+    var col=tot===0?'var(--err)':tot<=5?'var(--warn)':'var(--sp)';
+    html+='<div class="stk-mini">'
+      +'<div class="stk-mini-ico '+BRAND_CLS[p.brand]+'"><i class="'+p.icon+'"></i></div>'
+      +'<div><div class="stk-mini-name">'+p.name.replace(' Premium','').replace(' Hotstar','')+'</div>'
+      +'<div class="stk-mini-cnt" style="color:'+col+'">'+tot+' akun</div></div></div>';
+  });
+  html+='</div></div></div>';
+
+  // Recent orders
+  var recent=ORDERS.slice(0,6);
+  html+='<div class="sec"><div class="sec-top"><div class="sec-title"><i class="fas fa-list" style="color:var(--sp)"></i>&nbsp;Order Terbaru</div>'
+    +'<span class="sec-action" onclick="goPage(\'orders\')">Semua <i class="fas fa-arrow-right"></i></span></div>'
+    +'<div class="sec-body">';
+  if(!recent.length){
+    html+='<div class="empty"><div class="empty-ico">📋</div><div class="empty-t">Belum ada order</div><div class="empty-s">Order pelanggan tampil di sini</div></div>';
+  } else {
+    html+='<div class="order-list">';
+    recent.forEach(function(o){ html+=renderOrderCard(o); });
+    html+='</div>';
+  }
+  html+='</div></div>';
+
+  document.getElementById('pageScroll').innerHTML=html;
+}
+
+/* ══════════════════════════════
+   ORDERS
+══════════════════════════════ */
+function renderOrders(){
+  var pend=ORDERS.filter(function(o){return o.status==='pending';}).length;
+  var conf=ORDERS.filter(function(o){return o.status==='confirmed';}).length;
+  var delv=ORDERS.filter(function(o){return o.status==='delivered';}).length;
+  var rej=ORDERS.filter(function(o){return o.status==='rejected';}).length;
+
+  var html='<div class="filter-scroll">'
+    +fpill('all','Semua ('+ORDERS.length+')')
+    +fpill('pending','Pending ('+pend+')')
+    +fpill('confirmed','Konfirmasi ('+conf+')')
+    +fpill('delivered','Terkirim ('+delv+')')
+    +fpill('rejected','Ditolak ('+rej+')')
+    +'</div>';
+  html+='<input class="search-bar" placeholder="🔍  Cari nama / Order ID..." value="'+ordSearch+'" oninput="ordSearch=this.value;renderOrders()">';
+
+  var list=ORDERS.filter(function(o){
+    var mf=ordFilter==='all'||o.status===ordFilter;
+    var q=ordSearch.toLowerCase();
+    var ms=!q||(o.id.toLowerCase().includes(q)||o.name.toLowerCase().includes(q)||o.contact.toLowerCase().includes(q));
+    return mf&&ms;
+  });
+
+  if(ordFilter==='pending'&&list.length>0){
+    html+='<div style="margin-bottom:.85rem"><button class="green-btn" style="margin-top:0" onclick="confirmAllPending()"><i class="fas fa-check-double"></i>&nbsp;Konfirmasi Semua Pending ('+list.length+')</button></div>';
+  }
+
+  html+='<div class="order-list">';
+  if(!list.length){
+    html+='<div class="empty"><div class="empty-ico">📋</div><div class="empty-t">Tidak ada order</div><div class="empty-s">Coba filter lain</div></div>';
+  } else {
+    list.forEach(function(o){ html+=renderOrderCard(o); });
+  }
+  html+='</div>';
+  document.getElementById('pageScroll').innerHTML=html;
+}
+
+function fpill(val,lbl){
+  return '<button class="fpill'+(ordFilter===val?' on':'')+'" onclick="setFilt(\''+val+'\')">'+lbl+'</button>';
+}
+function setFilt(v){ordFilter=v;renderOrders();}
+
+function getStInfo(s){
+  var m={
+    pending:{cls:'b-pending',ico:'⏳',lbl:'Pending'},
+    confirmed:{cls:'b-confirmed',ico:'✅',lbl:'Dikonfirmasi'},
+    delivered:{cls:'b-delivered',ico:'🎉',lbl:'Terkirim'},
+    rejected:{cls:'b-rejected',ico:'❌',lbl:'Ditolak'}
+  };
+  return m[s]||m.pending;
+}
+
+function renderOrderCard(o){
+  var st=getStInfo(o.status);
+  var itemTxt=o.items.map(function(i){return i.name+' ('+i.plan+')'}).join(' · ');
+  var acts='';
+  if(o.status==='pending'){
+    acts+='<button class="abtn confirm" onclick="confirmOrder(\''+o.id+'\')"><i class="fas fa-check"></i> Konfirmasi</button>';
+    acts+='<button class="abtn reject" onclick="openReject(\''+o.id+'\')"><i class="fas fa-times"></i></button>';
+  }
+  if(o.status==='confirmed'){
+    acts+='<button class="abtn deliver" onclick="openDeliver(\''+o.id+'\')"><i class="fas fa-paper-plane"></i> Kirim Akun</button>';
+  }
+  acts+='<button class="abtn ghost" onclick="viewOrder(\''+o.id+'\')"><i class="fas fa-eye"></i></button>';
+  acts+='<button class="abtn del" onclick="deleteOrder(\''+o.id+'\')"><i class="fas fa-trash"></i></button>';
+
+  return '<div class="o-card">'
+    +'<div class="o-card-top">'
+    +'<div><div class="o-id">'+o.id+'</div><div class="o-name">'+o.name+'</div><div class="o-contact">'+o.contact+'</div></div>'
+    +'<span class="badge '+st.cls+'">'+st.ico+' '+st.lbl+'</span>'
+    +'</div>'
+    +'<div class="o-meta"><div class="o-items">'+itemTxt+'</div><div class="o-total">'+fmt(o.total)+'</div></div>'
+    +'<div class="o-footer"><div class="o-date">'+o.date+'</div><div class="o-actions">'+acts+'</div></div>'
+    +'</div>';
+}
+
+function confirmOrder(id){
+  var i=ORDERS.findIndex(function(o){return o.id===id;});
+  if(i<0)return;
+  ORDERS[i].status='confirmed';saveOrders();loadAll();updateBadge();
+  if(curPage==='orders')renderOrders();else renderDashboard();
+  toast('✅ Order '+id+' dikonfirmasi!');
+}
+function confirmAllPending(){
+  var n=0;ORDERS.forEach(function(o){if(o.status==='pending'){o.status='confirmed';n++;}});
+  saveOrders();loadAll();updateBadge();
+  if(curPage==='orders')renderOrders();else renderDashboard();
+  toast('✅ '+n+' order dikonfirmasi!');
+}
+function deleteOrder(id){
+  if(!confirm('Hapus order '+id+'?'))return;
+  ORDERS=ORDERS.filter(function(o){return o.id!==id;});
+  saveOrders();loadAll();updateBadge();
+  if(curPage==='orders')renderOrders();else renderDashboard();
+  toast('Order dihapus','err');
+}
+function openReject(id){
+  openModal(
+    '<div class="modal-title">❌ Tolak Order</div>'
+    +'<div class="modal-sub">'+id+'</div>'
+    +'<div><label class="flabel">ALASAN PENOLAKAN</label>'
+    +'<input class="finp" id="rejReason" placeholder="Contoh: Bukti transfer tidak valid..."></div>'
+    +'<div class="modal-actions">'
+    +'<button class="modal-btn danger" onclick="doReject(\''+id+'\')"><i class="fas fa-times"></i>&nbsp;Tolak Order</button>'
+    +'<button class="modal-btn secondary" onclick="closeModal()">Batal</button>'
+    +'</div>'
+  );
+}
+function doReject(id){
+  var r=document.getElementById('rejReason').value.trim()||'Pembayaran tidak valid';
+  var i=ORDERS.findIndex(function(o){return o.id===id;});
+  if(i<0)return;
+  ORDERS[i].status='rejected';ORDERS[i].statusNote=r;
+  saveOrders();loadAll();updateBadge();closeModal();
+  if(curPage==='orders')renderOrders();else renderDashboard();
+  toast('Order ditolak','warn');
+}
+
+function openDeliver(id){
+  var o=ORDERS.find(function(x){return x.id===id;});if(!o)return;
+  var iHtml=o.items.map(function(item,i){
+    var n=sc(item.brand,item.plan);
+    var stk=(STOCK[sKey(item.brand,item.plan)]||[]);
+    return '<div style="margin-bottom:.75rem;background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:10px;padding:.75rem">'
+      +'<div style="display:flex;justify-content:space-between;margin-bottom:.45rem"><span style="font-size:.8rem;font-weight:700">'+item.name+' <span style="color:var(--muted);font-weight:400">·</span> '+item.plan+'</span>'
+      +'<span style="font-family:\'JetBrains Mono\',monospace;font-size:.65rem;color:'+(n>0?'var(--sp)':'var(--err)')+'">Stok: '+n+'</span></div>'
+      +'<label class="flabel">AKUN / KUNCI</label>'
+      +'<textarea class="finp" id="dk_'+i+'" placeholder="email:password atau kode akun..." style="min-height:65px">'+(stk.length?stk[0]:'')+'</textarea>'
+      +'</div>';
+  }).join('');
+  openModal(
+    '<div class="modal-title">📦 Kirim Akun</div>'
+    +'<div class="modal-sub">'+o.name+' · '+o.contact+'</div>'
+    +iHtml
+    +'<div class="modal-actions">'
+    +'<button class="modal-btn gold" onclick="doDeliver(\''+id+'\')"><i class="fas fa-paper-plane"></i>&nbsp;Kirim & Selesaikan</button>'
+    +'<button class="modal-btn secondary" onclick="closeModal()">Batal</button>'
+    +'</div>'
+  );
+}
+
+function doDeliver(id){
+  var o=ORDERS.find(function(x){return x.id===id;});if(!o)return;
+  var delivered=[];var ok=true;
+  o.items.forEach(function(item,i){
+    var el=document.getElementById('dk_'+i);if(!el)return;
+    var val=el.value.trim();if(!val){ok=false;return;}
+    delivered.push({name:item.name,plan:item.plan,brand:item.brand,key:val});
+    var k=sKey(item.brand,item.plan);
+    if(STOCK[k]&&STOCK[k].length&&STOCK[k][0]===val){STOCK[k].shift();saveStock();}
+  });
+  if(!ok){toast('Isi semua kunci akun!','err');return;}
+  var i=ORDERS.findIndex(function(x){return x.id===id;});
+  ORDERS[i].status='delivered';ORDERS[i].delivered=delivered;
+  saveOrders();loadAll();updateBadge();closeModal();
+  if(curPage==='orders')renderOrders();else renderDashboard();
+  toast('🎉 Akun terkirim ke '+o.name+'!');
+}
+
+function viewOrder(id){
+  var o=ORDERS.find(function(x){return x.id===id;});if(!o)return;
+  var st=getStInfo(o.status);
+  var iRows=o.items.map(function(i){
+    return '<div style="display:flex;justify-content:space-between;font-size:.8rem;padding:.22rem 0"><span style="color:var(--muted)">'+i.name+' ('+i.plan+')</span><span style="font-weight:600">'+fmt(i.price)+'</span></div>';
+  }).join('');
+  var delHtml='';
+  if(o.delivered&&o.delivered.length){
+    delHtml='<div style="margin-top:.85rem;background:rgba(30,215,96,.06);border:1px solid rgba(30,215,96,.15);border-radius:10px;padding:.82rem">'
+      +'<div style="font-family:\'JetBrains Mono\',monospace;font-size:.62rem;color:var(--muted);margin-bottom:.5rem">AKUN TERKIRIM</div>';
+    o.delivered.forEach(function(d){
+      delHtml+='<div style="margin-bottom:.4rem"><div style="font-size:.7rem;color:var(--muted)">'+d.name+' · '+d.plan+'</div>'
+        +'<div style="font-family:\'JetBrains Mono\',monospace;font-size:.76rem;color:var(--sp);background:rgba(30,215,96,.08);border-radius:7px;padding:.3rem .6rem;margin-top:.18rem;word-break:break-all">'+d.key+'</div></div>';
+    });
+    delHtml+='</div>';
+  }
+  openModal(
+    '<div class="modal-title">Detail Order</div>'
+    +'<div class="modal-sub" style="margin-bottom:.85rem"><span style="font-family:\'JetBrains Mono\',monospace;color:var(--sp);font-size:.75rem">'+o.id+'</span> · '+o.date+'</div>'
+    +'<div style="background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:10px;padding:.82rem;margin-bottom:.7rem">'
+    +'<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.55rem">'
+    +'<div><div style="font-weight:700">'+o.name+'</div><div style="font-size:.73rem;color:var(--muted)">'+o.contact+'</div></div>'
+    +'<span class="badge '+st.cls+'">'+st.ico+' '+st.lbl+'</span></div>'
+    +iRows
+    +'<div style="display:flex;justify-content:space-between;font-weight:700;margin-top:.5rem;padding-top:.5rem;border-top:1px solid var(--border)"><span>Total</span><span style="color:var(--sp)">'+fmt(o.total)+'</span></div>'
+    +'</div>'
+    +(o.statusNote?'<div style="background:rgba(255,71,87,.06);border:1px solid rgba(255,71,87,.15);border-radius:8px;padding:.5rem .75rem;font-size:.74rem;color:var(--err);margin-bottom:.7rem">Alasan: '+o.statusNote+'</div>':'')
+    +delHtml
+    +'<div class="modal-actions"><button class="modal-btn secondary" onclick="closeModal()"><i class="fas fa-times"></i>&nbsp;Tutup</button></div>'
+  );
+}
+
+/* ══════════════════════════════
+   STOCK
+══════════════════════════════ */
+function renderStock(){
+  var html='<div class="stk-list">';
+  PRODS.forEach(function(p){
+    var tot=p.plans.reduce(function(s,pl){return s+sc(p.brand,pl);},0);
+    var tcol=tot===0?'var(--err)':tot<=5?'var(--warn)':'var(--sp)';
+    html+='<div class="stk-card">'
+      +'<div class="stk-head">'
+      +'<div class="stk-icon '+BRAND_CLS[p.brand]+'"><i class="'+p.icon+'"></i></div>'
+      +'<div><div class="stk-name">'+p.name+'</div>'
+      +'<div style="font-family:\'JetBrains Mono\',monospace;font-size:.62rem;color:'+tcol+'">'+tot+' akun tersedia</div></div>'
+      +'</div><div class="stk-rows">';
+    p.plans.forEach(function(pl){
+      var n=sc(p.brand,pl);
+      var cls=n===0?'empty':n<=3?'warn':'ok';
+      html+='<div class="stk-row">'
+        +'<span class="stk-dur">'+pl+'</span>'
+        +'<span class="stk-cnt '+cls+'">'+n+'</span>'
+        +'<div class="stk-row-acts">'
+        +'<button class="abtn confirm" onclick="openAddStk(\''+p.brand+'\',\''+p.name+'\',\''+pl+'\')"><i class="fas fa-plus"></i> Tambah</button>'
+        +'<button class="abtn ghost" onclick="viewStk(\''+p.brand+'\',\''+p.name+'\',\''+pl+'\')"><i class="fas fa-eye"></i></button>'
+        +'</div></div>';
+    });
+    html+='</div></div>';
+  });
+  html+='</div>';
+
+  // Import massal
+  html+='<div class="import-card">'
+    +'<div class="import-title"><i class="fas fa-file-import" style="color:var(--gold)"></i>&nbsp;Import Stok Massal</div>'
+    +'<div class="import-sub">Tambah banyak akun sekaligus, satu akun per baris</div>'
+    +'<div class="form-row">'
+    +'<div><label class="flabel">Produk</label><select class="finp" id="impBrand">'+PRODS.map(function(p){return '<option value="'+p.brand+'">'+p.name+'</option>';}).join('')+'</select></div>'
+    +'<div><label class="flabel">Paket</label><select class="finp" id="impPlan"><option>1 Bulan</option><option>3 Bulan</option><option>6 Bulan</option><option>1 Tahun</option></select></div>'
+    +'</div>'
+    +'<label class="flabel">Daftar Akun</label>'
+    +'<textarea class="finp" id="impKeys" placeholder="email1:pass1&#10;email2:pass2&#10;kode_akun3..."></textarea>'
+    +'<div class="fhelp">Satu baris = satu akun</div>'
+    +'<button class="green-btn" onclick="doImport()"><i class="fas fa-upload"></i>&nbsp;Import Sekarang</button>'
+    +'</div>';
+
+  document.getElementById('pageScroll').innerHTML=html;
+}
+
+function openAddStk(brand,name,plan){
+  openModal(
+    '<div class="modal-title">➕ Tambah Stok</div>'
+    +'<div class="modal-sub">'+name+' · '+plan+' · Saat ini: '+sc(brand,plan)+' akun</div>'
+    +'<div><label class="flabel">AKUN / KUNCI (satu per baris)</label>'
+    +'<textarea class="finp" id="newStkKeys" placeholder="email:password&#10;kode_akun..." style="min-height:110px"></textarea></div>'
+    +'<div class="modal-actions">'
+    +'<button class="modal-btn primary" onclick="doAddStk(\''+brand+'\',\''+plan+'\')"><i class="fas fa-plus"></i>&nbsp;Tambah Stok</button>'
+    +'<button class="modal-btn secondary" onclick="closeModal()">Batal</button>'
+    +'</div>'
+  );
+}
+function doAddStk(brand,plan){
+  var keys=document.getElementById('newStkKeys').value.trim().split('\n').map(function(s){return s.trim();}).filter(Boolean);
+  if(!keys.length){toast('Masukkan minimal 1 akun','err');return;}
+  var k=sKey(brand,plan);if(!STOCK[k])STOCK[k]=[];
+  STOCK[k]=STOCK[k].concat(keys);saveStock();closeModal();renderStock();
+  toast('✅ '+keys.length+' akun ditambahkan!');
+}
+function viewStk(brand,name,plan){
+  var items=(STOCK[sKey(brand,plan)]||[]);
+  var listHtml=items.length?items.map(function(it,i){
+    return '<div style="display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:8px;padding:.38rem .65rem;margin-bottom:.3rem;gap:.4rem">'
+      +'<span style="font-family:\'JetBrains Mono\',monospace;font-size:.72rem;color:var(--sp);word-break:break-all;flex:1">'+it+'</span>'
+      +'<button class="abtn del" onclick="rmStk(\''+brand+'\',\''+plan+'\','+i+')"><i class="fas fa-times"></i></button>'
+      +'</div>';
+  }).join(''):'<div class="empty"><div class="empty-ico">📦</div><div class="empty-t">Stok kosong</div></div>';
+  openModal(
+    '<div class="modal-title">Stok: '+name+'</div>'
+    +'<div class="modal-sub">'+plan+' · '+items.length+' akun</div>'
+    +'<div style="max-height:300px;overflow-y:auto">'+listHtml+'</div>'
+    +'<div class="modal-actions">'
+    +(items.length?'<button class="modal-btn danger" onclick="clearStk(\''+brand+'\',\''+plan+'\')"><i class="fas fa-trash"></i>&nbsp;Hapus Semua</button>':'')
+    +'<button class="modal-btn secondary" onclick="closeModal()">Tutup</button>'
+    +'</div>'
+  );
+}
+function rmStk(brand,plan,idx){
+  var k=sKey(brand,plan);if(STOCK[k])STOCK[k].splice(idx,1);
+  saveStock();closeModal();renderStock();toast('Akun dihapus dari stok','warn');
+}
+function clearStk(brand,plan){
+  if(!confirm('Hapus semua stok?'))return;
+  STOCK[sKey(brand,plan)]=[];saveStock();closeModal();renderStock();toast('Stok dikosongkan','warn');
+}
+function doImport(){
+  var brand=document.getElementById('impBrand').value;
+  var plan=document.getElementById('impPlan').value;
+  var keys=document.getElementById('impKeys').value.trim().split('\n').map(function(s){return s.trim();}).filter(Boolean);
+  if(!keys.length){toast('Masukkan minimal 1 akun','err');return;}
+  var k=sKey(brand,plan);if(!STOCK[k])STOCK[k]=[];
+  STOCK[k]=STOCK[k].concat(keys);saveStock();
+  document.getElementById('impKeys').value='';
+  renderStock();toast('✅ '+keys.length+' akun diimport!');
+}
+
+/* ══════════════════════════════
+   SETTINGS
+══════════════════════════════ */
+function renderSettings(){
+  var totStk=Object.values(STOCK).reduce(function(s,a){return s+a.length;},0);
+  var html='<div class="setting-block">'
+    +'<div class="setting-title">🔐 Kredensial Admin</div>'
+    +'<div class="setting-sub">Ubah username dan password login</div>'
+    +'<div><label class="flabel">Username Baru</label><input class="finp" id="newUser" value="'+CREDS.user+'" style="margin-bottom:.65rem"></div>'
+    +'<div><label class="flabel">Password Baru</label><input class="finp" type="password" id="newPass" placeholder="Kosongkan jika tidak diubah" style="margin-bottom:.65rem"></div>'
+    +'<div><label class="flabel">Konfirmasi Password</label><input class="finp" type="password" id="confPass" placeholder="Ulangi password baru"></div>'
+    +'<button class="green-btn" onclick="doSaveCreds()"><i class="fas fa-save"></i>&nbsp;Simpan Kredensial</button>'
+    +'</div>'
+    +'<div class="setting-block">'
+    +'<div class="setting-title">🗑️ Manajemen Data</div>'
+    +'<div class="setting-sub">Hapus atau reset data toko</div>'
+    +'<div class="danger-zone">'
+    +'<button class="danger-btn" onclick="clearDoneOrders()"><i class="fas fa-broom"></i>&nbsp;Hapus Order Selesai & Ditolak</button>'
+    +'<button class="danger-btn" onclick="clearAllOrders()"><i class="fas fa-times-circle"></i>&nbsp;Hapus SEMUA Order</button>'
+    +'<button class="danger-btn" onclick="clearAllStk()"><i class="fas fa-trash-alt"></i>&nbsp;Reset Semua Stok</button>'
+    +'</div></div>'
+    +'<div class="setting-block">'
+    +'<div class="setting-title">ℹ️ Info Sistem</div>'
+    +'<div class="info-grid">'
+    +'<div class="info-row"><span class="info-key">Status</span><span class="info-val" style="color:var(--sp)">🟢 Online</span></div>'
+    +'<div class="info-row"><span class="info-key">Total Order</span><span class="info-val">'+ORDERS.length+'</span></div>'
+    +'<div class="info-row"><span class="info-key">Total Stok</span><span class="info-val">'+totStk+' akun</span></div>'
+    +'<div class="info-row"><span class="info-key">Storage</span><span class="info-val">localStorage</span></div>'
+    +'<div class="info-row"><span class="info-key">Versi Panel</span><span class="info-val" style="color:var(--gold)">v1.0.0</span></div>'
+    +'<div class="info-row"><span class="info-key">Link Toko</span>'
+    +'<a href="index.html" target="_blank" style="color:var(--sp);font-size:.78rem;font-weight:600">Buka Toko <i class="fas fa-external-link-alt"></i></a></div>'
+    +'</div></div>';
+  document.getElementById('pageScroll').innerHTML=html;
+}
+
+function doSaveCreds(){
+  var u=document.getElementById('newUser').value.trim();
+  var p=document.getElementById('newPass').value;
+  var c=document.getElementById('confPass').value;
+  if(!u){toast('Username kosong!','err');return;}
+  if(p&&p!==c){toast('Konfirmasi password tidak cocok!','err');return;}
+  CREDS.user=u;if(p)CREDS.pass=p;saveCreds();
+  toast('✅ Kredensial disimpan!');
+}
+function clearDoneOrders(){
+  if(!confirm('Hapus order selesai & ditolak?'))return;
+  ORDERS=ORDERS.filter(function(o){return o.status==='pending'||o.status==='confirmed';});
+  saveOrders();loadAll();renderSettings();toast('Selesai','warn');
+}
+function clearAllOrders(){
+  if(!confirm('HAPUS SEMUA ORDER? Tidak bisa dibatalkan!'))return;
+  ORDERS=[];saveOrders();loadAll();renderSettings();toast('Semua order dihapus','err');
+}
+function clearAllStk(){
+  if(!confirm('RESET SEMUA STOK? Tidak bisa dibatalkan!'))return;
+  STOCK={};saveStock();loadAll();renderSettings();toast('Semua stok direset','err');
+}
+
+/* ══════════════════════════════
+   MODAL
+══════════════════════════════ */
+function openModal(html){
+  document.getElementById('modalBody').innerHTML=html;
+  document.getElementById('modal').classList.add('on');
+}
+function closeModal(){document.getElementById('modal').classList.remove('on');}
+function handleModalBgClick(e){if(e.target===document.getElementById('modal'))closeModal();}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeModal();});
+
+/* ══════════════════════════════
+   TOAST
+══════════════════════════════ */
+function toast(msg,type){
+  var t=document.createElement('div');
+  t.className='toast'+(type==='err'?' err':type==='warn'?' warn':'');
+  t.innerHTML='<span>'+(type==='err'?'❌':type==='warn'?'⚠️':'✅')+'</span><span>'+msg+'</span>';
+  document.getElementById('toasts').appendChild(t);
+  setTimeout(function(){t.style.transition='all .3s';t.style.opacity='0';t.style.transform='translateY(8px)';setTimeout(function(){t.remove();},320);},3000);
+}
+
+/* INIT */
+loadAll();
+</script>
+</body>
+</html>

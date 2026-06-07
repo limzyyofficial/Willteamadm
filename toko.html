@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=yes">
+<title>WILZXITERZ VN | Premium Account Store</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#07080f;--bg2:#0d0f1c;--bg3:#111424;--card:#0f1221;
+  --border:rgba(255,255,255,.07);--border2:rgba(255,255,255,.13);
+  --text:#e8eaf6;--muted:#5a6080;--dim:#2e3350;
+  --sp:#1ed760;--sp2:#17b34e;--spg:rgba(30,215,96,.12);
+  --nf:#e50914;--nf2:#b5060f;--nfg:rgba(229,9,20,.12);
+  --ds:#0072d2;--ds2:#0059a8;--dsg:rgba(0,114,210,.12);
+  --cv:#8B5CF6;--cv2:#7c3aed;--cvg:rgba(139,92,246,.12);
+  --gold:#f5c842;--gold2:#d4a900;
+  --ok:#1ed760;--err:#ff4757;--warn:#ffa502;
+  --r:14px;--rxl:20px;--pill:99px;
+  --t:all .3s cubic-bezier(.4,0,.2,1);
+  --sh:0 8px 32px rgba(0,0,0,.45);
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--dim);border-radius:99px}
+html{scroll-behavior:smooth}
+body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--text);min-height:100vh;overflow-x:hidden}
+.mesh{position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:radial-gradient(ellipse 900px 700px at 5% 15%,rgba(30,215,96,.035) 0%,transparent 65%),
+    radial-gradient(ellipse 700px 600px at 95% 80%,rgba(139,92,246,.04) 0%,transparent 65%),
+    radial-gradient(ellipse 600px 500px at 50% 110%,rgba(0,114,210,.035) 0%,transparent 65%)}
+.grid-bg{position:fixed;inset:0;z-index:0;pointer-events:none;
+  background-image:linear-gradient(rgba(255,255,255,.016) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.016) 1px,transparent 1px);
+  background-size:52px 52px}
+
+/* LOADING */
+#ls{position:fixed;inset:0;z-index:99999;background:var(--bg);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  transition:opacity .7s,transform .7s}
+#ls.hide{opacity:0;transform:scale(1.04);pointer-events:none}
+.ls-logo{font-family:'Syne',sans-serif;font-size:clamp(2rem,6vw,3.2rem);font-weight:800;letter-spacing:-1px;margin-bottom:.2rem;text-align:center}
+.ls-logo em{color:var(--sp);font-style:normal}
+.ls-sub{font-family:'JetBrains Mono',monospace;font-size:.65rem;letter-spacing:4px;color:var(--muted);text-transform:uppercase;margin-bottom:2.5rem;text-align:center}
+.ls-barwrap{width:min(320px,80vw)}
+.ls-barbg{height:2px;background:rgba(255,255,255,.06);border-radius:99px;overflow:hidden;margin-bottom:.7rem}
+.ls-fill{height:100%;width:0%;background:linear-gradient(90deg,var(--sp),var(--gold),var(--cv));border-radius:99px;transition:width .28s ease}
+.ls-foot{display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:.63rem;color:var(--muted)}
+.ls-pct{color:var(--sp);font-weight:600}
+
+/* WELCOME */
+#wp{position:fixed;inset:0;background:rgba(0,0,0,.88);backdrop-filter:blur(24px);
+  z-index:9000;display:flex;align-items:center;justify-content:center;padding:1rem;
+  opacity:0;pointer-events:none;transition:opacity .4s}
+#wp.on{opacity:1;pointer-events:all}
+.wpc{background:var(--card);border:1px solid var(--border2);border-radius:var(--rxl);
+  max-width:440px;width:100%;padding:2.2rem 1.8rem;text-align:center;
+  position:relative;overflow:hidden;box-shadow:var(--sh),0 0 80px rgba(30,215,96,.07);
+  animation:popIn .5s cubic-bezier(.34,1.56,.64,1)}
+@keyframes popIn{from{opacity:0;transform:scale(.82) translateY(22px)}to{opacity:1;transform:scale(1) translateY(0)}}
+.wpc-stripe{position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--sp),var(--gold),var(--cv),var(--nf))}
+.wpc-logo{font-family:'Syne',sans-serif;font-size:1.55rem;font-weight:800;letter-spacing:-.5px;margin-bottom:.2rem}
+.wpc-logo em{color:var(--sp);font-style:normal}
+.wpc-tag{font-size:.68rem;color:var(--muted);letter-spacing:2px;text-transform:uppercase;font-family:'JetBrains Mono',monospace;margin-bottom:1.2rem}
+.wpc-desc{font-size:.88rem;color:var(--muted);line-height:1.8;margin-bottom:1.3rem}
+.wpc-desc strong{color:var(--text)}
+.wpc-chips{display:flex;justify-content:center;gap:.45rem;flex-wrap:wrap;margin-bottom:1.5rem}
+.wpc-chip{font-size:.7rem;padding:.25rem .72rem;border-radius:99px;background:rgba(255,255,255,.05);border:1px solid var(--border);color:var(--muted);font-family:'JetBrains Mono',monospace}
+.wpc-btn{width:100%;padding:.88rem;border-radius:var(--pill);background:var(--sp);border:none;font-family:'Syne',sans-serif;font-weight:700;font-size:.98rem;color:#000;cursor:pointer;transition:var(--t)}
+.wpc-btn:hover{background:var(--sp2);transform:translateY(-2px);box-shadow:0 8px 24px rgba(30,215,96,.32)}
+.wpc-cs{margin-top:.9rem;font-size:.75rem;color:var(--muted)}
+.wpc-cs a{color:var(--sp);text-decoration:none;font-weight:600}
+
+/* WRAP */
+.wrap{max-width:1100px;margin:0 auto;padding:1.5rem 1.2rem 4rem;position:relative;z-index:1}
+
+/* NAV */
+.nav{display:flex;justify-content:space-between;align-items:center;
+  padding:.8rem 1.4rem;margin-bottom:1.8rem;
+  background:rgba(11,13,26,.9);backdrop-filter:blur(24px);
+  border:1px solid var(--border);border-radius:var(--rxl);
+  position:sticky;top:12px;z-index:100;box-shadow:0 4px 24px rgba(0,0,0,.3)}
+.nav-brand{font-family:'Syne',sans-serif;font-size:1.2rem;font-weight:800;letter-spacing:-.5px}
+.nav-brand em{color:var(--sp);font-style:normal}
+.nav-tagline{font-size:.58rem;color:var(--muted);letter-spacing:2px;text-transform:uppercase;font-family:'JetBrains Mono',monospace;margin-top:-2px}
+.nav-right{display:flex;gap:.45rem;align-items:center}
+.nlive{display:inline-flex;align-items:center;gap:5px;background:rgba(30,215,96,.08);border:1px solid rgba(30,215,96,.18);padding:.2rem .6rem;border-radius:99px;font-family:'JetBrains Mono',monospace;font-size:.56rem;color:var(--sp)}
+.ldot{width:5px;height:5px;background:var(--sp);border-radius:50%;animation:blink 1.4s ease-in-out infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.15}}
+.nib{width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.04);border:1px solid var(--border);display:grid;place-items:center;cursor:pointer;color:var(--muted);font-size:.9rem;transition:var(--t);position:relative}
+.nib:hover{background:rgba(255,255,255,.09);color:var(--text);border-color:var(--border2)}
+.cbadge{position:absolute;top:-4px;right:-4px;width:17px;height:17px;background:var(--err);border-radius:50%;font-size:.58rem;font-weight:700;color:#fff;display:none;place-items:center;border:2px solid var(--bg)}
+.cbadge.on{display:grid}
+
+/* SIDEBAR */
+#sb{position:fixed;top:0;left:-300px;width:272px;height:100%;background:rgba(7,8,15,.98);backdrop-filter:blur(32px);z-index:2000;transition:left .38s cubic-bezier(.4,0,.2,1);padding:1.6rem 1.2rem;border-right:1px solid var(--border);display:flex;flex-direction:column;overflow-y:auto;box-shadow:8px 0 40px rgba(0,0,0,.6)}
+#sb.on{left:0}
+.sb-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:1.6rem}
+.sb-brand{font-family:'Syne',sans-serif;font-size:1.05rem;font-weight:800}
+.sb-brand em{color:var(--sp);font-style:normal}
+.sb-x{width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.04);border:1px solid var(--border);display:grid;place-items:center;cursor:pointer;color:var(--muted);font-size:.82rem;transition:var(--t)}
+.sb-x:hover{background:var(--err);color:#fff;border-color:var(--err);transform:rotate(90deg)}
+.sb-sep{height:1px;background:var(--border);margin:.5rem 0 .9rem}
+.sb-lbl{font-size:.57rem;letter-spacing:3px;color:var(--dim);text-transform:uppercase;font-family:'JetBrains Mono',monospace;margin-bottom:.55rem}
+#sb nav ul{list-style:none}
+#sb nav ul li{margin:.18rem 0}
+#sb nav ul li a{display:flex;align-items:center;gap:9px;color:var(--muted);text-decoration:none;font-size:.88rem;font-weight:500;padding:.6rem .82rem;border-radius:10px;border:1px solid transparent;transition:var(--t)}
+.sbi{width:27px;height:27px;border-radius:7px;background:rgba(255,255,255,.04);display:grid;place-items:center;font-size:.78rem;flex-shrink:0;transition:var(--t)}
+#sb nav ul li a:hover{background:rgba(255,255,255,.04);border-color:var(--border);color:var(--text)}
+#sb nav ul li a:hover .sbi{background:var(--sp);color:#000}
+.sb-foot{margin-top:auto;padding-top:1rem;border-top:1px solid var(--border);font-size:.63rem;color:var(--dim);font-family:'JetBrains Mono',monospace;line-height:2}
+#ov{position:fixed;inset:0;background:rgba(0,0,0,.7);backdrop-filter:blur(4px);z-index:1999;display:none;opacity:0;transition:opacity .3s}
+#ov.on{display:block;opacity:1}
+
+/* TICKER */
+.ticker-wrap{overflow:hidden;border:1px solid var(--border);border-radius:99px;padding:.36rem 0;margin-bottom:1.8rem;background:rgba(255,255,255,.018)}
+.ticker-track{display:flex;gap:2.5rem;animation:tick 24s linear infinite;white-space:nowrap}
+.ticker-track span{font-family:'JetBrains Mono',monospace;font-size:.66rem;color:var(--muted)}
+.ticker-track span.hl{color:var(--sp)}
+@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* HERO */
+.hero{text-align:center;padding:2.8rem 1.5rem 2.2rem;margin-bottom:2rem;position:relative;overflow:hidden;border:1px solid var(--border);border-radius:var(--rxl);background:linear-gradient(155deg,var(--bg3) 0%,var(--bg2) 100%)}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% -10%,rgba(30,215,96,.07) 0%,transparent 60%);pointer-events:none}
+.hero-eye{display:inline-flex;align-items:center;gap:.4rem;background:rgba(30,215,96,.08);border:1px solid rgba(30,215,96,.17);padding:.26rem .9rem;border-radius:99px;font-family:'JetBrains Mono',monospace;font-size:.65rem;color:var(--sp);letter-spacing:1px;margin-bottom:1rem}
+.hero h1{font-family:'Syne',sans-serif;font-size:clamp(1.7rem,5vw,2.9rem);font-weight:800;letter-spacing:-1.5px;line-height:1.18;margin-bottom:.75rem}
+.hero h1 em{color:var(--sp);font-style:normal}
+.hero-sub{font-size:.9rem;color:var(--muted);max-width:460px;margin:0 auto 1.5rem;line-height:1.75}
+.hero-pills{display:flex;justify-content:center;gap:.5rem;flex-wrap:wrap}
+.hero-pill{display:inline-flex;align-items:center;gap:.32rem;background:rgba(255,255,255,.04);border:1px solid var(--border);padding:.28rem .82rem;border-radius:99px;font-size:.76rem;color:var(--muted)}
+
+/* TABS */
+.tab-bar{display:flex;gap:.38rem;margin-bottom:1.8rem;background:var(--card);padding:.42rem;border-radius:var(--rxl);border:1px solid var(--border)}
+.tab{flex:1;min-width:88px;padding:.58rem .9rem;border-radius:var(--pill);border:none;background:none;cursor:pointer;font-family:'DM Sans',sans-serif;font-weight:600;font-size:.86rem;color:var(--muted);transition:var(--t);display:flex;align-items:center;justify-content:center;gap:.38rem;white-space:nowrap}
+.tab.on{background:var(--text);color:#000;box-shadow:0 2px 12px rgba(0,0,0,.3)}
+.tab:hover:not(.on){background:rgba(255,255,255,.05);color:var(--text)}
+
+/* PRODUCT */
+.prod-section{display:flex;flex-direction:column;gap:1.4rem}
+.pcard{background:var(--card);border:1px solid var(--border);border-radius:var(--rxl);overflow:hidden;transition:var(--t)}
+.pcard:hover{border-color:var(--border2);box-shadow:var(--sh)}
+.pcard-header{display:flex;align-items:center;gap:1rem;padding:1.2rem 1.4rem;position:relative;overflow:hidden}
+.pcard-header::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:var(--border)}
+.pcard-icon-box{width:56px;height:56px;border-radius:15px;display:flex;align-items:center;justify-content:center;font-size:1.6rem;flex-shrink:0}
+.pcard[data-brand="spotify"] .pcard-icon-box{background:var(--spg);color:var(--sp)}
+.pcard[data-brand="netflix"] .pcard-icon-box{background:var(--nfg);color:var(--nf)}
+.pcard[data-brand="disney"]  .pcard-icon-box{background:var(--dsg);color:var(--ds)}
+.pcard[data-brand="canva"]   .pcard-icon-box{background:var(--cvg);color:var(--cv)}
+.pcard-meta{flex:1;min-width:0}
+.pcard-name{font-family:'Syne',sans-serif;font-weight:800;font-size:1.1rem;letter-spacing:-.3px;margin-bottom:.18rem}
+.pcard-desc{font-size:.78rem;color:var(--muted);line-height:1.55}
+.pcard-badge{display:inline-flex;align-items:center;gap:.3rem;font-family:'JetBrains Mono',monospace;font-size:.62rem;padding:.22rem .65rem;border-radius:99px;flex-shrink:0}
+.badge-ok{background:rgba(30,215,96,.1);color:var(--sp);border:1px solid rgba(30,215,96,.2)}
+.badge-warn{background:rgba(255,165,2,.1);color:var(--warn);border:1px solid rgba(255,165,2,.2)}
+.badge-empty{background:rgba(255,71,87,.1);color:var(--err);border:1px solid rgba(255,71,87,.2)}
+.pcard-body{padding:1rem 1.4rem 1.3rem}
+.plans-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:.55rem}
+.plan-row{display:flex;align-items:center;justify-content:space-between;padding:.65rem .85rem;border-radius:var(--r);border:1px solid var(--border);background:rgba(255,255,255,.025);transition:var(--t);gap:.5rem}
+.plan-row:hover{background:rgba(255,255,255,.04);border-color:var(--border2)}
+.plan-left{display:flex;align-items:center;gap:.6rem;flex:1;min-width:0}
+.plan-dur{font-family:'JetBrains Mono',monospace;font-size:.78rem;color:var(--muted);white-space:nowrap}
+.plan-price{font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;color:var(--text)}
+.plan-stock-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0}
+.plan-right{display:flex;align-items:center;gap:.5rem;flex-shrink:0}
+.plan-stk{font-family:'JetBrains Mono',monospace;font-size:.62rem;color:var(--muted);white-space:nowrap}
+.plan-btn{padding:.38rem .9rem;border-radius:99px;border:1px solid var(--border2);background:rgba(255,255,255,.05);color:var(--text);cursor:pointer;font-size:.76rem;font-weight:600;font-family:'DM Sans',sans-serif;transition:var(--t);display:flex;align-items:center;gap:.3rem;white-space:nowrap}
+.plan-btn:hover{background:var(--text);color:#000;border-color:var(--text)}
+.plan-btn:disabled{opacity:.38;cursor:not-allowed;pointer-events:none}
+.pcard[data-brand="spotify"] .plan-btn:hover{background:var(--sp);border-color:var(--sp);color:#000}
+.pcard[data-brand="netflix"]  .plan-btn:hover{background:var(--nf);border-color:var(--nf);color:#fff}
+.pcard[data-brand="disney"]   .plan-btn:hover{background:var(--ds);border-color:var(--ds);color:#fff}
+.pcard[data-brand="canva"]    .plan-btn:hover{background:var(--cv);border-color:var(--cv);color:#fff}
+.dot-ok{background:var(--sp)}.dot-warn{background:var(--warn)}.dot-empty{background:var(--err)}
+
+/* CART */
+#cart-sec{display:none;margin-top:1.5rem;background:var(--card);border:1px solid rgba(30,215,96,.18);border-radius:var(--rxl);padding:1.3rem 1.5rem;box-shadow:0 0 40px rgba(30,215,96,.05);position:relative;overflow:hidden;animation:slideUp .38s cubic-bezier(.4,0,.2,1)}
+#cart-sec::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--sp),var(--gold),var(--cv))}
+@keyframes slideUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+.cart-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem}
+.cart-title{font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;display:flex;align-items:center;gap:.5rem}
+.cart-cnt{background:var(--sp);color:#000;font-size:.63rem;font-weight:700;padding:2px 8px;border-radius:99px;font-family:'JetBrains Mono',monospace}
+.cart-clr{background:none;border:1px solid rgba(255,71,87,.22);color:var(--err);padding:.26rem .72rem;border-radius:99px;cursor:pointer;font-size:.7rem;transition:var(--t)}
+.cart-clr:hover{background:rgba(255,71,87,.1)}
+.cart-list{list-style:none;display:flex;flex-direction:column;gap:.32rem;margin-bottom:.9rem}
+.ci{display:flex;justify-content:space-between;align-items:center;padding:.52rem .78rem;border-radius:10px;background:rgba(255,255,255,.025);border:1px solid var(--border)}
+.ci-l{display:flex;align-items:center;gap:.55rem}
+.ci-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.ci-info strong{color:var(--text);font-family:'Syne',sans-serif;font-size:.88rem}
+.ci-info span{color:var(--muted);font-size:.73rem;display:block}
+.ci-r{display:flex;align-items:center;gap:.55rem}
+.ci-price{font-family:'Syne',sans-serif;font-weight:700;font-size:.9rem;color:var(--sp)}
+.ci-del{background:none;border:none;color:var(--dim);cursor:pointer;font-size:.76rem;padding:4px;border-radius:4px;transition:var(--t)}
+.ci-del:hover{color:var(--err)}
+.cart-sep{height:1px;background:var(--border);margin:.7rem 0}
+.cart-total-row{display:flex;justify-content:space-between;align-items:center}
+.ct-lbl{font-size:.72rem;color:var(--muted);font-family:'JetBrains Mono',monospace}
+.ct-amt{font-family:'Syne',sans-serif;font-size:1.4rem;font-weight:800;color:var(--sp)}
+.oform{margin-top:1.1rem}
+.flabel{font-size:.7rem;color:var(--muted);font-family:'JetBrains Mono',monospace;letter-spacing:.5px;margin-bottom:.38rem;display:block}
+.finp{width:100%;background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:10px;padding:.62rem .88rem;color:var(--text);font-family:'DM Sans',sans-serif;font-size:.9rem;outline:none;transition:var(--t);margin-bottom:.75rem}
+.finp:focus{border-color:var(--sp);box-shadow:0 0 0 3px rgba(30,215,96,.1)}
+.finp::placeholder{color:var(--dim)}
+.fhelp{font-size:.68rem;color:var(--dim);margin-top:-.45rem;margin-bottom:.75rem;font-family:'JetBrains Mono',monospace}
+.pay-opts{display:flex;gap:.55rem;flex-wrap:wrap;margin-bottom:.9rem}
+.pay-opt{flex:1;min-width:115px;padding:.62rem .85rem;border-radius:10px;border:1px solid var(--border);background:rgba(255,255,255,.03);cursor:pointer;transition:var(--t);text-align:center}
+.pay-opt.sel{border-color:var(--sp);background:rgba(30,215,96,.07)}
+.pay-opt:hover:not(.sel){border-color:var(--border2);background:rgba(255,255,255,.05)}
+.pay-opt-name{font-size:.82rem;font-weight:600;color:var(--text)}
+.pay-opt-sub{font-size:.68rem;color:var(--muted);margin-top:.12rem}
+.ckbtn{width:100%;padding:.88rem;border-radius:var(--pill);background:var(--sp);border:none;font-family:'Syne',sans-serif;font-weight:700;font-size:.98rem;color:#000;cursor:pointer;transition:var(--t);display:flex;align-items:center;justify-content:center;gap:.45rem}
+.ckbtn:hover{background:var(--sp2);transform:translateY(-2px);box-shadow:0 8px 24px rgba(30,215,96,.28)}
+.ckbtn:disabled{background:var(--dim);color:var(--muted);cursor:not-allowed;transform:none;box-shadow:none}
+
+/* PAYMENT MODAL */
+.mbg{display:none;position:fixed;inset:0;background:rgba(0,0,0,.9);backdrop-filter:blur(20px);z-index:3000;justify-content:center;align-items:center;padding:1rem}
+.mbg.on{display:flex}
+.mc{background:var(--card);border:1px solid var(--border2);border-radius:var(--rxl);max-width:460px;width:100%;max-height:90vh;overflow-y:auto;padding:1.8rem;position:relative;animation:popIn .4s cubic-bezier(.34,1.56,.64,1);box-shadow:var(--sh)}
+.mc-stripe{position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--sp),var(--gold),var(--cv))}
+.mc-close{position:absolute;top:.9rem;right:.9rem;width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.06);border:1px solid var(--border);display:grid;place-items:center;cursor:pointer;color:var(--muted);font-size:.78rem;transition:var(--t)}
+.mc-close:hover{background:var(--err);color:#fff;border-color:var(--err)}
+.mc-title{font-family:'Syne',sans-serif;font-size:1.15rem;font-weight:800;margin-bottom:.25rem}
+.mc-sub{font-size:.78rem;color:var(--muted);margin-bottom:1.3rem}
+.step-bar{display:flex;gap:.38rem;margin-bottom:.45rem}
+.step-seg{flex:1;height:2.5px;border-radius:99px;background:var(--border);transition:background .4s}
+.step-seg.done{background:var(--sp)}.step-seg.active{background:var(--gold)}
+.step-lbls{display:flex;justify-content:space-between;margin-bottom:1.2rem}
+.slbl{font-size:.62rem;color:var(--dim);font-family:'JetBrains Mono',monospace}
+.slbl.active{color:var(--gold)}.slbl.done{color:var(--sp)}
+.osum{background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:var(--r);padding:.88rem 1rem;margin-bottom:1.1rem}
+.osum-row{display:flex;justify-content:space-between;font-size:.8rem;margin:.28rem 0}
+.osum-row .k{color:var(--muted)}.osum-row .v{color:var(--text);font-weight:600;font-family:'Syne',sans-serif}
+.osum-total{border-top:1px solid var(--border);padding-top:.55rem;margin-top:.45rem}
+.osum-total .k{font-size:.88rem;font-weight:600;color:var(--text)}.osum-total .v{font-size:1.05rem;color:var(--sp)}
+.qwrap{text-align:center;margin:.9rem 0;background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:var(--r);padding:1.1rem}
+.qimg{width:180px;max-width:82%;margin:0 auto .7rem;display:block;border-radius:10px;background:#fff;padding:9px}
+.qamt{font-family:'Syne',sans-serif;font-size:1.3rem;font-weight:800;color:var(--sp)}
+.qlbl{font-size:.68rem;color:var(--muted);font-family:'JetBrains Mono',monospace;margin-bottom:.35rem}
+.qnote{font-size:.72rem;color:var(--muted);margin-top:.45rem}
+.qbanks{display:flex;justify-content:center;gap:.4rem;flex-wrap:wrap;margin-top:.6rem}
+.qbank{font-size:.62rem;padding:.18rem .58rem;border-radius:99px;background:rgba(255,255,255,.05);border:1px solid var(--border);color:var(--muted);font-family:'JetBrains Mono',monospace}
+.bank-list{margin:.9rem 0;display:flex;flex-direction:column;gap:.5rem}
+.bank-item{display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:var(--r);padding:.7rem .9rem}
+.bank-info{font-size:.82rem}
+.bank-name{font-weight:600;color:var(--text);margin-bottom:.15rem}
+.bank-no{font-family:'JetBrains Mono',monospace;font-size:.88rem;color:var(--sp);letter-spacing:.5px}
+.bank-an{font-size:.7rem;color:var(--muted)}
+.cdown{text-align:center;margin:.75rem 0;background:rgba(255,165,2,.06);border:1px solid rgba(255,165,2,.14);border-radius:var(--r);padding:.75rem}
+.cdown-num{font-family:'JetBrains Mono',monospace;font-size:1.75rem;font-weight:600;color:var(--warn)}
+.cdown-lbl{font-size:.67rem;color:var(--muted)}
+.verify-btn{width:100%;padding:.82rem;border-radius:var(--pill);background:var(--gold);border:none;font-family:'Syne',sans-serif;font-weight:700;font-size:.95rem;color:#000;cursor:pointer;transition:var(--t);margin-top:.7rem;display:flex;align-items:center;justify-content:center;gap:.45rem}
+.verify-btn:hover{background:var(--gold2);transform:translateY(-2px)}
+
+/* PENDING STATE */
+.vfying{text-align:center;padding:1.5rem .5rem}
+.spinner{width:44px;height:44px;border:3px solid var(--border);border-top-color:var(--sp);border-radius:50%;margin:0 auto .9rem;animation:spin .75s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.vf-title{font-family:'Syne',sans-serif;font-size:.98rem;font-weight:700;margin-bottom:.35rem}
+.vf-sub{font-size:.8rem;color:var(--muted)}
+
+/* PENDING WAITING */
+.pending-box{background:rgba(255,165,2,.06);border:1px solid rgba(255,165,2,.2);border-radius:var(--r);padding:1.4rem 1.2rem;text-align:center;margin:.75rem 0}
+.pending-icon{font-size:2.2rem;margin-bottom:.6rem}
+.pending-title{font-family:'Syne',sans-serif;font-size:1rem;font-weight:800;color:var(--warn);margin-bottom:.45rem}
+.pending-sub{font-size:.82rem;color:var(--muted);line-height:1.7;margin-bottom:.9rem}
+.pending-id{font-family:'JetBrains Mono',monospace;font-size:.78rem;color:var(--gold);background:rgba(245,200,66,.08);border:1px solid rgba(245,200,66,.18);border-radius:8px;padding:.38rem .75rem;display:inline-block;margin-bottom:.8rem}
+.pending-steps{text-align:left;background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:10px;padding:.8rem 1rem;margin-bottom:.9rem}
+.pending-step{display:flex;align-items:flex-start;gap:.55rem;font-size:.78rem;color:var(--muted);line-height:1.6;margin:.28rem 0}
+.pending-step .ps-num{background:rgba(255,165,2,.15);color:var(--warn);width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.6rem;font-weight:700;flex-shrink:0;margin-top:.1rem}
+.chk-btn{width:100%;padding:.72rem;border-radius:var(--pill);background:rgba(255,165,2,.12);border:1px solid rgba(255,165,2,.3);color:var(--warn);font-family:'Syne',sans-serif;font-weight:700;font-size:.88rem;cursor:pointer;transition:var(--t);display:flex;align-items:center;justify-content:center;gap:.4rem;margin-bottom:.5rem}
+.chk-btn:hover{background:rgba(255,165,2,.2)}
+.wa-notify{display:flex;align-items:center;justify-content:center;gap:.4rem;background:#25D366;color:#000;font-weight:700;font-size:.82rem;padding:.6rem 1.1rem;border-radius:var(--pill);text-decoration:none;transition:var(--t);width:100%}
+.wa-notify:hover{background:#1da851;transform:translateY(-2px)}
+
+/* DELIVERY */
+.del-box{background:rgba(30,215,96,.06);border:1px solid rgba(30,215,96,.18);border-radius:var(--r);padding:1.1rem;margin:.75rem 0}
+.del-icon{font-size:1.8rem;text-align:center;margin-bottom:.5rem}
+.del-title{font-family:'Syne',sans-serif;font-size:.92rem;font-weight:700;color:var(--sp);margin-bottom:.75rem;text-align:center}
+.del-item{background:rgba(0,0,0,.3);border:1px solid rgba(30,215,96,.13);border-radius:10px;padding:.75rem .9rem;margin-bottom:.5rem}
+.del-prod-lbl{font-size:.7rem;color:var(--muted);font-family:'JetBrains Mono',monospace;margin-bottom:.35rem}
+.del-key{font-family:'JetBrains Mono',monospace;font-size:.8rem;color:var(--sp);background:rgba(30,215,96,.08);border:1px solid rgba(30,215,96,.15);border-radius:7px;padding:.42rem .7rem;word-break:break-all;display:flex;justify-content:space-between;align-items:center;gap:.45rem}
+.copy-btn{background:none;border:none;color:var(--sp);cursor:pointer;font-size:.75rem;flex-shrink:0;transition:var(--t);padding:2px 4px;border-radius:4px}
+.copy-btn:hover{background:rgba(30,215,96,.15)}
+.del-note{font-size:.75rem;color:var(--muted);margin-top:.45rem;line-height:1.6}
+.del-warn{background:rgba(255,165,2,.06);border:1px solid rgba(255,165,2,.14);border-radius:8px;padding:.55rem .78rem;margin-top:.55rem;font-size:.72rem;color:var(--warn);line-height:1.6}
+.nostock-box{background:rgba(255,71,87,.05);border:1px solid rgba(255,71,87,.14);border-radius:var(--r);padding:1.1rem;text-align:center;margin:.75rem 0}
+.ns-icon{font-size:2rem;margin-bottom:.5rem}
+.ns-title{font-family:'Syne',sans-serif;font-weight:700;color:var(--err);margin-bottom:.38rem}
+.ns-sub{font-size:.8rem;color:var(--muted);line-height:1.6}
+.ns-wa{display:inline-flex;align-items:center;gap:.38rem;background:#25D366;color:#000;font-weight:700;font-size:.82rem;padding:.5rem 1.1rem;border-radius:99px;text-decoration:none;margin-top:.7rem;transition:var(--t)}
+.ns-wa:hover{background:#1da851;transform:translateY(-2px)}
+.share-btns{display:flex;gap:.55rem;margin-top:.75rem}
+.sbtn{flex:1;padding:.6rem;border-radius:var(--pill);border:none;font-family:'Syne',sans-serif;font-weight:700;font-size:.82rem;cursor:pointer;transition:var(--t);display:flex;align-items:center;justify-content:center;gap:.38rem}
+.sbtn.tg{background:#26A5E4;color:#fff}.sbtn.wa{background:#25D366;color:#000}
+.sbtn:hover{transform:translateY(-2px);filter:brightness(1.1)}
+.done-btn{width:100%;padding:.78rem;border-radius:var(--pill);background:rgba(255,255,255,.07);border:1px solid var(--border);color:var(--text);font-family:'Syne',sans-serif;font-weight:700;font-size:.92rem;cursor:pointer;transition:var(--t);margin-top:.6rem;display:flex;align-items:center;justify-content:center;gap:.4rem}
+.done-btn:hover{background:rgba(255,255,255,.12)}
+
+/* CEK ORDER */
+.cek-section{margin-top:2rem;background:var(--card);border:1px solid rgba(30,215,96,.15);border-radius:var(--rxl);padding:1.4rem 1.5rem}
+.cek-title{font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;margin-bottom:.25rem;display:flex;align-items:center;gap:.5rem}
+.cek-sub{font-size:.76rem;color:var(--muted);margin-bottom:1rem}
+.cek-row{display:flex;gap:.5rem}
+.cek-inp{flex:1;background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:10px;padding:.62rem .88rem;color:var(--text);font-family:'JetBrains Mono',monospace;font-size:.85rem;outline:none;transition:var(--t)}
+.cek-inp:focus{border-color:var(--sp)}
+.cek-inp::placeholder{color:var(--dim)}
+.cek-btn{padding:.62rem 1.1rem;border-radius:10px;background:var(--sp);border:none;color:#000;font-family:'Syne',sans-serif;font-weight:700;font-size:.85rem;cursor:pointer;transition:var(--t);white-space:nowrap}
+.cek-btn:hover{background:var(--sp2)}
+#cekResult{margin-top:1rem}
+
+/* RESELLER */
+.res-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(225px,1fr));gap:1.1rem}
+.rcard{background:var(--card);border:1px solid var(--border);border-radius:var(--rxl);padding:1.6rem 1.3rem;text-align:center;position:relative;overflow:hidden;transition:var(--t)}
+.rcard:hover{border-color:var(--border2);transform:translateY(-5px);box-shadow:var(--sh)}
+.rcard::before{content:'';position:absolute;top:0;left:0;right:0;height:2px}
+.rcard:nth-child(1)::before{background:linear-gradient(90deg,#888,#ccc)}
+.rcard:nth-child(2)::before{background:linear-gradient(90deg,var(--gold),var(--gold2))}
+.rcard:nth-child(3)::before{background:linear-gradient(90deg,var(--sp),#38f9d7)}
+.rtier{font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:3px;color:var(--muted);text-transform:uppercase;margin-bottom:.45rem}
+.rname{font-family:'Syne',sans-serif;font-size:1.35rem;font-weight:800;margin-bottom:.4rem}
+.rprice{font-size:1.7rem;font-family:'Syne',sans-serif;font-weight:800;margin:.35rem 0}
+.rben{font-size:.78rem;color:var(--muted);background:rgba(255,255,255,.03);border:1px solid var(--border);padding:.45rem .78rem;border-radius:8px;margin:.7rem 0;line-height:1.6}
+.rbtn{width:100%;padding:.7rem;border-radius:var(--pill);border:none;background:var(--sp);color:#000;font-family:'Syne',sans-serif;font-weight:700;font-size:.88rem;cursor:pointer;transition:var(--t)}
+.rbtn:hover{background:var(--sp2);transform:translateY(-2px)}
+
+/* FOOTER */
+.footer{margin-top:2.5rem;text-align:center;padding:1.8rem;background:var(--card);border-radius:var(--rxl);border:1px solid var(--border);position:relative;overflow:hidden}
+.footer::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--sp),var(--gold),var(--cv),transparent)}
+.fbrand{font-family:'Syne',sans-serif;font-size:1.5rem;font-weight:800;letter-spacing:-.5px}
+.fbrand em{color:var(--sp);font-style:normal}
+.fsub{font-size:.68rem;color:var(--muted);font-family:'JetBrains Mono',monospace;margin:.28rem 0 .9rem}
+.flinks{display:flex;justify-content:center;gap:.55rem;flex-wrap:wrap}
+.flnk{display:inline-flex;align-items:center;gap:.32rem;font-size:.75rem;color:var(--muted);text-decoration:none;padding:.28rem .78rem;border-radius:99px;border:1px solid var(--border);transition:var(--t)}
+.flnk:hover{color:var(--sp);border-color:rgba(30,215,96,.28);background:rgba(30,215,96,.05)}
+.admin-link{display:inline-flex;align-items:center;gap:.4rem;font-size:.72rem;color:var(--dim);text-decoration:none;margin-top:.9rem;padding:.28rem .75rem;border-radius:99px;border:1px solid var(--border);transition:var(--t);font-family:'JetBrains Mono',monospace}
+.admin-link:hover{color:var(--gold);border-color:rgba(245,200,66,.3)}
+
+/* TOAST */
+#toasts{position:fixed;bottom:1.4rem;right:1.4rem;z-index:9999;display:flex;flex-direction:column;gap:.38rem;align-items:flex-end}
+.toast{background:var(--card);border:1px solid var(--border);border-left:2.5px solid var(--sp);padding:.6rem .95rem;border-radius:10px;font-size:.76rem;font-family:'JetBrains Mono',monospace;display:flex;align-items:center;gap:.5rem;max-width:265px;color:var(--text);animation:toastIn .32s cubic-bezier(.34,1.56,.64,1);box-shadow:0 4px 18px rgba(0,0,0,.4)}
+.toast.err{border-left-color:var(--err)}.toast.warn{border-left-color:var(--warn)}
+@keyframes toastIn{from{opacity:0;transform:translateX(26px)}to{opacity:1;transform:translateX(0)}}
+#btt{position:fixed;bottom:1.4rem;right:1.4rem;z-index:500;width:37px;height:37px;border-radius:50%;background:rgba(255,255,255,.06);border:1px solid var(--border);display:none;align-items:center;justify-content:center;color:var(--muted);cursor:pointer;transition:var(--t);font-size:.82rem}
+#btt.on{display:flex}
+#btt:hover{background:var(--sp);color:#000;border-color:var(--sp)}
+
+/* STATUS BADGE ORDER */
+.status-badge{display:inline-flex;align-items:center;gap:.3rem;font-family:'JetBrains Mono',monospace;font-size:.65rem;padding:.22rem .65rem;border-radius:99px}
+.status-pending{background:rgba(255,165,2,.12);color:var(--warn);border:1px solid rgba(255,165,2,.25)}
+.status-confirmed{background:rgba(30,215,96,.12);color:var(--sp);border:1px solid rgba(30,215,96,.25)}
+.status-rejected{background:rgba(255,71,87,.12);color:var(--err);border:1px solid rgba(255,71,87,.25)}
+.status-delivered{background:rgba(139,92,246,.12);color:var(--cv);border:1px solid rgba(139,92,246,.25)}
+
+@media(max-width:640px){
+  .nav{padding:.7rem 1rem}.hero h1{font-size:1.6rem}
+  .tab{font-size:.78rem;padding:.5rem .6rem}
+  .plans-grid{grid-template-columns:1fr}
+  .cek-row{flex-direction:column}
+}
+</style>
+</head>
+<body>
+
+<!-- LOADING -->
+<div id="ls">
+  <div class="ls-logo">WILZXITERZ<em>VN</em></div>
+  <div class="ls-sub">Premium Account Store</div>
+  <div class="ls-barwrap">
+    <div class="ls-barbg"><div class="ls-fill" id="lsfill"></div></div>
+    <div class="ls-foot"><span id="lsstat">Menginisialisasi...</span><span class="ls-pct" id="lspct">0%</span></div>
+  </div>
+</div>
+
+<!-- WELCOME -->
+<div id="wp">
+  <div class="wpc">
+    <div class="wpc-stripe"></div>
+    <div class="wpc-logo">WILZXITERZ<em>VN</em></div>
+    <div class="wpc-tag">Premium Account Store</div>
+    <div class="wpc-desc">Selamat datang! Kami menjual <strong>akun premium legal</strong> — Spotify, Netflix, Disney+, dan Canva Pro. Akun dikirim setelah <strong>admin mengkonfirmasi</strong> pembayaran kamu.</div>
+    <div class="wpc-chips">
+      <span class="wpc-chip">✅ Konfirmasi Admin</span>
+      <span class="wpc-chip">🔒 100% Legal</span>
+      <span class="wpc-chip">📦 Bergaransi</span>
+      <span class="wpc-chip">💬 CS 24 Jam</span>
+    </div>
+    <button class="wpc-btn" onclick="closeWP()">🛒 Mulai Belanja</button>
+    <div class="wpc-cs">Butuh bantuan? <a href="https://wa.me/6285138768886" target="_blank">WhatsApp kami</a></div>
+  </div>
+</div>
+
+<div class="mesh"></div>
+<div class="grid-bg"></div>
+<div id="btt"><i class="fas fa-chevron-up"></i></div>
+
+<div class="wrap">
+
+  <!-- NAV -->
+  <div class="nav">
+    <div>
+      <div class="nav-brand">WILZXITERZ<em>VN</em></div>
+      <div class="nav-tagline">Premium Account Store</div>
+    </div>
+    <div class="nav-right">
+      <div class="nlive"><div class="ldot"></div>ONLINE</div>
+      <div class="nib" id="btnCart"><i class="fas fa-shopping-cart"></i><span class="cbadge" id="cbadge"></span></div>
+      <div class="nib" id="btnMenu"><i class="fas fa-bars"></i></div>
+    </div>
+  </div>
+
+  <!-- SIDEBAR -->
+  <div id="sb">
+    <div class="sb-top">
+      <div class="sb-brand">WILZXITERZ<em>VN</em></div>
+      <div class="sb-x" id="sbX"><i class="fas fa-times"></i></div>
+    </div>
+    <div class="sb-sep"></div>
+    <div class="sb-lbl">Menu</div>
+    <nav><ul>
+      <li><a href="#" data-tab="produk"><span class="sbi"><i class="fas fa-store"></i></span>Produk</a></li>
+      <li><a href="#" data-tab="reseller"><span class="sbi"><i class="fas fa-users"></i></span>Reseller</a></li>
+      <li><a href="admin.html" target="_blank"><span class="sbi"><i class="fas fa-lock"></i></span>Admin Panel</a></li>
+    </ul></nav>
+    <div class="sb-sep"></div>
+    <div class="sb-lbl">Kontak</div>
+    <nav><ul>
+      <li><a href="https://wa.me/6285138768886" target="_blank"><span class="sbi"><i class="fab fa-whatsapp"></i></span>WhatsApp</a></li>
+      <li><a href="https://t.me/wilzxiterzVN" target="_blank"><span class="sbi"><i class="fab fa-telegram"></i></span>Telegram</a></li>
+    </ul></nav>
+    <div class="sb-foot">© 2025 WILZXITERZ VN<br>Premium Account Store</div>
+  </div>
+  <div id="ov"></div>
+
+  <!-- TICKER -->
+  <div class="ticker-wrap"><div class="ticker-track" id="ticker"></div></div>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-eye"><i class="fas fa-shield-alt"></i>&nbsp; Konfirmasi Admin · Akun 100% Aman</div>
+    <h1>Akun Premium <em>Legal & Terpercaya</em></h1>
+    <div class="hero-sub">Spotify, Netflix, Disney+, Canva Pro — bayar, tunggu konfirmasi admin, akun langsung terkirim. Garansi resmi, harga terbaik Indonesia.</div>
+    <div class="hero-pills">
+      <span class="hero-pill"><i class="fas fa-shield-alt"></i>&nbsp; 100% Legal</span>
+      <span class="hero-pill"><i class="fas fa-user-check"></i>&nbsp; Konfirmasi Admin</span>
+      <span class="hero-pill"><i class="fas fa-headset"></i>&nbsp; CS 24 Jam</span>
+      <span class="hero-pill"><i class="fas fa-redo"></i>&nbsp; Bergaransi</span>
+    </div>
+  </div>
+
+  <!-- TABS -->
+  <div class="tab-bar">
+    <button class="tab on" data-tab="produk"><i class="fas fa-store"></i>&nbsp;Produk</button>
+    <button class="tab" data-tab="reseller"><i class="fas fa-users"></i>&nbsp;Reseller</button>
+  </div>
+
+  <div id="main"></div>
+
+  <!-- CART -->
+  <div id="cart-sec">
+    <div class="cart-head">
+      <div class="cart-title"><i class="fas fa-shopping-cart" style="color:var(--sp)"></i>&nbsp;Keranjang <span class="cart-cnt" id="ccnt">0</span></div>
+      <button class="cart-clr" id="cartClr"><i class="fas fa-trash"></i> Kosongkan</button>
+    </div>
+    <ul class="cart-list" id="cartList"></ul>
+    <div class="cart-sep"></div>
+    <div class="cart-total-row">
+      <span class="ct-lbl">TOTAL PEMBAYARAN</span>
+      <span class="ct-amt" id="cartTotal">Rp0</span>
+    </div>
+    <div class="oform">
+      <label class="flabel">NAMA LENGKAP</label>
+      <input class="finp" id="fName" type="text" placeholder="Masukkan nama kamu...">
+      <label class="flabel">NO. WhatsApp / Telegram</label>
+      <input class="finp" id="fContact" type="text" placeholder="628xxxx atau @username">
+      <div class="fhelp">* Akun dikirim ke kontak ini setelah admin konfirmasi pembayaran</div>
+      <label class="flabel">METODE PEMBAYARAN</label>
+      <div class="pay-opts">
+        <div class="pay-opt sel" data-pm="qris" onclick="selPM(this)">
+          <div class="pay-opt-name">📱 QRIS</div>
+          <div class="pay-opt-sub">GoPay · OVO · Dana</div>
+        </div>
+        <div class="pay-opt" data-pm="transfer" onclick="selPM(this)">
+          <div class="pay-opt-name">🏦 Transfer Bank</div>
+          <div class="pay-opt-sub">BCA · BRI · Mandiri</div>
+        </div>
+      </div>
+      <button class="ckbtn" id="ckbtn"><i class="fas fa-lock"></i>&nbsp;Proses Pembayaran</button>
+    </div>
+  </div>
+
+  <!-- CEK ORDER -->
+  <div class="cek-section" id="cekSection" style="display:none">
+    <div class="cek-title"><i class="fas fa-search" style="color:var(--sp)"></i> Cek Status Order</div>
+    <div class="cek-sub">Masukkan Order ID untuk melihat status pembayaran dan konfirmasi admin</div>
+    <div class="cek-row">
+      <input class="cek-inp" id="cekId" placeholder="Contoh: ORD1720000000000">
+      <button class="cek-btn" onclick="cekOrder()"><i class="fas fa-search"></i> Cek</button>
+    </div>
+    <div id="cekResult"></div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="fbrand">WILZXITERZ<em>VN</em></div>
+    <div class="fsub">Premium Account Store · Terpercaya Sejak 2024</div>
+    <div class="flinks">
+      <a href="https://wa.me/6285138768886" target="_blank" class="flnk"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+      <a href="https://t.me/wilzxiterzVN" target="_blank" class="flnk"><i class="fab fa-telegram"></i> Telegram</a>
+      <a href="https://www.instagram.com" target="_blank" class="flnk"><i class="fab fa-instagram"></i> Instagram</a>
+    </div>
+    <div><a href="admin.html" target="_blank" class="admin-link"><i class="fas fa-lock"></i> Admin Panel</a></div>
+  </div>
+</div>
+
+<!-- PAYMENT MODAL -->
+<div class="mbg" id="payModal">
+  <div class="mc">
+    <div class="mc-stripe"></div>
+    <div class="mc-close" onclick="closePayModal()"><i class="fas fa-times"></i></div>
+    <div id="mcContent"></div>
+  </div>
+</div>
+
+<div id="toasts"></div>
+
+<script>
+/* ================================================
+   SHARED STORAGE ENGINE
+   Key prefix wxvn_ — shared dengan admin.html
+================================================ */
+var STOCK = {};
+var ORDERS = [];
+var ADMIN_CREDS = {user:'admin', pass:'admin123'};
+
+function sKey(b,p){ return b+'_'+p.replace(/\s+/g,'').toLowerCase(); }
+function getStock(b,p){ return (STOCK[sKey(b,p)]||[]).slice(); }
+function stockCount(b,p){ return (STOCK[sKey(b,p)]||[]).length; }
+function popStock(b,p){
+  var k=sKey(b,p);
+  if(!STOCK[k]||!STOCK[k].length) return null;
+  var item=STOCK[k].shift(); saveStock(); return item;
+}
+function saveStock(){ try{localStorage.setItem('wxvn_stk',JSON.stringify(STOCK));}catch(e){} }
+function loadStock(){ try{var s=localStorage.getItem('wxvn_stk');if(s)STOCK=JSON.parse(s);}catch(e){STOCK={};} }
+function saveOrders(){ try{localStorage.setItem('wxvn_ord',JSON.stringify(ORDERS));}catch(e){} }
+function loadOrders(){ try{var o=localStorage.getItem('wxvn_ord');if(o)ORDERS=JSON.parse(o);}catch(e){ORDERS=[];} }
+function loadCreds(){ try{var c=localStorage.getItem('wxvn_creds');if(c)ADMIN_CREDS=JSON.parse(c);}catch(e){} }
+
+/* ================================================
+   PRODUCT DATA
+================================================ */
+var PRODS = [
+  {brand:'spotify',name:'Spotify Premium',icon:'<i class="fab fa-spotify"></i>',desc:'Musik tanpa iklan, download offline, audio kualitas tertinggi (Very High Quality).',
+   plans:[{label:'1 Bulan',price:15000},{label:'3 Bulan',price:40000},{label:'6 Bulan',price:75000},{label:'1 Tahun',price:140000}]},
+  {brand:'netflix',name:'Netflix Premium',icon:'<i class="fas fa-film"></i>',desc:'Film & series tanpa batas, resolusi 4K Ultra HD, bisa dipakai di 4 layar sekaligus.',
+   plans:[{label:'1 Bulan',price:25000},{label:'3 Bulan',price:65000},{label:'6 Bulan',price:120000},{label:'1 Tahun',price:220000}]},
+  {brand:'disney',name:'Disney+ Hotstar',icon:'<i class="fas fa-star"></i>',desc:'Disney, Marvel, Star Wars, National Geographic & tayangan olahraga live.',
+   plans:[{label:'1 Bulan',price:18000},{label:'3 Bulan',price:48000},{label:'6 Bulan',price:88000},{label:'1 Tahun',price:160000}]},
+  {brand:'canva',name:'Canva Pro',icon:'<i class="fas fa-palette"></i>',desc:'100M+ template premium, Background Remover, Magic Edit, Brand Kit, semua fitur Pro.',
+   plans:[{label:'1 Bulan',price:20000},{label:'3 Bulan',price:52000},{label:'6 Bulan',price:95000},{label:'1 Tahun',price:175000}]}
+];
+var RESELLERS=[
+  {tier:'TIER 1 · STARTER',name:'SILVER',price:75000,benefit:'Diskon 10%, akses grup WA reseller, support prioritas'},
+  {tier:'TIER 2 · PRO',name:'GOLD',price:150000,benefit:'Diskon 20%, stok cadangan, badge reseller, invoice otomatis'},
+  {tier:'TIER 3 · ELITE',name:'DIAMOND',price:300000,benefit:'Diskon 35%, harga spesial, dashboard sendiri, CS dedikasi 24/7'}
+];
+var TICKERS=['⚡ WILZXITERZ VN','✅ 100% Legal','🎵 Spotify Premium','🎬 Netflix 4K','⭐ Disney+ Hotstar','🎨 Canva Pro','🛡️ Konfirmasi Admin','💬 CS 24 Jam','🔒 Bergaransi','⭐ 1000+ Pelanggan'];
+var BC={spotify:'var(--sp)',netflix:'var(--nf)',disney:'var(--ds)',canva:'var(--cv)'};
+
+/* ================================================
+   UTILS
+================================================ */
+function fmt(n){ return 'Rp'+Number(n).toLocaleString('id-ID'); }
+function stInfo(b,p){
+  var n=stockCount(b,p);
+  if(n===0) return {cls:'badge-empty',dc:'dot-empty',txt:'Stok Habis',n:0};
+  if(n<=3)  return {cls:'badge-warn',dc:'dot-warn',txt:'Sisa '+n,n:n};
+  return {cls:'badge-ok',dc:'dot-ok',txt:'Stok: '+n,n:n};
+}
+
+/* ================================================
+   LOADING
+================================================ */
+(function(){
+  var fill=document.getElementById('lsfill'),pct=document.getElementById('lspct'),
+      stat=document.getElementById('lsstat'),ls=document.getElementById('ls'),wp=document.getElementById('wp');
+  var steps=[{p:14,m:'Memuat data produk...'},{p:30,m:'Menghubungkan server...'},{p:52,m:'Memverifikasi stok...'},{p:70,m:'Menyiapkan sistem bayar...'},{p:88,m:'Hampir selesai...'},{p:100,m:'Siap! Selamat datang 🎉'}];
+  var i=0;
+  function next(){
+    if(i>=steps.length){setTimeout(function(){ls.classList.add('hide');setTimeout(function(){ls.style.display='none';wp.classList.add('on');},720);},320);return;}
+    var s=steps[i++];fill.style.width=s.p+'%';pct.textContent=s.p+'%';stat.textContent=s.m;
+    setTimeout(next,Math.random()*300+200);
+  }
+  setTimeout(next,250);
+})();
+function closeWP(){ document.getElementById('wp').classList.remove('on'); }
+
+/* ================================================
+   TICKER
+================================================ */
+function renderTicker(){
+  var all=TICKERS.concat(TICKERS);
+  document.getElementById('ticker').innerHTML=all.map(function(t,i){
+    return '<span class="'+(i%4===0?'hl':'')+'">' +t+'</span>';
+  }).join('');
+}
+
+/* ================================================
+   CART
+================================================ */
+var cart=[],curPM='qris';
+
+function selPM(el){
+  document.querySelectorAll('.pay-opt').forEach(function(m){m.classList.remove('sel');});
+  el.classList.add('sel'); curPM=el.dataset.pm;
+}
+function addCart(brand,planLabel,price){
+  if(cart.some(function(c){return c.brand===brand&&c.plan===planLabel;})){showToast('Item sudah di keranjang!','err');return;}
+  var prod=PRODS.find(function(p){return p.brand===brand;});
+  cart.push({brand:brand,name:prod.name,plan:planLabel,price:price});
+  renderCart();updateBadge();
+  document.getElementById('cart-sec').style.display='block';
+  showToast('✅ '+prod.name+' ('+planLabel+') ditambahkan!');
+  setTimeout(function(){document.getElementById('cart-sec').scrollIntoView({behavior:'smooth',block:'nearest'});},150);
+}
+function removeCart(i){
+  cart.splice(i,1);renderCart();updateBadge();
+  if(!cart.length) document.getElementById('cart-sec').style.display='none';
+}
+function renderCart(){
+  var list=document.getElementById('cartList'),cnt=document.getElementById('ccnt'),tot=document.getElementById('cartTotal');
+  var total=cart.reduce(function(s,c){return s+c.price;},0);
+  cnt.textContent=cart.length;tot.textContent=fmt(total);
+  list.innerHTML=cart.map(function(c,i){
+    return '<li class="ci"><div class="ci-l"><div class="ci-dot" style="background:'+BC[c.brand]+'"></div><div class="ci-info"><strong>'+c.name+'</strong><span>'+c.plan+'</span></div></div><div class="ci-r"><span class="ci-price">'+fmt(c.price)+'</span><button class="ci-del" onclick="removeCart('+i+')"><i class="fas fa-times"></i></button></div></li>';
+  }).join('');
+}
+function updateBadge(){
+  var b=document.getElementById('cbadge');
+  if(cart.length){b.classList.add('on');b.textContent=cart.length;} else b.classList.remove('on');
+}
+document.getElementById('cartClr').onclick=function(){
+  cart=[];renderCart();updateBadge();document.getElementById('cart-sec').style.display='none';
+};
+document.getElementById('btnCart').onclick=function(){
+  if(!cart.length){showToast('Keranjang masih kosong','err');return;}
+  document.getElementById('cart-sec').scrollIntoView({behavior:'smooth',block:'nearest'});
+};
+
+/* ================================================
+   CHECKOUT — Buat Order PENDING, tunggu admin konfirmasi
+================================================ */
+document.getElementById('ckbtn').onclick=function(){
+  var name=document.getElementById('fName').value.trim();
+  var contact=document.getElementById('fContact').value.trim();
+  if(!cart.length){showToast('Keranjang kosong!','err');return;}
+  if(!name){showToast('Masukkan nama kamu','err');return;}
+  if(!contact){showToast('Masukkan kontak WA/Telegram','err');return;}
+  openPay(name,contact);
+};
+
+var payTimer=null,curOrder=null;
+
+function openPay(name,contact){
+  var total=cart.reduce(function(s,c){return s+c.price;},0);
+  curOrder={
+    name:name,contact:contact,items:cart.slice(),total:total,method:curPM,
+    id:'ORD'+Date.now(),
+    status:'pending',  // pending | confirmed | rejected | delivered
+    statusNote:'',
+    delivered:[],
+    nostock:[],
+    date:new Date().toLocaleString('id-ID'),
+    timestamp:Date.now()
+  };
+  showStep1();
+  document.getElementById('payModal').classList.add('on');
+}
+function closePayModal(){
+  document.getElementById('payModal').classList.remove('on');
+  if(payTimer){clearInterval(payTimer);payTimer=null;}
+}
+
+/* STEP 1 — Tampilkan instruksi bayar */
+function showStep1(){
+  var o=curOrder;
+  var itemRows=o.items.map(function(c){
+    return '<div class="osum-row"><span class="k">'+c.name+' ('+c.plan+')</span><span class="v">'+fmt(c.price)+'</span></div>';
+  }).join('');
+  var payHtml='';
+  if(o.method==='qris'){
+    payHtml='<div class="qwrap"><img class="qimg" src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=QRIS-WILZXITERZVM-'+o.id+'&bgcolor=ffffff&color=000000" alt="QRIS">'
+      +'<div class="qlbl">NOMINAL TRANSFER</div><div class="qamt">'+fmt(o.total)+'</div>'
+      +'<div class="qnote">Scan QR di atas menggunakan aplikasi e-wallet atau m-banking kamu</div>'
+      +'<div class="qbanks"><span class="qbank">GoPay</span><span class="qbank">OVO</span><span class="qbank">Dana</span><span class="qbank">ShopeePay</span><span class="qbank">BCA Mobile</span></div></div>';
+  } else {
+    payHtml='<div class="bank-list">'
+      +'<div class="bank-item"><div class="bank-info"><div class="bank-name">🏦 Bank BCA</div><div class="bank-no">1234567890 <button class="copy-btn" onclick="copyText(\'1234567890\')"><i class="fas fa-copy"></i></button></div><div class="bank-an">a/n WILZXITERZ VN</div></div></div>'
+      +'<div class="bank-item"><div class="bank-info"><div class="bank-name">🏦 Bank BRI</div><div class="bank-no">0987654321 <button class="copy-btn" onclick="copyText(\'0987654321\')"><i class="fas fa-copy"></i></button></div><div class="bank-an">a/n WILZXITERZ VN</div></div></div>'
+      +'<div style="text-align:center;margin-top:.4rem"><div class="qlbl">NOMINAL TRANSFER</div><div class="qamt">'+fmt(o.total)+'</div></div></div>';
+  }
+  document.getElementById('mcContent').innerHTML=
+    '<div class="mc-title">🧾 Detail Pembayaran</div>'
+    +'<div class="mc-sub">Order ID: <span style="color:var(--sp);font-family:\'JetBrains Mono\',monospace;font-size:.78rem">'+o.id+'</span></div>'
+    +'<div class="step-bar"><div class="step-seg active"></div><div class="step-seg"></div><div class="step-seg"></div></div>'
+    +'<div class="step-lbls"><span class="slbl active">Bayar</span><span class="slbl">Konfirmasi</span><span class="slbl">Terima Akun</span></div>'
+    +'<div class="osum"><div class="osum-row"><span class="k">Nama</span><span class="v">'+o.name+'</span></div><div class="osum-row"><span class="k">Kontak</span><span class="v">'+o.contact+'</span></div>'+itemRows+'<div class="osum-row osum-total"><span class="k">Total</span><span class="v">'+fmt(o.total)+'</span></div></div>'
+    +payHtml
+    +'<div class="cdown"><div class="cdown-lbl">Batas waktu pembayaran</div><div class="cdown-num" id="cdown">15:00</div></div>'
+    +'<button class="verify-btn" onclick="showStep2()"><i class="fas fa-check-circle"></i>&nbsp;Saya Sudah Bayar</button>';
+  startCdown(15*60);
+}
+
+function startCdown(sec){
+  if(payTimer) clearInterval(payTimer);
+  var left=sec;
+  payTimer=setInterval(function(){
+    left--;var el=document.getElementById('cdown');if(!el){clearInterval(payTimer);return;}
+    if(left<=0){clearInterval(payTimer);el.textContent='00:00';el.style.color='var(--err)';return;}
+    var m=Math.floor(left/60),s=left%60;
+    el.textContent=(m<10?'0':'')+m+':'+(s<10?'0':'')+s;
+    if(left<=60) el.style.color='var(--err)';
+  },1000);
+}
+
+/* STEP 2 — Simpan order PENDING, tampilkan waiting screen */
+function showStep2(){
+  if(payTimer){clearInterval(payTimer);payTimer=null;}
+  // Simpan order ke localStorage dengan status pending — admin akan konfirmasi
+  loadOrders();
+  ORDERS.unshift(curOrder);
+  saveOrders();
+
+  var waMsg=encodeURIComponent('Halo WILZXITERZ VN! Saya sudah transfer untuk Order ID *'+curOrder.id+'*\n\nNama: '+curOrder.name+'\nKontak: '+curOrder.contact+'\nTotal: '+fmt(curOrder.total)+'\n\nMohon konfirmasi pembayaran. Terima kasih!');
+
+  document.getElementById('mcContent').innerHTML=
+    '<div class="step-bar"><div class="step-seg done"></div><div class="step-seg active"></div><div class="step-seg"></div></div>'
+    +'<div class="step-lbls"><span class="slbl done">Bayar</span><span class="slbl active">Konfirmasi</span><span class="slbl">Terima Akun</span></div>'
+    +'<div class="pending-box">'
+    +'<div class="pending-icon">⏳</div>'
+    +'<div class="pending-title">Menunggu Konfirmasi Admin</div>'
+    +'<div class="pending-id">'+curOrder.id+'</div>'
+    +'<div class="pending-sub">Pembayaran kamu sedang diverifikasi oleh admin. Setelah dikonfirmasi, akun akan langsung dikirim ke kontak kamu.</div>'
+    +'<div class="pending-steps">'
+    +'<div class="pending-step"><div class="ps-num">1</div><div>Admin menerima notifikasi order kamu</div></div>'
+    +'<div class="pending-step"><div class="ps-num">2</div><div>Admin memverifikasi bukti pembayaran</div></div>'
+    +'<div class="pending-step"><div class="ps-num">3</div><div>Akun dikirim otomatis setelah konfirmasi (5-15 menit)</div></div>'
+    +'</div>'
+    +'<a href="https://wa.me/6285138768886?text='+waMsg+'" target="_blank" class="wa-notify"><i class="fab fa-whatsapp"></i> Kirim Bukti Transfer ke Admin</a>'
+    +'</div>'
+    +'<button class="done-btn" onclick="payDone()" style="margin-top:.5rem"><i class="fas fa-times"></i>&nbsp;Tutup & Cek Status Nanti</button>';
+}
+
+function payDone(){
+  closePayModal();
+  cart=[];renderCart();updateBadge();
+  document.getElementById('cart-sec').style.display='none';
+  document.getElementById('fName').value='';
+  document.getElementById('fContact').value='';
+  // Tampilkan seksi cek order
+  document.getElementById('cekSection').style.display='block';
+  document.getElementById('cekId').value=curOrder.id;
+  showToast('✅ Order tersimpan! Gunakan Order ID untuk cek status.');
+  if(currentTab==='produk') renderProduk();
+}
+
+/* ================================================
+   CEK STATUS ORDER
+================================================ */
+function cekOrder(){
+  loadOrders();
+  var id=document.getElementById('cekId').value.trim();
+  var res=document.getElementById('cekResult');
+  if(!id){res.innerHTML='<div style="font-size:.8rem;color:var(--err);padding:.5rem">Masukkan Order ID terlebih dulu</div>';return;}
+  var order=ORDERS.find(function(o){return o.id===id;});
+  if(!order){
+    res.innerHTML='<div style="background:rgba(255,71,87,.06);border:1px solid rgba(255,71,87,.18);border-radius:10px;padding:.9rem 1rem;font-size:.82rem;color:var(--muted)"><strong style="color:var(--err)">Order tidak ditemukan</strong><br>Pastikan Order ID yang kamu masukkan benar.</div>';
+    return;
+  }
+  var statusMap={
+    pending:{badge:'status-pending',icon:'⏳',label:'Menunggu Konfirmasi',desc:'Pembayaran sedang diverifikasi oleh admin'},
+    confirmed:{badge:'status-confirmed',icon:'✅',label:'Dikonfirmasi',desc:'Pembayaran terkonfirmasi, akun sedang disiapkan'},
+    delivered:{badge:'status-delivered',icon:'🎉',label:'Akun Terkirim',desc:'Akun sudah dikirim!'},
+    rejected:{badge:'status-rejected',icon:'❌',label:'Ditolak',desc:order.statusNote||'Pembayaran tidak valid'}
+  };
+  var st=statusMap[order.status]||statusMap.pending;
+  var itemList=order.items.map(function(it){
+    return '<div style="display:flex;justify-content:space-between;font-size:.8rem;margin:.2rem 0"><span style="color:var(--muted)">'+it.name+' ('+it.plan+')</span><span style="color:var(--text);font-weight:600">'+fmt(it.price)+'</span></div>';
+  }).join('');
+
+  var deliveredHtml='';
+  if(order.status==='delivered'&&order.delivered&&order.delivered.length){
+    deliveredHtml='<div class="del-box" style="margin-top:.7rem"><div class="del-title">🎉 Akun Kamu</div>';
+    order.delivered.forEach(function(d){
+      deliveredHtml+='<div class="del-item"><div class="del-prod-lbl">'+d.name+' · '+d.plan+'</div><div class="del-key">'+d.key+'<button class="copy-btn" onclick="copyText(\''+d.key.replace(/'/g,"\\'")+'\')"><i class="fas fa-copy"></i></button></div></div>';
+    });
+    deliveredHtml+='<div class="del-warn">⚠️ Screenshot halaman ini sebagai bukti pembelian!</div></div>';
+  }
+
+  res.innerHTML='<div style="background:rgba(255,255,255,.025);border:1px solid var(--border);border-radius:12px;padding:1rem 1.1rem">'
+    +'<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.75rem">'
+    +'<div><div style="font-family:\'Syne\',sans-serif;font-weight:700;font-size:.9rem">'+order.id+'</div><div style="font-size:.7rem;color:var(--muted);font-family:\'JetBrains Mono\',monospace">'+order.date+'</div></div>'
+    +'<span class="status-badge '+st.badge+'">'+st.icon+' '+st.label+'</span>'
+    +'</div>'
+    +'<div style="font-size:.8rem;color:var(--muted);margin-bottom:.7rem">'+st.desc+'</div>'
+    +'<div style="background:rgba(255,255,255,.025);border:1px solid var(--border);border-radius:8px;padding:.65rem .8rem;margin-bottom:.5rem">'
+    +'<div style="font-size:.7rem;color:var(--muted);margin-bottom:.4rem;font-family:\'JetBrains Mono\',monospace">DETAIL ORDER</div>'
+    +itemList
+    +'<div style="display:flex;justify-content:space-between;font-size:.85rem;font-weight:700;margin-top:.4rem;padding-top:.4rem;border-top:1px solid var(--border)"><span>Total</span><span style="color:var(--sp)">'+fmt(order.total)+'</span></div>'
+    +'</div>'
+    +'<div style="font-size:.78rem;color:var(--muted)"><i class="fas fa-user" style="color:var(--sp);margin-right:4px"></i>'+order.name+' &nbsp;|&nbsp; <i class="fab fa-whatsapp" style="color:var(--sp);margin-right:4px"></i>'+order.contact+'</div>'
+    +deliveredHtml
+    +'</div>';
+}
+
+/* ================================================
+   RENDER PRODUK
+================================================ */
+var currentTab='produk';
+
+function renderProduk(){
+  var html='<div class="prod-section">';
+  PRODS.forEach(function(p){
+    var totSt=p.plans.reduce(function(s,pl){return s+stockCount(p.brand,pl.label);},0);
+    var gSt=totSt===0?{cls:'badge-empty',txt:'Stok Habis'}:totSt<=5?{cls:'badge-warn',txt:'Stok Terbatas'}:{cls:'badge-ok',txt:'Tersedia'};
+    var plansHtml='<div class="plans-grid">';
+    p.plans.forEach(function(pl){
+      var st=stInfo(p.brand,pl.label);
+      plansHtml+='<div class="plan-row">'
+        +'<div class="plan-left"><div class="plan-stock-dot '+st.dc+'"></div><span class="plan-dur">'+pl.label+'</span><span class="plan-price">'+fmt(pl.price)+'</span></div>'
+        +'<div class="plan-right"><span class="plan-stk">'+st.txt+'</span>'
+        +'<button class="plan-btn" '+(st.n===0?'disabled':'')+' onclick="addCart(\''+p.brand+'\',\''+pl.label+'\','+pl.price+')">'
+        +'<i class="fas fa-cart-plus"></i> Beli</button></div></div>';
+    });
+    plansHtml+='</div>';
+    html+='<div class="pcard" data-brand="'+p.brand+'">'
+      +'<div class="pcard-header"><div class="pcard-icon-box">'+p.icon+'</div>'
+      +'<div class="pcard-meta"><div class="pcard-name">'+p.name+'</div><div class="pcard-desc">'+p.desc+'</div></div>'
+      +'<span class="pcard-badge '+gSt.cls+'"><i class="fas fa-circle" style="font-size:.42rem"></i> '+gSt.txt+'</span>'
+      +'</div><div class="pcard-body">'+plansHtml+'</div></div>';
+  });
+  html+='</div>';
+  document.getElementById('main').innerHTML=html;
+}
+
+function renderReseller(){
+  var html='<div class="res-grid">';
+  RESELLERS.forEach(function(r){
+    html+='<div class="rcard"><div class="rtier">'+r.tier+'</div><div class="rname">'+r.name+'</div>'
+      +'<div class="rprice">'+fmt(r.price)+'</div>'
+      +'<div class="rben"><i class="fas fa-tag" style="color:var(--sp);margin-right:5px"></i>'+r.benefit+'</div>'
+      +'<button class="rbtn" onclick="window.open(\'https://wa.me/6285138768886?text='+encodeURIComponent('Halo! Saya mau daftar reseller '+r.name+' ('+fmt(r.price)+'). Info lebih lanjut!')+'\',\'_blank\')"><i class="fab fa-whatsapp"></i> Daftar Sekarang</button>'
+      +'</div>';
+  });
+  html+='</div>';
+  document.getElementById('main').innerHTML=html;
+}
+
+/* ================================================
+   TABS
+================================================ */
+function switchTab(tab){
+  currentTab=tab;
+  document.querySelectorAll('.tab').forEach(function(b){b.classList.toggle('on',b.dataset.tab===tab);});
+  if(tab==='produk') renderProduk();
+  else if(tab==='reseller') renderReseller();
+}
+document.querySelectorAll('.tab').forEach(function(b){b.onclick=function(){switchTab(b.dataset.tab);};});
+
+/* SIDEBAR */
+var sb=document.getElementById('sb'),ov=document.getElementById('ov');
+document.getElementById('btnMenu').onclick=function(){sb.classList.add('on');ov.classList.add('on');};
+document.getElementById('sbX').onclick=function(){sb.classList.remove('on');ov.classList.remove('on');};
+ov.onclick=function(){sb.classList.remove('on');ov.classList.remove('on');};
+
+/* TOAST */
+function showToast(msg,type){
+  type=type||'ok';
+  var t=document.createElement('div');
+  t.className='toast '+(type==='err'?'err':type==='warn'?'warn':'');
+  t.innerHTML='<span>'+(type==='err'?'❌':type==='warn'?'⚠️':'✅')+'</span><span>'+msg+'</span>';
+  document.getElementById('toasts').appendChild(t);
+  setTimeout(function(){t.style.opacity='0';t.style.transform='translateX(26px)';t.style.transition='all .32s';setTimeout(function(){t.remove();},340);},3200);
+}
+
+function copyText(text){
+  if(navigator.clipboard){navigator.clipboard.writeText(text).then(function(){showToast('Disalin ke clipboard!');});}
+  else{var ta=document.createElement('textarea');ta.value=text;document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);showToast('Disalin!');}
+}
+
+window.addEventListener('scroll',function(){document.getElementById('btt').classList.toggle('on',scrollY>400);});
+document.getElementById('btt').onclick=function(){window.scrollTo({top:0,behavior:'smooth'});};
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closePayModal();});
+
+/* INIT */
+loadStock();loadOrders();loadCreds();
+renderTicker();renderProduk();
+</script>
+</body>
+</html>
