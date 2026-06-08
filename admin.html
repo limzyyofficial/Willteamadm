@@ -22,6 +22,7 @@
   --vpn:#4687ff;--vpng:rgba(70,135,255,.12);
   --gram:#15C39A;--gramg:rgba(21,195,154,.12);
   --gold:#f5c842;--gold2:#d4a900;
+  --wa:#25d366;--wag:rgba(37,211,102,.12);
   --err:#ff4757;--warn:#ffa502;
   --r:12px;--rxl:18px;--pill:99px;
   --t:all .28s cubic-bezier(.4,0,.2,1);
@@ -83,8 +84,11 @@ body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--text);min
 .tb-icon-btn{width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.04);border:1px solid var(--border);display:grid;place-items:center;cursor:pointer;color:var(--muted);font-size:.82rem;transition:var(--t)}
 .tb-icon-btn:hover{background:rgba(255,255,255,.1);color:var(--text)}
 .tb-icon-btn.danger:hover{background:rgba(255,71,87,.15);color:var(--err);border-color:rgba(255,71,87,.3)}
-.tb-icon-btn.store-link{cursor:pointer}
 .tb-icon-btn.store-link:hover{background:rgba(30,215,96,.15);color:var(--sp);border-color:rgba(30,215,96,.3)}
+/* WhatsApp topbar button */
+.tb-icon-btn.wa-btn{border-color:rgba(37,211,102,.2)}
+.tb-icon-btn.wa-btn.active{background:rgba(37,211,102,.15);color:var(--wa);border-color:rgba(37,211,102,.4)}
+.tb-icon-btn.wa-btn:hover{background:rgba(37,211,102,.2);color:var(--wa);border-color:rgba(37,211,102,.4)}
 .page-scroll{flex:1;overflow-y:auto;padding:1rem 1rem calc(var(--nav-h) + 1.5rem);position:relative;z-index:1}
 .bottom-nav{position:fixed;bottom:0;left:0;right:0;z-index:200;height:var(--nav-h);background:rgba(7,8,15,.97);backdrop-filter:blur(24px);border-top:1px solid var(--border);display:flex;align-items:stretch;padding-bottom:env(safe-area-inset-bottom,0px)}
 .bn-item{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.22rem;cursor:pointer;transition:var(--t);position:relative;border:none;background:none;color:var(--muted);font-family:'DM Sans',sans-serif;padding:.3rem 0}
@@ -125,7 +129,7 @@ body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--text);min
 .o-meta{display:flex;align-items:center;justify-content:space-between;gap:.5rem;margin-bottom:.6rem}
 .o-items{font-size:.72rem;color:var(--muted);flex:1;line-height:1.5}
 .o-total{font-family:'Syne',sans-serif;font-weight:800;font-size:.92rem;color:var(--sp);white-space:nowrap}
-.o-footer{display:flex;align-items:center;justify-content:space-between;gap:.45rem}
+.o-footer{display:flex;align-items:center;justify-content:space-between;gap:.45rem;flex-wrap:wrap}
 .o-date{font-family:'JetBrains Mono',monospace;font-size:.62rem;color:var(--dim)}
 .o-actions{display:flex;gap:.35rem;flex-wrap:wrap}
 .o-source{font-family:'JetBrains Mono',monospace;font-size:.55rem;padding:.1rem .4rem;border-radius:4px}
@@ -143,6 +147,9 @@ body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--text);min
 .abtn.reject{background:rgba(255,71,87,.08);border-color:rgba(255,71,87,.2);color:var(--err)}
 .abtn.ghost{color:var(--muted)}
 .abtn.del{color:var(--err)}
+/* WhatsApp action button */
+.abtn.wa{background:rgba(37,211,102,.1);border-color:rgba(37,211,102,.3);color:var(--wa)}
+.abtn.wa:hover{background:rgba(37,211,102,.2)}
 .filter-scroll{display:flex;gap:.4rem;overflow-x:auto;padding-bottom:.3rem;margin-bottom:.85rem;scrollbar-width:none}
 .filter-scroll::-webkit-scrollbar{display:none}
 .fpill{flex-shrink:0;padding:.35rem .85rem;border-radius:99px;border:1px solid var(--border);background:rgba(255,255,255,.03);color:var(--muted);font-size:.74rem;font-weight:600;cursor:pointer;transition:var(--t)}
@@ -188,9 +195,40 @@ textarea.finp{resize:vertical;min-height:90px;font-family:'JetBrains Mono',monos
 .green-btn{width:100%;padding:.72rem;border-radius:var(--pill);background:var(--sp);border:none;font-family:'Syne',sans-serif;font-weight:800;font-size:.88rem;color:#000;cursor:pointer;transition:var(--t);display:flex;align-items:center;justify-content:center;gap:.4rem;margin-top:.65rem}
 .green-btn:hover{background:var(--sp2);transform:translateY(-1px)}
 .green-btn:active{transform:scale(.98)}
+/* WhatsApp Setup Banner */
+.wa-setup-banner{background:linear-gradient(135deg,rgba(37,211,102,.08),rgba(37,211,102,.03));border:1px solid rgba(37,211,102,.2);border-radius:var(--rxl);padding:1rem;margin-bottom:.85rem;display:flex;align-items:flex-start;gap:.75rem}
+.wa-setup-banner.configured{border-color:rgba(37,211,102,.35);background:linear-gradient(135deg,rgba(37,211,102,.1),rgba(37,211,102,.04))}
+.wa-setup-ico{width:40px;height:40px;border-radius:11px;background:rgba(37,211,102,.15);border:1px solid rgba(37,211,102,.25);display:grid;place-items:center;font-size:1.1rem;flex-shrink:0;color:var(--wa)}
+.wa-setup-body{flex:1;min-width:0}
+.wa-setup-title{font-family:'Syne',sans-serif;font-weight:800;font-size:.85rem;margin-bottom:.18rem}
+.wa-setup-sub{font-size:.72rem;color:var(--muted);line-height:1.5}
+.wa-setup-num{font-family:'JetBrains Mono',monospace;font-size:.75rem;color:var(--wa);margin-top:.25rem}
+.wa-setup-btn{display:inline-flex;align-items:center;gap:.3rem;margin-top:.5rem;padding:.28rem .72rem;border-radius:99px;border:1px solid rgba(37,211,102,.3);background:rgba(37,211,102,.1);color:var(--wa);font-size:.7rem;font-weight:600;cursor:pointer;transition:var(--t)}
+.wa-setup-btn:hover{background:rgba(37,211,102,.2)}
+/* WhatsApp notification toggle */
+.wa-toggle-row{display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,.025);border:1px solid var(--border);border-radius:10px;padding:.75rem .9rem;margin-bottom:.5rem}
+.wa-toggle-info{flex:1}
+.wa-toggle-title{font-size:.82rem;font-weight:600;margin-bottom:.12rem;display:flex;align-items:center;gap:.4rem}
+.wa-toggle-sub{font-size:.7rem;color:var(--muted)}
+.toggle-switch{position:relative;width:42px;height:24px;flex-shrink:0}
+.toggle-switch input{opacity:0;width:0;height:0}
+.toggle-slider{position:absolute;cursor:pointer;inset:0;background:var(--dim);border-radius:99px;transition:.3s}
+.toggle-slider:before{content:'';position:absolute;width:18px;height:18px;left:3px;bottom:3px;background:var(--muted);border-radius:50%;transition:.3s}
+.toggle-switch input:checked+.toggle-slider{background:var(--wa)}
+.toggle-switch input:checked+.toggle-slider:before{transform:translateX(18px);background:#fff}
+/* WhatsApp template editor */
+.tpl-block{background:rgba(37,211,102,.04);border:1px solid rgba(37,211,102,.12);border-radius:10px;padding:.82rem;margin-top:.55rem}
+.tpl-title{font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:1px;text-transform:uppercase;color:var(--wa);margin-bottom:.55rem;display:flex;align-items:center;gap:.35rem}
+.tpl-vars{display:flex;flex-wrap:wrap;gap:.3rem;margin-bottom:.55rem}
+.tpl-var{font-family:'JetBrains Mono',monospace;font-size:.62rem;background:rgba(37,211,102,.1);border:1px solid rgba(37,211,102,.2);color:var(--wa);padding:.15rem .45rem;border-radius:5px;cursor:pointer;transition:var(--t)}
+.tpl-var:hover{background:rgba(37,211,102,.2)}
+/* Order settings */
 .setting-block{background:rgba(255,255,255,.025);border:1px solid var(--border);border-radius:var(--r);padding:.9rem;margin-bottom:.7rem}
 .setting-title{font-family:'Syne',sans-serif;font-weight:800;font-size:.9rem;margin-bottom:.18rem}
 .setting-sub{font-size:.72rem;color:var(--muted);margin-bottom:.9rem}
+/* WhatsApp setting block special */
+.setting-block.wa-block{border-color:rgba(37,211,102,.18);background:rgba(37,211,102,.03)}
+.setting-block.wa-block .setting-title{color:var(--wa)}
 .danger-zone{display:flex;flex-direction:column;gap:.45rem}
 .danger-btn{width:100%;padding:.65rem;border-radius:10px;background:rgba(255,71,87,.07);border:1px solid rgba(255,71,87,.18);color:var(--err);font-family:'Syne',sans-serif;font-weight:700;font-size:.82rem;cursor:pointer;transition:var(--t);display:flex;align-items:center;justify-content:center;gap:.38rem}
 .danger-btn:active{background:rgba(255,71,87,.18)}
@@ -221,9 +259,19 @@ textarea.finp{resize:vertical;min-height:90px;font-family:'JetBrains Mono',monos
 .modal-btn.secondary:hover{background:rgba(255,255,255,.12);color:var(--text)}
 .modal-btn.gold{background:var(--gold);color:#000}
 .modal-btn.gold:hover{background:var(--gold2)}
+/* WhatsApp modal button */
+.modal-btn.wa{background:var(--wa);color:#000}
+.modal-btn.wa:hover{background:#1ab850}
+.modal-btn.wa-outline{background:rgba(37,211,102,.1);color:var(--wa);border:1px solid rgba(37,211,102,.3)}
+.modal-btn.wa-outline:hover{background:rgba(37,211,102,.2)}
+/* WhatsApp preview box */
+.wa-preview-box{background:#0a1628;border:1px solid rgba(37,211,102,.15);border-radius:12px;padding:.9rem;margin:.7rem 0;position:relative}
+.wa-preview-label{font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--wa);margin-bottom:.6rem;display:flex;align-items:center;gap:.35rem}
+.wa-bubble{background:#1f3a2a;border-radius:0 10px 10px 10px;padding:.65rem .8rem;font-size:.78rem;line-height:1.65;color:#d5f5e0;white-space:pre-wrap;word-break:break-word;max-width:90%;display:inline-block}
+.wa-bubble-tail{display:inline-block;width:8px;height:8px;background:#1f3a2a;clip-path:polygon(100% 0,0 0,100% 100%);position:absolute;top:.9rem;left:.82rem;transform:translateX(-100%)}
 #toasts{position:fixed;bottom:calc(var(--nav-h) + .7rem);left:1rem;right:1rem;z-index:9999;display:flex;flex-direction:column;gap:.35rem;align-items:center;pointer-events:none}
 .toast{background:var(--card);border:1px solid var(--border);border-left:3px solid var(--sp);padding:.55rem .9rem;border-radius:10px;font-size:.76rem;font-family:'JetBrains Mono',monospace;display:flex;align-items:center;gap:.45rem;max-width:340px;width:100%;color:var(--text);animation:toastIn .3s cubic-bezier(.34,1.4,.64,1);box-shadow:0 4px 20px rgba(0,0,0,.45);pointer-events:all}
-.toast.err{border-left-color:var(--err)}.toast.warn{border-left-color:var(--warn)}
+.toast.err{border-left-color:var(--err)}.toast.warn{border-left-color:var(--warn)}.toast.wa{border-left-color:var(--wa)}
 @keyframes toastIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
 .empty{text-align:center;padding:2.2rem 1rem}
 .empty-ico{font-size:2rem;opacity:.3;margin-bottom:.55rem}
@@ -234,14 +282,17 @@ textarea.finp{resize:vertical;min-height:90px;font-family:'JetBrains Mono',monos
 .stk-mini-ico{width:30px;height:30px;border-radius:8px;display:grid;place-items:center;font-size:.82rem;flex-shrink:0}
 .stk-mini-name{font-size:.75rem;font-weight:600;line-height:1.3}
 .stk-mini-cnt{font-family:'JetBrains Mono',monospace;font-size:.65rem;margin-top:.1rem}
-/* Stok source badge */
 .stk-sync{font-family:'JetBrains Mono',monospace;font-size:.55rem;color:var(--sp);background:rgba(30,215,96,.08);border:1px solid rgba(30,215,96,.18);padding:.1rem .38rem;border-radius:4px;margin-left:.4rem}
+/* WA notif pulse */
+@keyframes waPulse{0%{box-shadow:0 0 0 0 rgba(37,211,102,.4)}70%{box-shadow:0 0 0 8px rgba(37,211,102,0)}100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}}
+.wa-pulse{animation:waPulse 1.5s ease-in-out 2}
 </style>
 </head>
 <body>
 <div class="mesh"></div>
 <div class="grid-bg"></div>
 
+<!-- LOGIN PAGE -->
 <div id="loginPage">
   <div class="login-outer">
     <div class="login-brand">
@@ -280,6 +331,7 @@ textarea.finp{resize:vertical;min-height:90px;font-family:'JetBrains Mono',monos
   </div>
 </div>
 
+<!-- ADMIN PAGE -->
 <div id="adminPage" style="display:none;flex-direction:column;min-height:100vh">
   <div class="topbar">
     <div class="tb-brand">WXV<em>N</em></div>
@@ -289,6 +341,10 @@ textarea.finp{resize:vertical;min-height:90px;font-family:'JetBrains Mono',monos
     </div>
     <div class="tb-right">
       <div class="tb-pill"><div class="ldot"></div>LIVE</div>
+      <!-- WhatsApp toggle button -->
+      <div class="tb-icon-btn wa-btn" id="waTopBtn" title="WhatsApp Notifikasi" onclick="toggleWaQuick()">
+        <i class="fab fa-whatsapp"></i>
+      </div>
       <div class="tb-icon-btn store-link" title="Buka Toko" onclick="window.open('index.html','_blank')"><i class="fas fa-store"></i></div>
       <div class="tb-icon-btn danger" title="Logout" onclick="doLogout()"><i class="fas fa-sign-out-alt"></i></div>
     </div>
@@ -311,6 +367,7 @@ textarea.finp{resize:vertical;min-height:90px;font-family:'JetBrains Mono',monos
   </nav>
 </div>
 
+<!-- MODAL -->
 <div class="modal-bg" id="modal" onclick="handleModalBgClick(event)">
   <div class="modal-sheet" id="modalSheet">
     <div class="modal-stripe"></div>
@@ -323,16 +380,140 @@ textarea.finp{resize:vertical;min-height:90px;font-family:'JetBrains Mono',monos
 
 <script>
 /* ══════════════════════════════════════════════════════
-   STORAGE KEYS (harus sama persis dengan index.html):
+   STORAGE KEYS:
    - wxvn_ord   → orders dari toko
-   - wxvn_stk   → stok akun premium (dipakai toko juga via stk_{prodId})
+   - wxvn_stk   → stok akun premium
    - wxvn_creds → kredensial admin
+   - wxvn_wa    → konfigurasi WhatsApp
    - stk_{id}   → stok per produk (dipakai toko)
 ══════════════════════════════════════════════════════ */
 
 var STOCK={}, ORDERS=[], CREDS={user:'admin',pass:'admin123'};
 
-/* ── Daftar produk premium (sync dengan toko) ── */
+/* ═══════════════════════════════════════
+   WHATSAPP CONFIG
+═══════════════════════════════════════ */
+var WA_CFG = {
+  adminNumber: '',        // nomor WA admin, format: 6281234567890
+  notifEnabled: true,     // aktifkan notif ke admin saat ada order baru
+  autoOpen: true,         // otomatis buka WA saat order baru
+  tplNewOrder:            // template pesan notif order baru
+    '🛍️ *ORDER BARU!*\n\n' +
+    'ID: {ORDER_ID}\n' +
+    'Nama: {NAMA}\n' +
+    'Produk: {PRODUK}\n' +
+    'Total: {TOTAL}\n' +
+    'Kontak: {KONTAK}\n' +
+    'Waktu: {WAKTU}\n\n' +
+    '👉 Cek Admin Panel untuk konfirmasi.',
+  tplConfirm:             // template konfirmasi ke customer
+    '✅ *Pesanan Dikonfirmasi!*\n\n' +
+    'Halo {NAMA}, pesanan kamu sudah kami konfirmasi!\n\n' +
+    '📋 Detail:\n' +
+    'ID Order: {ORDER_ID}\n' +
+    'Produk: {PRODUK}\n' +
+    'Total: {TOTAL}\n\n' +
+    '⏳ Akun akan segera kami kirimkan.\n' +
+    'Terima kasih sudah berbelanja! 🙏',
+  tplDeliver:             // template pengiriman akun ke customer
+    '🎉 *Akun Sudah Dikirim!*\n\n' +
+    'Halo {NAMA}, akun premiummu sudah siap!\n\n' +
+    '📦 Detail Order:\n' +
+    'ID: {ORDER_ID}\n' +
+    'Produk: {PRODUK}\n\n' +
+    '🔑 *Data Akun:*\n' +
+    '{AKUN}\n\n' +
+    '⚠️ Jaga kerahasiaan akunmu ya!\n' +
+    'Terima kasih sudah berbelanja di WILZXITERZ VN 🙏',
+  tplReject:              // template penolakan ke customer
+    '❌ *Pesanan Ditolak*\n\n' +
+    'Halo {NAMA}, maaf pesananmu tidak dapat kami proses.\n\n' +
+    'ID Order: {ORDER_ID}\n' +
+    'Alasan: {ALASAN}\n\n' +
+    'Silakan hubungi kami jika ada pertanyaan. 🙏'
+};
+
+function loadWaCfg(){
+  try{var w=localStorage.getItem('wxvn_wa');if(w)WA_CFG=Object.assign({},WA_CFG,JSON.parse(w));}catch(e){}
+}
+function saveWaCfg(){
+  try{localStorage.setItem('wxvn_wa',JSON.stringify(WA_CFG));}catch(e){}
+}
+
+/* Format nomor WA: hilangkan karakter non-digit, ganti awalan 0 → 62 */
+function formatWaNum(num){
+  num=String(num).replace(/\D/g,'');
+  if(num.startsWith('0'))num='62'+num.slice(1);
+  return num;
+}
+
+/* Buka WhatsApp dengan pesan */
+function openWa(number, message){
+  var num=formatWaNum(number);
+  if(!num){toast('Nomor WhatsApp tidak valid!','err');return;}
+  var url='https://wa.me/'+num+'?text='+encodeURIComponent(message);
+  window.open(url,'_blank');
+}
+
+/* Build pesan dari template + data order */
+function buildWaMsg(tpl, order, extra){
+  extra=extra||{};
+  var produk=order.items?order.items.map(function(i){return i.name+(i.plan&&i.plan!=='—'?' ('+i.plan+')':'');}).join(', '):(order.prodName||'—');
+  return tpl
+    .replace(/{ORDER_ID}/g, order.id||'—')
+    .replace(/{NAMA}/g, order.name||order.userName||'—')
+    .replace(/{PRODUK}/g, produk)
+    .replace(/{TOTAL}/g, fmt(order.total||0))
+    .replace(/{KONTAK}/g, order.contact||'—')
+    .replace(/{WAKTU}/g, order.date||new Date().toLocaleString('id-ID'))
+    .replace(/{ALASAN}/g, extra.alasan||'Pembayaran tidak valid')
+    .replace(/{AKUN}/g, extra.akun||'(lihat pesan sebelumnya)');
+}
+
+/* Notifikasi WA ke admin saat ada order baru */
+function notifyAdminNewOrder(order){
+  if(!WA_CFG.notifEnabled||!WA_CFG.adminNumber) return;
+  var msg=buildWaMsg(WA_CFG.tplNewOrder, order);
+  if(WA_CFG.autoOpen){
+    openWa(WA_CFG.adminNumber, msg);
+    toast('📲 WhatsApp dibuka — notifikasi order baru!','wa');
+  } else {
+    /* Simpan antrian notif */
+    pendingWaNotif=pendingWaNotif||[];
+    pendingWaNotif.push({num:WA_CFG.adminNumber,msg:msg});
+    toast('🔔 Order baru! Klik WA untuk kirim notif.','wa');
+    updateWaTopBtn();
+  }
+}
+
+var pendingWaNotif=[];
+function updateWaTopBtn(){
+  var btn=document.getElementById('waTopBtn');if(!btn)return;
+  if(WA_CFG.adminNumber&&WA_CFG.notifEnabled){
+    btn.classList.add('active');
+    btn.title='WA Notif AKTIF · '+WA_CFG.adminNumber+(pendingWaNotif&&pendingWaNotif.length?' ('+pendingWaNotif.length+' pending)':'');
+  } else {
+    btn.classList.remove('active');
+    btn.title='WhatsApp Notifikasi (belum dikonfigurasi)';
+  }
+}
+
+function toggleWaQuick(){
+  /* Jika ada notif pending, kirim sekarang */
+  if(pendingWaNotif&&pendingWaNotif.length){
+    var n=pendingWaNotif.shift();
+    openWa(n.num,n.msg);
+    updateWaTopBtn();
+    return;
+  }
+  goPage('settings');
+  setTimeout(function(){
+    var el=document.querySelector('.wa-block');
+    if(el)el.scrollIntoView({behavior:'smooth',block:'center'});
+  },200);
+}
+
+/* ── Daftar produk premium ── */
 var PRODS=[
   {brand:'spotify',  name:'Spotify Premium',      icon:'fab fa-spotify',     plans:['1 Bulan','3 Bulan','6 Bulan','1 Tahun']},
   {brand:'netflix',  name:'Netflix Premium',       icon:'fas fa-film',        plans:['1 Bulan','3 Bulan','6 Bulan','1 Tahun']},
@@ -347,33 +528,22 @@ var PRODS=[
   {brand:'grammarly',name:'Grammarly Premium',     icon:'fas fa-spell-check', plans:['1 Bulan','3 Bulan','6 Bulan','1 Tahun']}
 ];
 
-/* Mapping brand → prodId toko (untuk stk_{id}) */
 var BRAND_TO_PRODID={
   spotify:'p9',netflix:'p10',disney:'p18',canva:'p12',youtube:'p11',
   chatgpt:'p13',adobe:'p17',microsoft:'p16',duolingo:'p19',nordvpn:'p15',grammarly:'p14'
 };
-
 var BRAND_CLS={
   spotify:'spotify',netflix:'netflix',disney:'disney',canva:'canva',
   youtube:'youtube',chatgpt:'chatgpt',adobe:'adobe',microsoft:'microsoft',
   duolingo:'duolingo',nordvpn:'nordvpn',grammarly:'grammarly'
 };
 
-/* ─── Stok: admin panel pakai key "wxvn_stk" (objek {brand_plan: [...]})
-         Toko pakai key "stk_{prodId}" (angka)
-         Saat admin tambah stok, update KEDUANYA ─── */
 function sKey(b,p){return b+'_'+p.replace(/\s+/g,'').toLowerCase();}
-
 function sc(b,p){return (STOCK[sKey(b,p)]||[]).length;}
-
-/* Jumlah stok toko (integer, dari stk_{prodId}) */
 function scToko(brand){
-  var pid=BRAND_TO_PRODID[brand];
-  if(!pid) return 0;
+  var pid=BRAND_TO_PRODID[brand];if(!pid)return 0;
   try{var v=JSON.parse(localStorage.getItem('stk_'+pid));return(v!==null&&v!==undefined)?v:0;}catch(e){return 0;}
 }
-
-/* Sinkronkan stok admin → toko setelah setiap perubahan stok */
 function syncStokToToko(){
   PRODS.forEach(function(p){
     var pid=BRAND_TO_PRODID[p.brand];if(!pid)return;
@@ -381,7 +551,6 @@ function syncStokToToko(){
     try{localStorage.setItem('stk_'+pid,JSON.stringify(total));}catch(e){}
   });
 }
-
 function fmt(n){return 'Rp'+Number(n).toLocaleString('id-ID');}
 
 /* ─── Load / Save ─── */
@@ -389,6 +558,7 @@ function loadAll(){
   try{var s=localStorage.getItem('wxvn_stk');STOCK=s?JSON.parse(s):{};}catch(e){STOCK={};}
   try{var o=localStorage.getItem('wxvn_ord');ORDERS=o?JSON.parse(o):[];}catch(e){ORDERS=[];}
   try{var c=localStorage.getItem('wxvn_creds');if(c)CREDS=JSON.parse(c);}catch(e){}
+  loadWaCfg();
 }
 function saveStock(){
   try{localStorage.setItem('wxvn_stk',JSON.stringify(STOCK));}catch(e){}
@@ -397,66 +567,138 @@ function saveStock(){
 function saveOrders(){try{localStorage.setItem('wxvn_ord',JSON.stringify(ORDERS));}catch(e){}}
 function saveCreds(){try{localStorage.setItem('wxvn_creds',JSON.stringify(CREDS));}catch(e){}}
 
-/* ─── Normalisasi order dari toko ke format admin ───
-   Toko menyimpan: {id, userId, userName, prodName, prodId, contact, total, status, date, method, userEmail}
-   Admin mengharapkan: {id, name, contact, items:[{name,brand,plan,price}], total, status, date}
-   Fungsi ini menangani KEDUA format ─── */
+/* ─── Normalisasi order ─── */
 function normalizeOrder(o){
   if(o.items&&Array.isArray(o.items)){
-    /* Sudah format admin — pastikan field name ada */
-    if(!o.name && o.userName) o.name=o.userName;
+    if(!o.name&&o.userName)o.name=o.userName;
     return o;
   }
-  /* Format toko: ubah ke format admin */
   var brand=getBrandFromProdId(o.prodId)||'';
   return {
-    id:o.id,
-    name:o.userName||o.name||'—',
-    contact:o.contact||'—',
-    userEmail:o.userEmail||'',
-    userId:o.userId||'',
-    isGuest:o.isGuest||false,
-    items:[{
-      name:o.prodName||'Produk',
-      brand:brand,
-      plan:o.plan||'—',
-      price:o.total||0
-    }],
-    total:o.total||0,
-    status:o.status||'pending',
-    statusNote:o.statusNote||'',
-    date:o.date||'—',
-    timestamp:o.timestamp||0,
-    method:o.method||'',
-    delivered:o.delivered||[],
-    activationKey:o.activationKey||''
+    id:o.id,name:o.userName||o.name||'—',contact:o.contact||'—',
+    userEmail:o.userEmail||'',userId:o.userId||'',isGuest:o.isGuest||false,
+    items:[{name:o.prodName||'Produk',brand:brand,plan:o.plan||'—',price:o.total||0}],
+    total:o.total||0,status:o.status||'pending',statusNote:o.statusNote||'',
+    date:o.date||'—',timestamp:o.timestamp||0,method:o.method||'',
+    delivered:o.delivered||[],activationKey:o.activationKey||''
   };
 }
-
 function getBrandFromProdId(pid){
   var m={p9:'spotify',p10:'netflix',p18:'disney',p12:'canva',p11:'youtube',
          p13:'chatgpt',p17:'adobe',p16:'microsoft',p19:'duolingo',p15:'nordvpn',p14:'grammarly'};
   return m[pid]||'';
 }
-
-/* Simpan order kembali ke localStorage (update field toko juga jika perlu) */
 function saveOrderById(id,updatedFields){
   var rawOrders=[];
   try{var o=localStorage.getItem('wxvn_ord');rawOrders=o?JSON.parse(o):[];}catch(e){}
   var idx=rawOrders.findIndex(function(o){return o.id===id;});
   if(idx>=0){
     Object.assign(rawOrders[idx],updatedFields);
-    /* Untuk order format toko, update field toko juga */
-    if(updatedFields.status) rawOrders[idx].status=updatedFields.status;
-    if(updatedFields.statusNote) rawOrders[idx].statusNote=updatedFields.statusNote;
-    if(updatedFields.delivered) rawOrders[idx].delivered=updatedFields.delivered;
-    if(updatedFields.activationKey) rawOrders[idx].activationKey=updatedFields.activationKey;
-    if(updatedFields.name) rawOrders[idx].userName=updatedFields.name;
+    if(updatedFields.status)rawOrders[idx].status=updatedFields.status;
+    if(updatedFields.statusNote)rawOrders[idx].statusNote=updatedFields.statusNote;
+    if(updatedFields.delivered)rawOrders[idx].delivered=updatedFields.delivered;
+    if(updatedFields.activationKey)rawOrders[idx].activationKey=updatedFields.activationKey;
+    if(updatedFields.name)rawOrders[idx].userName=updatedFields.name;
   }
   try{localStorage.setItem('wxvn_ord',JSON.stringify(rawOrders));}catch(e){}
 }
 
-/* Login UI */
+/* ═════════════════════════════════════
+   WHATSAPP MODAL HELPERS
+═════════════════════════════════════ */
+
+/* Buka modal preview & kirim WA ke customer */
+function openWaConfirm(orderId, type){
+  var orders=getAllOrders();
+  var o=orders.find(function(x){return x.id===orderId;});
+  if(!o) return;
+
+  var tpl, title, icon;
+  if(type==='confirm'){
+    tpl=WA_CFG.tplConfirm; title='Kirim Konfirmasi via WA'; icon='✅';
+  } else if(type==='deliver'){
+    tpl=WA_CFG.tplDeliver; title='Kirim Info Akun via WA'; icon='📦';
+  } else if(type==='reject'){
+    tpl=WA_CFG.tplReject; title='Kirim Penolakan via WA'; icon='❌';
+  }
+
+  var akunText='';
+  if(type==='deliver'&&o.delivered&&o.delivered.length){
+    akunText=o.delivered.map(function(d){return (d.name?(d.name+' ('+d.plan+'):\n'):'')+'🔑 '+d.key;}).join('\n\n');
+  }
+
+  var extra={alasan:o.statusNote||'Pembayaran tidak valid',akun:akunText||'(akun belum diisi)'};
+  var msg=buildWaMsg(tpl,o,extra);
+
+  /* Coba parse nomor customer dari contact */
+  var custNum=extractPhoneNum(o.contact)||extractPhoneNum(o.userEmail||'');
+
+  var html='<div class="modal-title">'+icon+' '+title+'</div>'
+    +'<div class="modal-sub">'+o.id+' · '+o.name+'</div>'
+    +'<div><label class="flabel">Nomor WhatsApp Customer</label>'
+    +'<input class="finp" id="waCustNum" placeholder="6281234567890 atau 081234567890" value="'+(custNum||'')+'" style="margin-bottom:.55rem"></div>'
+    +'<div class="wa-preview-box">'
+    +'<div class="wa-preview-label"><i class="fab fa-whatsapp"></i> Preview Pesan</div>'
+    +'<div style="position:relative;display:inline-block">'
+    +'<div class="wa-bubble-tail"></div>'
+    +'<div class="wa-bubble" id="waMsgPreview">'+escHtml(msg)+'</div>'
+    +'</div></div>'
+    +'<div><label class="flabel">Edit Pesan (Opsional)</label>'
+    +'<textarea class="finp" id="waCustomMsg" style="min-height:120px" oninput="document.getElementById(\'waMsgPreview\').textContent=this.value">'+escHtml(msg)+'</textarea></div>'
+    +'<div class="modal-actions">'
+    +'<button class="modal-btn wa" onclick="doSendWa()"><i class="fab fa-whatsapp"></i>&nbsp;Buka WhatsApp & Kirim</button>'
+    +'<button class="modal-btn secondary" onclick="closeModal()">Batal</button>'
+    +'</div>';
+
+  openModal(html);
+}
+
+function doSendWa(){
+  var num=document.getElementById('waCustNum').value.trim();
+  var msg=document.getElementById('waCustomMsg').value.trim();
+  if(!num){toast('Masukkan nomor WhatsApp customer!','err');return;}
+  if(!msg){toast('Pesan tidak boleh kosong!','err');return;}
+  openWa(num,msg);
+  closeModal();
+  toast('📲 WhatsApp dibuka!','wa');
+}
+
+function extractPhoneNum(str){
+  if(!str)return '';
+  var m=str.match(/(\+?62|0)\d{8,13}/);
+  return m?m[0]:'';
+}
+
+function escHtml(s){
+  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+/* Modal kirim WA admin (notif manual) */
+function openWaAdminNotif(orderId){
+  var orders=getAllOrders();
+  var o=orders.find(function(x){return x.id===orderId;});
+  if(!o)return;
+  var msg=buildWaMsg(WA_CFG.tplNewOrder,o);
+  var adminNum=WA_CFG.adminNumber||'';
+
+  var html='<div class="modal-title">📲 Notif ke Admin WA</div>'
+    +'<div class="modal-sub">Kirim notifikasi order ini ke nomor admin</div>'
+    +'<div><label class="flabel">Nomor Admin WhatsApp</label>'
+    +'<input class="finp" id="waAdminNumInp" placeholder="6281234567890" value="'+adminNum+'" style="margin-bottom:.55rem"></div>'
+    +'<div class="wa-preview-box">'
+    +'<div class="wa-preview-label"><i class="fab fa-whatsapp"></i> Preview</div>'
+    +'<div style="position:relative;display:inline-block">'
+    +'<div class="wa-bubble-tail"></div>'
+    +'<div class="wa-bubble">'+escHtml(msg)+'</div>'
+    +'</div></div>'
+    +'<div class="modal-actions">'
+    +'<button class="modal-btn wa" onclick="var n=document.getElementById(\'waAdminNumInp\').value.trim();openWa(n,\''+encodeURIComponent(msg)+'\'.length?decodeURIComponent(\''+encodeURIComponent(msg)+'\'):\'test\');closeModal();toast(\'📲 WA dibuka!\',\'wa\')"><i class="fab fa-whatsapp"></i>&nbsp;Kirim ke Admin</button>'
+    +'<button class="modal-btn secondary" onclick="closeModal()">Batal</button>'
+    +'</div>';
+  openModal(html);
+}
+
+/* ─── Login UI ─── */
 document.getElementById('pwToggle').onclick=function(){
   var p=document.getElementById('loginPass');
   var ico=document.getElementById('pwEyeIco');
@@ -482,7 +724,7 @@ function doLogin(){
       document.getElementById('loginPage').style.display='none';
       var ap=document.getElementById('adminPage');
       ap.style.display='flex';
-      loadAll();goPage('dashboard');startClock();
+      loadAll();goPage('dashboard');startClock();updateWaTopBtn();
     } else {
       al.classList.add('on');
       document.getElementById('loginAlertMsg').textContent='Username atau password salah!';
@@ -512,7 +754,7 @@ function startClock(){
   tick();setInterval(tick,1000);
 }
 
-/* ─── Navigasi halaman ─── */
+/* ─── Navigasi ─── */
 var curPage='dashboard', ordFilter='all', ordSearch='';
 var PAGE_INFO={
   dashboard:{t:'Dashboard',s:'Ringkasan bisnis'},
@@ -526,12 +768,12 @@ function goPage(p){
   document.querySelectorAll('.bn-item').forEach(function(b){b.classList.toggle('active',b.dataset.p===p);});
   var info=PAGE_INFO[p];
   document.getElementById('tbTitle').textContent=info.t;
-  loadAll();updateBadge();
+  loadAll();updateBadge();updateWaTopBtn();
   var el=document.getElementById('pageScroll');el.scrollTop=0;
-  if(p==='dashboard') renderDashboard();
-  else if(p==='orders') renderOrders();
-  else if(p==='stock') renderStock();
-  else if(p==='settings') renderSettings();
+  if(p==='dashboard')renderDashboard();
+  else if(p==='orders')renderOrders();
+  else if(p==='stock')renderStock();
+  else if(p==='settings')renderSettings();
 }
 
 function updateBadge(){
@@ -542,7 +784,6 @@ function updateBadge(){
   if(n>0){b.classList.add('on');b.textContent=n;}else{b.classList.remove('on');}
 }
 
-/* Dapatkan semua order sudah dinormalisasi */
 function getAllOrders(){
   var rawOrders=[];
   try{var o=localStorage.getItem('wxvn_ord');rawOrders=o?JSON.parse(o):[];}catch(e){}
@@ -558,7 +799,29 @@ function renderDashboard(){
   var revenue=orders.filter(function(o){return o.status==='confirmed'||o.status==='delivered';}).reduce(function(s,o){return s+o.total;},0);
   var totalStk=Object.values(STOCK).reduce(function(s,a){return s+a.length;},0);
 
-  var html='<div class="stats-row">'
+  /* WhatsApp setup banner */
+  var waBanner='';
+  if(!WA_CFG.adminNumber){
+    waBanner='<div class="wa-setup-banner" onclick="goPage(\'settings\')" style="cursor:pointer">'
+      +'<div class="wa-setup-ico"><i class="fab fa-whatsapp"></i></div>'
+      +'<div class="wa-setup-body">'
+      +'<div class="wa-setup-title">⚡ Setup WhatsApp Notifikasi</div>'
+      +'<div class="wa-setup-sub">Daftarkan nomor WA admin untuk menerima notifikasi order baru otomatis.</div>'
+      +'<div class="wa-setup-btn"><i class="fas fa-arrow-right"></i>&nbsp;Setup Sekarang</div>'
+      +'</div></div>';
+  } else {
+    waBanner='<div class="wa-setup-banner configured">'
+      +'<div class="wa-setup-ico"><i class="fab fa-whatsapp"></i></div>'
+      +'<div class="wa-setup-body">'
+      +'<div class="wa-setup-title">WhatsApp Notifikasi '+(WA_CFG.notifEnabled?'<span style="color:var(--wa);font-size:.75rem">● AKTIF</span>':'<span style="color:var(--err);font-size:.75rem">● MATI</span>')+'</div>'
+      +'<div class="wa-setup-sub">Notif order baru '+(WA_CFG.notifEnabled?'aktif':'nonaktif')+' · Auto-open: '+(WA_CFG.autoOpen?'Ya':'Tidak')+'</div>'
+      +'<div class="wa-setup-num">+'+WA_CFG.adminNumber+'</div>'
+      +'<div class="wa-setup-btn" onclick="goPage(\'settings\')" style="cursor:pointer"><i class="fas fa-cog"></i>&nbsp;Kelola Pengaturan</div>'
+      +'</div></div>';
+  }
+
+  var html=waBanner;
+  html+='<div class="stats-row">'
     +'<div class="stat-card"><div class="stat-glow" style="background:var(--sp)"></div>'
     +'<div class="stat-ico" style="background:rgba(30,215,96,.1);color:var(--sp)"><i class="fas fa-shopping-bag"></i></div>'
     +'<div class="stat-num">'+total+'</div><div class="stat-lbl">Total Order</div></div>'
@@ -645,7 +908,6 @@ function renderOrders(){
 
 function fpill(val,lbl){return '<button class="fpill'+(ordFilter===val?' on':'')+'" onclick="setFilt(\''+val+'\')">'+lbl+'</button>';}
 function setFilt(v){ordFilter=v;renderOrders();}
-
 function getStInfo(s){
   var m={pending:{cls:'b-pending',ico:'⏳',lbl:'Pending'},confirmed:{cls:'b-confirmed',ico:'✅',lbl:'Dikonfirmasi'},delivered:{cls:'b-delivered',ico:'🎉',lbl:'Terkirim'},rejected:{cls:'b-rejected',ico:'❌',lbl:'Ditolak'}};
   return m[s]||m.pending;
@@ -655,22 +917,35 @@ function renderOrderCard(o){
   var st=getStInfo(o.status);
   var itemTxt=o.items.map(function(i){
     var part=i.name;
-    if(i.plan&&i.plan!=='—') part+=' ('+i.plan+')';
+    if(i.plan&&i.plan!=='—')part+=' ('+i.plan+')';
     return part;
   }).join(' · ');
   var sourceBadge=o.isGuest
     ?'<span class="o-source guest">Tamu</span>'
     :(o.userId?'<span class="o-source user">User</span>':'');
+
   var acts='';
   if(o.status==='pending'){
     acts+='<button class="abtn confirm" onclick="confirmOrder(\''+o.id+'\')"><i class="fas fa-check"></i> Konfirmasi</button>';
+    /* WA: Konfirmasi via WA */
+    acts+='<button class="abtn wa" title="Konfirmasi via WhatsApp" onclick="openWaConfirm(\''+o.id+'\',\'confirm\')"><i class="fab fa-whatsapp"></i></button>';
     acts+='<button class="abtn reject" onclick="openReject(\''+o.id+'\')"><i class="fas fa-times"></i></button>';
   }
   if(o.status==='confirmed'){
     acts+='<button class="abtn deliver" onclick="openDeliver(\''+o.id+'\')"><i class="fas fa-paper-plane"></i> Kirim Akun</button>';
+    /* WA: Kirim notif konfirmasi ke customer */
+    acts+='<button class="abtn wa" title="Beritahu Customer via WA" onclick="openWaConfirm(\''+o.id+'\',\'confirm\')"><i class="fab fa-whatsapp"></i></button>';
+  }
+  if(o.status==='delivered'){
+    /* WA: Kirim akun via WA */
+    acts+='<button class="abtn wa" title="Kirim Akun via WhatsApp" onclick="openWaConfirm(\''+o.id+'\',\'deliver\')"><i class="fab fa-whatsapp"></i> WA</button>';
+  }
+  if(o.status==='rejected'){
+    acts+='<button class="abtn wa" title="Beritahu via WA" onclick="openWaConfirm(\''+o.id+'\',\'reject\')"><i class="fab fa-whatsapp"></i></button>';
   }
   acts+='<button class="abtn ghost" onclick="viewOrder(\''+o.id+'\')"><i class="fas fa-eye"></i></button>';
   acts+='<button class="abtn del" onclick="deleteOrder(\''+o.id+'\')"><i class="fas fa-trash"></i></button>';
+
   return '<div class="o-card">'
     +'<div class="o-card-top"><div><div class="o-id">'+o.id+' '+sourceBadge+'</div><div class="o-name">'+o.name+'</div><div class="o-contact">'+o.contact+(o.userEmail?' · '+o.userEmail:'')+'</div></div>'
     +'<span class="badge '+st.cls+'">'+st.ico+' '+st.lbl+'</span></div>'
@@ -679,18 +954,26 @@ function renderOrderCard(o){
     +'</div>';
 }
 
-function updateOrderStatus(id, fields){
-  /* Update di localStorage langsung agar toko juga ikut update */
-  saveOrderById(id, fields);
+function updateOrderStatus(id,fields){
+  saveOrderById(id,fields);
   loadAll();
 }
 
 function confirmOrder(id){
   updateOrderStatus(id,{status:'confirmed'});
   updateBadge();
+  /* Auto notif WA ke admin jika nomor ada */
+  var orders=getAllOrders();
+  var o=orders.find(function(x){return x.id===id;});
+  if(o&&WA_CFG.adminNumber&&WA_CFG.notifEnabled){
+    /* Notif admin bahwa order sudah dikonfirmasi */
+    var msg='✅ *Order Dikonfirmasi*\n\nID: '+o.id+'\nNama: '+o.name+'\nProduk: '+(o.items?o.items.map(function(i){return i.name;}).join(', '):'—')+'\nTotal: '+fmt(o.total)+'\n\n📦 Siapkan akun untuk dikirimkan.';
+    if(WA_CFG.autoOpen) openWa(WA_CFG.adminNumber,msg);
+  }
   if(curPage==='orders')renderOrders();else renderDashboard();
   toast('✅ Order '+id+' dikonfirmasi!');
 }
+
 function confirmAllPending(){
   var rawOrders=[];
   try{var o=localStorage.getItem('wxvn_ord');rawOrders=o?JSON.parse(o):[];}catch(e){}
@@ -701,6 +984,7 @@ function confirmAllPending(){
   if(curPage==='orders')renderOrders();else renderDashboard();
   toast('✅ '+n+' order dikonfirmasi!');
 }
+
 function deleteOrder(id){
   if(!confirm('Hapus order '+id+'?'))return;
   var rawOrders=[];
@@ -711,17 +995,33 @@ function deleteOrder(id){
   if(curPage==='orders')renderOrders();else renderDashboard();
   toast('Order dihapus','err');
 }
+
 function openReject(id){
   openModal('<div class="modal-title">❌ Tolak Order</div><div class="modal-sub">'+id+'</div>'
     +'<div><label class="flabel">ALASAN PENOLAKAN</label><input class="finp" id="rejReason" placeholder="Contoh: Bukti transfer tidak valid..."></div>'
-    +'<div class="modal-actions"><button class="modal-btn danger" onclick="doReject(\''+id+'\')"><i class="fas fa-times"></i>&nbsp;Tolak Order</button><button class="modal-btn secondary" onclick="closeModal()">Batal</button></div>');
+    +'<div class="modal-actions">'
+    +'<button class="modal-btn danger" onclick="doReject(\''+id+'\')"><i class="fas fa-times"></i>&nbsp;Tolak Order</button>'
+    +'<button class="modal-btn wa-outline" onclick="doRejectAndWa(\''+id+'\')"><i class="fab fa-whatsapp"></i>&nbsp;Tolak & Beritahu WA</button>'
+    +'<button class="modal-btn secondary" onclick="closeModal()">Batal</button>'
+    +'</div>');
 }
+
 function doReject(id){
   var r=document.getElementById('rejReason').value.trim()||'Pembayaran tidak valid';
   updateOrderStatus(id,{status:'rejected',statusNote:r});
   loadAll();updateBadge();closeModal();
   if(curPage==='orders')renderOrders();else renderDashboard();
   toast('Order ditolak','warn');
+}
+
+function doRejectAndWa(id){
+  var r=document.getElementById('rejReason').value.trim()||'Pembayaran tidak valid';
+  updateOrderStatus(id,{status:'rejected',statusNote:r});
+  loadAll();updateBadge();closeModal();
+  if(curPage==='orders')renderOrders();else renderDashboard();
+  toast('Order ditolak','warn');
+  /* Buka WA modal pengiriman notif ke customer */
+  setTimeout(function(){openWaConfirm(id,'reject');},350);
 }
 
 function openDeliver(id){
@@ -737,10 +1037,13 @@ function openDeliver(id){
       +'<textarea class="finp" id="dk_'+i+'" placeholder="email:password atau kode akun..." style="min-height:65px">'+(stk.length?stk[0]:'')+'</textarea></div>';
   }).join('');
   openModal('<div class="modal-title">📦 Kirim Akun</div><div class="modal-sub">'+o.name+' · '+o.contact+'</div>'+iHtml
-    +'<div class="modal-actions"><button class="modal-btn gold" onclick="doDeliver(\''+id+'\')"><i class="fas fa-paper-plane"></i>&nbsp;Kirim & Selesaikan</button><button class="modal-btn secondary" onclick="closeModal()">Batal</button></div>');
+    +'<div class="modal-actions">'
+    +'<button class="modal-btn gold" onclick="doDeliver(\''+id+'\')"><i class="fas fa-paper-plane"></i>&nbsp;Kirim & Selesaikan</button>'
+    +'<button class="modal-btn wa" onclick="doDeliverAndWa(\''+id+'\')"><i class="fab fa-whatsapp"></i>&nbsp;Kirim + WA Customer</button>'
+    +'<button class="modal-btn secondary" onclick="closeModal()">Batal</button></div>');
 }
 
-function doDeliver(id){
+function doDeliver(id, andWa){
   var orders=getAllOrders();
   var o=orders.find(function(x){return x.id===id;});if(!o)return;
   var delivered=[];var ok=true;
@@ -748,7 +1051,6 @@ function doDeliver(id){
     var el=document.getElementById('dk_'+i);if(!el)return;
     var val=el.value.trim();if(!val){ok=false;return;}
     delivered.push({name:item.name,plan:item.plan||'',brand:item.brand||'',key:val});
-    /* Kurangi stok admin jika brand ada */
     if(item.brand){
       var k=sKey(item.brand,item.plan||'');
       if(STOCK[k]&&STOCK[k].length&&STOCK[k][0]===val){
@@ -757,12 +1059,18 @@ function doDeliver(id){
     }
   });
   if(!ok){toast('Isi semua kunci akun!','err');return;}
-  /* Buat activation key */
   var aKey=delivered.map(function(d){return d.key;}).join('\n---\n');
   updateOrderStatus(id,{status:'delivered',delivered:delivered,activationKey:aKey});
   loadAll();updateBadge();closeModal();
   if(curPage==='orders')renderOrders();else renderDashboard();
   toast('🎉 Akun terkirim ke '+o.name+'!');
+  if(andWa){
+    setTimeout(function(){openWaConfirm(id,'deliver');},350);
+  }
+}
+
+function doDeliverAndWa(id){
+  doDeliver(id,true);
 }
 
 function viewOrder(id){
@@ -784,13 +1092,25 @@ function viewOrder(id){
     });
     delHtml+='</div>';
   }
-  /* Tampilkan activation key dari toko (jika ada) */
   if(o.activationKey&&(!o.delivered||!o.delivered.length)){
     delHtml='<div style="margin-top:.85rem;background:rgba(30,215,96,.06);border:1px solid rgba(30,215,96,.15);border-radius:10px;padding:.82rem">'
       +'<div style="font-family:\'JetBrains Mono\',monospace;font-size:.62rem;color:var(--muted);margin-bottom:.5rem">KEY AKTIVASI</div>'
       +'<div style="font-family:\'JetBrains Mono\',monospace;font-size:.76rem;color:var(--sp);word-break:break-all">'+o.activationKey+'</div></div>';
   }
   var guestNote=o.isGuest?'<div style="background:rgba(255,165,2,.06);border:1px solid rgba(255,165,2,.15);border-radius:8px;padding:.4rem .7rem;font-size:.72rem;color:var(--warn);margin-bottom:.6rem">👤 Order dari tamu (guest)</div>':'';
+
+  /* WA actions di detail */
+  var waActions='';
+  if(o.status==='pending'){
+    waActions='<button class="modal-btn wa-outline" onclick="closeModal();setTimeout(function(){openWaConfirm(\''+o.id+'\',\'confirm\')},250)"><i class="fab fa-whatsapp"></i>&nbsp;Konfirmasi via WA</button>';
+  } else if(o.status==='confirmed'){
+    waActions='<button class="modal-btn wa-outline" onclick="closeModal();setTimeout(function(){openWaConfirm(\''+o.id+'\',\'confirm\')},250)"><i class="fab fa-whatsapp"></i>&nbsp;Beritahu Customer WA</button>';
+  } else if(o.status==='delivered'){
+    waActions='<button class="modal-btn wa-outline" onclick="closeModal();setTimeout(function(){openWaConfirm(\''+o.id+'\',\'deliver\')},250)"><i class="fab fa-whatsapp"></i>&nbsp;Kirim Ulang Akun via WA</button>';
+  } else if(o.status==='rejected'){
+    waActions='<button class="modal-btn wa-outline" onclick="closeModal();setTimeout(function(){openWaConfirm(\''+o.id+'\',\'reject\')},250)"><i class="fab fa-whatsapp"></i>&nbsp;Beritahu via WA</button>';
+  }
+
   openModal('<div class="modal-title">Detail Order</div>'
     +'<div class="modal-sub" style="margin-bottom:.85rem"><span style="font-family:\'JetBrains Mono\',monospace;color:var(--sp);font-size:.75rem">'+o.id+'</span> · '+o.date+'</div>'
     +guestNote
@@ -802,7 +1122,7 @@ function viewOrder(id){
     +'<div style="display:flex;justify-content:space-between;font-weight:700;margin-top:.5rem;padding-top:.5rem;border-top:1px solid var(--border)"><span>Total</span><span style="color:var(--sp)">'+fmt(o.total)+'</span></div></div>'
     +(o.statusNote?'<div style="background:rgba(255,71,87,.06);border:1px solid rgba(255,71,87,.15);border-radius:8px;padding:.5rem .75rem;font-size:.74rem;color:var(--err);margin-bottom:.7rem">Alasan: '+o.statusNote+'</div>':'')
     +delHtml
-    +'<div class="modal-actions"><button class="modal-btn secondary" onclick="closeModal()"><i class="fas fa-times"></i>&nbsp;Tutup</button></div>');
+    +'<div class="modal-actions">'+waActions+'<button class="modal-btn secondary" onclick="closeModal()"><i class="fas fa-times"></i>&nbsp;Tutup</button></div>');
 }
 
 /* ─── Stok ─── */
@@ -829,7 +1149,7 @@ function renderStock(){
   });
   html+='</div>';
   html+='<div class="import-card"><div class="import-title"><i class="fas fa-file-import" style="color:var(--gold)"></i>&nbsp;Import Stok Massal</div>'
-    +'<div class="import-sub">Tambah banyak akun sekaligus, satu akun per baris. Stok otomatis tersinkron ke toko.</div>'
+    +'<div class="import-sub">Tambah banyak akun sekaligus, satu akun per baris.</div>'
     +'<div class="form-row">'
     +'<div><label class="flabel">Produk</label><select class="finp" id="impBrand">'+PRODS.map(function(p){return '<option value="'+p.brand+'">'+p.name+'</option>';}).join('')+'</select></div>'
     +'<div><label class="flabel">Paket</label><select class="finp" id="impPlan"><option>1 Bulan</option><option>3 Bulan</option><option>6 Bulan</option><option>1 Tahun</option></select></div>'
@@ -851,8 +1171,7 @@ function doAddStk(brand,plan){
   if(!keys.length){toast('Masukkan minimal 1 akun','err');return;}
   var k=sKey(brand,plan);if(!STOCK[k])STOCK[k]=[];
   STOCK[k]=STOCK[k].concat(keys);
-  saveStock(); /* saveStock() otomatis sync ke toko */
-  closeModal();renderStock();
+  saveStock();closeModal();renderStock();
   toast('✅ '+keys.length+' akun ditambahkan & tersinkron ke toko!');
 }
 function viewStk(brand,name,plan){
@@ -882,37 +1201,168 @@ function doImport(){
   if(!keys.length){toast('Masukkan minimal 1 akun','err');return;}
   var k=sKey(brand,plan);if(!STOCK[k])STOCK[k]=[];
   STOCK[k]=STOCK[k].concat(keys);
-  saveStock();
-  document.getElementById('impKeys').value='';
+  saveStock();document.getElementById('impKeys').value='';
   renderStock();toast('✅ '+keys.length+' akun diimport & tersinkron ke toko!');
 }
 
-/* ─── Settings ─── */
+/* ═══════════════════════════════════════
+   SETTINGS (dengan WhatsApp section)
+═══════════════════════════════════════ */
 function renderSettings(){
   var rawOrders=[];
   try{var o=localStorage.getItem('wxvn_ord');rawOrders=o?JSON.parse(o):[];}catch(e){}
   var totStk=Object.values(STOCK).reduce(function(s,a){return s+a.length;},0);
-  var html='<div class="setting-block"><div class="setting-title">🔐 Kredensial Admin</div><div class="setting-sub">Ubah username dan password login</div>'
+
+  var html='';
+
+  /* ── WhatsApp Settings Block ── */
+  html+='<div class="setting-block wa-block">'
+    +'<div class="setting-title"><i class="fab fa-whatsapp"></i>&nbsp; WhatsApp Notifikasi</div>'
+    +'<div class="setting-sub">Konfigurasi notifikasi otomatis via WhatsApp untuk order baru & konfirmasi ke customer.</div>'
+
+    /* Nomor Admin */
+    +'<div><label class="flabel">Nomor WhatsApp Admin (untuk terima notif)</label>'
+    +'<input class="finp" id="waAdminNum" placeholder="Contoh: 081234567890 atau 6281234567890" value="'+(WA_CFG.adminNumber||'')+'" style="margin-bottom:.3rem">'
+    +'<div class="fhelp">Format: 6281234567890 (tanpa + dan spasi) · 0 di awal otomatis diganti 62</div></div>'
+
+    /* Toggle: notif enabled */
+    +'<div style="margin:.8rem 0">'
+    +'<div class="wa-toggle-row">'
+    +'<div class="wa-toggle-info">'
+    +'<div class="wa-toggle-title"><i class="fab fa-whatsapp" style="color:var(--wa)"></i> Notif Order Baru ke Admin</div>'
+    +'<div class="wa-toggle-sub">Admin WA dibuka otomatis saat ada order masuk</div></div>'
+    +'<label class="toggle-switch"><input type="checkbox" id="togNotif"'+(WA_CFG.notifEnabled?' checked':'')+' onchange="WA_CFG.notifEnabled=this.checked"><span class="toggle-slider"></span></label>'
+    +'</div>'
+
+    +'<div class="wa-toggle-row">'
+    +'<div class="wa-toggle-info">'
+    +'<div class="wa-toggle-title"><i class="fas fa-bolt" style="color:var(--gold)"></i> Auto-Open WhatsApp</div>'
+    +'<div class="wa-toggle-sub">Langsung buka WA saat notif (jika mati, simpan antrian dulu)</div></div>'
+    +'<label class="toggle-switch"><input type="checkbox" id="togAutoOpen"'+(WA_CFG.autoOpen?' checked':'')+' onchange="WA_CFG.autoOpen=this.checked"><span class="toggle-slider"></span></label>'
+    +'</div></div>'
+
+    /* Template messages */
+    +'<div style="margin-top:.6rem"><button class="sec-action" onclick="toggleWaTpls()" style="width:100%;justify-content:center"><i class="fas fa-sliders-h"></i>&nbsp; Edit Template Pesan WA</button></div>'
+    +'<div id="waTplsBlock" style="display:none">'
+    /* Template order baru */
+    +'<div class="tpl-block" style="margin-top:.65rem">'
+    +'<div class="tpl-title"><i class="fas fa-bell"></i> Template: Notif Order Baru (ke Admin)</div>'
+    +'<div class="tpl-vars">'
+    +['ORDER_ID','NAMA','PRODUK','TOTAL','KONTAK','WAKTU'].map(function(v){return '<span class="tpl-var" onclick="insertVar(\'tplNewOrder\',\'{'+v+'}\')">'+'{'+v+'}</span>';}).join('')
+    +'</div>'
+    +'<textarea class="finp" id="tplNewOrder" style="min-height:100px">'+WA_CFG.tplNewOrder+'</textarea></div>'
+
+    /* Template konfirmasi */
+    +'<div class="tpl-block">'
+    +'<div class="tpl-title"><i class="fas fa-check"></i> Template: Konfirmasi ke Customer</div>'
+    +'<div class="tpl-vars">'
+    +['ORDER_ID','NAMA','PRODUK','TOTAL'].map(function(v){return '<span class="tpl-var" onclick="insertVar(\'tplConfirm\',\'{'+v+'}\')">'+'{'+v+'}</span>';}).join('')
+    +'</div>'
+    +'<textarea class="finp" id="tplConfirm" style="min-height:100px">'+WA_CFG.tplConfirm+'</textarea></div>'
+
+    /* Template deliver */
+    +'<div class="tpl-block">'
+    +'<div class="tpl-title"><i class="fas fa-paper-plane"></i> Template: Kirim Akun ke Customer</div>'
+    +'<div class="tpl-vars">'
+    +['ORDER_ID','NAMA','PRODUK','AKUN'].map(function(v){return '<span class="tpl-var" onclick="insertVar(\'tplDeliver\',\'{'+v+'}\')">'+'{'+v+'}</span>';}).join('')
+    +'</div>'
+    +'<textarea class="finp" id="tplDeliver" style="min-height:110px">'+WA_CFG.tplDeliver+'</textarea></div>'
+
+    /* Template reject */
+    +'<div class="tpl-block">'
+    +'<div class="tpl-title"><i class="fas fa-times"></i> Template: Penolakan ke Customer</div>'
+    +'<div class="tpl-vars">'
+    +['ORDER_ID','NAMA','ALASAN'].map(function(v){return '<span class="tpl-var" onclick="insertVar(\'tplReject\',\'{'+v+'}\')">'+'{'+v+'}</span>';}).join('')
+    +'</div>'
+    +'<textarea class="finp" id="tplReject" style="min-height:90px">'+WA_CFG.tplReject+'</textarea></div>'
+    +'</div>' /* end waTplsBlock */
+
+    +'<button class="green-btn" onclick="saveWaSettings()"><i class="fab fa-whatsapp"></i>&nbsp;Simpan Pengaturan WhatsApp</button>'
+
+    /* Test button */
+    +'<button class="green-btn" style="background:rgba(37,211,102,.15);color:var(--wa);border:1px solid rgba(37,211,102,.3);margin-top:.45rem" onclick="testWaNotif()"><i class="fas fa-paper-plane"></i>&nbsp;Kirim Pesan Test ke Admin</button>'
+    +'</div>';
+
+  /* ── Kredensial ── */
+  html+='<div class="setting-block"><div class="setting-title">🔐 Kredensial Admin</div><div class="setting-sub">Ubah username dan password login</div>'
     +'<div><label class="flabel">Username Baru</label><input class="finp" id="newUser" value="'+CREDS.user+'" style="margin-bottom:.65rem"></div>'
     +'<div><label class="flabel">Password Baru</label><input class="finp" type="password" id="newPass" placeholder="Kosongkan jika tidak diubah" style="margin-bottom:.65rem"></div>'
     +'<div><label class="flabel">Konfirmasi Password</label><input class="finp" type="password" id="confPass" placeholder="Ulangi password baru"></div>'
-    +'<button class="green-btn" onclick="doSaveCreds()"><i class="fas fa-save"></i>&nbsp;Simpan Kredensial</button></div>'
-    +'<div class="setting-block"><div class="setting-title">🗑️ Manajemen Data</div><div class="setting-sub">Hapus atau reset data toko</div>'
+    +'<button class="green-btn" onclick="doSaveCreds()"><i class="fas fa-save"></i>&nbsp;Simpan Kredensial</button></div>';
+
+  /* ── Data Management ── */
+  html+='<div class="setting-block"><div class="setting-title">🗑️ Manajemen Data</div><div class="setting-sub">Hapus atau reset data toko</div>'
     +'<div class="danger-zone">'
     +'<button class="danger-btn" onclick="clearDoneOrders()"><i class="fas fa-broom"></i>&nbsp;Hapus Order Selesai & Ditolak</button>'
     +'<button class="danger-btn" onclick="clearAllOrders()"><i class="fas fa-times-circle"></i>&nbsp;Hapus SEMUA Order</button>'
     +'<button class="danger-btn" onclick="clearAllStk()"><i class="fas fa-trash-alt"></i>&nbsp;Reset Semua Stok</button>'
-    +'</div></div>'
-    +'<div class="setting-block"><div class="setting-title">ℹ️ Info Sistem</div><div class="info-grid">'
+    +'</div></div>';
+
+  /* ── Info Sistem ── */
+  html+='<div class="setting-block"><div class="setting-title">ℹ️ Info Sistem</div><div class="info-grid">'
     +'<div class="info-row"><span class="info-key">Status</span><span class="info-val" style="color:var(--sp)">🟢 Online</span></div>'
     +'<div class="info-row"><span class="info-key">Total Order</span><span class="info-val">'+rawOrders.length+'</span></div>'
     +'<div class="info-row"><span class="info-key">Total Stok</span><span class="info-val">'+totStk+' akun</span></div>'
     +'<div class="info-row"><span class="info-key">Total Produk</span><span class="info-val" style="color:var(--sp)">21 produk</span></div>'
+    +'<div class="info-row"><span class="info-key">WA Notif</span><span class="info-val" style="color:'+(WA_CFG.adminNumber&&WA_CFG.notifEnabled?'var(--wa)':'var(--muted)')+'">'+(WA_CFG.adminNumber&&WA_CFG.notifEnabled?'✅ Aktif':'⚪ Nonaktif')+'</span></div>'
     +'<div class="info-row"><span class="info-key">Storage</span><span class="info-val">localStorage (shared)</span></div>'
-    +'<div class="info-row"><span class="info-key">Versi Panel</span><span class="info-val" style="color:var(--gold)">v2.0.0</span></div>'
+    +'<div class="info-row"><span class="info-key">Versi Panel</span><span class="info-val" style="color:var(--gold)">v2.1.0-WA</span></div>'
     +'<div class="info-row"><span class="info-key">Link Toko</span><a href="index.html" target="_blank" style="color:var(--sp);font-size:.78rem;font-weight:600">Buka Toko <i class="fas fa-external-link-alt"></i></a></div>'
     +'</div></div>';
+
   document.getElementById('pageScroll').innerHTML=html;
+}
+
+function toggleWaTpls(){
+  var el=document.getElementById('waTplsBlock');
+  if(el)el.style.display=(el.style.display==='none'?'block':'none');
+}
+
+function insertVar(fieldId, varStr){
+  var el=document.getElementById(fieldId);
+  if(!el)return;
+  var start=el.selectionStart, end=el.selectionEnd;
+  el.value=el.value.substring(0,start)+varStr+el.value.substring(end);
+  el.focus();el.setSelectionRange(start+varStr.length,start+varStr.length);
+}
+
+function saveWaSettings(){
+  var num=document.getElementById('waAdminNum').value.trim();
+  WA_CFG.adminNumber=formatWaNum(num)||num;
+  WA_CFG.notifEnabled=document.getElementById('togNotif').checked;
+  WA_CFG.autoOpen=document.getElementById('togAutoOpen').checked;
+  /* Simpan templates jika blok terbuka */
+  var tplBlock=document.getElementById('waTplsBlock');
+  if(tplBlock&&tplBlock.style.display!=='none'){
+    var t1=document.getElementById('tplNewOrder');
+    var t2=document.getElementById('tplConfirm');
+    var t3=document.getElementById('tplDeliver');
+    var t4=document.getElementById('tplReject');
+    if(t1)WA_CFG.tplNewOrder=t1.value;
+    if(t2)WA_CFG.tplConfirm=t2.value;
+    if(t3)WA_CFG.tplDeliver=t3.value;
+    if(t4)WA_CFG.tplReject=t4.value;
+  }
+  saveWaCfg();
+  updateWaTopBtn();
+  renderSettings();
+  toast('✅ Pengaturan WhatsApp disimpan!','wa');
+}
+
+function testWaNotif(){
+  var num=document.getElementById('waAdminNum').value.trim();
+  if(!num){toast('Masukkan nomor WA admin dulu!','err');return;}
+  var testOrder={
+    id:'TEST-'+Date.now(),
+    name:'Customer Test',
+    items:[{name:'Spotify Premium',plan:'1 Bulan'}],
+    total:29000,
+    contact:'081234567890',
+    date:new Date().toLocaleString('id-ID')
+  };
+  var msg=buildWaMsg(WA_CFG.tplNewOrder||'🛍️ *ORDER BARU!*\n\nID: {ORDER_ID}\nNama: {NAMA}\nProduk: {PRODUK}\nTotal: {TOTAL}',testOrder);
+  openWa(num,msg);
+  toast('📲 Pesan test dikirim!','wa');
 }
 
 function doSaveCreds(){
@@ -941,6 +1391,49 @@ function clearAllStk(){
   STOCK={};saveStock();loadAll();renderSettings();toast('Semua stok direset','err');
 }
 
+/* ═══════════════════════════════════════
+   AUTO-DETECT ORDER BARU (Polling localStorage)
+   Deteksi order pending baru → trigger notif WA ke admin
+═══════════════════════════════════════ */
+var _lastOrderCount=-1;
+var _lastOrderIds=null;
+
+function checkNewOrders(){
+  if(document.getElementById('adminPage').style.display==='none')return;
+  var rawOrders=[];
+  try{var o=localStorage.getItem('wxvn_ord');rawOrders=o?JSON.parse(o):[];}catch(e){}
+  var pendingOrders=rawOrders.filter(function(o){return o.status==='pending';});
+  var currentIds=pendingOrders.map(function(o){return o.id;}).join(',');
+  if(_lastOrderIds===null){
+    _lastOrderIds=currentIds;
+    _lastOrderCount=pendingOrders.length;
+    return;
+  }
+  /* Cek order baru: ada ID yang belum ada sebelumnya */
+  var prevIds=_lastOrderIds?_lastOrderIds.split(',').filter(Boolean):[];
+  var newOrders=pendingOrders.filter(function(o){return!prevIds.includes(o.id);});
+  if(newOrders.length){
+    newOrders.forEach(function(o){
+      var normalized=normalizeOrder(o);
+      /* Notif WA ke admin */
+      if(WA_CFG.notifEnabled&&WA_CFG.adminNumber){
+        notifyAdminNewOrder(normalized);
+      } else {
+        toast('🛍️ Order baru: '+normalized.name+'! ('+normalized.id+')');
+      }
+    });
+    /* Refresh tampilan */
+    loadAll();updateBadge();
+    if(curPage==='orders')renderOrders();
+    else if(curPage==='dashboard')renderDashboard();
+    /* Efek pulse pada badge */
+    var badge=document.getElementById('pendBadge');
+    if(badge){badge.classList.add('wa-pulse');setTimeout(function(){badge.classList.remove('wa-pulse');},3000);}
+  }
+  _lastOrderIds=currentIds;
+  _lastOrderCount=pendingOrders.length;
+}
+
 /* ─── Modal ─── */
 function openModal(html){document.getElementById('modalBody').innerHTML=html;document.getElementById('modal').classList.add('on');}
 function closeModal(){document.getElementById('modal').classList.remove('on');}
@@ -950,13 +1443,15 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeModal()
 /* ─── Toast ─── */
 function toast(msg,type){
   var t=document.createElement('div');
-  t.className='toast'+(type==='err'?' err':type==='warn'?' warn':'');
-  t.innerHTML='<span>'+(type==='err'?'❌':type==='warn'?'⚠️':'✅')+'</span><span>'+msg+'</span>';
+  t.className='toast'+(type==='err'?' err':type==='warn'?' warn':type==='wa'?' wa':'');
+  t.innerHTML='<span>'+(type==='err'?'❌':type==='warn'?'⚠️':type==='wa'?'📲':'✅')+'</span><span>'+msg+'</span>';
   document.getElementById('toasts').appendChild(t);
-  setTimeout(function(){t.style.transition='all .3s';t.style.opacity='0';t.style.transform='translateY(8px)';setTimeout(function(){t.remove();},320);},3000);
+  setTimeout(function(){t.style.transition='all .3s';t.style.opacity='0';t.style.transform='translateY(8px)';setTimeout(function(){t.remove();},320);},3500);
 }
 
-/* ─── Refresh otomatis setiap 30 detik (tangkap order baru dari toko) ─── */
+/* ─── Polling: cek order baru tiap 10 detik ─── */
+setInterval(checkNewOrders, 10000);
+/* ─── Refresh badge tiap 30 detik ─── */
 setInterval(function(){
   if(document.getElementById('adminPage').style.display!=='none'){
     loadAll();updateBadge();
