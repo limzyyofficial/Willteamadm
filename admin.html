@@ -17,7 +17,6 @@
   --cv:#8B5CF6;--cvg:rgba(139,92,246,.12);
   --yt:#FF0000;--ytg:rgba(255,0,0,.12);
   --gpt:#10a37f;--gptg:rgba(16,163,127,.12);
-  --adobe:#FF0000;--adobeg:rgba(255,0,0,.10);
   --ms:#00a4ef;--msg:rgba(0,164,239,.12);
   --duo:#58cc02;--duog:rgba(88,204,2,.12);
   --vpn:#4687ff;--vpng:rgba(70,135,255,.12);
@@ -34,35 +33,35 @@ html{scroll-behavior:smooth}
 ::-webkit-scrollbar{width:3px;height:3px}
 ::-webkit-scrollbar-track{background:transparent}
 ::-webkit-scrollbar-thumb{background:var(--dim);border-radius:99px}
-body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--text);min-height:100vh;overflow-x:hidden;}
+body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--text);min-height:100vh;overflow-x:hidden}
 .mesh{position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse 600px 400px at 20% 10%,rgba(30,215,96,.03) 0%,transparent 60%),radial-gradient(ellipse 500px 400px at 80% 90%,rgba(139,92,246,.035) 0%,transparent 60%)}
 .grid-bg{position:fixed;inset:0;z-index:0;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.012) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.012) 1px,transparent 1px);background-size:48px 48px}
-#loginPage{position:fixed;inset:0;z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:1.2rem;background:var(--bg);}
+#loginPage{position:fixed;inset:0;z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:1.2rem;background:var(--bg)}
 .login-outer{width:100%;max-width:380px;animation:riseUp .55s cubic-bezier(.34,1.45,.64,1) both}
 @keyframes riseUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
 .login-brand{text-align:center;margin-bottom:1.8rem}
-.login-logo-mark{width:60px;height:60px;border-radius:18px;margin:0 auto .75rem;background:linear-gradient(135deg,rgba(30,215,96,.15),rgba(139,92,246,.15));border:1px solid rgba(30,215,96,.25);display:grid;place-items:center;font-size:1.6rem;}
+.login-logo-mark{width:60px;height:60px;border-radius:18px;margin:0 auto .75rem;background:linear-gradient(135deg,rgba(30,215,96,.15),rgba(139,92,246,.15));border:1px solid rgba(30,215,96,.25);display:grid;place-items:center;font-size:1.6rem}
 .login-wordmark{font-family:'Syne',sans-serif;font-size:1.5rem;font-weight:800;letter-spacing:-.5px}
 .login-wordmark em{color:var(--sp);font-style:normal}
 .login-tagline{font-family:'JetBrains Mono',monospace;font-size:.56rem;letter-spacing:3px;color:var(--muted);text-transform:uppercase;margin-top:.25rem}
-.login-card{background:var(--card);border:1px solid var(--border2);border-radius:var(--rxl);padding:1.8rem 1.6rem;position:relative;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.5),0 0 0 1px rgba(255,255,255,.03) inset;}
+.login-card{background:var(--card);border:1px solid var(--border2);border-radius:var(--rxl);padding:1.8rem 1.6rem;position:relative;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.5),0 0 0 1px rgba(255,255,255,.03) inset}
 .login-card-stripe{position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--sp),var(--gold),var(--cv),var(--nf))}
 .lc-head{margin-bottom:1.4rem}
 .lc-title{font-family:'Syne',sans-serif;font-size:1.05rem;font-weight:800}
 .lc-sub{font-size:.74rem;color:var(--muted);margin-top:.2rem}
 .field{margin-bottom:.85rem}
-.field-label{display:flex;align-items:center;gap:.38rem;font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:.38rem;}
+.field-label{display:flex;align-items:center;gap:.38rem;font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:.38rem}
 .field-wrap{position:relative}
-.field-ico{position:absolute;left:.82rem;top:50%;transform:translateY(-50%);color:var(--muted);font-size:.82rem;pointer-events:none;transition:color .2s;}
-.field-inp{width:100%;background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:10px;padding:.68rem .88rem .68rem 2.35rem;color:var(--text);font-family:'DM Sans',sans-serif;font-size:.9rem;outline:none;transition:var(--t);}
+.field-ico{position:absolute;left:.82rem;top:50%;transform:translateY(-50%);color:var(--muted);font-size:.82rem;pointer-events:none;transition:color .2s}
+.field-inp{width:100%;background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:10px;padding:.68rem .88rem .68rem 2.35rem;color:var(--text);font-family:'DM Sans',sans-serif;font-size:.9rem;outline:none;transition:var(--t)}
 .field-inp:focus{border-color:var(--sp);background:rgba(30,215,96,.04);box-shadow:0 0 0 3px rgba(30,215,96,.09)}
 .field-wrap:focus-within .field-ico{color:var(--sp)}
 .field-inp::placeholder{color:var(--dim)}
 .pw-toggle{position:absolute;right:.82rem;top:50%;transform:translateY(-50%);background:none;border:none;color:var(--muted);cursor:pointer;font-size:.85rem;padding:4px;transition:color .2s}
 .pw-toggle:hover{color:var(--sp)}
-.login-alert{display:none;align-items:center;gap:.45rem;background:rgba(255,71,87,.08);border:1px solid rgba(255,71,87,.2);border-radius:9px;padding:.55rem .78rem;font-size:.76rem;color:var(--err);margin-bottom:.85rem;}
+.login-alert{display:none;align-items:center;gap:.45rem;background:rgba(255,71,87,.08);border:1px solid rgba(255,71,87,.2);border-radius:9px;padding:.55rem .78rem;font-size:.76rem;color:var(--err);margin-bottom:.85rem}
 .login-alert.on{display:flex}
-.login-submit{width:100%;padding:.82rem;border-radius:var(--pill);background:linear-gradient(135deg,var(--sp),#38f9a0);border:none;font-family:'Syne',sans-serif;font-weight:800;font-size:.95rem;color:#000;cursor:pointer;transition:var(--t);display:flex;align-items:center;justify-content:center;gap:.45rem;position:relative;overflow:hidden;}
+.login-submit{width:100%;padding:.82rem;border-radius:var(--pill);background:linear-gradient(135deg,var(--sp),#38f9a0);border:none;font-family:'Syne',sans-serif;font-weight:800;font-size:.95rem;color:#000;cursor:pointer;transition:var(--t);display:flex;align-items:center;justify-content:center;gap:.45rem;position:relative;overflow:hidden}
 .login-submit::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.15),transparent);opacity:0;transition:opacity .2s}
 .login-submit:hover::before{opacity:1}
 .login-submit:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(30,215,96,.35)}
@@ -71,51 +70,53 @@ body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--text);min
 @keyframes spin{to{transform:rotate(360deg)}}
 .login-hint{text-align:center;font-size:.67rem;color:var(--dim);font-family:'JetBrains Mono',monospace;margin-top:.9rem}
 #adminPage{display:none;flex-direction:column;min-height:100vh}
-.topbar{position:sticky;top:0;z-index:100;background:rgba(7,8,15,.95);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:.75rem 1rem;display:flex;align-items:center;justify-content:space-between;gap:.6rem;}
+.topbar{position:sticky;top:0;z-index:100;background:rgba(7,8,15,.95);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:.75rem 1rem;display:flex;align-items:center;justify-content:space-between;gap:.6rem}
 .tb-brand{font-family:'Syne',sans-serif;font-size:1rem;font-weight:800;letter-spacing:-.3px}
 .tb-brand em{color:var(--sp);font-style:normal}
 .tb-mid{flex:1;text-align:center}
 .tb-page{font-family:'Syne',sans-serif;font-size:.88rem;font-weight:700}
 .tb-sub{font-size:.6rem;color:var(--muted);font-family:'JetBrains Mono',monospace}
 .tb-right{display:flex;align-items:center;gap:.45rem}
-.tb-pill{display:inline-flex;align-items:center;gap:.35rem;background:rgba(30,215,96,.08);border:1px solid rgba(30,215,96,.18);padding:.22rem .65rem;border-radius:99px;font-family:'JetBrains Mono',monospace;font-size:.58rem;color:var(--sp);}
+.tb-pill{display:inline-flex;align-items:center;gap:.35rem;background:rgba(30,215,96,.08);border:1px solid rgba(30,215,96,.18);padding:.22rem .65rem;border-radius:99px;font-family:'JetBrains Mono',monospace;font-size:.58rem;color:var(--sp)}
 .ldot{width:5px;height:5px;background:var(--sp);border-radius:50%;animation:blink 1.4s ease-in-out infinite}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.15}}
-.tb-icon-btn{width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.04);border:1px solid var(--border);display:grid;place-items:center;cursor:pointer;color:var(--muted);font-size:.82rem;transition:var(--t);}
+.tb-icon-btn{width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.04);border:1px solid var(--border);display:grid;place-items:center;cursor:pointer;color:var(--muted);font-size:.82rem;transition:var(--t)}
 .tb-icon-btn:hover{background:rgba(255,255,255,.1);color:var(--text)}
 .tb-icon-btn.danger:hover{background:rgba(255,71,87,.15);color:var(--err);border-color:rgba(255,71,87,.3)}
-.page-scroll{flex:1;overflow-y:auto;padding:1rem 1rem calc(var(--nav-h) + 1.5rem);position:relative;z-index:1;}
-.bottom-nav{position:fixed;bottom:0;left:0;right:0;z-index:200;height:var(--nav-h);background:rgba(7,8,15,.97);backdrop-filter:blur(24px);border-top:1px solid var(--border);display:flex;align-items:stretch;padding-bottom:env(safe-area-inset-bottom,0px);}
-.bn-item{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.22rem;cursor:pointer;transition:var(--t);position:relative;border:none;background:none;color:var(--muted);font-family:'DM Sans',sans-serif;padding:.3rem 0;}
+.tb-icon-btn.store-link{cursor:pointer}
+.tb-icon-btn.store-link:hover{background:rgba(30,215,96,.15);color:var(--sp);border-color:rgba(30,215,96,.3)}
+.page-scroll{flex:1;overflow-y:auto;padding:1rem 1rem calc(var(--nav-h) + 1.5rem);position:relative;z-index:1}
+.bottom-nav{position:fixed;bottom:0;left:0;right:0;z-index:200;height:var(--nav-h);background:rgba(7,8,15,.97);backdrop-filter:blur(24px);border-top:1px solid var(--border);display:flex;align-items:stretch;padding-bottom:env(safe-area-inset-bottom,0px)}
+.bn-item{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.22rem;cursor:pointer;transition:var(--t);position:relative;border:none;background:none;color:var(--muted);font-family:'DM Sans',sans-serif;padding:.3rem 0}
 .bn-item::before{content:'';position:absolute;top:0;left:20%;right:20%;height:2px;border-radius:99px;background:var(--sp);opacity:0;transition:opacity .2s}
 .bn-item.active{color:var(--sp)}
 .bn-item.active::before{opacity:1}
 .bn-ico{font-size:1.1rem;transition:transform .2s}
 .bn-item.active .bn-ico{transform:translateY(-1px)}
 .bn-lbl{font-size:.58rem;font-weight:600;letter-spacing:.5px;text-transform:uppercase;font-family:'JetBrains Mono',monospace}
-.bn-badge{position:absolute;top:.22rem;right:calc(50% - 14px);min-width:16px;height:16px;padding:0 4px;background:var(--err);border-radius:99px;font-size:.55rem;font-weight:700;color:#fff;display:none;place-items:center;border:2px solid var(--bg);font-family:'JetBrains Mono',monospace;}
+.bn-badge{position:absolute;top:.22rem;right:calc(50% - 14px);min-width:16px;height:16px;padding:0 4px;background:var(--err);border-radius:99px;font-size:.55rem;font-weight:700;color:#fff;display:none;place-items:center;border:2px solid var(--bg);font-family:'JetBrains Mono',monospace}
 .bn-badge.on{display:grid}
 .stats-row{display:grid;grid-template-columns:1fr 1fr;gap:.7rem;margin-bottom:1rem}
-.stat-card{background:var(--card);border:1px solid var(--border);border-radius:var(--rxl);padding:1rem;position:relative;overflow:hidden;transition:var(--t);}
+.stat-card{background:var(--card);border:1px solid var(--border);border-radius:var(--rxl);padding:1rem;position:relative;overflow:hidden;transition:var(--t)}
 .stat-card:active{transform:scale(.98)}
 .stat-glow{position:absolute;top:-20px;right:-20px;width:80px;height:80px;border-radius:50%;opacity:.12;filter:blur(20px)}
 .stat-ico{width:34px;height:34px;border-radius:9px;display:grid;place-items:center;font-size:.88rem;margin-bottom:.6rem}
 .stat-num{font-family:'Syne',sans-serif;font-size:1.6rem;font-weight:800;line-height:1}
 .stat-lbl{font-size:.68rem;color:var(--muted);margin-top:.22rem}
 .stat-note{font-size:.62rem;font-family:'JetBrains Mono',monospace;margin-top:.28rem}
-.sec{background:var(--card);border:1px solid var(--border);border-radius:var(--rxl);margin-bottom:.85rem;overflow:hidden;}
-.sec-top{display:flex;align-items:center;justify-content:space-between;padding:.85rem 1rem;border-bottom:1px solid var(--border);}
+.sec{background:var(--card);border:1px solid var(--border);border-radius:var(--rxl);margin-bottom:.85rem;overflow:hidden}
+.sec-top{display:flex;align-items:center;justify-content:space-between;padding:.85rem 1rem;border-bottom:1px solid var(--border)}
 .sec-title{font-family:'Syne',sans-serif;font-size:.88rem;font-weight:800;display:flex;align-items:center;gap:.45rem}
 .sec-body{padding:.85rem 1rem}
-.sec-action{display:inline-flex;align-items:center;gap:.3rem;font-size:.7rem;font-weight:600;color:var(--muted);background:rgba(255,255,255,.04);border:1px solid var(--border);padding:.28rem .72rem;border-radius:99px;cursor:pointer;transition:var(--t);}
+.sec-action{display:inline-flex;align-items:center;gap:.3rem;font-size:.7rem;font-weight:600;color:var(--muted);background:rgba(255,255,255,.04);border:1px solid var(--border);padding:.28rem .72rem;border-radius:99px;cursor:pointer;transition:var(--t)}
 .sec-action:hover{color:var(--text);background:rgba(255,255,255,.09)}
-.rev-hero{background:linear-gradient(135deg,rgba(30,215,96,.08),rgba(139,92,246,.06));border:1px solid rgba(30,215,96,.15);border-radius:var(--rxl);padding:1.2rem;margin-bottom:.85rem;text-align:center;position:relative;overflow:hidden;}
+.rev-hero{background:linear-gradient(135deg,rgba(30,215,96,.08),rgba(139,92,246,.06));border:1px solid rgba(30,215,96,.15);border-radius:var(--rxl);padding:1.2rem;margin-bottom:.85rem;text-align:center;position:relative;overflow:hidden}
 .rev-hero::before{content:'';position:absolute;top:-30px;left:50%;transform:translateX(-50%);width:200px;height:80px;background:rgba(30,215,96,.08);border-radius:50%;filter:blur(24px);pointer-events:none}
 .rev-label{font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:.5rem}
 .rev-amount{font-family:'Syne',sans-serif;font-size:2rem;font-weight:800;color:var(--sp)}
 .rev-sub{font-size:.7rem;color:var(--muted);margin-top:.3rem}
 .order-list{display:flex;flex-direction:column;gap:.6rem}
-.o-card{background:rgba(255,255,255,.025);border:1px solid var(--border);border-radius:var(--r);padding:.82rem .9rem;transition:var(--t);}
+.o-card{background:rgba(255,255,255,.025);border:1px solid var(--border);border-radius:var(--r);padding:.82rem .9rem;transition:var(--t)}
 .o-card:active{background:rgba(255,255,255,.04)}
 .o-card-top{display:flex;align-items:flex-start;justify-content:space-between;gap:.5rem;margin-bottom:.55rem}
 .o-id{font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--sp)}
@@ -127,12 +128,15 @@ body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--text);min
 .o-footer{display:flex;align-items:center;justify-content:space-between;gap:.45rem}
 .o-date{font-family:'JetBrains Mono',monospace;font-size:.62rem;color:var(--dim)}
 .o-actions{display:flex;gap:.35rem;flex-wrap:wrap}
+.o-source{font-family:'JetBrains Mono',monospace;font-size:.55rem;padding:.1rem .4rem;border-radius:4px}
+.o-source.guest{background:rgba(255,165,2,.1);color:var(--warn);border:1px solid rgba(255,165,2,.2)}
+.o-source.user{background:rgba(30,215,96,.08);color:var(--sp);border:1px solid rgba(30,215,96,.18)}
 .badge{display:inline-flex;align-items:center;gap:.25rem;font-family:'JetBrains Mono',monospace;font-size:.6rem;padding:.2rem .58rem;border-radius:99px;white-space:nowrap}
 .b-pending{background:rgba(255,165,2,.12);color:var(--warn);border:1px solid rgba(255,165,2,.25)}
 .b-confirmed{background:rgba(30,215,96,.12);color:var(--sp);border:1px solid rgba(30,215,96,.25)}
 .b-rejected{background:rgba(255,71,87,.12);color:var(--err);border:1px solid rgba(255,71,87,.25)}
 .b-delivered{background:rgba(139,92,246,.12);color:var(--cv);border:1px solid rgba(139,92,246,.25)}
-.abtn{display:inline-flex;align-items:center;gap:.28rem;padding:.3rem .72rem;border-radius:99px;border:1px solid var(--border);background:rgba(255,255,255,.04);color:var(--muted);font-size:.7rem;font-weight:600;cursor:pointer;transition:var(--t);font-family:'DM Sans',sans-serif;white-space:nowrap;}
+.abtn{display:inline-flex;align-items:center;gap:.28rem;padding:.3rem .72rem;border-radius:99px;border:1px solid var(--border);background:rgba(255,255,255,.04);color:var(--muted);font-size:.7rem;font-weight:600;cursor:pointer;transition:var(--t);font-family:'DM Sans',sans-serif;white-space:nowrap}
 .abtn:active{transform:scale(.96)}
 .abtn.confirm{background:rgba(30,215,96,.1);border-color:rgba(30,215,96,.25);color:var(--sp)}
 .abtn.deliver{background:rgba(139,92,246,.1);border-color:rgba(139,92,246,.25);color:var(--cv)}
@@ -141,14 +145,14 @@ body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--text);min
 .abtn.del{color:var(--err)}
 .filter-scroll{display:flex;gap:.4rem;overflow-x:auto;padding-bottom:.3rem;margin-bottom:.85rem;scrollbar-width:none}
 .filter-scroll::-webkit-scrollbar{display:none}
-.fpill{flex-shrink:0;padding:.35rem .85rem;border-radius:99px;border:1px solid var(--border);background:rgba(255,255,255,.03);color:var(--muted);font-size:.74rem;font-weight:600;cursor:pointer;transition:var(--t);}
+.fpill{flex-shrink:0;padding:.35rem .85rem;border-radius:99px;border:1px solid var(--border);background:rgba(255,255,255,.03);color:var(--muted);font-size:.74rem;font-weight:600;cursor:pointer;transition:var(--t)}
 .fpill.on{background:var(--text);color:#000;border-color:var(--text)}
-.search-bar{width:100%;background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:10px;padding:.58rem .82rem;color:var(--text);font-family:'DM Sans',sans-serif;font-size:.88rem;outline:none;transition:var(--t);margin-bottom:.85rem;}
+.search-bar{width:100%;background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:10px;padding:.58rem .82rem;color:var(--text);font-family:'DM Sans',sans-serif;font-size:.88rem;outline:none;transition:var(--t);margin-bottom:.85rem}
 .search-bar:focus{border-color:var(--sp)}
 .search-bar::placeholder{color:var(--dim)}
 .stk-list{display:flex;flex-direction:column;gap:.7rem}
-.stk-card{background:rgba(255,255,255,.025);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;}
-.stk-head{display:flex;align-items:center;gap:.65rem;padding:.75rem .9rem;border-bottom:1px solid var(--border);background:rgba(255,255,255,.018);}
+.stk-card{background:rgba(255,255,255,.025);border:1px solid var(--border);border-radius:var(--r);overflow:hidden}
+.stk-head{display:flex;align-items:center;gap:.65rem;padding:.75rem .9rem;border-bottom:1px solid var(--border);background:rgba(255,255,255,.018)}
 .stk-icon{width:36px;height:36px;border-radius:9px;display:grid;place-items:center;font-size:.95rem;flex-shrink:0}
 .stk-icon.spotify{background:var(--spg);color:var(--sp)}
 .stk-icon.netflix{background:var(--nfg);color:var(--nf)}
@@ -169,36 +173,36 @@ body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--text);min
 .stk-cnt{font-family:'Syne',sans-serif;font-weight:700;font-size:.82rem;margin-right:.5rem}
 .stk-cnt.ok{color:var(--sp)}.stk-cnt.warn{color:var(--warn)}.stk-cnt.empty{color:var(--err)}
 .stk-row-acts{display:flex;gap:.3rem}
-.import-card{background:rgba(255,255,255,.025);border:1px solid rgba(30,215,96,.12);border-radius:var(--r);padding:.9rem;margin-top:.85rem;}
+.import-card{background:rgba(255,255,255,.025);border:1px solid rgba(30,215,96,.12);border-radius:var(--r);padding:.9rem;margin-top:.85rem}
 .import-title{font-family:'Syne',sans-serif;font-weight:700;font-size:.85rem;margin-bottom:.2rem;display:flex;align-items:center;gap:.4rem}
 .import-sub{font-size:.72rem;color:var(--muted);margin-bottom:.85rem}
 .form-row{display:flex;gap:.55rem;margin-bottom:.7rem}
 .form-row>*{flex:1}
 .flabel{font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-bottom:.3rem;display:block}
-.finp{width:100%;background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:9px;padding:.58rem .75rem;color:var(--text);font-family:'DM Sans',sans-serif;font-size:.85rem;outline:none;transition:var(--t);}
+.finp{width:100%;background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:9px;padding:.58rem .75rem;color:var(--text);font-family:'DM Sans',sans-serif;font-size:.85rem;outline:none;transition:var(--t)}
 .finp:focus{border-color:var(--sp);box-shadow:0 0 0 3px rgba(30,215,96,.09)}
 .finp::placeholder{color:var(--dim)}
 select.finp{cursor:pointer}
 textarea.finp{resize:vertical;min-height:90px;font-family:'JetBrains Mono',monospace;font-size:.76rem;line-height:1.7}
 .fhelp{font-size:.65rem;color:var(--dim);font-family:'JetBrains Mono',monospace;margin-top:.28rem}
-.green-btn{width:100%;padding:.72rem;border-radius:var(--pill);background:var(--sp);border:none;font-family:'Syne',sans-serif;font-weight:800;font-size:.88rem;color:#000;cursor:pointer;transition:var(--t);display:flex;align-items:center;justify-content:center;gap:.4rem;margin-top:.65rem;}
+.green-btn{width:100%;padding:.72rem;border-radius:var(--pill);background:var(--sp);border:none;font-family:'Syne',sans-serif;font-weight:800;font-size:.88rem;color:#000;cursor:pointer;transition:var(--t);display:flex;align-items:center;justify-content:center;gap:.4rem;margin-top:.65rem}
 .green-btn:hover{background:var(--sp2);transform:translateY(-1px)}
 .green-btn:active{transform:scale(.98)}
-.setting-block{background:rgba(255,255,255,.025);border:1px solid var(--border);border-radius:var(--r);padding:.9rem;margin-bottom:.7rem;}
+.setting-block{background:rgba(255,255,255,.025);border:1px solid var(--border);border-radius:var(--r);padding:.9rem;margin-bottom:.7rem}
 .setting-title{font-family:'Syne',sans-serif;font-weight:800;font-size:.9rem;margin-bottom:.18rem}
 .setting-sub{font-size:.72rem;color:var(--muted);margin-bottom:.9rem}
 .danger-zone{display:flex;flex-direction:column;gap:.45rem}
-.danger-btn{width:100%;padding:.65rem;border-radius:10px;background:rgba(255,71,87,.07);border:1px solid rgba(255,71,87,.18);color:var(--err);font-family:'Syne',sans-serif;font-weight:700;font-size:.82rem;cursor:pointer;transition:var(--t);display:flex;align-items:center;justify-content:center;gap:.38rem;}
+.danger-btn{width:100%;padding:.65rem;border-radius:10px;background:rgba(255,71,87,.07);border:1px solid rgba(255,71,87,.18);color:var(--err);font-family:'Syne',sans-serif;font-weight:700;font-size:.82rem;cursor:pointer;transition:var(--t);display:flex;align-items:center;justify-content:center;gap:.38rem}
 .danger-btn:active{background:rgba(255,71,87,.18)}
 .info-grid{display:flex;flex-direction:column;gap:.35rem}
 .info-row{display:flex;justify-content:space-between;align-items:center;padding:.35rem 0;border-bottom:1px solid rgba(255,255,255,.04);font-size:.78rem}
 .info-row:last-child{border-bottom:none}
 .info-key{color:var(--muted);font-family:'JetBrains Mono',monospace;font-size:.7rem}
 .info-val{color:var(--text);font-weight:600}
-.modal-bg{display:none;position:fixed;inset:0;background:rgba(0,0,0,.88);backdrop-filter:blur(18px);z-index:3000;align-items:flex-end;justify-content:center;padding:0;}
+.modal-bg{display:none;position:fixed;inset:0;background:rgba(0,0,0,.88);backdrop-filter:blur(18px);z-index:3000;align-items:flex-end;justify-content:center;padding:0}
 .modal-bg.on{display:flex;animation:fadeIn .2s ease}
 @keyframes fadeIn{from{opacity:0}to{opacity:1}}
-.modal-sheet{width:100%;max-width:520px;max-height:92vh;overflow-y:auto;background:var(--card);border:1px solid var(--border2);border-radius:22px 22px 0 0;padding:1.5rem 1.3rem;position:relative;animation:sheetUp .32s cubic-bezier(.34,1.2,.64,1);box-shadow:0 -8px 40px rgba(0,0,0,.5);}
+.modal-sheet{width:100%;max-width:520px;max-height:92vh;overflow-y:auto;background:var(--card);border:1px solid var(--border2);border-radius:22px 22px 0 0;padding:1.5rem 1.3rem;position:relative;animation:sheetUp .32s cubic-bezier(.34,1.2,.64,1);box-shadow:0 -8px 40px rgba(0,0,0,.5)}
 @keyframes sheetUp{from{transform:translateY(60px);opacity:0}to{transform:translateY(0);opacity:1}}
 .sheet-handle{width:36px;height:3.5px;background:var(--dim);border-radius:99px;margin:0 auto 1.2rem}
 .modal-stripe{position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--sp),var(--gold),var(--cv));border-radius:22px 22px 0 0}
@@ -207,7 +211,7 @@ textarea.finp{resize:vertical;min-height:90px;font-family:'JetBrains Mono',monos
 .modal-title{font-family:'Syne',sans-serif;font-size:1.05rem;font-weight:800;margin-bottom:.2rem}
 .modal-sub{font-size:.74rem;color:var(--muted);margin-bottom:1.1rem}
 .modal-actions{display:flex;flex-direction:column;gap:.45rem;margin-top:1.1rem}
-.modal-btn{width:100%;padding:.78rem;border-radius:var(--pill);border:none;font-family:'Syne',sans-serif;font-weight:800;font-size:.9rem;cursor:pointer;transition:var(--t);display:flex;align-items:center;justify-content:center;gap:.4rem;}
+.modal-btn{width:100%;padding:.78rem;border-radius:var(--pill);border:none;font-family:'Syne',sans-serif;font-weight:800;font-size:.9rem;cursor:pointer;transition:var(--t);display:flex;align-items:center;justify-content:center;gap:.4rem}
 .modal-btn:active{transform:scale(.98)}
 .modal-btn.primary{background:var(--sp);color:#000}
 .modal-btn.primary:hover{background:var(--sp2)}
@@ -218,7 +222,7 @@ textarea.finp{resize:vertical;min-height:90px;font-family:'JetBrains Mono',monos
 .modal-btn.gold{background:var(--gold);color:#000}
 .modal-btn.gold:hover{background:var(--gold2)}
 #toasts{position:fixed;bottom:calc(var(--nav-h) + .7rem);left:1rem;right:1rem;z-index:9999;display:flex;flex-direction:column;gap:.35rem;align-items:center;pointer-events:none}
-.toast{background:var(--card);border:1px solid var(--border);border-left:3px solid var(--sp);padding:.55rem .9rem;border-radius:10px;font-size:.76rem;font-family:'JetBrains Mono',monospace;display:flex;align-items:center;gap:.45rem;max-width:340px;width:100%;color:var(--text);animation:toastIn .3s cubic-bezier(.34,1.4,.64,1);box-shadow:0 4px 20px rgba(0,0,0,.45);pointer-events:all;}
+.toast{background:var(--card);border:1px solid var(--border);border-left:3px solid var(--sp);padding:.55rem .9rem;border-radius:10px;font-size:.76rem;font-family:'JetBrains Mono',monospace;display:flex;align-items:center;gap:.45rem;max-width:340px;width:100%;color:var(--text);animation:toastIn .3s cubic-bezier(.34,1.4,.64,1);box-shadow:0 4px 20px rgba(0,0,0,.45);pointer-events:all}
 .toast.err{border-left-color:var(--err)}.toast.warn{border-left-color:var(--warn)}
 @keyframes toastIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
 .empty{text-align:center;padding:2.2rem 1rem}
@@ -230,6 +234,8 @@ textarea.finp{resize:vertical;min-height:90px;font-family:'JetBrains Mono',monos
 .stk-mini-ico{width:30px;height:30px;border-radius:8px;display:grid;place-items:center;font-size:.82rem;flex-shrink:0}
 .stk-mini-name{font-size:.75rem;font-weight:600;line-height:1.3}
 .stk-mini-cnt{font-family:'JetBrains Mono',monospace;font-size:.65rem;margin-top:.1rem}
+/* Stok source badge */
+.stk-sync{font-family:'JetBrains Mono',monospace;font-size:.55rem;color:var(--sp);background:rgba(30,215,96,.08);border:1px solid rgba(30,215,96,.18);padding:.1rem .38rem;border-radius:4px;margin-left:.4rem}
 </style>
 </head>
 <body>
@@ -283,6 +289,7 @@ textarea.finp{resize:vertical;min-height:90px;font-family:'JetBrains Mono',monos
     </div>
     <div class="tb-right">
       <div class="tb-pill"><div class="ldot"></div>LIVE</div>
+      <div class="tb-icon-btn store-link" title="Buka Toko" onclick="window.open('index.html','_blank')"><i class="fas fa-store"></i></div>
       <div class="tb-icon-btn danger" title="Logout" onclick="doLogout()"><i class="fas fa-sign-out-alt"></i></div>
     </div>
   </div>
@@ -315,46 +322,141 @@ textarea.finp{resize:vertical;min-height:90px;font-family:'JetBrains Mono',monos
 <div id="toasts"></div>
 
 <script>
+/* ══════════════════════════════════════════════════════
+   STORAGE KEYS (harus sama persis dengan index.html):
+   - wxvn_ord   → orders dari toko
+   - wxvn_stk   → stok akun premium (dipakai toko juga via stk_{prodId})
+   - wxvn_creds → kredensial admin
+   - stk_{id}   → stok per produk (dipakai toko)
+══════════════════════════════════════════════════════ */
+
 var STOCK={}, ORDERS=[], CREDS={user:'admin',pass:'admin123'};
 
+/* ── Daftar produk premium (sync dengan toko) ── */
 var PRODS=[
-  {brand:'spotify',  name:'Spotify Premium',        icon:'fab fa-spotify',     plans:['1 Bulan','3 Bulan','6 Bulan','1 Tahun']},
-  {brand:'netflix',  name:'Netflix Premium',         icon:'fas fa-film',        plans:['1 Bulan','3 Bulan','6 Bulan','1 Tahun']},
-  {brand:'disney',   name:'Disney+ Hotstar',         icon:'fas fa-star',        plans:['1 Bulan','3 Bulan','6 Bulan','1 Tahun']},
-  {brand:'canva',    name:'Canva Pro',               icon:'fas fa-palette',     plans:['1 Bulan','3 Bulan','6 Bulan','1 Tahun']},
-  {brand:'youtube',  name:'YouTube Premium',         icon:'fab fa-youtube',     plans:['1 Bulan','3 Bulan','6 Bulan','1 Tahun']},
-  {brand:'chatgpt',  name:'ChatGPT Plus',            icon:'fas fa-robot',       plans:['1 Bulan','3 Bulan','6 Bulan','1 Tahun']},
-  {brand:'adobe',    name:'Adobe Creative Cloud',    icon:'fab fa-adobe',       plans:['1 Bulan','3 Bulan','6 Bulan','1 Tahun']},
-  {brand:'microsoft',name:'Microsoft 365',           icon:'fab fa-microsoft',   plans:['1 Bulan','3 Bulan','6 Bulan','1 Tahun']},
-  {brand:'duolingo', name:'Duolingo Plus',           icon:'fas fa-language',    plans:['1 Bulan','3 Bulan','6 Bulan','1 Tahun']},
-  {brand:'nordvpn',  name:'NordVPN Premium',         icon:'fas fa-shield-alt',  plans:['1 Bulan','3 Bulan','6 Bulan','1 Tahun']},
-  {brand:'grammarly',name:'Grammarly Premium',       icon:'fas fa-spell-check', plans:['1 Bulan','3 Bulan','6 Bulan','1 Tahun']}
+  {brand:'spotify',  name:'Spotify Premium',      icon:'fab fa-spotify',     plans:['1 Bulan','3 Bulan','6 Bulan','1 Tahun']},
+  {brand:'netflix',  name:'Netflix Premium',       icon:'fas fa-film',        plans:['1 Bulan','3 Bulan','6 Bulan','1 Tahun']},
+  {brand:'disney',   name:'Disney+ Hotstar',       icon:'fas fa-star',        plans:['1 Bulan','3 Bulan','6 Bulan','1 Tahun']},
+  {brand:'canva',    name:'Canva Pro',             icon:'fas fa-palette',     plans:['1 Bulan','3 Bulan','6 Bulan','1 Tahun']},
+  {brand:'youtube',  name:'YouTube Premium',       icon:'fab fa-youtube',     plans:['1 Bulan','3 Bulan','6 Bulan','1 Tahun']},
+  {brand:'chatgpt',  name:'ChatGPT Plus',          icon:'fas fa-robot',       plans:['1 Bulan','3 Bulan','6 Bulan','1 Tahun']},
+  {brand:'adobe',    name:'Adobe Creative Cloud',  icon:'fab fa-adobe',       plans:['1 Bulan','3 Bulan','6 Bulan','1 Tahun']},
+  {brand:'microsoft',name:'Microsoft 365',         icon:'fab fa-microsoft',   plans:['1 Bulan','3 Bulan','6 Bulan','1 Tahun']},
+  {brand:'duolingo', name:'Duolingo Plus',         icon:'fas fa-language',    plans:['1 Bulan','3 Bulan','6 Bulan','1 Tahun']},
+  {brand:'nordvpn',  name:'NordVPN Premium',       icon:'fas fa-shield-alt',  plans:['1 Bulan','3 Bulan','6 Bulan','1 Tahun']},
+  {brand:'grammarly',name:'Grammarly Premium',     icon:'fas fa-spell-check', plans:['1 Bulan','3 Bulan','6 Bulan','1 Tahun']}
 ];
 
-var BC={
-  spotify:'var(--sp)',netflix:'var(--nf)',disney:'var(--ds)',canva:'var(--cv)',
-  youtube:'var(--yt)',chatgpt:'var(--gpt)',adobe:'#FF0000',microsoft:'var(--ms)',
-  duolingo:'var(--duo)',nordvpn:'var(--vpn)',grammarly:'var(--gram)'
+/* Mapping brand → prodId toko (untuk stk_{id}) */
+var BRAND_TO_PRODID={
+  spotify:'p9',netflix:'p10',disney:'p18',canva:'p12',youtube:'p11',
+  chatgpt:'p13',adobe:'p17',microsoft:'p16',duolingo:'p19',nordvpn:'p15',grammarly:'p14'
 };
+
 var BRAND_CLS={
   spotify:'spotify',netflix:'netflix',disney:'disney',canva:'canva',
   youtube:'youtube',chatgpt:'chatgpt',adobe:'adobe',microsoft:'microsoft',
   duolingo:'duolingo',nordvpn:'nordvpn',grammarly:'grammarly'
 };
 
+/* ─── Stok: admin panel pakai key "wxvn_stk" (objek {brand_plan: [...]})
+         Toko pakai key "stk_{prodId}" (angka)
+         Saat admin tambah stok, update KEDUANYA ─── */
 function sKey(b,p){return b+'_'+p.replace(/\s+/g,'').toLowerCase();}
+
 function sc(b,p){return (STOCK[sKey(b,p)]||[]).length;}
+
+/* Jumlah stok toko (integer, dari stk_{prodId}) */
+function scToko(brand){
+  var pid=BRAND_TO_PRODID[brand];
+  if(!pid) return 0;
+  try{var v=JSON.parse(localStorage.getItem('stk_'+pid));return(v!==null&&v!==undefined)?v:0;}catch(e){return 0;}
+}
+
+/* Sinkronkan stok admin → toko setelah setiap perubahan stok */
+function syncStokToToko(){
+  PRODS.forEach(function(p){
+    var pid=BRAND_TO_PRODID[p.brand];if(!pid)return;
+    var total=p.plans.reduce(function(s,pl){return s+sc(p.brand,pl);},0);
+    try{localStorage.setItem('stk_'+pid,JSON.stringify(total));}catch(e){}
+  });
+}
+
 function fmt(n){return 'Rp'+Number(n).toLocaleString('id-ID');}
 
+/* ─── Load / Save ─── */
 function loadAll(){
   try{var s=localStorage.getItem('wxvn_stk');STOCK=s?JSON.parse(s):{};}catch(e){STOCK={};}
   try{var o=localStorage.getItem('wxvn_ord');ORDERS=o?JSON.parse(o):[];}catch(e){ORDERS=[];}
   try{var c=localStorage.getItem('wxvn_creds');if(c)CREDS=JSON.parse(c);}catch(e){}
 }
-function saveStock(){try{localStorage.setItem('wxvn_stk',JSON.stringify(STOCK));}catch(e){}}
+function saveStock(){
+  try{localStorage.setItem('wxvn_stk',JSON.stringify(STOCK));}catch(e){}
+  syncStokToToko();
+}
 function saveOrders(){try{localStorage.setItem('wxvn_ord',JSON.stringify(ORDERS));}catch(e){}}
 function saveCreds(){try{localStorage.setItem('wxvn_creds',JSON.stringify(CREDS));}catch(e){}}
 
+/* ─── Normalisasi order dari toko ke format admin ───
+   Toko menyimpan: {id, userId, userName, prodName, prodId, contact, total, status, date, method, userEmail}
+   Admin mengharapkan: {id, name, contact, items:[{name,brand,plan,price}], total, status, date}
+   Fungsi ini menangani KEDUA format ─── */
+function normalizeOrder(o){
+  if(o.items&&Array.isArray(o.items)){
+    /* Sudah format admin — pastikan field name ada */
+    if(!o.name && o.userName) o.name=o.userName;
+    return o;
+  }
+  /* Format toko: ubah ke format admin */
+  var brand=getBrandFromProdId(o.prodId)||'';
+  return {
+    id:o.id,
+    name:o.userName||o.name||'—',
+    contact:o.contact||'—',
+    userEmail:o.userEmail||'',
+    userId:o.userId||'',
+    isGuest:o.isGuest||false,
+    items:[{
+      name:o.prodName||'Produk',
+      brand:brand,
+      plan:o.plan||'—',
+      price:o.total||0
+    }],
+    total:o.total||0,
+    status:o.status||'pending',
+    statusNote:o.statusNote||'',
+    date:o.date||'—',
+    timestamp:o.timestamp||0,
+    method:o.method||'',
+    delivered:o.delivered||[],
+    activationKey:o.activationKey||''
+  };
+}
+
+function getBrandFromProdId(pid){
+  var m={p9:'spotify',p10:'netflix',p18:'disney',p12:'canva',p11:'youtube',
+         p13:'chatgpt',p17:'adobe',p16:'microsoft',p19:'duolingo',p15:'nordvpn',p14:'grammarly'};
+  return m[pid]||'';
+}
+
+/* Simpan order kembali ke localStorage (update field toko juga jika perlu) */
+function saveOrderById(id,updatedFields){
+  var rawOrders=[];
+  try{var o=localStorage.getItem('wxvn_ord');rawOrders=o?JSON.parse(o):[];}catch(e){}
+  var idx=rawOrders.findIndex(function(o){return o.id===id;});
+  if(idx>=0){
+    Object.assign(rawOrders[idx],updatedFields);
+    /* Untuk order format toko, update field toko juga */
+    if(updatedFields.status) rawOrders[idx].status=updatedFields.status;
+    if(updatedFields.statusNote) rawOrders[idx].statusNote=updatedFields.statusNote;
+    if(updatedFields.delivered) rawOrders[idx].delivered=updatedFields.delivered;
+    if(updatedFields.activationKey) rawOrders[idx].activationKey=updatedFields.activationKey;
+    if(updatedFields.name) rawOrders[idx].userName=updatedFields.name;
+  }
+  try{localStorage.setItem('wxvn_ord',JSON.stringify(rawOrders));}catch(e){}
+}
+
+/* Login UI */
 document.getElementById('pwToggle').onclick=function(){
   var p=document.getElementById('loginPass');
   var ico=document.getElementById('pwEyeIco');
@@ -410,6 +512,7 @@ function startClock(){
   tick();setInterval(tick,1000);
 }
 
+/* ─── Navigasi halaman ─── */
 var curPage='dashboard', ordFilter='all', ordSearch='';
 var PAGE_INFO={
   dashboard:{t:'Dashboard',s:'Ringkasan bisnis'},
@@ -432,16 +535,27 @@ function goPage(p){
 }
 
 function updateBadge(){
-  var n=ORDERS.filter(function(o){return o.status==='pending';}).length;
+  var rawOrders=[];
+  try{var o=localStorage.getItem('wxvn_ord');rawOrders=o?JSON.parse(o):[];}catch(e){}
+  var n=rawOrders.filter(function(o){return o.status==='pending';}).length;
   var b=document.getElementById('pendBadge');
   if(n>0){b.classList.add('on');b.textContent=n;}else{b.classList.remove('on');}
 }
 
+/* Dapatkan semua order sudah dinormalisasi */
+function getAllOrders(){
+  var rawOrders=[];
+  try{var o=localStorage.getItem('wxvn_ord');rawOrders=o?JSON.parse(o):[];}catch(e){}
+  return rawOrders.map(normalizeOrder);
+}
+
+/* ─── Dashboard ─── */
 function renderDashboard(){
-  var total=ORDERS.length;
-  var pending=ORDERS.filter(function(o){return o.status==='pending';}).length;
-  var delivered=ORDERS.filter(function(o){return o.status==='delivered';}).length;
-  var revenue=ORDERS.filter(function(o){return o.status==='confirmed'||o.status==='delivered';}).reduce(function(s,o){return s+o.total;},0);
+  var orders=getAllOrders();
+  var total=orders.length;
+  var pending=orders.filter(function(o){return o.status==='pending';}).length;
+  var delivered=orders.filter(function(o){return o.status==='delivered';}).length;
+  var revenue=orders.filter(function(o){return o.status==='confirmed'||o.status==='delivered';}).reduce(function(s,o){return s+o.total;},0);
   var totalStk=Object.values(STOCK).reduce(function(s,a){return s+a.length;},0);
 
   var html='<div class="stats-row">'
@@ -463,7 +577,7 @@ function renderDashboard(){
   html+='<div class="rev-hero">'
     +'<div class="rev-label"><i class="fas fa-coins"></i>&nbsp; Revenue Terkonfirmasi</div>'
     +'<div class="rev-amount">'+fmt(revenue)+'</div>'
-    +'<div class="rev-sub">Dari '+ORDERS.filter(function(o){return o.status==='confirmed'||o.status==='delivered';}).length+' order dikonfirmasi</div>'
+    +'<div class="rev-sub">Dari '+orders.filter(function(o){return o.status==='confirmed'||o.status==='delivered';}).length+' order dikonfirmasi</div>'
     +'</div>';
 
   html+='<div class="sec"><div class="sec-top"><div class="sec-title"><i class="fas fa-layer-group" style="color:var(--cv)"></i>&nbsp;Stok Tersedia</div>'
@@ -480,12 +594,12 @@ function renderDashboard(){
   });
   html+='</div></div></div>';
 
-  var recent=ORDERS.slice(0,6);
+  var recent=orders.slice(0,6);
   html+='<div class="sec"><div class="sec-top"><div class="sec-title"><i class="fas fa-list" style="color:var(--sp)"></i>&nbsp;Order Terbaru</div>'
     +'<span class="sec-action" onclick="goPage(\'orders\')">Semua <i class="fas fa-arrow-right"></i></span></div>'
     +'<div class="sec-body">';
   if(!recent.length){
-    html+='<div class="empty"><div class="empty-ico">📋</div><div class="empty-t">Belum ada order</div><div class="empty-s">Order pelanggan tampil di sini</div></div>';
+    html+='<div class="empty"><div class="empty-ico">📋</div><div class="empty-t">Belum ada order</div><div class="empty-s">Order dari toko tampil di sini otomatis</div></div>';
   } else {
     html+='<div class="order-list">';
     recent.forEach(function(o){html+=renderOrderCard(o);});
@@ -495,23 +609,25 @@ function renderDashboard(){
   document.getElementById('pageScroll').innerHTML=html;
 }
 
+/* ─── Orders ─── */
 function renderOrders(){
-  var pend=ORDERS.filter(function(o){return o.status==='pending';}).length;
-  var conf=ORDERS.filter(function(o){return o.status==='confirmed';}).length;
-  var delv=ORDERS.filter(function(o){return o.status==='delivered';}).length;
-  var rej=ORDERS.filter(function(o){return o.status==='rejected';}).length;
+  var allOrders=getAllOrders();
+  var pend=allOrders.filter(function(o){return o.status==='pending';}).length;
+  var conf=allOrders.filter(function(o){return o.status==='confirmed';}).length;
+  var delv=allOrders.filter(function(o){return o.status==='delivered';}).length;
+  var rej=allOrders.filter(function(o){return o.status==='rejected';}).length;
   var html='<div class="filter-scroll">'
-    +fpill('all','Semua ('+ORDERS.length+')')
+    +fpill('all','Semua ('+allOrders.length+')')
     +fpill('pending','Pending ('+pend+')')
     +fpill('confirmed','Konfirmasi ('+conf+')')
     +fpill('delivered','Terkirim ('+delv+')')
     +fpill('rejected','Ditolak ('+rej+')')
     +'</div>';
-  html+='<input class="search-bar" placeholder="🔍  Cari nama / Order ID..." value="'+ordSearch+'" oninput="ordSearch=this.value;renderOrders()">';
-  var list=ORDERS.filter(function(o){
+  html+='<input class="search-bar" placeholder="🔍  Cari nama / Order ID / Email..." value="'+ordSearch+'" oninput="ordSearch=this.value;renderOrders()">';
+  var list=allOrders.filter(function(o){
     var mf=ordFilter==='all'||o.status===ordFilter;
     var q=ordSearch.toLowerCase();
-    var ms=!q||(o.id.toLowerCase().includes(q)||o.name.toLowerCase().includes(q)||o.contact.toLowerCase().includes(q));
+    var ms=!q||(o.id.toLowerCase().includes(q)||o.name.toLowerCase().includes(q)||o.contact.toLowerCase().includes(q)||(o.userEmail||'').toLowerCase().includes(q));
     return mf&&ms;
   });
   if(ordFilter==='pending'&&list.length>0){
@@ -537,7 +653,14 @@ function getStInfo(s){
 
 function renderOrderCard(o){
   var st=getStInfo(o.status);
-  var itemTxt=o.items.map(function(i){return i.name+' ('+i.plan+')'}).join(' · ');
+  var itemTxt=o.items.map(function(i){
+    var part=i.name;
+    if(i.plan&&i.plan!=='—') part+=' ('+i.plan+')';
+    return part;
+  }).join(' · ');
+  var sourceBadge=o.isGuest
+    ?'<span class="o-source guest">Tamu</span>'
+    :(o.userId?'<span class="o-source user">User</span>':'');
   var acts='';
   if(o.status==='pending'){
     acts+='<button class="abtn confirm" onclick="confirmOrder(\''+o.id+'\')"><i class="fas fa-check"></i> Konfirmasi</button>';
@@ -549,29 +672,42 @@ function renderOrderCard(o){
   acts+='<button class="abtn ghost" onclick="viewOrder(\''+o.id+'\')"><i class="fas fa-eye"></i></button>';
   acts+='<button class="abtn del" onclick="deleteOrder(\''+o.id+'\')"><i class="fas fa-trash"></i></button>';
   return '<div class="o-card">'
-    +'<div class="o-card-top"><div><div class="o-id">'+o.id+'</div><div class="o-name">'+o.name+'</div><div class="o-contact">'+o.contact+'</div></div>'
+    +'<div class="o-card-top"><div><div class="o-id">'+o.id+' '+sourceBadge+'</div><div class="o-name">'+o.name+'</div><div class="o-contact">'+o.contact+(o.userEmail?' · '+o.userEmail:'')+'</div></div>'
     +'<span class="badge '+st.cls+'">'+st.ico+' '+st.lbl+'</span></div>'
     +'<div class="o-meta"><div class="o-items">'+itemTxt+'</div><div class="o-total">'+fmt(o.total)+'</div></div>'
     +'<div class="o-footer"><div class="o-date">'+o.date+'</div><div class="o-actions">'+acts+'</div></div>'
     +'</div>';
 }
 
+function updateOrderStatus(id, fields){
+  /* Update di localStorage langsung agar toko juga ikut update */
+  saveOrderById(id, fields);
+  loadAll();
+}
+
 function confirmOrder(id){
-  var i=ORDERS.findIndex(function(o){return o.id===id;});if(i<0)return;
-  ORDERS[i].status='confirmed';saveOrders();loadAll();updateBadge();
+  updateOrderStatus(id,{status:'confirmed'});
+  updateBadge();
   if(curPage==='orders')renderOrders();else renderDashboard();
   toast('✅ Order '+id+' dikonfirmasi!');
 }
 function confirmAllPending(){
-  var n=0;ORDERS.forEach(function(o){if(o.status==='pending'){o.status='confirmed';n++;}});
-  saveOrders();loadAll();updateBadge();
+  var rawOrders=[];
+  try{var o=localStorage.getItem('wxvn_ord');rawOrders=o?JSON.parse(o):[];}catch(e){}
+  var n=0;
+  rawOrders.forEach(function(o){if(o.status==='pending'){o.status='confirmed';n++;}});
+  try{localStorage.setItem('wxvn_ord',JSON.stringify(rawOrders));}catch(e){}
+  loadAll();updateBadge();
   if(curPage==='orders')renderOrders();else renderDashboard();
   toast('✅ '+n+' order dikonfirmasi!');
 }
 function deleteOrder(id){
   if(!confirm('Hapus order '+id+'?'))return;
-  ORDERS=ORDERS.filter(function(o){return o.id!==id;});
-  saveOrders();loadAll();updateBadge();
+  var rawOrders=[];
+  try{var o=localStorage.getItem('wxvn_ord');rawOrders=o?JSON.parse(o):[];}catch(e){}
+  rawOrders=rawOrders.filter(function(o){return o.id!==id;});
+  try{localStorage.setItem('wxvn_ord',JSON.stringify(rawOrders));}catch(e){}
+  loadAll();updateBadge();
   if(curPage==='orders')renderOrders();else renderDashboard();
   toast('Order dihapus','err');
 }
@@ -582,21 +718,21 @@ function openReject(id){
 }
 function doReject(id){
   var r=document.getElementById('rejReason').value.trim()||'Pembayaran tidak valid';
-  var i=ORDERS.findIndex(function(o){return o.id===id;});if(i<0)return;
-  ORDERS[i].status='rejected';ORDERS[i].statusNote=r;
-  saveOrders();loadAll();updateBadge();closeModal();
+  updateOrderStatus(id,{status:'rejected',statusNote:r});
+  loadAll();updateBadge();closeModal();
   if(curPage==='orders')renderOrders();else renderDashboard();
   toast('Order ditolak','warn');
 }
 
 function openDeliver(id){
-  var o=ORDERS.find(function(x){return x.id===id;});if(!o)return;
+  var orders=getAllOrders();
+  var o=orders.find(function(x){return x.id===id;});if(!o)return;
   var iHtml=o.items.map(function(item,i){
-    var n=sc(item.brand,item.plan);
-    var stk=(STOCK[sKey(item.brand,item.plan)]||[]);
+    var n=item.brand?sc(item.brand,item.plan||''):0;
+    var stk=item.brand?(STOCK[sKey(item.brand,item.plan||'')]||[]):[];
     return '<div style="margin-bottom:.75rem;background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:10px;padding:.75rem">'
-      +'<div style="display:flex;justify-content:space-between;margin-bottom:.45rem"><span style="font-size:.8rem;font-weight:700">'+item.name+' · '+item.plan+'</span>'
-      +'<span style="font-family:\'JetBrains Mono\',monospace;font-size:.65rem;color:'+(n>0?'var(--sp)':'var(--err)')+'">Stok: '+n+'</span></div>'
+      +'<div style="display:flex;justify-content:space-between;margin-bottom:.45rem"><span style="font-size:.8rem;font-weight:700">'+item.name+(item.plan&&item.plan!=='—'?' · '+item.plan:'')+'</span>'
+      +(item.brand?'<span style="font-family:\'JetBrains Mono\',monospace;font-size:.65rem;color:'+(n>0?'var(--sp)':'var(--err)')+'">Stok: '+n+'</span>':'')+'</div>'
       +'<label class="flabel">AKUN / KUNCI</label>'
       +'<textarea class="finp" id="dk_'+i+'" placeholder="email:password atau kode akun..." style="min-height:65px">'+(stk.length?stk[0]:'')+'</textarea></div>';
   }).join('');
@@ -605,44 +741,62 @@ function openDeliver(id){
 }
 
 function doDeliver(id){
-  var o=ORDERS.find(function(x){return x.id===id;});if(!o)return;
+  var orders=getAllOrders();
+  var o=orders.find(function(x){return x.id===id;});if(!o)return;
   var delivered=[];var ok=true;
   o.items.forEach(function(item,i){
     var el=document.getElementById('dk_'+i);if(!el)return;
     var val=el.value.trim();if(!val){ok=false;return;}
-    delivered.push({name:item.name,plan:item.plan,brand:item.brand,key:val});
-    var k=sKey(item.brand,item.plan);
-    if(STOCK[k]&&STOCK[k].length&&STOCK[k][0]===val){STOCK[k].shift();saveStock();}
+    delivered.push({name:item.name,plan:item.plan||'',brand:item.brand||'',key:val});
+    /* Kurangi stok admin jika brand ada */
+    if(item.brand){
+      var k=sKey(item.brand,item.plan||'');
+      if(STOCK[k]&&STOCK[k].length&&STOCK[k][0]===val){
+        STOCK[k].shift();saveStock();
+      }
+    }
   });
   if(!ok){toast('Isi semua kunci akun!','err');return;}
-  var i=ORDERS.findIndex(function(x){return x.id===id;});
-  ORDERS[i].status='delivered';ORDERS[i].delivered=delivered;
-  saveOrders();loadAll();updateBadge();closeModal();
+  /* Buat activation key */
+  var aKey=delivered.map(function(d){return d.key;}).join('\n---\n');
+  updateOrderStatus(id,{status:'delivered',delivered:delivered,activationKey:aKey});
+  loadAll();updateBadge();closeModal();
   if(curPage==='orders')renderOrders();else renderDashboard();
   toast('🎉 Akun terkirim ke '+o.name+'!');
 }
 
 function viewOrder(id){
-  var o=ORDERS.find(function(x){return x.id===id;});if(!o)return;
+  var orders=getAllOrders();
+  var o=orders.find(function(x){return x.id===id;});if(!o)return;
   var st=getStInfo(o.status);
   var iRows=o.items.map(function(i){
-    return '<div style="display:flex;justify-content:space-between;font-size:.8rem;padding:.22rem 0"><span style="color:var(--muted)">'+i.name+' ('+i.plan+')</span><span style="font-weight:600">'+fmt(i.price)+'</span></div>';
+    return '<div style="display:flex;justify-content:space-between;font-size:.8rem;padding:.22rem 0">'
+      +'<span style="color:var(--muted)">'+i.name+(i.plan&&i.plan!=='—'?' ('+i.plan+')':'')+'</span>'
+      +'<span style="font-weight:600">'+fmt(i.price||o.total)+'</span></div>';
   }).join('');
   var delHtml='';
   if(o.delivered&&o.delivered.length){
     delHtml='<div style="margin-top:.85rem;background:rgba(30,215,96,.06);border:1px solid rgba(30,215,96,.15);border-radius:10px;padding:.82rem">'
       +'<div style="font-family:\'JetBrains Mono\',monospace;font-size:.62rem;color:var(--muted);margin-bottom:.5rem">AKUN TERKIRIM</div>';
     o.delivered.forEach(function(d){
-      delHtml+='<div style="margin-bottom:.4rem"><div style="font-size:.7rem;color:var(--muted)">'+d.name+' · '+d.plan+'</div>'
+      delHtml+='<div style="margin-bottom:.4rem"><div style="font-size:.7rem;color:var(--muted)">'+d.name+(d.plan?' · '+d.plan:'')+'</div>'
         +'<div style="font-family:\'JetBrains Mono\',monospace;font-size:.76rem;color:var(--sp);background:rgba(30,215,96,.08);border-radius:7px;padding:.3rem .6rem;margin-top:.18rem;word-break:break-all">'+d.key+'</div></div>';
     });
     delHtml+='</div>';
   }
+  /* Tampilkan activation key dari toko (jika ada) */
+  if(o.activationKey&&(!o.delivered||!o.delivered.length)){
+    delHtml='<div style="margin-top:.85rem;background:rgba(30,215,96,.06);border:1px solid rgba(30,215,96,.15);border-radius:10px;padding:.82rem">'
+      +'<div style="font-family:\'JetBrains Mono\',monospace;font-size:.62rem;color:var(--muted);margin-bottom:.5rem">KEY AKTIVASI</div>'
+      +'<div style="font-family:\'JetBrains Mono\',monospace;font-size:.76rem;color:var(--sp);word-break:break-all">'+o.activationKey+'</div></div>';
+  }
+  var guestNote=o.isGuest?'<div style="background:rgba(255,165,2,.06);border:1px solid rgba(255,165,2,.15);border-radius:8px;padding:.4rem .7rem;font-size:.72rem;color:var(--warn);margin-bottom:.6rem">👤 Order dari tamu (guest)</div>':'';
   openModal('<div class="modal-title">Detail Order</div>'
     +'<div class="modal-sub" style="margin-bottom:.85rem"><span style="font-family:\'JetBrains Mono\',monospace;color:var(--sp);font-size:.75rem">'+o.id+'</span> · '+o.date+'</div>'
+    +guestNote
     +'<div style="background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:10px;padding:.82rem;margin-bottom:.7rem">'
     +'<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.55rem">'
-    +'<div><div style="font-weight:700">'+o.name+'</div><div style="font-size:.73rem;color:var(--muted)">'+o.contact+'</div></div>'
+    +'<div><div style="font-weight:700">'+o.name+'</div><div style="font-size:.73rem;color:var(--muted)">'+o.contact+'</div>'+(o.userEmail?'<div style="font-size:.7rem;color:var(--muted)">'+o.userEmail+'</div>':'')+'</div>'
     +'<span class="badge '+st.cls+'">'+st.ico+' '+st.lbl+'</span></div>'
     +iRows
     +'<div style="display:flex;justify-content:space-between;font-weight:700;margin-top:.5rem;padding-top:.5rem;border-top:1px solid var(--border)"><span>Total</span><span style="color:var(--sp)">'+fmt(o.total)+'</span></div></div>'
@@ -651,6 +805,7 @@ function viewOrder(id){
     +'<div class="modal-actions"><button class="modal-btn secondary" onclick="closeModal()"><i class="fas fa-times"></i>&nbsp;Tutup</button></div>');
 }
 
+/* ─── Stok ─── */
 function renderStock(){
   var html='<div class="stk-list">';
   PRODS.forEach(function(p){
@@ -658,7 +813,7 @@ function renderStock(){
     var tcol=tot===0?'var(--err)':tot<=5?'var(--warn)':'var(--sp)';
     html+='<div class="stk-card"><div class="stk-head">'
       +'<div class="stk-icon '+BRAND_CLS[p.brand]+'"><i class="'+p.icon+'"></i></div>'
-      +'<div><div class="stk-name">'+p.name+'</div>'
+      +'<div><div class="stk-name">'+p.name+'<span class="stk-sync">⟳ toko</span></div>'
       +'<div style="font-family:\'JetBrains Mono\',monospace;font-size:.62rem;color:'+tcol+'">'+tot+' akun tersedia</div></div>'
       +'</div><div class="stk-rows">';
     p.plans.forEach(function(pl){
@@ -674,14 +829,14 @@ function renderStock(){
   });
   html+='</div>';
   html+='<div class="import-card"><div class="import-title"><i class="fas fa-file-import" style="color:var(--gold)"></i>&nbsp;Import Stok Massal</div>'
-    +'<div class="import-sub">Tambah banyak akun sekaligus, satu akun per baris</div>'
+    +'<div class="import-sub">Tambah banyak akun sekaligus, satu akun per baris. Stok otomatis tersinkron ke toko.</div>'
     +'<div class="form-row">'
     +'<div><label class="flabel">Produk</label><select class="finp" id="impBrand">'+PRODS.map(function(p){return '<option value="'+p.brand+'">'+p.name+'</option>';}).join('')+'</select></div>'
     +'<div><label class="flabel">Paket</label><select class="finp" id="impPlan"><option>1 Bulan</option><option>3 Bulan</option><option>6 Bulan</option><option>1 Tahun</option></select></div>'
     +'</div>'
     +'<label class="flabel">Daftar Akun</label>'
     +'<textarea class="finp" id="impKeys" placeholder="email1:pass1&#10;email2:pass2&#10;kode_akun3..."></textarea>'
-    +'<div class="fhelp">Satu baris = satu akun</div>'
+    +'<div class="fhelp">Satu baris = satu akun · Otomatis tersinkron ke stok toko</div>'
     +'<button class="green-btn" onclick="doImport()"><i class="fas fa-upload"></i>&nbsp;Import Sekarang</button></div>';
   document.getElementById('pageScroll').innerHTML=html;
 }
@@ -695,8 +850,10 @@ function doAddStk(brand,plan){
   var keys=document.getElementById('newStkKeys').value.trim().split('\n').map(function(s){return s.trim();}).filter(Boolean);
   if(!keys.length){toast('Masukkan minimal 1 akun','err');return;}
   var k=sKey(brand,plan);if(!STOCK[k])STOCK[k]=[];
-  STOCK[k]=STOCK[k].concat(keys);saveStock();closeModal();renderStock();
-  toast('✅ '+keys.length+' akun ditambahkan!');
+  STOCK[k]=STOCK[k].concat(keys);
+  saveStock(); /* saveStock() otomatis sync ke toko */
+  closeModal();renderStock();
+  toast('✅ '+keys.length+' akun ditambahkan & tersinkron ke toko!');
 }
 function viewStk(brand,name,plan){
   var items=(STOCK[sKey(brand,plan)]||[]);
@@ -724,12 +881,16 @@ function doImport(){
   var keys=document.getElementById('impKeys').value.trim().split('\n').map(function(s){return s.trim();}).filter(Boolean);
   if(!keys.length){toast('Masukkan minimal 1 akun','err');return;}
   var k=sKey(brand,plan);if(!STOCK[k])STOCK[k]=[];
-  STOCK[k]=STOCK[k].concat(keys);saveStock();
+  STOCK[k]=STOCK[k].concat(keys);
+  saveStock();
   document.getElementById('impKeys').value='';
-  renderStock();toast('✅ '+keys.length+' akun diimport!');
+  renderStock();toast('✅ '+keys.length+' akun diimport & tersinkron ke toko!');
 }
 
+/* ─── Settings ─── */
 function renderSettings(){
+  var rawOrders=[];
+  try{var o=localStorage.getItem('wxvn_ord');rawOrders=o?JSON.parse(o):[];}catch(e){}
   var totStk=Object.values(STOCK).reduce(function(s,a){return s+a.length;},0);
   var html='<div class="setting-block"><div class="setting-title">🔐 Kredensial Admin</div><div class="setting-sub">Ubah username dan password login</div>'
     +'<div><label class="flabel">Username Baru</label><input class="finp" id="newUser" value="'+CREDS.user+'" style="margin-bottom:.65rem"></div>'
@@ -744,11 +905,11 @@ function renderSettings(){
     +'</div></div>'
     +'<div class="setting-block"><div class="setting-title">ℹ️ Info Sistem</div><div class="info-grid">'
     +'<div class="info-row"><span class="info-key">Status</span><span class="info-val" style="color:var(--sp)">🟢 Online</span></div>'
-    +'<div class="info-row"><span class="info-key">Total Order</span><span class="info-val">'+ORDERS.length+'</span></div>'
+    +'<div class="info-row"><span class="info-key">Total Order</span><span class="info-val">'+rawOrders.length+'</span></div>'
     +'<div class="info-row"><span class="info-key">Total Stok</span><span class="info-val">'+totStk+' akun</span></div>'
-    +'<div class="info-row"><span class="info-key">Total Produk</span><span class="info-val" style="color:var(--sp)">11 produk</span></div>'
-    +'<div class="info-row"><span class="info-key">Storage</span><span class="info-val">localStorage</span></div>'
-    +'<div class="info-row"><span class="info-key">Versi Panel</span><span class="info-val" style="color:var(--gold)">v1.1.0</span></div>'
+    +'<div class="info-row"><span class="info-key">Total Produk</span><span class="info-val" style="color:var(--sp)">21 produk</span></div>'
+    +'<div class="info-row"><span class="info-key">Storage</span><span class="info-val">localStorage (shared)</span></div>'
+    +'<div class="info-row"><span class="info-key">Versi Panel</span><span class="info-val" style="color:var(--gold)">v2.0.0</span></div>'
     +'<div class="info-row"><span class="info-key">Link Toko</span><a href="index.html" target="_blank" style="color:var(--sp);font-size:.78rem;font-weight:600">Buka Toko <i class="fas fa-external-link-alt"></i></a></div>'
     +'</div></div>';
   document.getElementById('pageScroll').innerHTML=html;
@@ -764,23 +925,29 @@ function doSaveCreds(){
 }
 function clearDoneOrders(){
   if(!confirm('Hapus order selesai & ditolak?'))return;
-  ORDERS=ORDERS.filter(function(o){return o.status==='pending'||o.status==='confirmed';});
-  saveOrders();loadAll();renderSettings();toast('Selesai','warn');
+  var rawOrders=[];
+  try{var o=localStorage.getItem('wxvn_ord');rawOrders=o?JSON.parse(o):[];}catch(e){}
+  rawOrders=rawOrders.filter(function(o){return o.status==='pending'||o.status==='confirmed';});
+  try{localStorage.setItem('wxvn_ord',JSON.stringify(rawOrders));}catch(e){}
+  loadAll();renderSettings();toast('Selesai','warn');
 }
 function clearAllOrders(){
   if(!confirm('HAPUS SEMUA ORDER? Tidak bisa dibatalkan!'))return;
-  ORDERS=[];saveOrders();loadAll();renderSettings();toast('Semua order dihapus','err');
+  try{localStorage.setItem('wxvn_ord',JSON.stringify([]));}catch(e){}
+  loadAll();renderSettings();toast('Semua order dihapus','err');
 }
 function clearAllStk(){
   if(!confirm('RESET SEMUA STOK? Tidak bisa dibatalkan!'))return;
   STOCK={};saveStock();loadAll();renderSettings();toast('Semua stok direset','err');
 }
 
+/* ─── Modal ─── */
 function openModal(html){document.getElementById('modalBody').innerHTML=html;document.getElementById('modal').classList.add('on');}
 function closeModal(){document.getElementById('modal').classList.remove('on');}
 function handleModalBgClick(e){if(e.target===document.getElementById('modal'))closeModal();}
 document.addEventListener('keydown',function(e){if(e.key==='Escape')closeModal();});
 
+/* ─── Toast ─── */
 function toast(msg,type){
   var t=document.createElement('div');
   t.className='toast'+(type==='err'?' err':type==='warn'?' warn':'');
@@ -789,9 +956,14 @@ function toast(msg,type){
   setTimeout(function(){t.style.transition='all .3s';t.style.opacity='0';t.style.transform='translateY(8px)';setTimeout(function(){t.remove();},320);},3000);
 }
 
+/* ─── Refresh otomatis setiap 30 detik (tangkap order baru dari toko) ─── */
+setInterval(function(){
+  if(document.getElementById('adminPage').style.display!=='none'){
+    loadAll();updateBadge();
+  }
+},30000);
+
 loadAll();
 </script>
 </body>
 </html>
-ADMINEOF
-echo "admin done: $(wc -c < /tmp/admin_new.html) bytes"
