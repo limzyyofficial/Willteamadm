@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-<title>WILZXITERZ VN | Premium Store</title>
+<title>WILZXITERZ | Official </title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Orbitron:wght@400;600;700;800;900&family=Exo+2:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -377,8 +377,8 @@ select.finp{cursor:pointer}
 <!-- HERO -->
 <div class="hero" id="heroSection">
   <div class="hero-tag"><i class="fas fa-bolt"></i>&nbsp;PREMIUM ACCOUNTS & GAMING TOOLS</div>
-  <h1>WILZXITERZ<br><span class="glow">VN STORE</span></h1>
-  <div class="hero-sub">Akun premium, Mod APK & Script terpercaya. Harga murah, update rutin, stok selalu tersedia!</div>
+  <h1>WILZXITERZ VN<br><span class="glow">STORE</span></h1>
+  <div class="hero-sub">Cheat Game, Mod APK & Script terpercaya. Harga murah, update rutin, stok selalu tersedia!</div>
   <div class="hero-stats">
     <div class="hstat"><div class="hstat-n" id="statProds">21</div><div class="hstat-l">Produk</div></div>
     <div class="hstat"><div class="hstat-n">1K+</div><div class="hstat-l">Pembeli</div></div>
@@ -392,9 +392,9 @@ select.finp{cursor:pointer}
     <div class="ftab on" data-cat="all">🔥 Semua</div>
     <div class="ftab" data-cat="android">📱 Android</div>
     <div class="ftab" data-cat="pc">💻 PC</div>
-    <div class="ftab" data-cat="premium">⭐ Premium</div>
-    <div class="ftab" data-cat="vpn">🛡️ VPN/Tools</div>
-    <div class="ftab" data-cat="ai">🤖 AI Tools</div>
+    <div class="ftab" data-cat="tools">⭐ Tools</div>
+    <div class="ftab" data-cat="comingsoon">🛡️ Coming Soon</div>
+    <div class="ftab" data-cat="ai">🤖 Coming Soon</div>
   </div>
   <div class="search-wrap" id="searchWrap">
     <i class="fas fa-search search-ico"></i>
@@ -449,7 +449,7 @@ select.finp{cursor:pointer}
   <div id="sbLogoutBtn" style="display:none;margin-top:.6rem">
     <button class="btn-outline" onclick="doLogout();closeSB()" style="border-color:rgba(255,71,87,.3);color:var(--err)"><i class="fas fa-sign-out-alt"></i>&nbsp;Logout</button>
   </div>
-  <div class="sb-foot">© 2025 WILZXITERZ VN<br>v3.5 · Fully Integrated</div>
+  <div class="sb-foot">© 2026 WILZXITERZ VN<br>v3.5 · Fully Integrated</div>
 </div>
 <div id="ov"></div>
 
@@ -501,44 +501,52 @@ onAuthStateChanged(auth,(user)=>{
 /* ─── Data Produk ─── */
 var PRODS = [
   // Gaming Tools
-  {id:'p1', name:'DRIP CLIENT APKMOD', cat:'android', plat:'android', price:15000, free:false, desc:'Drip Client APK Mod terbaru untuk Free Fire. Fitur: ESP, Aimbot, No Recoil, Wallhack. Update otomatis.', icon:'🎮', brand:null, multiplan:false},
-  {id:'p2', name:'DRIP CLIENT ROOT', cat:'android', plat:'android', price:20000, free:false, desc:'Versi root Drip Client dengan fitur unlock penuh. Butuh akses root. Kompatibel Android 8+.', icon:'🔓', brand:null, multiplan:false},
-  {id:'p3', name:'DRIP CLIENT PC AIMKILL', cat:'pc', plat:'pc', price:25000, free:false, desc:'Drip Client untuk PC dengan fitur Aimkill. Kompatibel Windows 10/11.', icon:'💻', brand:null, multiplan:false},
-  {id:'p4', name:'DELTA MOD VIRTUAL & ROOT', cat:'android', plat:'android', price:18000, free:false, desc:'Delta Mod dengan support virtual space & root.', icon:'🦋', brand:null, multiplan:false},
-  {id:'p5', name:'BR MODS ROOT & VIRTUAL', cat:'android', plat:'android', price:22000, free:false, desc:'BR Mods support root dan virtual. Fitur ESP, Aimbot, radar.', icon:'⚡', brand:null, multiplan:false},
-  {id:'p6', name:'BR MODS PC', cat:'pc', plat:'pc', price:28000, free:false, desc:'BR Mods versi PC. Fitur lengkap untuk BGMI/PUBG PC.', icon:'🖥️', brand:null, multiplan:false},
-  {id:'p7', name:'HG CHEATS MOD & ROOT', cat:'android', plat:'android', price:19000, free:false, desc:'HG Cheats FF support MOD dan ROOT. Garansi 7 hari.', icon:'🎯', brand:null, multiplan:false},
-  {id:'p8', name:'HAX-CAKER PRO ROOT', cat:'android', plat:'android', price:23000, free:false, desc:'Hax-Caker Pro versi terbaru. Support root & virtual.', icon:'🔥', brand:null, multiplan:false},
+  {id:'p1', name:'COMINGSOON', cat:'comingsoon', plat:'all', price:15000, free:false, desc:'Drip Client APK Mod terbaru untuk Free Fire. Fitur: ESP, Aimbot, No Recoil, Wallhack. Update otomatis.', icon:'🎮', brand:null, multiplan:true,
+   plans:[{name:'1 Hari',price:10000},{name:'3 Hari',price:20000},{name:'1 Minggu',price:50000},{name:'2 Minggu',price:100000},{name:'1 Bulan',price:120000}]},
+  {id:'p2', name:'COMINGSOON', cat:'comingsoon', plat:'all', price:20000, free:false, desc:'Versi root Drip Client dengan fitur unlock penuh. Butuh akses root. Kompatibel Android 8+.', icon:'🔓', brand:null, multiplan:true,
+   plans:[{name:'1 Hari',price:10000},{name:'3 Hari',price:20000},{name:'1 Minggu',price:50000},{name:'2 Minggu',price:100000},{name:'1 Bulan',price:120000}]},
+  {id:'p3', name:'COMINGSOON', cat:'comingsoon', plat:'all', price:25000, free:false, desc:'Drip Client untuk PC dengan fitur Aimkill. Kompatibel Windows 10/11.', icon:'💻', brand:null, multiplan:true,
+   plans:[{name:'1 Hari',price:10000},{name:'3 Hari',price:20000},{name:'1 Minggu',price:50000},{name:'2 Minggu',price:100000},{name:'1 Bulan',price:120000}]},
+  {id:'p4', name:'COMINGSOON', cat:'comingsoon', plat:'all', price:18000, free:false, desc:'Delta Mod dengan support virtual space & root.', icon:'🦋', brand:null, multiplan:true,
+   plans:[{name:'1 Hari',price:10000},{name:'3 Hari',price:20000},{name:'1 Minggu',price:50000},{name:'2 Minggu',price:100000},{name:'1 Bulan',price:120000}]},
+  {id:'p5', name:'COMINGSOON', cat:'comingsoon', plat:'all', price:22000, free:false, desc:'BR Mods support root dan virtual. Fitur ESP, Aimbot, radar.', icon:'⚡', brand:null, multiplan:true,
+   plans:[{name:'1 Hari',price:10000},{name:'3 Hari',price:20000},{name:'1 Minggu',price:50000},{name:'2 Minggu',price:100000},{name:'1 Bulan',price:120000}]},
+  {id:'p6', name:'COMINGSOON', cat:'comingsoon', plat:'all', price:28000, free:false, desc:'BR Mods versi PC. Fitur lengkap untuk BGMI/PUBG PC.', icon:'🖥️', brand:null, multiplan:true,
+   plans:[{name:'1 Hari',price:10000},{name:'3 Hari',price:20000},{name:'1 Minggu',price:50000},{name:'2 Minggu',price:100000},{name:'1 Bulan',price:120000}]},
+  {id:'p7', name:'COMINGSOON', cat:'comingsoon', plat:'all', price:19000, free:false, desc:'HG Cheats FF support MOD dan ROOT. Garansi 7 hari.', icon:'🎯', brand:null, multiplan:true,
+   plans:[{name:'1 Hari',price:10000},{name:'3 Hari',price:20000},{name:'1 Minggu',price:50000},{name:'2 Minggu',price:100000},{name:'1 Bulan',price:120000}]},
+  {id:'p8', name:'COMINGSOON', cat:'comingsoon', plat:'all', price:23000, free:false, desc:'Hax-Caker Pro versi terbaru. Support root & virtual.', icon:'🔥', brand:null, multiplan:true,
+   plans:[{name:'1 Hari',price:10000},{name:'3 Hari',price:20000},{name:'1 Minggu',price:50000},{name:'2 Minggu',price:100000},{name:'1 Bulan',price:120000}]},
   // Premium Accounts — stok dari admin, multi-plan
-  {id:'p9',  name:'SPOTIFY PREMIUM', cat:'premium', plat:'all', price:15000, free:false, desc:'Musik tanpa iklan, download offline, kualitas Very High Quality.', icon:'🎵', brand:'spotify', multiplan:true,
-   plans:[{name:'1 Bulan',price:15000},{name:'3 Bulan',price:40000},{name:'6 Bulan',price:75000},{name:'1 Tahun',price:140000}]},
-  {id:'p10', name:'NETFLIX PREMIUM 4K', cat:'premium', plat:'all', price:25000, free:false, desc:'Film & series tanpa batas, 4K Ultra HD, 4 layar sekaligus.', icon:'🎬', brand:'netflix', multiplan:true,
-   plans:[{name:'1 Bulan',price:25000},{name:'3 Bulan',price:65000},{name:'6 Bulan',price:120000},{name:'1 Tahun',price:220000}]},
-  {id:'p11', name:'YOUTUBE PREMIUM', cat:'premium', plat:'all', price:18000, free:false, desc:'Nonton tanpa iklan, download video, YouTube Music gratis.', icon:'▶️', brand:'youtube', multiplan:true,
-   plans:[{name:'1 Bulan',price:18000},{name:'3 Bulan',price:50000},{name:'6 Bulan',price:90000},{name:'1 Tahun',price:165000}]},
-  {id:'p12', name:'CANVA PRO', cat:'premium', plat:'all', price:20000, free:false, desc:'100M+ template, Background Remover, Magic Edit, Brand Kit.', icon:'🎨', brand:'canva', multiplan:true,
-   plans:[{name:'1 Bulan',price:20000},{name:'3 Bulan',price:55000},{name:'6 Bulan',price:100000},{name:'1 Tahun',price:185000}]},
-  {id:'p13', name:'CHATGPT PLUS', cat:'ai', plat:'all', price:30000, free:false, desc:'GPT-4o, DALL·E 3, browsing web, plugins, akses prioritas.', icon:'🤖', brand:'chatgpt', multiplan:true,
-   plans:[{name:'1 Bulan',price:30000},{name:'3 Bulan',price:82000},{name:'6 Bulan',price:155000},{name:'1 Tahun',price:290000}]},
-  {id:'p14', name:'GRAMMARLY PREMIUM', cat:'ai', plat:'all', price:20000, free:false, desc:'Koreksi grammar AI, deteksi plagiarisme, saran gaya penulisan.', icon:'📝', brand:'grammarly', multiplan:true,
-   plans:[{name:'1 Bulan',price:20000},{name:'3 Bulan',price:54000},{name:'6 Bulan',price:100000},{name:'1 Tahun',price:185000}]},
-  {id:'p15', name:'NORDVPN PREMIUM', cat:'vpn', plat:'all', price:25000, free:false, desc:'VPN tercepat, 5400+ server 60+ negara, 6 perangkat.', icon:'🛡️', brand:'nordvpn', multiplan:true,
-   plans:[{name:'1 Bulan',price:25000},{name:'3 Bulan',price:68000},{name:'6 Bulan',price:125000},{name:'1 Tahun',price:230000}]},
-  {id:'p16', name:'MICROSOFT 365', cat:'premium', plat:'all', price:22000, free:false, desc:'Word, Excel, PowerPoint, Teams, OneDrive 1TB.', icon:'💼', brand:'microsoft', multiplan:true,
-   plans:[{name:'1 Bulan',price:22000},{name:'3 Bulan',price:60000},{name:'6 Bulan',price:110000},{name:'1 Tahun',price:200000}]},
-  {id:'p17', name:'ADOBE CREATIVE CLOUD', cat:'premium', plat:'all', price:55000, free:false, desc:'Photoshop, Illustrator, Premiere Pro, After Effects.', icon:'🖼️', brand:'adobe', multiplan:true,
-   plans:[{name:'1 Bulan',price:55000},{name:'3 Bulan',price:148000},{name:'6 Bulan',price:275000},{name:'1 Tahun',price:510000}]},
-  {id:'p18', name:'DISNEY+ HOTSTAR', cat:'premium', plat:'all', price:18000, free:false, desc:'Disney, Marvel, Star Wars, National Geographic.', icon:'⭐', brand:'disney', multiplan:true,
-   plans:[{name:'1 Bulan',price:18000},{name:'3 Bulan',price:48000},{name:'6 Bulan',price:88000},{name:'1 Tahun',price:160000}]},
-  {id:'p19', name:'DUOLINGO PLUS', cat:'ai', plat:'all', price:18000, free:false, desc:'Belajar bahasa tanpa iklan, offline, streak repair.', icon:'🦜', brand:'duolingo', multiplan:true,
-   plans:[{name:'1 Bulan',price:18000},{name:'3 Bulan',price:48000},{name:'6 Bulan',price:88000},{name:'1 Tahun',price:160000}]},
+  {id:'p9',  name:'DRIP CLIENT APKMOD', cat:'android', plat:'all', price:15000, free:false, desc:'Musik tanpa iklan, download offline, kualitas Very High Quality.', icon:'🎵', brand:'dripclient', multiplan:true,
+   plans:[{name:'1 Hari',price:10000},{name:'3 Hari',price:20000},{name:'1 Minggu',price:50000},{name:'2 Minggu',price:100000},{name:'1 Bulan',price:120000}]},
+  {id:'p10', name:'DRIP CLIENT ROOT', cat:'android', plat:'all', price:25000, free:false, desc:'Film & series tanpa batas, 4K Ultra HD, 4 layar sekaligus.', icon:'🎬', brand:'dripclientroot', multiplan:true,
+   plans:[{name:'1 Hari',price:10000},{name:'3 Hari',price:20000},{name:'1 Minggu',price:50000},{name:'2 Minggu',price:100000},{name:'1 Bulan',price:120000}]},
+  {id:'p11', name:'DRIP CLIENT PC', cat:'pc', plat:'all', price:18000, free:false, desc:'Nonton tanpa iklan, download video, YouTube Music gratis.', icon:'▶️', brand:'dripclientpc', multiplan:true,
+   plans:[{name:'1 Hari',price:10000},{name:'3 Hari',price:20000},{name:'1 Minggu',price:50000},{name:'2 Minggu',price:100000},{name:'1 Bulan',price:120000}]},
+  {id:'p12', name:'ALPHA X STORE', cat:'android', plat:'all', price:20000, free:false, desc:'100M+ template, Background Remover, Magic Edit, Brand Kit.', icon:'🎨', brand:'alphaxstore', multiplan:true,
+   plans:[{name:'1 Hari',price:10000},{name:'3 Hari',price:20000},{name:'1 Minggu',price:50000},{name:'2 Minggu',price:100000},{name:'1 Bulan',price:120000}]},
+  {id:'p13', name:'BR MODS V3', cat:'ai', plat:'all', price:30000, free:false, desc:'GPT-4o, DALL·E 3, browsing web, plugins, akses prioritas.', icon:'🤖', brand:'brmodv3', multiplan:true,
+   plans:[{name:'1 Hari',price:10000},{name:'3 Hari',price:20000},{name:'1 Minggu',price:50000},{name:'2 Minggu',price:100000},{name:'1 Bulan',price:120000}]},
+  {id:'p14', name:'YOONSO BUTTERFLY', cat:'android', plat:'all', price:20000, free:false, desc:'Koreksi grammar AI, deteksi plagiarisme, saran gaya penulisan.', icon:'📝', brand:'yoonsobutterfly', multiplan:true,
+   plans:[{name:'1 Hari',price:10000},{name:'3 Hari',price:20000},{name:'1 Minggu',price:50000},{name:'2 Minggu',price:100000},{name:'1 Bulan',price:120000}]},
+  {id:'p15', name:'ANGRY MOD', cat:'android', plat:'all', price:25000, free:false, desc:'VPN tercepat, 5400+ server 60+ negara, 6 perangkat.', icon:'🛡️', brand:'angrymod', multiplan:true,
+   plans:[{name:'1 Hari',price:10000},{name:'3 Hari',price:20000},{name:'1 Minggu',price:50000},{name:'2 Minggu',price:100000},{name:'1 Bulan',price:120000}]},
+  {id:'p16', name:'KIWMODZ EXE', cat:'android', plat:'all', price:22000, free:false, desc:'Word, Excel, PowerPoint, Teams, OneDrive 1TB.', icon:'💼', brand:'kiwmodzexe', multiplan:true,
+   plans:[{name:'1 Hari',price:10000},{name:'3 Hari',price:20000},{name:'1 Minggu',price:50000},{name:'2 Minggu',price:100000},{name:'1 Bulan',price:120000}]},
+  {id:'p17', name:'VVIP MOD', cat:'android', plat:'all', price:55000, free:false, desc:'Photoshop, Illustrator, Premiere Pro, After Effects.', icon:'🖼️', brand:'vvipmod', multiplan:true,
+   plans:[{name:'1 Hari',price:10000},{name:'3 Hari',price:20000},{name:'1 Minggu',price:50000},{name:'2 Minggu',price:100000},{name:'1 Bulan',price:120000}]},
+  {id:'p18', name:'HEX BLADE', cat:'android', plat:'all', price:18000, free:false, desc:'Disney, Marvel, Star Wars, National Geographic.', icon:'⭐', brand:'hexblade', multiplan:true,
+   plans:[{name:'1 Hari',price:10000},{name:'3 Hari',price:20000},{name:'1 Minggu',price:50000},{name:'2 Minggu',price:100000},{name:'1 Bulan',price:120000}]},
+  {id:'p19', name:'AURORA VN', cat:'pc', plat:'all', price:18000, free:false, desc:'Belajar bahasa tanpa iklan, offline, streak repair.', icon:'🦜', brand:'auroravn', multiplan:true,
+   plans:[{name:'1 Hari',price:10000},{name:'3 Hari',price:20000},{name:'1 Minggu',price:50000},{name:'2 Minggu',price:100000},{name:'1 Bulan',price:120000}]},
   // Free tools
-  {id:'p20', name:'VOLUME STRIKE PRO', cat:'android', plat:'android', price:0, free:true, desc:'Script trigger otomatis menggunakan tombol volume. Gratis!', icon:'🎮', brand:null, multiplan:false},
-  {id:'p21', name:'SCRIPT FF HEADSHOT FREE', cat:'android', plat:'android', price:0, free:true, desc:'Script headshot FF gratis. Update sesuai patch terbaru FF.', icon:'🎯', brand:null, multiplan:false},
+  {id:'p20', name:'STABILIZER AIM', cat:'tools', plat:'android', price:0, free:true, desc:'Script trigger otomatis menggunakan tombol volume. Gratis!', icon:'🎮', brand:null, multiplan:false},
+  {id:'p21', name:'APK GALAXY SENSIX', cat:'tools', plat:'android', price:0, free:true, desc:'Script headshot FF gratis. Update sesuai patch terbaru FF.', icon:'🎯', brand:null, multiplan:false},
 ];
 
 // Brand→stock key mapping (sama dengan admin)
-var BRAND_TO_PRODID = {spotify:'p9',netflix:'p10',disney:'p18',canva:'p12',youtube:'p11',chatgpt:'p13',adobe:'p17',microsoft:'p16',duolingo:'p19',nordvpn:'p15',grammarly:'p14'};
+var BRAND_TO_PRODID = {dripclient:'p9',dripclientroot:'p10',dripclientpc:'p18',alphaxstore:'p12',brmodv3:'p11',yoonsobutterfly:'p13',angrymod:'p17',kiwmodzexe:'p16',vvipmod:'p19',hexblade:'p15',auroravn:'p14'};
 var PRODID_TO_BRAND = {};
 Object.keys(BRAND_TO_PRODID).forEach(function(b){PRODID_TO_BRAND[BRAND_TO_PRODID[b]]=b;});
 
