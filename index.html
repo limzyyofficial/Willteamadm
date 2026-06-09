@@ -393,8 +393,10 @@ select.finp{cursor:pointer}
     <div class="ftab" data-cat="android">📱 Android</div>
     <div class="ftab" data-cat="pc">💻 PC</div>
     <div class="ftab" data-cat="tools">⭐ Tools</div>
-    <div class="ftab" data-cat="comingsoon">🛡️ Coming Soon</div>
-    <div class="ftab" data-cat="ai">🤖 Coming Soon</div>
+    <div class="ftab" data-cat="root">🛡️ Root</div>
+    <div class="ftab" data-cat="noroot">📐 No Root</div>
+    <div class="ftab" data-cat="emulator">🖥️ Emulator</div>
+    <div class="ftab" data-cat="cominsoon">🛴 Cominsoon</div>
   </div>
   <div class="search-wrap" id="searchWrap">
     <i class="fas fa-search search-ico"></i>
@@ -501,32 +503,32 @@ onAuthStateChanged(auth,(user)=>{
 /* ─── Data Produk ─── */
 var PRODS = [
   // Gaming Tools
-  {id:'p1', name:'DRIP CLIENT APKMOD', cat:'android', plat:'Non Root',price:18000, free:false, desc:'Drip Client APK Mod terbaru untuk Free Fire. Fitur: ESP, Aimbot, No Recoil, Wallhack. Update otomatis.', icon:'🎮', brand:'dripclient', multiplan:true,
+  {id:'p1', name:'DRIP CLIENT APKMOD', cat:'android', plat:'nonroot',price:18000, free:false, desc:'Drip Client APK Mod terbaru untuk Free Fire. Fitur: ESP, Aimbot, No Recoil, Wallhack. Update otomatis.', icon:'🎮', brand:'dripclient', multiplan:true,
    plans:[{name:'1 Hari',price:10000},{name:'3 Hari',price:20000},{name:'1 Minggu',price:50000},{name:'2 Minggu',price:100000},{name:'1 Bulan',price:120000}]},
-  {id:'p2', name:'DRIP CLIENT ROOT', cat:'android', plat:'Root',price:18000, free:false, desc:'Versi root Drip Client dengan fitur unlock penuh. Butuh akses root. Kompatibel Android 8+.', icon:'🔓', brand:'dripclientroot', multiplan:true,
+  {id:'p2', name:'DRIP CLIENT ROOT', cat:'android', plat:'root',price:18000, free:false, desc:'Versi root Drip Client dengan fitur unlock penuh. Butuh akses root. Kompatibel Android 8+.', icon:'🔓', brand:'dripclientroot', multiplan:true,
    plans:[{name:'1 Hari',price:10000},{name:'3 Hari',price:20000},{name:'1 Minggu',price:50000},{name:'2 Minggu',price:100000},{name:'1 Bulan',price:120000}]},
-  {id:'p3', name:'DRIP CLIENT PC', cat:'pc', plat:'Emulator', price:25000, free:false, desc:'Drip Client untuk PC dengan fitur Aimkill. Kompatibel Windows 10/11.', icon:'💻',  brand:'dripclientpc', multiplan:true,
+  {id:'p3', name:'DRIP CLIENT PC', cat:'pc', plat:'emulator', price:25000, free:false, desc:'Drip Client untuk PC dengan fitur Aimkill. Kompatibel Windows 10/11.', icon:'💻',  brand:'dripclientpc', multiplan:true,
    plans:[{name:'1 Hari',price:10000},{name:'3 Hari',price:20000},{name:'1 Minggu',price:50000},{name:'2 Minggu',price:100000},{name:'1 Bulan',price:120000}]},
-  {id:'p4', name:'ALPHA X STORE', cat:'android', plat:'Root', price:18000, free:false, desc:'Delta Mod dengan support virtual space & root.', icon:'🦋', brand:'alphaxstore', multiplan:true,
+  {id:'p4', name:'ALPHA X STORE', cat:'android', plat:'root', price:18000, free:false, desc:'Delta Mod dengan support virtual space & root.', icon:'🦋', brand:'alphaxstore', multiplan:true,
    plans:[{name:'1 Hari',price:10000},{name:'3 Hari',price:20000},{name:'1 Minggu',price:50000},{name:'2 Minggu',price:100000},{name:'1 Bulan',price:120000}]},
-  {id:'p5', name:'BR MODS V3', cat:'android', plat:'Root', price:22000, free:false, desc:'BR Mods support root dan virtual. Fitur ESP, Aimbot, radar.', icon:'⚡', brand:'brmodv3', multiplan:true,
+  {id:'p5', name:'BR MODS V3', cat:'android', plat:'root', price:22000, free:false, desc:'BR Mods support root dan virtual. Fitur ESP, Aimbot, radar.', icon:'⚡', brand:'brmodv3', multiplan:true,
    plans:[{name:'1 Hari',price:10000},{name:'3 Hari',price:20000},{name:'1 Minggu',price:50000},{name:'2 Minggu',price:100000},{name:'1 Bulan',price:120000}]},
-  {id:'p6', name:'YOONSO BUTTERFLY', cat:'android', plat:'Root', price:28000, free:false, desc:'BR Mods versi PC. Fitur lengkap untuk BGMI/PUBG PC.', icon:'🖥️', brand:'yoonsobutterfly', multiplan:true,
+  {id:'p6', name:'YOONSO BUTTERFLY', cat:'android', plat:'root', price:28000, free:false, desc:'BR Mods versi PC. Fitur lengkap untuk BGMI/PUBG PC.', icon:'🖥️', brand:'yoonsobutterfly', multiplan:true,
    plans:[{name:'1 Hari',price:10000},{name:'3 Hari',price:20000},{name:'1 Minggu',price:50000},{name:'2 Minggu',price:100000},{name:'1 Bulan',price:120000}]},
-  {id:'p7', name:'KIWMODZ EXE', cat:'android', plat:'Root', price:19000, free:false, desc:'HG Cheats FF support MOD dan ROOT. Garansi 7 hari.', icon:'🎯', brand:'kiwmodexe', multiplan:true,
+  {id:'p7', name:'KIWMODZ EXE', cat:'android', plat:'root', price:19000, free:false, desc:'HG Cheats FF support MOD dan ROOT. Garansi 7 hari.', icon:'🎯', brand:'kiwmodexe', multiplan:true,
    plans:[{name:'1 Hari',price:10000},{name:'3 Hari',price:20000},{name:'1 Minggu',price:50000},{name:'2 Minggu',price:100000},{name:'1 Bulan',price:120000}]},
-  {id:'p8', name:'VVIP MOD', cat:'android', plat:'Root', price:23000, free:false, desc:'Hax-Caker Pro versi terbaru. Support root & virtual.', icon:'🔥', brand:'vvipmod', multiplan:true,
+  {id:'p8', name:'VVIP MOD', cat:'android', plat:'root', price:23000, free:false, desc:'Hax-Caker Pro versi terbaru. Support root & virtual.', icon:'🔥', brand:'vvipmod', multiplan:true,
    plans:[{name:'1 Hari',price:10000},{name:'3 Hari',price:20000},{name:'1 Minggu',price:50000},{name:'2 Minggu',price:100000},{name:'1 Bulan',price:120000}]},
   // Premium Accounts — stok dari admin, multi-plan
-  {id:'p9',  name:'HEX BLADE', cat:'android', plat:'Root', price:15000, free:false, desc:'Musik tanpa iklan, download offline, kualitas Very High Quality.', icon:'🎵', brand:'hexblade', multiplan:true,
+  {id:'p9',  name:'HEX BLADE', cat:'android', plat:'root', price:15000, free:false, desc:'Musik tanpa iklan, download offline, kualitas Very High Quality.', icon:'🎵', brand:'hexblade', multiplan:true,
    plans:[{name:'1 Hari',price:10000},{name:'3 Hari',price:20000},{name:'1 Minggu',price:50000},{name:'2 Minggu',price:100000},{name:'1 Bulan',price:120000}]},
-  {id:'p10', name:'AURORA VN', cat:'pc', plat:'Emulator', price:25000, free:false, desc:'Film & series tanpa batas, 4K Ultra HD, 4 layar sekaligus.', icon:'🎬', brand:'auroravn', multiplan:true,
+  {id:'p10', name:'AURORA VN', cat:'pc', plat:'emulator', price:25000, free:false, desc:'Film & series tanpa batas, 4K Ultra HD, 4 layar sekaligus.', icon:'🎬', brand:'auroravn', multiplan:true,
    plans:[{name:'1 Hari',price:10000},{name:'3 Hari',price:20000},{name:'1 Minggu',price:50000},{name:'2 Minggu',price:100000},{name:'1 Bulan',price:120000}]},
-  {id:'p11', name:'BOOYAH PANEL', cat:'android', plat:'Root', price:18000, free:false, desc:'Nonton tanpa iklan, download video, YouTube Music gratis.', icon:'▶️', brand:'booyahpanel', multiplan:true,
+  {id:'p11', name:'BOOYAH PANEL', cat:'android', plat:'root', price:18000, free:false, desc:'Nonton tanpa iklan, download video, YouTube Music gratis.', icon:'▶️', brand:'booyahpanel', multiplan:true,
    plans:[{name:'1 Hari',price:10000},{name:'3 Hari',price:20000},{name:'1 Minggu',price:50000},{name:'2 Minggu',price:100000},{name:'1 Bulan',price:120000}]},
-  {id:'p12', name:'LK TEAM', cat:'android', plat:'Root', price:20000, free:false, desc:'100M+ template, Background Remover, Magic Edit, Brand Kit.', icon:'🎨', brand:'lkteam', multiplan:true,
+  {id:'p12', name:'LK TEAM', cat:'android', plat:'root', price:20000, free:false, desc:'100M+ template, Background Remover, Magic Edit, Brand Kit.', icon:'🎨', brand:'lkteam', multiplan:true,
    plans:[{name:'1 Hari',price:10000},{name:'3 Hari',price:20000},{name:'1 Minggu',price:50000},{name:'2 Minggu',price:100000},{name:'1 Bulan',price:120000}]},
-  {id:'p13', name:'DRIPCLIENT 8 BALL POOL', cat:'android', plat:'Non Root', price:30000, free:false, desc:'GPT-4o, DALL·E 3, browsing web, plugins, akses prioritas.', icon:'🤖', brand:'ballpool', multiplan:true,
+  {id:'p13', name:'DRIPCLIENT 8 BALL POOL', cat:'android', plat:'nonroot', price:30000, free:false, desc:'GPT-4o, DALL·E 3, browsing web, plugins, akses prioritas.', icon:'🤖', brand:'ballpool', multiplan:true,
    plans:[{name:'1 Hari',price:10000},{name:'3 Hari',price:20000},{name:'1 Minggu',price:50000},{name:'2 Minggu',price:100000},{name:'1 Bulan',price:120000}]},
   {id:'p14', name:'ANGRY MOD', cat:'android', plat:'root', price:20000, free:false, desc:'Koreksi grammar AI, deteksi plagiarisme, saran gaya penulisan.', icon:'📝', brand:'angrymod', multiplan:true,
    plans:[{name:'1 Hari',price:10000},{name:'3 Hari',price:20000},{name:'1 Minggu',price:50000},{name:'2 Minggu',price:100000},{name:'1 Bulan',price:120000}]},
@@ -833,7 +835,7 @@ function openProdDetail(id){
     actions='<button class="btn-cyan" onclick="openDownload(\''+id+'\');closeModal(\'prodModal\')"><i class="fas fa-download"></i>&nbsp;DOWNLOAD GRATIS</button>';
   } else if(habis){
     actions='<div style="background:rgba(255,71,87,.08);border:1px solid rgba(255,71,87,.25);border-radius:10px;padding:.85rem;text-align:center;margin-bottom:.7rem"><div style="font-size:1.5rem;margin-bottom:.3rem">😔</div><div style="font-family:\'Orbitron\',monospace;font-size:.78rem;font-weight:800;color:var(--err)">STOK HABIS</div></div>'
-      +'<a href="https://wa.me/6285138768886?text=Restock+'+encodeURIComponent(p.name)+'" target="_blank" class="wa-link" style="margin-top:.5rem"><i class="fab fa-whatsapp"></i>&nbsp;Tanya Restock</a>';
+      +'<a href="https://wa.me/6285173360622?text=Restock+'+encodeURIComponent(p.name)+'" target="_blank" class="wa-link" style="margin-top:.5rem"><i class="fab fa-whatsapp"></i>&nbsp;Tanya Restock</a>';
   } else {
     actions='<button class="btn-cyan" onclick="closeModal(\'prodModal\');openPayFlow(\''+id+'\')"><i class="fas fa-shopping-cart"></i>&nbsp;BELI SEKARANG</button>';
   }
