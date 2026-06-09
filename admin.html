@@ -326,7 +326,7 @@ textarea.finp{resize:vertical;min-height:90px;font-family:'JetBrains Mono',monos
         <span id="loginBtnLbl"><i class="fas fa-sign-in-alt"></i>&nbsp;Masuk ke Panel</span>
         <div class="ls-spin" id="loginSpin"></div>
       </button>
-      <div class="login-hint">Default: WilzXiterZ / 8899</div>
+      <div class="login-hint">WilzXiterZ / 8899</div>
     </div>
   </div>
 </div>
@@ -647,7 +647,7 @@ function openWaConfirm(orderId, type){
   var html='<div class="modal-title">'+icon+' '+title+'</div>'
     +'<div class="modal-sub">'+o.id+' · '+o.name+'</div>'
     +'<div><label class="flabel">Nomor WhatsApp Customer</label>'
-    +'<input class="finp" id="waCustNum" placeholder="6281234567890 atau 081234567890" value="'+(custNum||'')+'" style="margin-bottom:.55rem"></div>'
+    +'<input class="finp" id="waCustNum" placeholder="6285173360622 atau 085173360622" value="'+(custNum||'')+'" style="margin-bottom:.55rem"></div>'
     +'<div class="wa-preview-box">'
     +'<div class="wa-preview-label"><i class="fab fa-whatsapp"></i> Preview Pesan</div>'
     +'<div style="position:relative;display:inline-block">'
@@ -695,7 +695,7 @@ function openWaAdminNotif(orderId){
   var html='<div class="modal-title">📲 Notif ke Admin WA</div>'
     +'<div class="modal-sub">Kirim notifikasi order ini ke nomor admin</div>'
     +'<div><label class="flabel">Nomor Admin WhatsApp</label>'
-    +'<input class="finp" id="waAdminNumInp" placeholder="6281234567890" value="'+adminNum+'" style="margin-bottom:.55rem"></div>'
+    +'<input class="finp" id="waAdminNumInp" placeholder="6285173360622" value="'+adminNum+'" style="margin-bottom:.55rem"></div>'
     +'<div class="wa-preview-box">'
     +'<div class="wa-preview-label"><i class="fab fa-whatsapp"></i> Preview</div>'
     +'<div style="position:relative;display:inline-block">'
@@ -1044,8 +1044,8 @@ function openDeliver(id){
     return '<div style="margin-bottom:.75rem;background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:10px;padding:.75rem">'
       +'<div style="display:flex;justify-content:space-between;margin-bottom:.45rem"><span style="font-size:.8rem;font-weight:700">'+item.name+(item.plan&&item.plan!=='—'?' · '+item.plan:'')+'</span>'
       +(item.brand?'<span style="font-family:\'JetBrains Mono\',monospace;font-size:.65rem;color:'+(n>0?'var(--sp)':'var(--err)')+'">Stok: '+n+'</span>':'')+'</div>'
-      +'<label class="flabel">AKUN / KUNCI</label>'
-      +'<textarea class="finp" id="dk_'+i+'" placeholder="email:password atau kode akun..." style="min-height:65px">'+(stk.length?stk[0]:'')+'</textarea></div>';
+      +'<label class="flabel">LICENSE / KUNCI</label>'
+      +'<textarea class="finp" id="dk_'+i+'" placeholder="username:password atau kode akun..." style="min-height:65px">'+(stk.length?stk[0]:'')+'</textarea></div>';
   }).join('');
   openModal('<div class="modal-title">📦 Kirim Akun</div><div class="modal-sub">'+o.name+' · '+o.contact+'</div>'+iHtml
     +'<div class="modal-actions">'
@@ -1163,18 +1163,18 @@ function renderStock(){
     +'<div class="import-sub">Tambah banyak akun sekaligus, satu akun per baris.</div>'
     +'<div class="form-row">'
     +'<div><label class="flabel">Produk</label><select class="finp" id="impBrand">'+PRODS.map(function(p){return '<option value="'+p.brand+'">'+p.name+'</option>';}).join('')+'</select></div>'
-    +'<div><label class="flabel">Paket</label><select class="finp" id="impPlan"><option>1 Bulan</option><option>3 Bulan</option><option>6 Bulan</option><option>1 Tahun</option></select></div>'
+    +'<div><label class="flabel">Paket</label><select class="finp" id="impPlan"><option>1 Hari</option><option>3 Hari</option><option>1 Minggu</option><option>2 Minggu</option><option>1 Bulan</select></div>'
     +'</div>'
     +'<label class="flabel">Daftar Akun</label>'
-    +'<textarea class="finp" id="impKeys" placeholder="email1:pass1&#10;email2:pass2&#10;kode_akun3..."></textarea>'
-    +'<div class="fhelp">Satu baris = satu akun · Otomatis tersinkron ke stok toko</div>'
+    +'<textarea class="finp" id="impKeys" placeholder="username:pass1&#10;username2:pass2&#10;kode_akun3..."></textarea>'
+    +'<div class="fhelp">Satu baris = satu key · Otomatis tersinkron ke stok toko</div>'
     +'<button class="green-btn" onclick="doImport()"><i class="fas fa-upload"></i>&nbsp;Import Sekarang</button></div>';
   document.getElementById('pageScroll').innerHTML=html;
 }
 
 function openAddStk(brand,name,plan){
   openModal('<div class="modal-title">➕ Tambah Stok</div><div class="modal-sub">'+name+' · '+plan+' · Saat ini: '+sc(brand,plan)+' akun</div>'
-    +'<div><label class="flabel">AKUN / KUNCI (satu per baris)</label><textarea class="finp" id="newStkKeys" placeholder="email:password&#10;kode_akun..." style="min-height:110px"></textarea></div>'
+    +'<div><label class="flabel">LICENSE / KUNCI (satu per baris)</label><textarea class="finp" id="newStkKeys" placeholder="email:password&#10;kode_akun..." style="min-height:110px"></textarea></div>'
     +'<div class="modal-actions"><button class="modal-btn primary" onclick="doAddStk(\''+brand+'\',\''+plan+'\')"><i class="fas fa-plus"></i>&nbsp;Tambah Stok</button><button class="modal-btn secondary" onclick="closeModal()">Batal</button></div>');
 }
 function doAddStk(brand,plan){
@@ -1199,7 +1199,7 @@ function viewStk(brand,name,plan){
 }
 function rmStk(brand,plan,idx){
   var k=sKey(brand,plan);if(STOCK[k])STOCK[k].splice(idx,1);
-  saveStock();closeModal();renderStock();toast('Akun dihapus dari stok','warn');
+  saveStock();closeModal();renderStock();toast('License dihapus dari stok','warn');
 }
 function clearStk(brand,plan){
   if(!confirm('Hapus semua stok?'))return;
@@ -1213,7 +1213,7 @@ function doImport(){
   var k=sKey(brand,plan);if(!STOCK[k])STOCK[k]=[];
   STOCK[k]=STOCK[k].concat(keys);
   saveStock();document.getElementById('impKeys').value='';
-  renderStock();toast('✅ '+keys.length+' akun diimport & tersinkron ke toko!');
+  renderStock();toast('✅ '+keys.length+' license diimport & tersinkron ke toko!');
 }
 
 /* ═══════════════════════════════════════
