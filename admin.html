@@ -85,7 +85,6 @@ body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--text);min
 .tb-icon-btn:hover{background:rgba(255,255,255,.1);color:var(--text)}
 .tb-icon-btn.danger:hover{background:rgba(255,71,87,.15);color:var(--err);border-color:rgba(255,71,87,.3)}
 .tb-icon-btn.store-link:hover{background:rgba(30,215,96,.15);color:var(--sp);border-color:rgba(30,215,96,.3)}
-/* WhatsApp topbar button */
 .tb-icon-btn.wa-btn{border-color:rgba(37,211,102,.2)}
 .tb-icon-btn.wa-btn.active{background:rgba(37,211,102,.15);color:var(--wa);border-color:rgba(37,211,102,.4)}
 .tb-icon-btn.wa-btn:hover{background:rgba(37,211,102,.2);color:var(--wa);border-color:rgba(37,211,102,.4)}
@@ -147,7 +146,6 @@ body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--text);min
 .abtn.reject{background:rgba(255,71,87,.08);border-color:rgba(255,71,87,.2);color:var(--err)}
 .abtn.ghost{color:var(--muted)}
 .abtn.del{color:var(--err)}
-/* WhatsApp action button */
 .abtn.wa{background:rgba(37,211,102,.1);border-color:rgba(37,211,102,.3);color:var(--wa)}
 .abtn.wa:hover{background:rgba(37,211,102,.2)}
 .filter-scroll{display:flex;gap:.4rem;overflow-x:auto;padding-bottom:.3rem;margin-bottom:.85rem;scrollbar-width:none}
@@ -160,18 +158,7 @@ body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--text);min
 .stk-list{display:flex;flex-direction:column;gap:.7rem}
 .stk-card{background:rgba(255,255,255,.025);border:1px solid var(--border);border-radius:var(--r);overflow:hidden}
 .stk-head{display:flex;align-items:center;gap:.65rem;padding:.75rem .9rem;border-bottom:1px solid var(--border);background:rgba(255,255,255,.018)}
-.stk-icon{width:36px;height:36px;border-radius:9px;display:grid;place-items:center;font-size:.95rem;flex-shrink:0}
-.stk-icon.spotify{background:var(--spg);color:var(--sp)}
-.stk-icon.netflix{background:var(--nfg);color:var(--nf)}
-.stk-icon.disney{background:var(--dsg);color:var(--ds)}
-.stk-icon.canva{background:var(--cvg);color:var(--cv)}
-.stk-icon.youtube{background:var(--ytg);color:var(--yt)}
-.stk-icon.chatgpt{background:var(--gptg);color:var(--gpt)}
-.stk-icon.adobe{background:rgba(255,0,0,.1);color:#FF0000}
-.stk-icon.microsoft{background:var(--msg);color:var(--ms)}
-.stk-icon.duolingo{background:var(--duog);color:var(--duo)}
-.stk-icon.nordvpn{background:var(--vpng);color:var(--vpn)}
-.stk-icon.grammarly{background:var(--gramg);color:var(--gram)}
+.stk-icon{width:36px;height:36px;border-radius:9px;display:grid;place-items:center;font-size:.95rem;flex-shrink:0;background:rgba(30,215,96,.1);color:var(--sp)}
 .stk-name{font-family:'Syne',sans-serif;font-weight:800;font-size:.9rem}
 .stk-rows{padding:.5rem .9rem}
 .stk-row{display:flex;align-items:center;justify-content:space-between;padding:.42rem 0;border-bottom:1px solid rgba(255,255,255,.04);gap:.5rem}
@@ -195,7 +182,6 @@ textarea.finp{resize:vertical;min-height:90px;font-family:'JetBrains Mono',monos
 .green-btn{width:100%;padding:.72rem;border-radius:var(--pill);background:var(--sp);border:none;font-family:'Syne',sans-serif;font-weight:800;font-size:.88rem;color:#000;cursor:pointer;transition:var(--t);display:flex;align-items:center;justify-content:center;gap:.4rem;margin-top:.65rem}
 .green-btn:hover{background:var(--sp2);transform:translateY(-1px)}
 .green-btn:active{transform:scale(.98)}
-/* WhatsApp Setup Banner */
 .wa-setup-banner{background:linear-gradient(135deg,rgba(37,211,102,.08),rgba(37,211,102,.03));border:1px solid rgba(37,211,102,.2);border-radius:var(--rxl);padding:1rem;margin-bottom:.85rem;display:flex;align-items:flex-start;gap:.75rem}
 .wa-setup-banner.configured{border-color:rgba(37,211,102,.35);background:linear-gradient(135deg,rgba(37,211,102,.1),rgba(37,211,102,.04))}
 .wa-setup-ico{width:40px;height:40px;border-radius:11px;background:rgba(37,211,102,.15);border:1px solid rgba(37,211,102,.25);display:grid;place-items:center;font-size:1.1rem;flex-shrink:0;color:var(--wa)}
@@ -205,28 +191,24 @@ textarea.finp{resize:vertical;min-height:90px;font-family:'JetBrains Mono',monos
 .wa-setup-num{font-family:'JetBrains Mono',monospace;font-size:.75rem;color:var(--wa);margin-top:.25rem}
 .wa-setup-btn{display:inline-flex;align-items:center;gap:.3rem;margin-top:.5rem;padding:.28rem .72rem;border-radius:99px;border:1px solid rgba(37,211,102,.3);background:rgba(37,211,102,.1);color:var(--wa);font-size:.7rem;font-weight:600;cursor:pointer;transition:var(--t)}
 .wa-setup-btn:hover{background:rgba(37,211,102,.2)}
-/* WhatsApp notification toggle */
 .wa-toggle-row{display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,.025);border:1px solid var(--border);border-radius:10px;padding:.75rem .9rem;margin-bottom:.5rem}
 .wa-toggle-info{flex:1}
 .wa-toggle-title{font-size:.82rem;font-weight:600;margin-bottom:.12rem;display:flex;align-items:center;gap:.4rem}
 .wa-toggle-sub{font-size:.7rem;color:var(--muted)}
 .toggle-switch{position:relative;width:42px;height:24px;flex-shrink:0}
-.toggle-switch input{opacity:0;width:0;height:0}
+.toggle-switch input{opacity:0;width:0;height:0;position:absolute}
 .toggle-slider{position:absolute;cursor:pointer;inset:0;background:var(--dim);border-radius:99px;transition:.3s}
 .toggle-slider:before{content:'';position:absolute;width:18px;height:18px;left:3px;bottom:3px;background:var(--muted);border-radius:50%;transition:.3s}
 .toggle-switch input:checked+.toggle-slider{background:var(--wa)}
 .toggle-switch input:checked+.toggle-slider:before{transform:translateX(18px);background:#fff}
-/* WhatsApp template editor */
 .tpl-block{background:rgba(37,211,102,.04);border:1px solid rgba(37,211,102,.12);border-radius:10px;padding:.82rem;margin-top:.55rem}
 .tpl-title{font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:1px;text-transform:uppercase;color:var(--wa);margin-bottom:.55rem;display:flex;align-items:center;gap:.35rem}
 .tpl-vars{display:flex;flex-wrap:wrap;gap:.3rem;margin-bottom:.55rem}
 .tpl-var{font-family:'JetBrains Mono',monospace;font-size:.62rem;background:rgba(37,211,102,.1);border:1px solid rgba(37,211,102,.2);color:var(--wa);padding:.15rem .45rem;border-radius:5px;cursor:pointer;transition:var(--t)}
 .tpl-var:hover{background:rgba(37,211,102,.2)}
-/* Order settings */
 .setting-block{background:rgba(255,255,255,.025);border:1px solid var(--border);border-radius:var(--r);padding:.9rem;margin-bottom:.7rem}
 .setting-title{font-family:'Syne',sans-serif;font-weight:800;font-size:.9rem;margin-bottom:.18rem}
 .setting-sub{font-size:.72rem;color:var(--muted);margin-bottom:.9rem}
-/* WhatsApp setting block special */
 .setting-block.wa-block{border-color:rgba(37,211,102,.18);background:rgba(37,211,102,.03)}
 .setting-block.wa-block .setting-title{color:var(--wa)}
 .danger-zone{display:flex;flex-direction:column;gap:.45rem}
@@ -259,16 +241,13 @@ textarea.finp{resize:vertical;min-height:90px;font-family:'JetBrains Mono',monos
 .modal-btn.secondary:hover{background:rgba(255,255,255,.12);color:var(--text)}
 .modal-btn.gold{background:var(--gold);color:#000}
 .modal-btn.gold:hover{background:var(--gold2)}
-/* WhatsApp modal button */
 .modal-btn.wa{background:var(--wa);color:#000}
 .modal-btn.wa:hover{background:#1ab850}
 .modal-btn.wa-outline{background:rgba(37,211,102,.1);color:var(--wa);border:1px solid rgba(37,211,102,.3)}
 .modal-btn.wa-outline:hover{background:rgba(37,211,102,.2)}
-/* WhatsApp preview box */
 .wa-preview-box{background:#0a1628;border:1px solid rgba(37,211,102,.15);border-radius:12px;padding:.9rem;margin:.7rem 0;position:relative}
 .wa-preview-label{font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--wa);margin-bottom:.6rem;display:flex;align-items:center;gap:.35rem}
 .wa-bubble{background:#1f3a2a;border-radius:0 10px 10px 10px;padding:.65rem .8rem;font-size:.78rem;line-height:1.65;color:#d5f5e0;white-space:pre-wrap;word-break:break-word;max-width:90%;display:inline-block}
-.wa-bubble-tail{display:inline-block;width:8px;height:8px;background:#1f3a2a;clip-path:polygon(100% 0,0 0,100% 100%);position:absolute;top:.9rem;left:.82rem;transform:translateX(-100%)}
 #toasts{position:fixed;bottom:calc(var(--nav-h) + .7rem);left:1rem;right:1rem;z-index:9999;display:flex;flex-direction:column;gap:.35rem;align-items:center;pointer-events:none}
 .toast{background:var(--card);border:1px solid var(--border);border-left:3px solid var(--sp);padding:.55rem .9rem;border-radius:10px;font-size:.76rem;font-family:'JetBrains Mono',monospace;display:flex;align-items:center;gap:.45rem;max-width:340px;width:100%;color:var(--text);animation:toastIn .3s cubic-bezier(.34,1.4,.64,1);box-shadow:0 4px 20px rgba(0,0,0,.45);pointer-events:all}
 .toast.err{border-left-color:var(--err)}.toast.warn{border-left-color:var(--warn)}.toast.wa{border-left-color:var(--wa)}
@@ -279,11 +258,10 @@ textarea.finp{resize:vertical;min-height:90px;font-family:'JetBrains Mono',monos
 .empty-s{font-size:.76rem;color:var(--muted)}
 .stk-mini-grid{display:grid;grid-template-columns:1fr 1fr;gap:.5rem}
 .stk-mini{background:rgba(255,255,255,.025);border:1px solid var(--border);border-radius:10px;padding:.65rem .75rem;display:flex;align-items:center;gap:.55rem}
-.stk-mini-ico{width:30px;height:30px;border-radius:8px;display:grid;place-items:center;font-size:.82rem;flex-shrink:0}
+.stk-mini-ico{width:30px;height:30px;border-radius:8px;display:grid;place-items:center;font-size:.82rem;flex-shrink:0;background:rgba(30,215,96,.1);color:var(--sp)}
 .stk-mini-name{font-size:.75rem;font-weight:600;line-height:1.3}
 .stk-mini-cnt{font-family:'JetBrains Mono',monospace;font-size:.65rem;margin-top:.1rem}
 .stk-sync{font-family:'JetBrains Mono',monospace;font-size:.55rem;color:var(--sp);background:rgba(30,215,96,.08);border:1px solid rgba(30,215,96,.18);padding:.1rem .38rem;border-radius:4px;margin-left:.4rem}
-/* WA notif pulse */
 @keyframes waPulse{0%{box-shadow:0 0 0 0 rgba(37,211,102,.4)}70%{box-shadow:0 0 0 8px rgba(37,211,102,0)}100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}}
 .wa-pulse{animation:waPulse 1.5s ease-in-out 2}
 </style>
@@ -310,15 +288,15 @@ textarea.finp{resize:vertical;min-height:90px;font-family:'JetBrains Mono',monos
       <div class="field">
         <div class="field-label"><i class="fas fa-user"></i>USERNAME</div>
         <div class="field-wrap">
-          <input class="field-inp" id="loginUser" type="text" placeholder="Masukkan username..." autocomplete="username">
           <i class="fas fa-user field-ico"></i>
+          <input class="field-inp" id="loginUser" type="text" placeholder="Masukkan username..." autocomplete="username">
         </div>
       </div>
       <div class="field">
         <div class="field-label"><i class="fas fa-lock"></i>PASSWORD</div>
         <div class="field-wrap">
-          <input class="field-inp" id="loginPass" type="password" placeholder="Masukkan password..." autocomplete="current-password" style="padding-right:2.5rem">
           <i class="fas fa-lock field-ico"></i>
+          <input class="field-inp" id="loginPass" type="password" placeholder="Masukkan password..." autocomplete="current-password" style="padding-right:2.5rem">
           <button class="pw-toggle" id="pwToggle" type="button"><i class="fas fa-eye" id="pwEyeIco"></i></button>
         </div>
       </div>
@@ -332,7 +310,7 @@ textarea.finp{resize:vertical;min-height:90px;font-family:'JetBrains Mono',monos
 </div>
 
 <!-- ADMIN PAGE -->
-<div id="adminPage" style="display:none;flex-direction:column;min-height:100vh">
+<div id="adminPage">
   <div class="topbar">
     <div class="tb-brand">WXV<em>N</em></div>
     <div class="tb-mid">
@@ -341,7 +319,6 @@ textarea.finp{resize:vertical;min-height:90px;font-family:'JetBrains Mono',monos
     </div>
     <div class="tb-right">
       <div class="tb-pill"><div class="ldot"></div>LIVE</div>
-      <!-- WhatsApp toggle button -->
       <div class="tb-icon-btn wa-btn" id="waTopBtn" title="WhatsApp Notifikasi" onclick="toggleWaQuick()">
         <i class="fab fa-whatsapp"></i>
       </div>
@@ -379,1095 +356,929 @@ textarea.finp{resize:vertical;min-height:90px;font-family:'JetBrains Mono',monos
 <div id="toasts"></div>
 
 <script>
-/* ══════════════════════════════════════════════════════
+/* ══════════════════════════════════════
    STORAGE KEYS:
-   - wxvn_ord   → orders dari toko
-   - wxvn_stk   → stok akun premium
-   - wxvn_creds → kredensial admin
-   - wxvn_wa    → konfigurasi WhatsApp
-   - stk_{id}   → stok per produk (dipakai toko)
-══════════════════════════════════════════════════════ */
+   wxvn_ord   → orders
+   wxvn_stk   → stok akun
+   wxvn_creds → kredensial admin
+   wxvn_wa    → konfigurasi WhatsApp
+   stk_{id}   → stok per produk (toko)
+══════════════════════════════════════ */
 
-var STOCK={}, ORDERS=[], CREDS={user:'admin',pass:'admin123'};
+var STOCK = {}, ORDERS = [], CREDS = { user: 'WilzXiterZ', pass: '8899' };
+var pendingWaNotif = [];
+var _lastOrderIds = null;
+var _lastOrderCount = -1;
+var curPage = 'dashboard';
+var ordFilter = 'all';
+var ordSearch = '';
 
-/* ═══════════════════════════════════════
-   WHATSAPP CONFIG
-═══════════════════════════════════════ */
+/* ═══════════ WHATSAPP CONFIG ═══════════ */
 var WA_CFG = {
-  adminNumber: '',        // nomor WA admin, format: 6281234567890
-  notifEnabled: true,     // aktifkan notif ke admin saat ada order baru
-  autoOpen: true,         // otomatis buka WA saat order baru
-  tplNewOrder:            // template pesan notif order baru
-    '🛍️ *ORDER BARU!*\n\n' +
-    'ID: {ORDER_ID}\n' +
-    'Nama: {NAMA}\n' +
-    'Produk: {PRODUK}\n' +
-    'Total: {TOTAL}\n' +
-    'Kontak: {KONTAK}\n' +
-    'Waktu: {WAKTU}\n\n' +
-    '👉 Cek Admin Panel untuk konfirmasi.',
-  tplConfirm:             // template konfirmasi ke customer
-    '✅ *Pesanan Dikonfirmasi!*\n\n' +
-    'Halo {NAMA}, pesanan kamu sudah kami konfirmasi!\n\n' +
-    '📋 Detail:\n' +
-    'ID Order: {ORDER_ID}\n' +
-    'Produk: {PRODUK}\n' +
-    'Total: {TOTAL}\n\n' +
-    '⏳ Akun akan segera kami kirimkan.\n' +
-    'Terima kasih sudah berbelanja! 🙏',
-  tplDeliver:             // template pengiriman akun ke customer
-    '🎉 *Akun Sudah Dikirim!*\n\n' +
-    'Halo {NAMA}, akun premiummu sudah siap!\n\n' +
-    '📦 Detail Order:\n' +
-    'ID: {ORDER_ID}\n' +
-    'Produk: {PRODUK}\n\n' +
-    '🔑 *Data Akun:*\n' +
-    '{AKUN}\n\n' +
-    '⚠️ Jaga kerahasiaan akunmu ya!\n' +
-    'Terima kasih sudah berbelanja di WILZXITERZ VN 🙏',
-  tplReject:              // template penolakan ke customer
-    '❌ *Pesanan Ditolak*\n\n' +
-    'Halo {NAMA}, maaf pesananmu tidak dapat kami proses.\n\n' +
-    'ID Order: {ORDER_ID}\n' +
-    'Alasan: {ALASAN}\n\n' +
-    'Silakan hubungi kami jika ada pertanyaan. 🙏'
+  adminNumber: '',
+  notifEnabled: true,
+  autoOpen: true,
+  tplNewOrder:
+    '🛍️ *ORDER BARU!*\n\nID: {ORDER_ID}\nNama: {NAMA}\nProduk: {PRODUK}\nTotal: {TOTAL}\nKontak: {KONTAK}\nWaktu: {WAKTU}\n\n👉 Cek Admin Panel untuk konfirmasi.',
+  tplConfirm:
+    '✅ *Pesanan Dikonfirmasi!*\n\nHalo {NAMA}, pesanan kamu sudah kami konfirmasi!\n\n📋 Detail:\nID Order: {ORDER_ID}\nProduk: {PRODUK}\nTotal: {TOTAL}\n\n⏳ Akun akan segera kami kirimkan.\nTerima kasih sudah berbelanja! 🙏',
+  tplDeliver:
+    '🎉 *Akun Sudah Dikirim!*\n\nHalo {NAMA}, akun premiummu sudah siap!\n\n📦 Detail Order:\nID: {ORDER_ID}\nProduk: {PRODUK}\n\n🔑 *Data Akun:*\n{AKUN}\n\n⚠️ Jaga kerahasiaan akunmu ya!\nTerima kasih sudah berbelanja di WILZXITERZ VN 🙏',
+  tplReject:
+    '❌ *Pesanan Ditolak*\n\nHalo {NAMA}, maaf pesananmu tidak dapat kami proses.\n\nID Order: {ORDER_ID}\nAlasan: {ALASAN}\n\nSilakan hubungi kami jika ada pertanyaan. 🙏'
 };
 
-function loadWaCfg(){
-  try{var w=localStorage.getItem('wxvn_wa');if(w)WA_CFG=Object.assign({},WA_CFG,JSON.parse(w));}catch(e){}
+function loadWaCfg() {
+  try { var w = localStorage.getItem('wxvn_wa'); if (w) WA_CFG = Object.assign({}, WA_CFG, JSON.parse(w)); } catch (e) {}
 }
-function saveWaCfg(){
-  try{localStorage.setItem('wxvn_wa',JSON.stringify(WA_CFG));}catch(e){}
+function saveWaCfg() {
+  try { localStorage.setItem('wxvn_wa', JSON.stringify(WA_CFG)); } catch (e) {}
 }
-
-/* Format nomor WA: hilangkan karakter non-digit, ganti awalan 0 → 62 */
-function formatWaNum(num){
-  num=String(num).replace(/\D/g,'');
-  if(num.startsWith('0'))num='62'+num.slice(1);
+function formatWaNum(num) {
+  num = String(num).replace(/\D/g, '');
+  if (num.startsWith('0')) num = '62' + num.slice(1);
   return num;
 }
-
-/* Buka WhatsApp dengan pesan */
-function openWa(number, message){
-  var num=formatWaNum(number);
-  if(!num){toast('Nomor WhatsApp tidak valid!','err');return;}
-  var url='https://wa.me/'+num+'?text='+encodeURIComponent(message);
-  window.open(url,'_blank');
+function openWa(number, message) {
+  var num = formatWaNum(number);
+  if (!num) { toast('Nomor WhatsApp tidak valid!', 'err'); return; }
+  window.open('https://wa.me/' + num + '?text=' + encodeURIComponent(message), '_blank');
 }
-
-/* Build pesan dari template + data order */
-function buildWaMsg(tpl, order, extra){
-  extra=extra||{};
-  var produk=order.items?order.items.map(function(i){return i.name+(i.plan&&i.plan!=='—'?' ('+i.plan+')':'');}).join(', '):(order.prodName||'—');
+function buildWaMsg(tpl, order, extra) {
+  extra = extra || {};
+  var produk = order.items
+    ? order.items.map(function (i) { return i.name + (i.plan && i.plan !== '—' ? ' (' + i.plan + ')' : ''); }).join(', ')
+    : (order.prodName || '—');
   return tpl
-    .replace(/{ORDER_ID}/g, order.id||'—')
-    .replace(/{NAMA}/g, order.name||order.userName||'—')
+    .replace(/{ORDER_ID}/g, order.id || '—')
+    .replace(/{NAMA}/g, order.name || order.userName || '—')
     .replace(/{PRODUK}/g, produk)
-    .replace(/{TOTAL}/g, fmt(order.total||0))
-    .replace(/{KONTAK}/g, order.contact||'—')
-    .replace(/{WAKTU}/g, order.date||new Date().toLocaleString('id-ID'))
-    .replace(/{ALASAN}/g, extra.alasan||'Pembayaran tidak valid')
-    .replace(/{AKUN}/g, extra.akun||'(lihat pesan sebelumnya)');
+    .replace(/{TOTAL}/g, fmt(order.total || 0))
+    .replace(/{KONTAK}/g, order.contact || '—')
+    .replace(/{WAKTU}/g, order.date || new Date().toLocaleString('id-ID'))
+    .replace(/{ALASAN}/g, extra.alasan || 'Pembayaran tidak valid')
+    .replace(/{AKUN}/g, extra.akun || '(lihat pesan sebelumnya)');
 }
-
-/* Notifikasi WA ke admin saat ada order baru */
-function notifyAdminNewOrder(order){
-  if(!WA_CFG.notifEnabled||!WA_CFG.adminNumber) return;
-  var msg=buildWaMsg(WA_CFG.tplNewOrder, order);
-  if(WA_CFG.autoOpen){
+function notifyAdminNewOrder(order) {
+  if (!WA_CFG.notifEnabled || !WA_CFG.adminNumber) return;
+  var msg = buildWaMsg(WA_CFG.tplNewOrder, order);
+  if (WA_CFG.autoOpen) {
     openWa(WA_CFG.adminNumber, msg);
-    toast('📲 WhatsApp dibuka — notifikasi order baru!','wa');
+    toast('📲 WhatsApp dibuka — notifikasi order baru!', 'wa');
   } else {
-    /* Simpan antrian notif */
-    pendingWaNotif=pendingWaNotif||[];
-    pendingWaNotif.push({num:WA_CFG.adminNumber,msg:msg});
-    toast('🔔 Order baru! Klik WA untuk kirim notif.','wa');
+    pendingWaNotif.push({ num: WA_CFG.adminNumber, msg: msg });
+    toast('🔔 Order baru! Klik ikon WA untuk kirim notif.', 'wa');
     updateWaTopBtn();
   }
 }
-
-var pendingWaNotif=[];
-function updateWaTopBtn(){
-  var btn=document.getElementById('waTopBtn');if(!btn)return;
-  if(WA_CFG.adminNumber&&WA_CFG.notifEnabled){
+function updateWaTopBtn() {
+  var btn = document.getElementById('waTopBtn'); if (!btn) return;
+  if (WA_CFG.adminNumber && WA_CFG.notifEnabled) {
     btn.classList.add('active');
-    btn.title='WA Notif AKTIF · '+WA_CFG.adminNumber+(pendingWaNotif&&pendingWaNotif.length?' ('+pendingWaNotif.length+' pending)':'');
+    btn.title = 'WA Notif AKTIF · ' + WA_CFG.adminNumber + (pendingWaNotif.length ? ' (' + pendingWaNotif.length + ' pending)' : '');
   } else {
     btn.classList.remove('active');
-    btn.title='WhatsApp Notifikasi (belum dikonfigurasi)';
+    btn.title = 'WhatsApp Notifikasi (belum dikonfigurasi)';
   }
 }
-
-function toggleWaQuick(){
-  /* Jika ada notif pending, kirim sekarang */
-  if(pendingWaNotif&&pendingWaNotif.length){
-    var n=pendingWaNotif.shift();
-    openWa(n.num,n.msg);
+function toggleWaQuick() {
+  if (pendingWaNotif.length) {
+    var n = pendingWaNotif.shift();
+    openWa(n.num, n.msg);
     updateWaTopBtn();
     return;
   }
   goPage('settings');
-  setTimeout(function(){
-    var el=document.querySelector('.wa-block');
-    if(el)el.scrollIntoView({behavior:'smooth',block:'center'});
-  },200);
+  setTimeout(function () {
+    var el = document.querySelector('.wa-block');
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }, 200);
 }
 
-/* ── Daftar produk premium ── */
-var PRODS=[
-  {brand:'dripclient',  name:'Drip Client Apk Mod',      icon:'fab fa-dripclient',     plans:['1 Hari','3 Hari','1 Minggu','2 Minggu','1 Bulan']},
-  {brand:'dripclientroot',  name:'Drip Client Root',       icon:'fas fa-dripclientroot',        plans:['1 Hari','3 Hari','1 Minggu','2 Minggu','1 Bulan']},
-  {brand:'dripclientpc',   name:'Drip Client Pc',       icon:'fas fa-dripclientpc',        plans:['1 Hari','3 Hari','1 Minggu','2 Minggu','1 Bulan']},
-  {brand:'alphaxstore',    name:'Alpha X Store',             icon:'fas fa-alphaxstore',     plans:['1 Hari','3 Hari','1 Minggu','2 Minggu','1 Bulan']},
-  {brand:'brmodv3',  name:'Br Mod V3',       icon:'fab fa-brmodv3',     plans:['1 Hari','3 Hari','1 Minggu','2 Minggu','1 Bulan']},
-  {brand:'yoonsobutterfly',  name:'Yoonso Butterfly',          icon:'fas fa-yoonsobutterfly',       plans:['1 Hari','3 Hari','1 Minggu','2 Minggu','1 Bulan']},
-  {brand:'kiwmodzexe',    name:'Kiwmodz Exe',  icon:'fab fa-kiwmodzexe',       plans:['1 Hari','3 Hari','1 Minggu','2 Minggu','1 Bulan']},
-  {brand:'vvipmod',name:'Vvip Mods',         icon:'fab fa-vvipmod',   plans:['1 Hari','3 Hari','1 Minggu','2 Minggu','1 Bulan']},
-  {brand:'hexblade', name:'Hex Blade',         icon:'fas fa-hexblade',    plans:['1 Hari','3 Hari','1 Minggu','2 Minggu','1 Bulan']},
-  {brand:'auroravn',  name:'Aurora VN',       icon:'fas fa-shield-auroravn',  plans:['1 Hari','3 Hari','1 Minggu','2 Minggu','1 Bulan']},
-  {brand:'booyahpanel',name:'Booyah Panel',     icon:'fas fa-spell-booyahpanel', plans:['1 Hari','3 Hari','1 Minggu','2 Minggu','1 Bulan']},
-  {brand:'lkteam',  name:'Lk Team',      icon:'fab fa-lkteam',     plans:['1 Hari','3 Hari','1 Minggu','2 Minggu','1 Bulan']},
-  {brand:'ballpool',  name:'8 Ball Pool',       icon:'fas fa-ballpool',        plans:['1 Hari','3 Hari','1 Minggu','2 Minggu','1 Bulan']},
-  {brand:'angrymod',   name:'Angry Mod',       icon:'fas fa-angrymod',        plans:['1 Hari','3 Hari','1 Minggu','2 Minggu','1 Bulan']},
-  {brand:'rapidcore',    name:'Rapid Core',             icon:'fas fa-rapidcore',     plans:['1 Hari','3 Hari','1 Minggu','2 Minggu','1 Bulan']},
-  {brand:'comingsoonc',  name:'Comingsoonc',       icon:'fab fa-comingsoonc',     plans:['1 Hari','3 Hari','1 Minggu','2 Minggu','1 Bulan']},
-  {brand:'comingsoonv',  name:'Comingsoonv',          icon:'fas fa-comingsoonv',       plans:['1 Hari','3 Hari','1 Minggu','2 Minggu','1 Bulan']},
-  {brand:'comingsoonb',    name:'Comingsoonb',  icon:'fab fa-comingsoonb',       plans:['1 Hari','3 Hari','1 Minggu','2 Minggu','1 Bulan']},
-  {brand:'comingsoonn',name:'Comingsoonn',         icon:'fab fa-comingsoonn',   plans:['1 Hari','3 Hari','1 Minggu','2 Minggu','1 Bulan']},
+/* ═══════════ PRODUK ═══════════ */
+var PRODS = [
+  { brand: 'dripclient',      name: 'Drip Client Apk Mod',  icon: '🎮', plans: ['1 Hari','3 Hari','1 Minggu','2 Minggu','1 Bulan'] },
+  { brand: 'dripclientroot',  name: 'Drip Client Root',     icon: '🔓', plans: ['1 Hari','3 Hari','1 Minggu','2 Minggu','1 Bulan'] },
+  { brand: 'dripclientpc',    name: 'Drip Client PC',       icon: '💻', plans: ['1 Hari','3 Hari','1 Minggu','2 Minggu','1 Bulan'] },
+  { brand: 'alphaxstore',     name: 'Alpha X Store',        icon: '🦋', plans: ['1 Hari','3 Hari','1 Minggu','2 Minggu','1 Bulan'] },
+  { brand: 'brmodv3',         name: 'BR Mod V3',            icon: '⚡', plans: ['1 Hari','3 Hari','1 Minggu','2 Minggu','1 Bulan'] },
+  { brand: 'yoonsobutterfly', name: 'Yoonso Butterfly',     icon: '🦋', plans: ['1 Hari','3 Hari','1 Minggu','2 Minggu','1 Bulan'] },
+  { brand: 'kiwmodzexe',      name: 'Kiwmodz Exe',          icon: '🎯', plans: ['1 Hari','3 Hari','1 Minggu','2 Minggu','1 Bulan'] },
+  { brand: 'vvipmod',         name: 'Vvip Mods',            icon: '🔥', plans: ['1 Hari','3 Hari','1 Minggu','2 Minggu','1 Bulan'] },
+  { brand: 'hexblade',        name: 'Hex Blade',            icon: '🗡️', plans: ['1 Hari','3 Hari','1 Minggu','2 Minggu','1 Bulan'] },
+  { brand: 'auroravn',        name: 'Aurora VN',            icon: '🌟', plans: ['1 Hari','3 Hari','1 Minggu','2 Minggu','1 Bulan'] },
+  { brand: 'booyahpanel',     name: 'Booyah Panel',         icon: '🏆', plans: ['1 Hari','3 Hari','1 Minggu','2 Minggu','1 Bulan'] },
+  { brand: 'lkteam',          name: 'Lk Team',              icon: '👥', plans: ['1 Hari','3 Hari','1 Minggu','2 Minggu','1 Bulan'] },
+  { brand: 'ballpool',        name: '8 Ball Pool',          icon: '🎱', plans: ['1 Hari','3 Hari','1 Minggu','2 Minggu','1 Bulan'] },
+  { brand: 'angrymod',        name: 'Angry Mod',            icon: '😤', plans: ['1 Hari','3 Hari','1 Minggu','2 Minggu','1 Bulan'] },
+  { brand: 'rapidcore',       name: 'Rapid Core',           icon: '🚀', plans: ['1 Hari','3 Hari','1 Minggu','2 Minggu','1 Bulan'] },
+  { brand: 'comingsoonc',     name: 'Comingsoon C',         icon: '⏳', plans: ['1 Hari','3 Hari','1 Minggu','2 Minggu','1 Bulan'] },
+  { brand: 'comingsoonv',     name: 'Comingsoon V',         icon: '⏳', plans: ['1 Hari','3 Hari','1 Minggu','2 Minggu','1 Bulan'] },
+  { brand: 'comingsoonb',     name: 'Comingsoon B',         icon: '⏳', plans: ['1 Hari','3 Hari','1 Minggu','2 Minggu','1 Bulan'] },
+  { brand: 'comingsoonn',     name: 'Comingsoon N',         icon: '⏳', plans: ['1 Hari','3 Hari','1 Minggu','2 Minggu','1 Bulan'] }
 ];
 
-var BRAND_TO_PRODID={
+var BRAND_TO_PRODID = {
   dripclient:'p1',dripclientroot:'p2',dripclientpc:'p3',alphaxstore:'p4',brmodv3:'p5',
-  yoonsobutterfly:'p6',kiwmodzexe:'p7',vvipmod:'p8',hexblade:'p9',auroravn:'p10',booyahpanel:'p11',lkteam:'p12',ballpool:'p13',angrymod:'p14'
-  ,rapidcore:'p15',comingsoonc:'p16',comingsoonv:'p17',comingsoonb:'p18',comingsoonn:'p19'
-};
-var BRAND_CLS={
-  dripclient:'dripclient',dripclientroot:'dripclientroot',dripclientpc:'dripclientpc',alphaxstore:'alphaxstore',
-  brmodv3:'brmodv3',yoonsobutterfly:'yoonsobutterfly',kiwmodzexe:'kiwmodzexe',vvipmod:'vvipmod',
-  hexblade:'hexblade',auroravn:'auroravn',booyahpanel:'booyahpanel',lkteam:'lkteam',ballpool:'ballpool',angrymod:'angrymod',
-  rapidcore:'rapidcore',comingsoonc:'comingsoonc',comingsoonv:'comingsoonv',comingsoonb:'comingsoonb',comingsoonn:'comingsoonn'
+  yoonsobutterfly:'p6',kiwmodzexe:'p7',vvipmod:'p8',hexblade:'p9',auroravn:'p10',
+  booyahpanel:'p11',lkteam:'p12',ballpool:'p13',angrymod:'p14',rapidcore:'p15',
+  comingsoonc:'p16',comingsoonv:'p17',comingsoonb:'p18',comingsoonn:'p19'
 };
 
-function sKey(b,p){return b+'_'+p.replace(/\s+/g,'').toLowerCase();}
-function sc(b,p){return (STOCK[sKey(b,p)]||[]).length;}
-function scToko(brand){
-  var pid=BRAND_TO_PRODID[brand];if(!pid)return 0;
-  try{var v=JSON.parse(localStorage.getItem('stk_'+pid));return(v!==null&&v!==undefined)?v:0;}catch(e){return 0;}
-}
-function syncStokToToko(){
-  PRODS.forEach(function(p){
-    var pid=BRAND_TO_PRODID[p.brand];if(!pid)return;
-    var total=p.plans.reduce(function(s,pl){return s+sc(p.brand,pl);},0);
-    try{localStorage.setItem('stk_'+pid,JSON.stringify(total));}catch(e){}
+function sKey(b, p) { return b + '_' + p.replace(/\s+/g, '').toLowerCase(); }
+function sc(b, p) { return (STOCK[sKey(b, p)] || []).length; }
+function syncStokToToko() {
+  PRODS.forEach(function (p) {
+    var pid = BRAND_TO_PRODID[p.brand]; if (!pid) return;
+    var total = p.plans.reduce(function (s, pl) { return s + sc(p.brand, pl); }, 0);
+    try { localStorage.setItem('stk_' + pid, JSON.stringify(total)); } catch (e) {}
   });
 }
-function fmt(n){return 'Rp'+Number(n).toLocaleString('id-ID');}
+function fmt(n) { return 'Rp' + Number(n).toLocaleString('id-ID'); }
 
-/* ─── Load / Save ─── */
-function loadAll(){
-  try{var s=localStorage.getItem('wxvn_stk');STOCK=s?JSON.parse(s):{};}catch(e){STOCK={};}
-  try{var o=localStorage.getItem('wxvn_ord');ORDERS=o?JSON.parse(o):[];}catch(e){ORDERS=[];}
-  try{var c=localStorage.getItem('wxvn_creds');if(c)CREDS=JSON.parse(c);}catch(e){}
+/* ═══════════ LOAD / SAVE ═══════════ */
+function loadAll() {
+  try { var s = localStorage.getItem('wxvn_stk'); STOCK = s ? JSON.parse(s) : {}; } catch (e) { STOCK = {}; }
+  try { var o = localStorage.getItem('wxvn_ord'); ORDERS = o ? JSON.parse(o) : []; } catch (e) { ORDERS = []; }
+  try { var c = localStorage.getItem('wxvn_creds'); if (c) CREDS = JSON.parse(c); } catch (e) {}
   loadWaCfg();
 }
-function saveStock(){
-  try{localStorage.setItem('wxvn_stk',JSON.stringify(STOCK));}catch(e){}
+function saveStock() {
+  try { localStorage.setItem('wxvn_stk', JSON.stringify(STOCK)); } catch (e) {}
   syncStokToToko();
 }
-function saveOrders(){try{localStorage.setItem('wxvn_ord',JSON.stringify(ORDERS));}catch(e){}}
-function saveCreds(){try{localStorage.setItem('wxvn_creds',JSON.stringify(CREDS));}catch(e){}}
+function saveOrders() { try { localStorage.setItem('wxvn_ord', JSON.stringify(ORDERS)); } catch (e) {} }
+function saveCreds() { try { localStorage.setItem('wxvn_creds', JSON.stringify(CREDS)); } catch (e) {} }
 
-/* ─── Normalisasi order ─── */
-function normalizeOrder(o){
-  if(o.items&&Array.isArray(o.items)){
-    if(!o.name&&o.userName)o.name=o.userName;
+/* ═══════════ NORMALISASI ORDER ═══════════ */
+function normalizeOrder(o) {
+  if (o.items && Array.isArray(o.items)) {
+    if (!o.name && o.userName) o.name = o.userName;
     return o;
   }
-  var brand=getBrandFromProdId(o.prodId)||'';
+  var brand = getBrandFromProdId(o.prodId) || '';
   return {
-    id:o.id,name:o.userName||o.name||'—',contact:o.contact||'—',
-    userEmail:o.userEmail||'',userId:o.userId||'',isGuest:o.isGuest||false,
-    items:[{name:o.prodName||'Produk',brand:brand,plan:o.plan||'—',price:o.total||0}],
-    total:o.total||0,status:o.status||'pending',statusNote:o.statusNote||'',
-    date:o.date||'—',timestamp:o.timestamp||0,method:o.method||'',
-    delivered:o.delivered||[],activationKey:o.activationKey||''
+    id: o.id, name: o.userName || o.name || '—', contact: o.contact || '—',
+    userEmail: o.userEmail || '', userId: o.userId || '', isGuest: o.isGuest || false,
+    items: [{ name: o.prodName || 'Produk', brand: brand, plan: o.plan || '—', price: o.total || 0 }],
+    total: o.total || 0, status: o.status || 'pending', statusNote: o.statusNote || '',
+    date: o.date || '—', timestamp: o.timestamp || 0, method: o.method || '',
+    delivered: o.delivered || [], activationKey: o.activationKey || ''
   };
 }
-function getBrandFromProdId(pid){
-  var m={p1:'dripclient',p2:'dripclientroot',p3:'dripclientpc',p4:'alphaxstore',p5:'brmodv3',
-         p6:'yoonsobutterfly',p7:'kiwmodzexe',p8:'vvipmod',p9:'hexblade',p10:'auroravn',
-         p11:'booyahpanel',p12:'lkteam',p13:'ballpool',p14:'angrymod',p15:'rapidcore',p16:'comingsoonc',p17:'comingsoonv',p18:'comingsoonb',p19:'comingsoonn'};
-  return m[pid]||'';
+function getBrandFromProdId(pid) {
+  var m = { p1:'dripclient',p2:'dripclientroot',p3:'dripclientpc',p4:'alphaxstore',p5:'brmodv3',
+            p6:'yoonsobutterfly',p7:'kiwmodzexe',p8:'vvipmod',p9:'hexblade',p10:'auroravn',
+            p11:'booyahpanel',p12:'lkteam',p13:'ballpool',p14:'angrymod',p15:'rapidcore',
+            p16:'comingsoonc',p17:'comingsoonv',p18:'comingsoonb',p19:'comingsoonn' };
+  return m[pid] || '';
 }
-function saveOrderById(id,updatedFields){
-  var rawOrders=[];
-  try{var o=localStorage.getItem('wxvn_ord');rawOrders=o?JSON.parse(o):[];}catch(e){}
-  var idx=rawOrders.findIndex(function(o){return o.id===id;});
-  if(idx>=0){
-    Object.assign(rawOrders[idx],updatedFields);
-    if(updatedFields.status)rawOrders[idx].status=updatedFields.status;
-    if(updatedFields.statusNote)rawOrders[idx].statusNote=updatedFields.statusNote;
-    if(updatedFields.delivered)rawOrders[idx].delivered=updatedFields.delivered;
-    if(updatedFields.activationKey)rawOrders[idx].activationKey=updatedFields.activationKey;
-    if(updatedFields.name)rawOrders[idx].userName=updatedFields.name;
-  }
-  try{localStorage.setItem('wxvn_ord',JSON.stringify(rawOrders));}catch(e){}
+function saveOrderById(id, updatedFields) {
+  var rawOrders = [];
+  try { var o = localStorage.getItem('wxvn_ord'); rawOrders = o ? JSON.parse(o) : []; } catch (e) {}
+  var idx = rawOrders.findIndex(function (o) { return o.id === id; });
+  if (idx >= 0) Object.assign(rawOrders[idx], updatedFields);
+  try { localStorage.setItem('wxvn_ord', JSON.stringify(rawOrders)); } catch (e) {}
 }
 
-/* ═════════════════════════════════════
-   WHATSAPP MODAL HELPERS
-═════════════════════════════════════ */
+/* ═══════════ ESCAPE HTML ═══════════ */
+function escHtml(s) {
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
 
-/* Buka modal preview & kirim WA ke customer */
-function openWaConfirm(orderId, type){
-  var orders=getAllOrders();
-  var o=orders.find(function(x){return x.id===orderId;});
-  if(!o) return;
+/* ═══════════ WA HELPERS ═══════════ */
+function extractPhoneNum(str) {
+  if (!str) return '';
+  var m = str.match(/(\+?62|0)\d{8,13}/);
+  return m ? m[0] : '';
+}
 
+function openWaConfirm(orderId, type) {
+  var orders = getAllOrders();
+  var o = orders.find(function (x) { return x.id === orderId; });
+  if (!o) return;
   var tpl, title, icon;
-  if(type==='confirm'){
-    tpl=WA_CFG.tplConfirm; title='Kirim Konfirmasi via WA'; icon='✅';
-  } else if(type==='deliver'){
-    tpl=WA_CFG.tplDeliver; title='Kirim Info Akun via WA'; icon='📦';
-  } else if(type==='reject'){
-    tpl=WA_CFG.tplReject; title='Kirim Penolakan via WA'; icon='❌';
+  if (type === 'confirm') { tpl = WA_CFG.tplConfirm; title = 'Kirim Konfirmasi via WA'; icon = '✅'; }
+  else if (type === 'deliver') { tpl = WA_CFG.tplDeliver; title = 'Kirim Info Akun via WA'; icon = '📦'; }
+  else if (type === 'reject') { tpl = WA_CFG.tplReject; title = 'Kirim Penolakan via WA'; icon = '❌'; }
+  var akunText = '';
+  if (type === 'deliver' && o.delivered && o.delivered.length) {
+    akunText = o.delivered.map(function (d) {
+      return (d.name ? d.name + ' (' + d.plan + '):\n' : '') + '🔑 ' + d.key;
+    }).join('\n\n');
   }
+  var extra = { alasan: o.statusNote || 'Pembayaran tidak valid', akun: akunText || '(akun belum diisi)' };
+  var msg = buildWaMsg(tpl, o, extra);
+  var custNum = extractPhoneNum(o.contact) || extractPhoneNum(o.userEmail || '');
 
-  var akunText='';
-  if(type==='deliver'&&o.delivered&&o.delivered.length){
-    akunText=o.delivered.map(function(d){return (d.name?(d.name+' ('+d.plan+'):\n'):'')+'🔑 '+d.key;}).join('\n\n');
-  }
-
-  var extra={alasan:o.statusNote||'Pembayaran tidak valid',akun:akunText||'(akun belum diisi)'};
-  var msg=buildWaMsg(tpl,o,extra);
-
-  /* Coba parse nomor customer dari contact */
-  var custNum=extractPhoneNum(o.contact)||extractPhoneNum(o.userEmail||'');
-
-  var html='<div class="modal-title">'+icon+' '+title+'</div>'
-    +'<div class="modal-sub">'+o.id+' · '+o.name+'</div>'
-    +'<div><label class="flabel">Nomor WhatsApp Customer</label>'
-    +'<input class="finp" id="waCustNum" placeholder="6285173360622 atau 085173360622" value="'+(custNum||'')+'" style="margin-bottom:.55rem"></div>'
-    +'<div class="wa-preview-box">'
-    +'<div class="wa-preview-label"><i class="fab fa-whatsapp"></i> Preview Pesan</div>'
-    +'<div style="position:relative;display:inline-block">'
-    +'<div class="wa-bubble-tail"></div>'
-    +'<div class="wa-bubble" id="waMsgPreview">'+escHtml(msg)+'</div>'
-    +'</div></div>'
-    +'<div><label class="flabel">Edit Pesan (Opsional)</label>'
-    +'<textarea class="finp" id="waCustomMsg" style="min-height:120px" oninput="document.getElementById(\'waMsgPreview\').textContent=this.value">'+escHtml(msg)+'</textarea></div>'
-    +'<div class="modal-actions">'
-    +'<button class="modal-btn wa" onclick="doSendWa()"><i class="fab fa-whatsapp"></i>&nbsp;Buka WhatsApp & Kirim</button>'
-    +'<button class="modal-btn secondary" onclick="closeModal()">Batal</button>'
-    +'</div>';
-
+  var html = '<div class="modal-title">' + icon + ' ' + title + '</div>'
+    + '<div class="modal-sub">' + escHtml(o.id) + ' · ' + escHtml(o.name) + '</div>'
+    + '<div><label class="flabel">Nomor WhatsApp Customer</label>'
+    + '<input class="finp" id="waCustNum" placeholder="6285xxxxxxxxx" value="' + escHtml(custNum || '') + '" style="margin-bottom:.55rem"></div>'
+    + '<div class="wa-preview-box">'
+    + '<div class="wa-preview-label"><i class="fab fa-whatsapp"></i> Preview Pesan</div>'
+    + '<div class="wa-bubble" id="waMsgPreview">' + escHtml(msg) + '</div>'
+    + '</div>'
+    + '<div><label class="flabel">Edit Pesan (Opsional)</label>'
+    + '<textarea class="finp" id="waCustomMsg" style="min-height:120px" oninput="document.getElementById(\'waMsgPreview\').textContent=this.value">' + escHtml(msg) + '</textarea></div>'
+    + '<div class="modal-actions">'
+    + '<button class="modal-btn wa" onclick="doSendWa()"><i class="fab fa-whatsapp"></i>&nbsp;Buka WhatsApp & Kirim</button>'
+    + '<button class="modal-btn secondary" onclick="closeModal()">Batal</button>'
+    + '</div>';
   openModal(html);
 }
 
-function doSendWa(){
-  var num=document.getElementById('waCustNum').value.trim();
-  var msg=document.getElementById('waCustomMsg').value.trim();
-  if(!num){toast('Masukkan nomor WhatsApp customer!','err');return;}
-  if(!msg){toast('Pesan tidak boleh kosong!','err');return;}
-  openWa(num,msg);
+function doSendWa() {
+  var num = document.getElementById('waCustNum').value.trim();
+  var msg = document.getElementById('waCustomMsg').value.trim();
+  if (!num) { toast('Masukkan nomor WhatsApp customer!', 'err'); return; }
+  if (!msg) { toast('Pesan tidak boleh kosong!', 'err'); return; }
+  openWa(num, msg);
   closeModal();
-  toast('📲 WhatsApp dibuka!','wa');
+  toast('📲 WhatsApp dibuka!', 'wa');
 }
 
-function extractPhoneNum(str){
-  if(!str)return '';
-  var m=str.match(/(\+?62|0)\d{8,13}/);
-  return m?m[0]:'';
-}
-
-function escHtml(s){
-  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
-}
-
-/* Modal kirim WA admin (notif manual) */
-function openWaAdminNotif(orderId){
-  var orders=getAllOrders();
-  var o=orders.find(function(x){return x.id===orderId;});
-  if(!o)return;
-  var msg=buildWaMsg(WA_CFG.tplNewOrder,o);
-  var adminNum=WA_CFG.adminNumber||'';
-
-  var html='<div class="modal-title">📲 Notif ke Admin WA</div>'
-    +'<div class="modal-sub">Kirim notifikasi order ini ke nomor admin</div>'
-    +'<div><label class="flabel">Nomor Admin WhatsApp</label>'
-    +'<input class="finp" id="waAdminNumInp" placeholder="6285173360622" value="'+adminNum+'" style="margin-bottom:.55rem"></div>'
-    +'<div class="wa-preview-box">'
-    +'<div class="wa-preview-label"><i class="fab fa-whatsapp"></i> Preview</div>'
-    +'<div style="position:relative;display:inline-block">'
-    +'<div class="wa-bubble-tail"></div>'
-    +'<div class="wa-bubble">'+escHtml(msg)+'</div>'
-    +'</div></div>'
-    +'<div class="modal-actions">'
-    +'<button class="modal-btn wa" onclick="var n=document.getElementById(\'waAdminNumInp\').value.trim();openWa(n,\''+encodeURIComponent(msg)+'\'.length?decodeURIComponent(\''+encodeURIComponent(msg)+'\'):\'test\');closeModal();toast(\'📲 WA dibuka!\',\'wa\')"><i class="fab fa-whatsapp"></i>&nbsp;Kirim ke Admin</button>'
-    +'<button class="modal-btn secondary" onclick="closeModal()">Batal</button>'
-    +'</div>';
-  openModal(html);
-}
-
-/* ─── Login UI ─── */
-document.getElementById('pwToggle').onclick=function(){
-  var p=document.getElementById('loginPass');
-  var ico=document.getElementById('pwEyeIco');
-  if(p.type==='password'){p.type='text';ico.className='fas fa-eye-slash';}
-  else{p.type='password';ico.className='fas fa-eye';}
+/* ═══════════ LOGIN UI ═══════════ */
+document.getElementById('pwToggle').onclick = function () {
+  var p = document.getElementById('loginPass');
+  var ico = document.getElementById('pwEyeIco');
+  if (p.type === 'password') { p.type = 'text'; ico.className = 'fas fa-eye-slash'; }
+  else { p.type = 'password'; ico.className = 'fas fa-eye'; }
 };
-['loginUser','loginPass'].forEach(function(id){
-  document.getElementById(id).addEventListener('keydown',function(e){if(e.key==='Enter')doLogin();});
+['loginUser', 'loginPass'].forEach(function (id) {
+  document.getElementById(id).addEventListener('keydown', function (e) { if (e.key === 'Enter') doLogin(); });
 });
 
-function doLogin(){
+function doLogin() {
   loadAll();
-  var u=document.getElementById('loginUser').value.trim();
-  var p=document.getElementById('loginPass').value;
-  var al=document.getElementById('loginAlert');
-  var btn=document.getElementById('loginBtn');
-  var spin=document.getElementById('loginSpin');
-  var lbl=document.getElementById('loginBtnLbl');
+  var u = document.getElementById('loginUser').value.trim();
+  var p = document.getElementById('loginPass').value;
+  var al = document.getElementById('loginAlert');
+  var btn = document.getElementById('loginBtn');
+  var spin = document.getElementById('loginSpin');
+  var lbl = document.getElementById('loginBtnLbl');
   al.classList.remove('on');
-  btn.disabled=true;spin.style.display='block';lbl.style.display='none';
-  setTimeout(function(){
-    if(u===CREDS.user&&p===CREDS.pass){
-      document.getElementById('loginPage').style.display='none';
-      var ap=document.getElementById('adminPage');
-      ap.style.display='flex';
-      loadAll();goPage('dashboard');startClock();updateWaTopBtn();
+  btn.disabled = true; spin.style.display = 'block'; lbl.style.display = 'none';
+  setTimeout(function () {
+    if (u === CREDS.user && p === CREDS.pass) {
+      document.getElementById('loginPage').style.display = 'none';
+      var ap = document.getElementById('adminPage');
+      ap.style.display = 'flex';
+      loadAll(); goPage('dashboard'); startClock(); updateWaTopBtn();
     } else {
       al.classList.add('on');
-      document.getElementById('loginAlertMsg').textContent='Username atau password salah!';
-      btn.disabled=false;spin.style.display='none';lbl.style.display='flex';
+      document.getElementById('loginAlertMsg').textContent = 'Username atau password salah!';
+      btn.disabled = false; spin.style.display = 'none'; lbl.style.display = 'flex';
     }
-  },900);
+  }, 900);
 }
 
-function doLogout(){
-  document.getElementById('adminPage').style.display='none';
-  document.getElementById('loginPage').style.display='flex';
-  document.getElementById('loginUser').value='';
-  document.getElementById('loginPass').value='';
+function doLogout() {
+  document.getElementById('adminPage').style.display = 'none';
+  document.getElementById('loginPage').style.display = 'flex';
+  document.getElementById('loginUser').value = '';
+  document.getElementById('loginPass').value = '';
   document.getElementById('loginAlert').classList.remove('on');
-  document.getElementById('loginBtn').disabled=false;
-  document.getElementById('loginSpin').style.display='none';
-  document.getElementById('loginBtnLbl').style.display='flex';
+  document.getElementById('loginBtn').disabled = false;
+  document.getElementById('loginSpin').style.display = 'none';
+  document.getElementById('loginBtnLbl').style.display = 'flex';
 }
 
-function startClock(){
-  function tick(){
-    var n=new Date();
-    document.getElementById('tbSub').textContent=
-      n.toLocaleDateString('id-ID',{weekday:'short',day:'numeric',month:'short'})+' · '+
-      n.toLocaleTimeString('id-ID',{hour:'2-digit',minute:'2-digit',second:'2-digit'});
+function startClock() {
+  function tick() {
+    var n = new Date();
+    document.getElementById('tbSub').textContent =
+      n.toLocaleDateString('id-ID', { weekday: 'short', day: 'numeric', month: 'short' }) + ' · ' +
+      n.toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
   }
-  tick();setInterval(tick,1000);
+  tick(); setInterval(tick, 1000);
 }
 
-/* ─── Navigasi ─── */
-var curPage='dashboard', ordFilter='all', ordSearch='';
-var PAGE_INFO={
-  dashboard:{t:'Dashboard',s:'Ringkasan bisnis'},
-  orders:{t:'Manajemen Order',s:'Konfirmasi & kirim akun'},
-  stock:{t:'Manajemen Stok',s:'Kelola stok akun premium'},
-  settings:{t:'Settings',s:'Konfigurasi admin'}
+/* ═══════════ NAVIGASI ═══════════ */
+var PAGE_INFO = {
+  dashboard: { t: 'Dashboard', s: 'Ringkasan bisnis' },
+  orders: { t: 'Manajemen Order', s: 'Konfirmasi & kirim akun' },
+  stock: { t: 'Manajemen Stok', s: 'Kelola stok akun premium' },
+  settings: { t: 'Settings', s: 'Konfigurasi admin' }
 };
 
-function goPage(p){
-  curPage=p;
-  document.querySelectorAll('.bn-item').forEach(function(b){b.classList.toggle('active',b.dataset.p===p);});
-  var info=PAGE_INFO[p];
-  document.getElementById('tbTitle').textContent=info.t;
-  loadAll();updateBadge();updateWaTopBtn();
-  var el=document.getElementById('pageScroll');el.scrollTop=0;
-  if(p==='dashboard')renderDashboard();
-  else if(p==='orders')renderOrders();
-  else if(p==='stock')renderStock();
-  else if(p==='settings')renderSettings();
+function goPage(p) {
+  curPage = p;
+  document.querySelectorAll('.bn-item').forEach(function (b) { b.classList.toggle('active', b.dataset.p === p); });
+  var info = PAGE_INFO[p];
+  document.getElementById('tbTitle').textContent = info.t;
+  loadAll(); updateBadge(); updateWaTopBtn();
+  var el = document.getElementById('pageScroll'); el.scrollTop = 0;
+  if (p === 'dashboard') renderDashboard();
+  else if (p === 'orders') renderOrders();
+  else if (p === 'stock') renderStock();
+  else if (p === 'settings') renderSettings();
 }
 
-function updateBadge(){
-  var rawOrders=[];
-  try{var o=localStorage.getItem('wxvn_ord');rawOrders=o?JSON.parse(o):[];}catch(e){}
-  var n=rawOrders.filter(function(o){return o.status==='pending';}).length;
-  var b=document.getElementById('pendBadge');
-  if(n>0){b.classList.add('on');b.textContent=n;}else{b.classList.remove('on');}
+function updateBadge() {
+  var rawOrders = [];
+  try { var o = localStorage.getItem('wxvn_ord'); rawOrders = o ? JSON.parse(o) : []; } catch (e) {}
+  var n = rawOrders.filter(function (o) { return o.status === 'pending'; }).length;
+  var b = document.getElementById('pendBadge');
+  if (n > 0) { b.classList.add('on'); b.textContent = n; } else { b.classList.remove('on'); }
 }
 
-function getAllOrders(){
-  var rawOrders=[];
-  try{var o=localStorage.getItem('wxvn_ord');rawOrders=o?JSON.parse(o):[];}catch(e){}
+function getAllOrders() {
+  var rawOrders = [];
+  try { var o = localStorage.getItem('wxvn_ord'); rawOrders = o ? JSON.parse(o) : []; } catch (e) {}
   return rawOrders.map(normalizeOrder);
 }
 
-/* ─── Dashboard ─── */
-function renderDashboard(){
-  var orders=getAllOrders();
-  var total=orders.length;
-  var pending=orders.filter(function(o){return o.status==='pending';}).length;
-  var delivered=orders.filter(function(o){return o.status==='delivered';}).length;
-  var revenue=orders.filter(function(o){return o.status==='confirmed'||o.status==='delivered';}).reduce(function(s,o){return s+o.total;},0);
-  var totalStk=Object.values(STOCK).reduce(function(s,a){return s+a.length;},0);
+/* ═══════════ DASHBOARD ═══════════ */
+function renderDashboard() {
+  var orders = getAllOrders();
+  var total = orders.length;
+  var pending = orders.filter(function (o) { return o.status === 'pending'; }).length;
+  var delivered = orders.filter(function (o) { return o.status === 'delivered'; }).length;
+  var revenue = orders.filter(function (o) { return o.status === 'confirmed' || o.status === 'delivered'; })
+    .reduce(function (s, o) { return s + o.total; }, 0);
+  var totalStk = Object.values(STOCK).reduce(function (s, a) { return s + a.length; }, 0);
 
-  /* WhatsApp setup banner */
-  var waBanner='';
-  if(!WA_CFG.adminNumber){
-    waBanner='<div class="wa-setup-banner" onclick="goPage(\'settings\')" style="cursor:pointer">'
-      +'<div class="wa-setup-ico"><i class="fab fa-whatsapp"></i></div>'
-      +'<div class="wa-setup-body">'
-      +'<div class="wa-setup-title">⚡ Setup WhatsApp Notifikasi</div>'
-      +'<div class="wa-setup-sub">Daftarkan nomor WA admin untuk menerima notifikasi order baru otomatis.</div>'
-      +'<div class="wa-setup-btn"><i class="fas fa-arrow-right"></i>&nbsp;Setup Sekarang</div>'
-      +'</div></div>';
+  var waBanner = '';
+  if (!WA_CFG.adminNumber) {
+    waBanner = '<div class="wa-setup-banner" onclick="goPage(\'settings\')" style="cursor:pointer">'
+      + '<div class="wa-setup-ico"><i class="fab fa-whatsapp"></i></div>'
+      + '<div class="wa-setup-body">'
+      + '<div class="wa-setup-title">⚡ Setup WhatsApp Notifikasi</div>'
+      + '<div class="wa-setup-sub">Daftarkan nomor WA admin untuk menerima notifikasi order baru otomatis.</div>'
+      + '<div class="wa-setup-btn"><i class="fas fa-arrow-right"></i>&nbsp;Setup Sekarang</div>'
+      + '</div></div>';
   } else {
-    waBanner='<div class="wa-setup-banner configured">'
-      +'<div class="wa-setup-ico"><i class="fab fa-whatsapp"></i></div>'
-      +'<div class="wa-setup-body">'
-      +'<div class="wa-setup-title">WhatsApp Notifikasi '+(WA_CFG.notifEnabled?'<span style="color:var(--wa);font-size:.75rem">● AKTIF</span>':'<span style="color:var(--err);font-size:.75rem">● MATI</span>')+'</div>'
-      +'<div class="wa-setup-sub">Notif order baru '+(WA_CFG.notifEnabled?'aktif':'nonaktif')+' · Auto-open: '+(WA_CFG.autoOpen?'Ya':'Tidak')+'</div>'
-      +'<div class="wa-setup-num">+'+WA_CFG.adminNumber+'</div>'
-      +'<div class="wa-setup-btn" onclick="goPage(\'settings\')" style="cursor:pointer"><i class="fas fa-cog"></i>&nbsp;Kelola Pengaturan</div>'
-      +'</div></div>';
+    waBanner = '<div class="wa-setup-banner configured">'
+      + '<div class="wa-setup-ico"><i class="fab fa-whatsapp"></i></div>'
+      + '<div class="wa-setup-body">'
+      + '<div class="wa-setup-title">WhatsApp Notifikasi '
+      + (WA_CFG.notifEnabled ? '<span style="color:var(--wa);font-size:.75rem">● AKTIF</span>' : '<span style="color:var(--err);font-size:.75rem">● MATI</span>') + '</div>'
+      + '<div class="wa-setup-sub">Notif order baru ' + (WA_CFG.notifEnabled ? 'aktif' : 'nonaktif') + ' · Auto-open: ' + (WA_CFG.autoOpen ? 'Ya' : 'Tidak') + '</div>'
+      + '<div class="wa-setup-num">+' + WA_CFG.adminNumber + '</div>'
+      + '<div class="wa-setup-btn" onclick="goPage(\'settings\')" style="cursor:pointer"><i class="fas fa-cog"></i>&nbsp;Kelola Pengaturan</div>'
+      + '</div></div>';
   }
 
-  var html=waBanner;
-  html+='<div class="stats-row">'
-    +'<div class="stat-card"><div class="stat-glow" style="background:var(--sp)"></div>'
-    +'<div class="stat-ico" style="background:rgba(30,215,96,.1);color:var(--sp)"><i class="fas fa-shopping-bag"></i></div>'
-    +'<div class="stat-num">'+total+'</div><div class="stat-lbl">Total Order</div></div>'
-    +'<div class="stat-card"><div class="stat-glow" style="background:var(--warn)"></div>'
-    +'<div class="stat-ico" style="background:rgba(255,165,2,.1);color:var(--warn)"><i class="fas fa-clock"></i></div>'
-    +'<div class="stat-num" style="color:'+(pending>0?'var(--warn)':'var(--text)')+'">'+pending+'</div>'
-    +'<div class="stat-lbl">Pending</div>'+(pending>0?'<div class="stat-note" style="color:var(--warn)">⚠️ Perlu konfirmasi</div>':'')+'</div>'
-    +'<div class="stat-card"><div class="stat-glow" style="background:var(--cv)"></div>'
-    +'<div class="stat-ico" style="background:rgba(139,92,246,.1);color:var(--cv)"><i class="fas fa-check-circle"></i></div>'
-    +'<div class="stat-num">'+delivered+'</div><div class="stat-lbl">Terkirim</div></div>'
-    +'<div class="stat-card"><div class="stat-glow" style="background:var(--ds)"></div>'
-    +'<div class="stat-ico" style="background:rgba(0,114,210,.1);color:var(--ds)"><i class="fas fa-layer-group"></i></div>'
-    +'<div class="stat-num">'+totalStk+'</div><div class="stat-lbl">Total Stok</div></div>'
-    +'</div>';
+  var html = waBanner;
+  html += '<div class="stats-row">'
+    + '<div class="stat-card"><div class="stat-glow" style="background:var(--sp)"></div>'
+    + '<div class="stat-ico" style="background:rgba(30,215,96,.1);color:var(--sp)"><i class="fas fa-shopping-bag"></i></div>'
+    + '<div class="stat-num">' + total + '</div><div class="stat-lbl">Total Order</div></div>'
+    + '<div class="stat-card"><div class="stat-glow" style="background:var(--warn)"></div>'
+    + '<div class="stat-ico" style="background:rgba(255,165,2,.1);color:var(--warn)"><i class="fas fa-clock"></i></div>'
+    + '<div class="stat-num" style="color:' + (pending > 0 ? 'var(--warn)' : 'var(--text)') + '">' + pending + '</div>'
+    + '<div class="stat-lbl">Pending</div>' + (pending > 0 ? '<div class="stat-note" style="color:var(--warn)">⚠️ Perlu konfirmasi</div>' : '') + '</div>'
+    + '<div class="stat-card"><div class="stat-glow" style="background:var(--cv)"></div>'
+    + '<div class="stat-ico" style="background:rgba(139,92,246,.1);color:var(--cv)"><i class="fas fa-check-circle"></i></div>'
+    + '<div class="stat-num">' + delivered + '</div><div class="stat-lbl">Terkirim</div></div>'
+    + '<div class="stat-card"><div class="stat-glow" style="background:var(--ds)"></div>'
+    + '<div class="stat-ico" style="background:rgba(0,114,210,.1);color:var(--ds)"><i class="fas fa-layer-group"></i></div>'
+    + '<div class="stat-num">' + totalStk + '</div><div class="stat-lbl">Total Stok</div></div>'
+    + '</div>';
 
-  html+='<div class="rev-hero">'
-    +'<div class="rev-label"><i class="fas fa-coins"></i>&nbsp; Revenue Terkonfirmasi</div>'
-    +'<div class="rev-amount">'+fmt(revenue)+'</div>'
-    +'<div class="rev-sub">Dari '+orders.filter(function(o){return o.status==='confirmed'||o.status==='delivered';}).length+' order dikonfirmasi</div>'
-    +'</div>';
+  html += '<div class="rev-hero">'
+    + '<div class="rev-label"><i class="fas fa-coins"></i>&nbsp; Revenue Terkonfirmasi</div>'
+    + '<div class="rev-amount">' + fmt(revenue) + '</div>'
+    + '<div class="rev-sub">Dari ' + orders.filter(function (o) { return o.status === 'confirmed' || o.status === 'delivered'; }).length + ' order dikonfirmasi</div>'
+    + '</div>';
 
-  html+='<div class="sec"><div class="sec-top"><div class="sec-title"><i class="fas fa-layer-group" style="color:var(--cv)"></i>&nbsp;Stok Tersedia</div>'
-    +'<span class="sec-action" onclick="goPage(\'stock\')">Kelola <i class="fas fa-arrow-right"></i></span></div>'
-    +'<div class="sec-body"><div class="stk-mini-grid">';
-  PRODS.forEach(function(p){
-    var tot=p.plans.reduce(function(s,pl){return s+sc(p.brand,pl);},0);
-    var col=tot===0?'var(--err)':tot<=5?'var(--warn)':'var(--sp)';
-    var shortName=p.name.replace(' Premium','').replace(' Hotstar','').replace(' Creative Cloud','').replace(' Plus','');
-    html+='<div class="stk-mini">'
-      +'<div class="stk-mini-ico '+BRAND_CLS[p.brand]+'"><i class="'+p.icon+'"></i></div>'
-      +'<div><div class="stk-mini-name">'+shortName+'</div>'
-      +'<div class="stk-mini-cnt" style="color:'+col+'">'+tot+' akun</div></div></div>';
+  html += '<div class="sec"><div class="sec-top"><div class="sec-title"><i class="fas fa-layer-group" style="color:var(--cv)"></i>&nbsp;Stok Tersedia</div>'
+    + '<span class="sec-action" onclick="goPage(\'stock\')">Kelola <i class="fas fa-arrow-right"></i></span></div>'
+    + '<div class="sec-body"><div class="stk-mini-grid">';
+  PRODS.forEach(function (p) {
+    var tot = p.plans.reduce(function (s, pl) { return s + sc(p.brand, pl); }, 0);
+    var col = tot === 0 ? 'var(--err)' : tot <= 5 ? 'var(--warn)' : 'var(--sp)';
+    html += '<div class="stk-mini">'
+      + '<div class="stk-mini-ico">' + p.icon + '</div>'
+      + '<div><div class="stk-mini-name">' + p.name + '</div>'
+      + '<div class="stk-mini-cnt" style="color:' + col + '">' + tot + ' akun</div></div></div>';
   });
-  html+='</div></div></div>';
+  html += '</div></div></div>';
 
-  var recent=orders.slice(0,6);
-  html+='<div class="sec"><div class="sec-top"><div class="sec-title"><i class="fas fa-list" style="color:var(--sp)"></i>&nbsp;Order Terbaru</div>'
-    +'<span class="sec-action" onclick="goPage(\'orders\')">Semua <i class="fas fa-arrow-right"></i></span></div>'
-    +'<div class="sec-body">';
-  if(!recent.length){
-    html+='<div class="empty"><div class="empty-ico">📋</div><div class="empty-t">Belum ada order</div><div class="empty-s">Order dari toko tampil di sini otomatis</div></div>';
+  var recent = orders.slice(0, 6);
+  html += '<div class="sec"><div class="sec-top"><div class="sec-title"><i class="fas fa-list" style="color:var(--sp)"></i>&nbsp;Order Terbaru</div>'
+    + '<span class="sec-action" onclick="goPage(\'orders\')">Semua <i class="fas fa-arrow-right"></i></span></div>'
+    + '<div class="sec-body">';
+  if (!recent.length) {
+    html += '<div class="empty"><div class="empty-ico">📋</div><div class="empty-t">Belum ada order</div><div class="empty-s">Order dari toko tampil di sini otomatis</div></div>';
   } else {
-    html+='<div class="order-list">';
-    recent.forEach(function(o){html+=renderOrderCard(o);});
-    html+='</div>';
+    html += '<div class="order-list">';
+    recent.forEach(function (o) { html += renderOrderCard(o); });
+    html += '</div>';
   }
-  html+='</div></div>';
-  document.getElementById('pageScroll').innerHTML=html;
+  html += '</div></div>';
+  document.getElementById('pageScroll').innerHTML = html;
 }
 
-/* ─── Orders ─── */
-function renderOrders(){
-  var allOrders=getAllOrders();
-  var pend=allOrders.filter(function(o){return o.status==='pending';}).length;
-  var conf=allOrders.filter(function(o){return o.status==='confirmed';}).length;
-  var delv=allOrders.filter(function(o){return o.status==='delivered';}).length;
-  var rej=allOrders.filter(function(o){return o.status==='rejected';}).length;
-  var html='<div class="filter-scroll">'
-    +fpill('all','Semua ('+allOrders.length+')')
-    +fpill('pending','Pending ('+pend+')')
-    +fpill('confirmed','Konfirmasi ('+conf+')')
-    +fpill('delivered','Terkirim ('+delv+')')
-    +fpill('rejected','Ditolak ('+rej+')')
-    +'</div>';
-  html+='<input class="search-bar" placeholder="🔍  Cari nama / Order ID / Email..." value="'+ordSearch+'" oninput="ordSearch=this.value;renderOrders()">';
-  var list=allOrders.filter(function(o){
-    var mf=ordFilter==='all'||o.status===ordFilter;
-    var q=ordSearch.toLowerCase();
-    var ms=!q||(o.id.toLowerCase().includes(q)||o.name.toLowerCase().includes(q)||o.contact.toLowerCase().includes(q)||(o.userEmail||'').toLowerCase().includes(q));
-    return mf&&ms;
+/* ═══════════ ORDERS ═══════════ */
+function renderOrders() {
+  var allOrders = getAllOrders();
+  var pend = allOrders.filter(function (o) { return o.status === 'pending'; }).length;
+  var conf = allOrders.filter(function (o) { return o.status === 'confirmed'; }).length;
+  var delv = allOrders.filter(function (o) { return o.status === 'delivered'; }).length;
+  var rej  = allOrders.filter(function (o) { return o.status === 'rejected'; }).length;
+  var html = '<div class="filter-scroll">'
+    + fpill('all', 'Semua (' + allOrders.length + ')')
+    + fpill('pending', 'Pending (' + pend + ')')
+    + fpill('confirmed', 'Konfirmasi (' + conf + ')')
+    + fpill('delivered', 'Terkirim (' + delv + ')')
+    + fpill('rejected', 'Ditolak (' + rej + ')')
+    + '</div>';
+  html += '<input class="search-bar" placeholder="🔍  Cari nama / Order ID / Email..." value="' + escHtml(ordSearch) + '" oninput="ordSearch=this.value;renderOrders()">';
+  var list = allOrders.filter(function (o) {
+    var mf = ordFilter === 'all' || o.status === ordFilter;
+    var q = ordSearch.toLowerCase();
+    var ms = !q || (o.id.toLowerCase().includes(q) || (o.name || '').toLowerCase().includes(q) || (o.contact || '').toLowerCase().includes(q) || (o.userEmail || '').toLowerCase().includes(q));
+    return mf && ms;
   });
-  if(ordFilter==='pending'&&list.length>0){
-    html+='<div style="margin-bottom:.85rem"><button class="green-btn" style="margin-top:0" onclick="confirmAllPending()"><i class="fas fa-check-double"></i>&nbsp;Konfirmasi Semua Pending ('+list.length+')</button></div>';
+  if (ordFilter === 'pending' && list.length > 0) {
+    html += '<div style="margin-bottom:.85rem"><button class="green-btn" style="margin-top:0" onclick="confirmAllPending()"><i class="fas fa-check-double"></i>&nbsp;Konfirmasi Semua Pending (' + list.length + ')</button></div>';
   }
-  html+='<div class="order-list">';
-  if(!list.length){
-    html+='<div class="empty"><div class="empty-ico">📋</div><div class="empty-t">Tidak ada order</div><div class="empty-s">Coba filter lain</div></div>';
+  html += '<div class="order-list">';
+  if (!list.length) {
+    html += '<div class="empty"><div class="empty-ico">📋</div><div class="empty-t">Tidak ada order</div><div class="empty-s">Coba filter lain</div></div>';
   } else {
-    list.forEach(function(o){html+=renderOrderCard(o);});
+    list.forEach(function (o) { html += renderOrderCard(o); });
   }
-  html+='</div>';
-  document.getElementById('pageScroll').innerHTML=html;
+  html += '</div>';
+  document.getElementById('pageScroll').innerHTML = html;
 }
 
-function fpill(val,lbl){return '<button class="fpill'+(ordFilter===val?' on':'')+'" onclick="setFilt(\''+val+'\')">'+lbl+'</button>';}
-function setFilt(v){ordFilter=v;renderOrders();}
-function getStInfo(s){
-  var m={pending:{cls:'b-pending',ico:'⏳',lbl:'Pending'},confirmed:{cls:'b-confirmed',ico:'✅',lbl:'Dikonfirmasi'},delivered:{cls:'b-delivered',ico:'🎉',lbl:'Terkirim'},rejected:{cls:'b-rejected',ico:'❌',lbl:'Ditolak'}};
-  return m[s]||m.pending;
+function fpill(val, lbl) { return '<button class="fpill' + (ordFilter === val ? ' on' : '') + '" onclick="setFilt(\'' + val + '\')">' + lbl + '</button>'; }
+function setFilt(v) { ordFilter = v; renderOrders(); }
+function getStInfo(s) {
+  var m = {
+    pending:   { cls: 'b-pending',   ico: '⏳', lbl: 'Pending' },
+    confirmed: { cls: 'b-confirmed', ico: '✅', lbl: 'Dikonfirmasi' },
+    delivered: { cls: 'b-delivered', ico: '🎉', lbl: 'Terkirim' },
+    rejected:  { cls: 'b-rejected',  ico: '❌', lbl: 'Ditolak' }
+  };
+  return m[s] || m.pending;
 }
 
-function renderOrderCard(o){
-  var st=getStInfo(o.status);
-  var itemTxt=o.items.map(function(i){
-    var part=i.name;
-    if(i.plan&&i.plan!=='—')part+=' ('+i.plan+')';
+function renderOrderCard(o) {
+  var st = getStInfo(o.status);
+  var itemTxt = o.items.map(function (i) {
+    var part = i.name;
+    if (i.plan && i.plan !== '—') part += ' (' + i.plan + ')';
     return part;
   }).join(' · ');
-  var sourceBadge=o.isGuest
-    ?'<span class="o-source guest">Tamu</span>'
-    :(o.userId?'<span class="o-source user">User</span>':'');
+  var sourceBadge = o.isGuest
+    ? '<span class="o-source guest">Tamu</span>'
+    : (o.userId ? '<span class="o-source user">User</span>' : '');
 
-  var acts='';
-  if(o.status==='pending'){
-    acts+='<button class="abtn confirm" onclick="confirmOrder(\''+o.id+'\')"><i class="fas fa-check"></i> Konfirmasi</button>';
-    /* WA: Konfirmasi via WA */
-    acts+='<button class="abtn wa" title="Konfirmasi via WhatsApp" onclick="openWaConfirm(\''+o.id+'\',\'confirm\')"><i class="fab fa-whatsapp"></i></button>';
-    acts+='<button class="abtn reject" onclick="openReject(\''+o.id+'\')"><i class="fas fa-times"></i></button>';
+  var acts = '';
+  if (o.status === 'pending') {
+    acts += '<button class="abtn confirm" onclick="confirmOrder(\'' + o.id + '\')"><i class="fas fa-check"></i> Konfirmasi</button>';
+    acts += '<button class="abtn wa" title="Konfirmasi via WA" onclick="openWaConfirm(\'' + o.id + '\',\'confirm\')"><i class="fab fa-whatsapp"></i></button>';
+    acts += '<button class="abtn reject" onclick="openReject(\'' + o.id + '\')"><i class="fas fa-times"></i></button>';
   }
-  if(o.status==='confirmed'){
-    acts+='<button class="abtn deliver" onclick="openDeliver(\''+o.id+'\')"><i class="fas fa-paper-plane"></i> Kirim Akun</button>';
-    /* WA: Kirim notif konfirmasi ke customer */
-    acts+='<button class="abtn wa" title="Beritahu Customer via WA" onclick="openWaConfirm(\''+o.id+'\',\'confirm\')"><i class="fab fa-whatsapp"></i></button>';
+  if (o.status === 'confirmed') {
+    acts += '<button class="abtn deliver" onclick="openDeliver(\'' + o.id + '\')"><i class="fas fa-paper-plane"></i> Kirim Akun</button>';
+    acts += '<button class="abtn wa" title="Beritahu Customer via WA" onclick="openWaConfirm(\'' + o.id + '\',\'confirm\')"><i class="fab fa-whatsapp"></i></button>';
   }
-  if(o.status==='delivered'){
-    /* WA: Kirim akun via WA */
-    acts+='<button class="abtn wa" title="Kirim Akun via WhatsApp" onclick="openWaConfirm(\''+o.id+'\',\'deliver\')"><i class="fab fa-whatsapp"></i> WA</button>';
+  if (o.status === 'delivered') {
+    acts += '<button class="abtn wa" title="Kirim Akun via WA" onclick="openWaConfirm(\'' + o.id + '\',\'deliver\')"><i class="fab fa-whatsapp"></i> WA</button>';
   }
-  if(o.status==='rejected'){
-    acts+='<button class="abtn wa" title="Beritahu via WA" onclick="openWaConfirm(\''+o.id+'\',\'reject\')"><i class="fab fa-whatsapp"></i></button>';
+  if (o.status === 'rejected') {
+    acts += '<button class="abtn wa" title="Beritahu via WA" onclick="openWaConfirm(\'' + o.id + '\',\'reject\')"><i class="fab fa-whatsapp"></i></button>';
   }
-  acts+='<button class="abtn ghost" onclick="viewOrder(\''+o.id+'\')"><i class="fas fa-eye"></i></button>';
-  acts+='<button class="abtn del" onclick="deleteOrder(\''+o.id+'\')"><i class="fas fa-trash"></i></button>';
+  acts += '<button class="abtn ghost" onclick="viewOrder(\'' + o.id + '\')"><i class="fas fa-eye"></i></button>';
+  acts += '<button class="abtn del" onclick="deleteOrder(\'' + o.id + '\')"><i class="fas fa-trash"></i></button>';
 
   return '<div class="o-card">'
-    +'<div class="o-card-top"><div><div class="o-id">'+o.id+' '+sourceBadge+'</div><div class="o-name">'+o.name+'</div><div class="o-contact">'+o.contact+(o.userEmail?' · '+o.userEmail:'')+'</div></div>'
-    +'<span class="badge '+st.cls+'">'+st.ico+' '+st.lbl+'</span></div>'
-    +'<div class="o-meta"><div class="o-items">'+itemTxt+'</div><div class="o-total">'+fmt(o.total)+'</div></div>'
-    +'<div class="o-footer"><div class="o-date">'+o.date+'</div><div class="o-actions">'+acts+'</div></div>'
-    +'</div>';
+    + '<div class="o-card-top"><div><div class="o-id">' + escHtml(o.id) + ' ' + sourceBadge + '</div>'
+    + '<div class="o-name">' + escHtml(o.name) + '</div>'
+    + '<div class="o-contact">' + escHtml(o.contact) + (o.userEmail ? ' · ' + escHtml(o.userEmail) : '') + '</div></div>'
+    + '<span class="badge ' + st.cls + '">' + st.ico + ' ' + st.lbl + '</span></div>'
+    + '<div class="o-meta"><div class="o-items">' + escHtml(itemTxt) + '</div><div class="o-total">' + fmt(o.total) + '</div></div>'
+    + '<div class="o-footer"><div class="o-date">' + escHtml(o.date) + '</div><div class="o-actions">' + acts + '</div></div>'
+    + '</div>';
 }
 
-function updateOrderStatus(id,fields){
-  saveOrderById(id,fields);
-  loadAll();
-}
+function updateOrderStatus(id, fields) { saveOrderById(id, fields); loadAll(); }
 
-function confirmOrder(id){
-  updateOrderStatus(id,{status:'confirmed'});
+function confirmOrder(id) {
+  updateOrderStatus(id, { status: 'confirmed' });
   updateBadge();
-  /* Auto notif WA ke admin jika nomor ada */
-  var orders=getAllOrders();
-  var o=orders.find(function(x){return x.id===id;});
-  if(o&&WA_CFG.adminNumber&&WA_CFG.notifEnabled){
-    /* Notif admin bahwa order sudah dikonfirmasi */
-    var msg='✅ *Order Dikonfirmasi*\n\nID: '+o.id+'\nNama: '+o.name+'\nProduk: '+(o.items?o.items.map(function(i){return i.name;}).join(', '):'—')+'\nTotal: '+fmt(o.total)+'\n\n📦 Siapkan akun untuk dikirimkan.';
-    if(WA_CFG.autoOpen) openWa(WA_CFG.adminNumber,msg);
+  if (WA_CFG.adminNumber && WA_CFG.notifEnabled) {
+    var orders = getAllOrders();
+    var o = orders.find(function (x) { return x.id === id; });
+    if (o && WA_CFG.autoOpen) {
+      var msg = '✅ *Order Dikonfirmasi*\n\nID: ' + o.id + '\nNama: ' + o.name + '\nTotal: ' + fmt(o.total) + '\n\n📦 Siapkan akun untuk dikirimkan.';
+      openWa(WA_CFG.adminNumber, msg);
+    }
   }
-  if(curPage==='orders')renderOrders();else renderDashboard();
-  toast('✅ Order '+id+' dikonfirmasi!');
+  if (curPage === 'orders') renderOrders(); else renderDashboard();
+  toast('✅ Order ' + id + ' dikonfirmasi!');
 }
 
-function confirmAllPending(){
-  var rawOrders=[];
-  try{var o=localStorage.getItem('wxvn_ord');rawOrders=o?JSON.parse(o):[];}catch(e){}
-  var n=0;
-  rawOrders.forEach(function(o){if(o.status==='pending'){o.status='confirmed';n++;}});
-  try{localStorage.setItem('wxvn_ord',JSON.stringify(rawOrders));}catch(e){}
-  loadAll();updateBadge();
-  if(curPage==='orders')renderOrders();else renderDashboard();
-  toast('✅ '+n+' order dikonfirmasi!');
+function confirmAllPending() {
+  var rawOrders = [];
+  try { var o = localStorage.getItem('wxvn_ord'); rawOrders = o ? JSON.parse(o) : []; } catch (e) {}
+  var n = 0;
+  rawOrders.forEach(function (o) { if (o.status === 'pending') { o.status = 'confirmed'; n++; } });
+  try { localStorage.setItem('wxvn_ord', JSON.stringify(rawOrders)); } catch (e) {}
+  loadAll(); updateBadge();
+  if (curPage === 'orders') renderOrders(); else renderDashboard();
+  toast('✅ ' + n + ' order dikonfirmasi!');
 }
 
-function deleteOrder(id){
-  if(!confirm('Hapus order '+id+'?'))return;
-  var rawOrders=[];
-  try{var o=localStorage.getItem('wxvn_ord');rawOrders=o?JSON.parse(o):[];}catch(e){}
-  rawOrders=rawOrders.filter(function(o){return o.id!==id;});
-  try{localStorage.setItem('wxvn_ord',JSON.stringify(rawOrders));}catch(e){}
-  loadAll();updateBadge();
-  if(curPage==='orders')renderOrders();else renderDashboard();
-  toast('Order dihapus','err');
+function deleteOrder(id) {
+  if (!confirm('Hapus order ' + id + '?')) return;
+  var rawOrders = [];
+  try { var o = localStorage.getItem('wxvn_ord'); rawOrders = o ? JSON.parse(o) : []; } catch (e) {}
+  rawOrders = rawOrders.filter(function (o) { return o.id !== id; });
+  try { localStorage.setItem('wxvn_ord', JSON.stringify(rawOrders)); } catch (e) {}
+  loadAll(); updateBadge();
+  if (curPage === 'orders') renderOrders(); else renderDashboard();
+  toast('Order dihapus', 'err');
 }
 
-function openReject(id){
-  openModal('<div class="modal-title">❌ Tolak Order</div><div class="modal-sub">'+id+'</div>'
-    +'<div><label class="flabel">ALASAN PENOLAKAN</label><input class="finp" id="rejReason" placeholder="Contoh: Bukti transfer tidak valid..."></div>'
-    +'<div class="modal-actions">'
-    +'<button class="modal-btn danger" onclick="doReject(\''+id+'\')"><i class="fas fa-times"></i>&nbsp;Tolak Order</button>'
-    +'<button class="modal-btn wa-outline" onclick="doRejectAndWa(\''+id+'\')"><i class="fab fa-whatsapp"></i>&nbsp;Tolak & Beritahu WA</button>'
-    +'<button class="modal-btn secondary" onclick="closeModal()">Batal</button>'
-    +'</div>');
+function openReject(id) {
+  openModal('<div class="modal-title">❌ Tolak Order</div><div class="modal-sub">' + escHtml(id) + '</div>'
+    + '<div><label class="flabel">ALASAN PENOLAKAN</label><input class="finp" id="rejReason" placeholder="Contoh: Bukti transfer tidak valid..."></div>'
+    + '<div class="modal-actions">'
+    + '<button class="modal-btn danger" onclick="doReject(\'' + id + '\')"><i class="fas fa-times"></i>&nbsp;Tolak Order</button>'
+    + '<button class="modal-btn wa-outline" onclick="doRejectAndWa(\'' + id + '\')"><i class="fab fa-whatsapp"></i>&nbsp;Tolak & Beritahu WA</button>'
+    + '<button class="modal-btn secondary" onclick="closeModal()">Batal</button>'
+    + '</div>');
 }
 
-function doReject(id){
-  var r=document.getElementById('rejReason').value.trim()||'Pembayaran tidak valid';
-  updateOrderStatus(id,{status:'rejected',statusNote:r});
-  loadAll();updateBadge();closeModal();
-  if(curPage==='orders')renderOrders();else renderDashboard();
-  toast('Order ditolak','warn');
+function doReject(id) {
+  var r = (document.getElementById('rejReason') || {}).value || '';
+  r = r.trim() || 'Pembayaran tidak valid';
+  updateOrderStatus(id, { status: 'rejected', statusNote: r });
+  loadAll(); updateBadge(); closeModal();
+  if (curPage === 'orders') renderOrders(); else renderDashboard();
+  toast('Order ditolak', 'warn');
 }
 
-function doRejectAndWa(id){
-  var r=document.getElementById('rejReason').value.trim()||'Pembayaran tidak valid';
-  updateOrderStatus(id,{status:'rejected',statusNote:r});
-  loadAll();updateBadge();closeModal();
-  if(curPage==='orders')renderOrders();else renderDashboard();
-  toast('Order ditolak','warn');
-  /* Buka WA modal pengiriman notif ke customer */
-  setTimeout(function(){openWaConfirm(id,'reject');},350);
+function doRejectAndWa(id) {
+  var r = (document.getElementById('rejReason') || {}).value || '';
+  r = r.trim() || 'Pembayaran tidak valid';
+  updateOrderStatus(id, { status: 'rejected', statusNote: r });
+  loadAll(); updateBadge(); closeModal();
+  if (curPage === 'orders') renderOrders(); else renderDashboard();
+  toast('Order ditolak', 'warn');
+  setTimeout(function () { openWaConfirm(id, 'reject'); }, 350);
 }
 
-function openDeliver(id){
-  var orders=getAllOrders();
-  var o=orders.find(function(x){return x.id===id;});if(!o)return;
-  var iHtml=o.items.map(function(item,i){
-    var n=item.brand?sc(item.brand,item.plan||''):0;
-    var stk=item.brand?(STOCK[sKey(item.brand,item.plan||'')]||[]):[];
+function openDeliver(id) {
+  var orders = getAllOrders();
+  var o = orders.find(function (x) { return x.id === id; }); if (!o) return;
+  var iHtml = o.items.map(function (item, i) {
+    var n = item.brand ? sc(item.brand, item.plan || '') : 0;
+    var stk = item.brand ? (STOCK[sKey(item.brand, item.plan || '')] || []) : [];
     return '<div style="margin-bottom:.75rem;background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:10px;padding:.75rem">'
-      +'<div style="display:flex;justify-content:space-between;margin-bottom:.45rem"><span style="font-size:.8rem;font-weight:700">'+item.name+(item.plan&&item.plan!=='—'?' · '+item.plan:'')+'</span>'
-      +(item.brand?'<span style="font-family:\'JetBrains Mono\',monospace;font-size:.65rem;color:'+(n>0?'var(--sp)':'var(--err)')+'">Stok: '+n+'</span>':'')+'</div>'
-      +'<label class="flabel">LICENSE / KUNCI</label>'
-      +'<textarea class="finp" id="dk_'+i+'" placeholder="username:password atau kode akun..." style="min-height:65px">'+(stk.length?stk[0]:'')+'</textarea></div>';
+      + '<div style="display:flex;justify-content:space-between;margin-bottom:.45rem"><span style="font-size:.8rem;font-weight:700">' + escHtml(item.name) + (item.plan && item.plan !== '—' ? ' · ' + escHtml(item.plan) : '') + '</span>'
+      + (item.brand ? '<span style="font-family:\'JetBrains Mono\',monospace;font-size:.65rem;color:' + (n > 0 ? 'var(--sp)' : 'var(--err)') + '">Stok: ' + n + '</span>' : '') + '</div>'
+      + '<label class="flabel">LICENSE / KUNCI</label>'
+      + '<textarea class="finp" id="dk_' + i + '" placeholder="username:password atau kode akun..." style="min-height:65px">' + escHtml(stk.length ? stk[0] : '') + '</textarea></div>';
   }).join('');
-  openModal('<div class="modal-title">📦 Kirim Akun</div><div class="modal-sub">'+o.name+' · '+o.contact+'</div>'+iHtml
-    +'<div class="modal-actions">'
-    +'<button class="modal-btn gold" onclick="doDeliver(\''+id+'\')"><i class="fas fa-paper-plane"></i>&nbsp;Kirim & Selesaikan</button>'
-    +'<button class="modal-btn wa" onclick="doDeliverAndWa(\''+id+'\')"><i class="fab fa-whatsapp"></i>&nbsp;Kirim + WA Customer</button>'
-    +'<button class="modal-btn secondary" onclick="closeModal()">Batal</button></div>');
+  openModal('<div class="modal-title">📦 Kirim Akun</div><div class="modal-sub">' + escHtml(o.name) + ' · ' + escHtml(o.contact) + '</div>' + iHtml
+    + '<div class="modal-actions">'
+    + '<button class="modal-btn gold" onclick="doDeliver(\'' + id + '\')"><i class="fas fa-paper-plane"></i>&nbsp;Kirim & Selesaikan</button>'
+    + '<button class="modal-btn wa" onclick="doDeliverAndWa(\'' + id + '\')"><i class="fab fa-whatsapp"></i>&nbsp;Kirim + WA Customer</button>'
+    + '<button class="modal-btn secondary" onclick="closeModal()">Batal</button></div>');
 }
 
-function doDeliver(id, andWa){
-  var orders=getAllOrders();
-  var o=orders.find(function(x){return x.id===id;});if(!o)return;
-  var delivered=[];var ok=true;
-  o.items.forEach(function(item,i){
-    var el=document.getElementById('dk_'+i);if(!el)return;
-    var val=el.value.trim();if(!val){ok=false;return;}
-    delivered.push({name:item.name,plan:item.plan||'',brand:item.brand||'',key:val});
-    if(item.brand){
-      var k=sKey(item.brand,item.plan||'');
-      if(STOCK[k]&&STOCK[k].length&&STOCK[k][0]===val){
-        STOCK[k].shift();saveStock();
-      }
+function doDeliver(id, andWa) {
+  var orders = getAllOrders();
+  var o = orders.find(function (x) { return x.id === id; }); if (!o) return;
+  var delivered = []; var ok = true;
+  o.items.forEach(function (item, i) {
+    var el = document.getElementById('dk_' + i); if (!el) return;
+    var val = el.value.trim(); if (!val) { ok = false; return; }
+    delivered.push({ name: item.name, plan: item.plan || '', brand: item.brand || '', key: val });
+    if (item.brand) {
+      var k = sKey(item.brand, item.plan || '');
+      if (STOCK[k] && STOCK[k].length && STOCK[k][0] === val) { STOCK[k].shift(); saveStock(); }
     }
   });
-  if(!ok){toast('Isi semua kunci akun!','err');return;}
-  var aKey=delivered.map(function(d){return d.key;}).join('\n---\n');
-  updateOrderStatus(id,{status:'delivered',delivered:delivered,activationKey:aKey});
-  loadAll();updateBadge();closeModal();
-  if(curPage==='orders')renderOrders();else renderDashboard();
-  toast('🎉 Akun terkirim ke '+o.name+'!');
-  if(andWa){
-    setTimeout(function(){openWaConfirm(id,'deliver');},350);
-  }
+  if (!ok) { toast('Isi semua kunci akun!', 'err'); return; }
+  var aKey = delivered.map(function (d) { return d.key; }).join('\n---\n');
+  updateOrderStatus(id, { status: 'delivered', delivered: delivered, activationKey: aKey });
+  loadAll(); updateBadge(); closeModal();
+  if (curPage === 'orders') renderOrders(); else renderDashboard();
+  toast('🎉 Akun terkirim ke ' + o.name + '!');
+  if (andWa) setTimeout(function () { openWaConfirm(id, 'deliver'); }, 350);
 }
 
-function doDeliverAndWa(id){
-  doDeliver(id,true);
-}
+function doDeliverAndWa(id) { doDeliver(id, true); }
 
-function viewOrder(id){
-  var orders=getAllOrders();
-  var o=orders.find(function(x){return x.id===id;});if(!o)return;
-  var st=getStInfo(o.status);
-  var iRows=o.items.map(function(i){
+function viewOrder(id) {
+  var orders = getAllOrders();
+  var o = orders.find(function (x) { return x.id === id; }); if (!o) return;
+  var st = getStInfo(o.status);
+  var iRows = o.items.map(function (i) {
     return '<div style="display:flex;justify-content:space-between;font-size:.8rem;padding:.22rem 0">'
-      +'<span style="color:var(--muted)">'+i.name+(i.plan&&i.plan!=='—'?' ('+i.plan+')':'')+'</span>'
-      +'<span style="font-weight:600">'+fmt(i.price||o.total)+'</span></div>';
+      + '<span style="color:var(--muted)">' + escHtml(i.name) + (i.plan && i.plan !== '—' ? ' (' + escHtml(i.plan) + ')' : '') + '</span>'
+      + '<span style="font-weight:600">' + fmt(i.price || o.total) + '</span></div>';
   }).join('');
-  var delHtml='';
-  if(o.delivered&&o.delivered.length){
-    delHtml='<div style="margin-top:.85rem;background:rgba(30,215,96,.06);border:1px solid rgba(30,215,96,.15);border-radius:10px;padding:.82rem">'
-      +'<div style="font-family:\'JetBrains Mono\',monospace;font-size:.62rem;color:var(--muted);margin-bottom:.5rem">AKUN TERKIRIM</div>';
-    o.delivered.forEach(function(d){
-      delHtml+='<div style="margin-bottom:.4rem"><div style="font-size:.7rem;color:var(--muted)">'+d.name+(d.plan?' · '+d.plan:'')+'</div>'
-        +'<div style="font-family:\'JetBrains Mono\',monospace;font-size:.76rem;color:var(--sp);background:rgba(30,215,96,.08);border-radius:7px;padding:.3rem .6rem;margin-top:.18rem;word-break:break-all">'+d.key+'</div></div>';
+  var delHtml = '';
+  if (o.delivered && o.delivered.length) {
+    delHtml = '<div style="margin-top:.85rem;background:rgba(30,215,96,.06);border:1px solid rgba(30,215,96,.15);border-radius:10px;padding:.82rem">'
+      + '<div style="font-family:\'JetBrains Mono\',monospace;font-size:.62rem;color:var(--muted);margin-bottom:.5rem">AKUN TERKIRIM</div>';
+    o.delivered.forEach(function (d) {
+      delHtml += '<div style="margin-bottom:.4rem"><div style="font-size:.7rem;color:var(--muted)">' + escHtml(d.name) + (d.plan ? ' · ' + escHtml(d.plan) : '') + '</div>'
+        + '<div style="font-family:\'JetBrains Mono\',monospace;font-size:.76rem;color:var(--sp);background:rgba(30,215,96,.08);border-radius:7px;padding:.3rem .6rem;margin-top:.18rem;word-break:break-all">' + escHtml(d.key) + '</div></div>';
     });
-    delHtml+='</div>';
+    delHtml += '</div>';
   }
-  if(o.activationKey&&(!o.delivered||!o.delivered.length)){
-    delHtml='<div style="margin-top:.85rem;background:rgba(30,215,96,.06);border:1px solid rgba(30,215,96,.15);border-radius:10px;padding:.82rem">'
-      +'<div style="font-family:\'JetBrains Mono\',monospace;font-size:.62rem;color:var(--muted);margin-bottom:.5rem">KEY AKTIVASI</div>'
-      +'<div style="font-family:\'JetBrains Mono\',monospace;font-size:.76rem;color:var(--sp);word-break:break-all">'+o.activationKey+'</div></div>';
-  }
-  var guestNote=o.isGuest?'<div style="background:rgba(255,165,2,.06);border:1px solid rgba(255,165,2,.15);border-radius:8px;padding:.4rem .7rem;font-size:.72rem;color:var(--warn);margin-bottom:.6rem">👤 Order dari tamu (guest)</div>':'';
 
-  /* WA actions di detail */
-  var waActions='';
-  if(o.status==='pending'){
-    waActions='<button class="modal-btn wa-outline" onclick="closeModal();setTimeout(function(){openWaConfirm(\''+o.id+'\',\'confirm\')},250)"><i class="fab fa-whatsapp"></i>&nbsp;Konfirmasi via WA</button>';
-  } else if(o.status==='confirmed'){
-    waActions='<button class="modal-btn wa-outline" onclick="closeModal();setTimeout(function(){openWaConfirm(\''+o.id+'\',\'confirm\')},250)"><i class="fab fa-whatsapp"></i>&nbsp;Beritahu Customer WA</button>';
-  } else if(o.status==='delivered'){
-    waActions='<button class="modal-btn wa-outline" onclick="closeModal();setTimeout(function(){openWaConfirm(\''+o.id+'\',\'deliver\')},250)"><i class="fab fa-whatsapp"></i>&nbsp;Kirim Ulang Akun via WA</button>';
-  } else if(o.status==='rejected'){
-    waActions='<button class="modal-btn wa-outline" onclick="closeModal();setTimeout(function(){openWaConfirm(\''+o.id+'\',\'reject\')},250)"><i class="fab fa-whatsapp"></i>&nbsp;Beritahu via WA</button>';
-  }
+  var waActions = '';
+  if (o.status === 'pending') waActions = '<button class="modal-btn wa-outline" onclick="closeModal();setTimeout(function(){openWaConfirm(\'' + o.id + '\',\'confirm\')},250)"><i class="fab fa-whatsapp"></i>&nbsp;Konfirmasi via WA</button>';
+  else if (o.status === 'confirmed') waActions = '<button class="modal-btn wa-outline" onclick="closeModal();setTimeout(function(){openWaConfirm(\'' + o.id + '\',\'confirm\')},250)"><i class="fab fa-whatsapp"></i>&nbsp;Beritahu Customer WA</button>';
+  else if (o.status === 'delivered') waActions = '<button class="modal-btn wa-outline" onclick="closeModal();setTimeout(function(){openWaConfirm(\'' + o.id + '\',\'deliver\')},250)"><i class="fab fa-whatsapp"></i>&nbsp;Kirim Ulang Akun via WA</button>';
+  else if (o.status === 'rejected') waActions = '<button class="modal-btn wa-outline" onclick="closeModal();setTimeout(function(){openWaConfirm(\'' + o.id + '\',\'reject\')},250)"><i class="fab fa-whatsapp"></i>&nbsp;Beritahu via WA</button>';
 
   openModal('<div class="modal-title">Detail Order</div>'
-    +'<div class="modal-sub" style="margin-bottom:.85rem"><span style="font-family:\'JetBrains Mono\',monospace;color:var(--sp);font-size:.75rem">'+o.id+'</span> · '+o.date+'</div>'
-    +guestNote
-    +'<div style="background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:10px;padding:.82rem;margin-bottom:.7rem">'
-    +'<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.55rem">'
-    +'<div><div style="font-weight:700">'+o.name+'</div><div style="font-size:.73rem;color:var(--muted)">'+o.contact+'</div>'+(o.userEmail?'<div style="font-size:.7rem;color:var(--muted)">'+o.userEmail+'</div>':'')+'</div>'
-    +'<span class="badge '+st.cls+'">'+st.ico+' '+st.lbl+'</span></div>'
-    +iRows
-    +'<div style="display:flex;justify-content:space-between;font-weight:700;margin-top:.5rem;padding-top:.5rem;border-top:1px solid var(--border)"><span>Total</span><span style="color:var(--sp)">'+fmt(o.total)+'</span></div></div>'
-    +(o.statusNote?'<div style="background:rgba(255,71,87,.06);border:1px solid rgba(255,71,87,.15);border-radius:8px;padding:.5rem .75rem;font-size:.74rem;color:var(--err);margin-bottom:.7rem">Alasan: '+o.statusNote+'</div>':'')
-    +delHtml
-    +'<div class="modal-actions">'+waActions+'<button class="modal-btn secondary" onclick="closeModal()"><i class="fas fa-times"></i>&nbsp;Tutup</button></div>');
+    + '<div class="modal-sub" style="margin-bottom:.85rem"><span style="font-family:\'JetBrains Mono\',monospace;color:var(--sp);font-size:.75rem">' + escHtml(o.id) + '</span> · ' + escHtml(o.date) + '</div>'
+    + (o.isGuest ? '<div style="background:rgba(255,165,2,.06);border:1px solid rgba(255,165,2,.15);border-radius:8px;padding:.4rem .7rem;font-size:.72rem;color:var(--warn);margin-bottom:.6rem">👤 Order dari tamu (guest)</div>' : '')
+    + '<div style="background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:10px;padding:.82rem;margin-bottom:.7rem">'
+    + '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.55rem">'
+    + '<div><div style="font-weight:700">' + escHtml(o.name) + '</div><div style="font-size:.73rem;color:var(--muted)">' + escHtml(o.contact) + '</div>'
+    + (o.userEmail ? '<div style="font-size:.7rem;color:var(--muted)">' + escHtml(o.userEmail) + '</div>' : '') + '</div>'
+    + '<span class="badge ' + st.cls + '">' + st.ico + ' ' + st.lbl + '</span></div>'
+    + iRows
+    + '<div style="display:flex;justify-content:space-between;font-weight:700;margin-top:.5rem;padding-top:.5rem;border-top:1px solid var(--border)"><span>Total</span><span style="color:var(--sp)">' + fmt(o.total) + '</span></div></div>'
+    + (o.statusNote ? '<div style="background:rgba(255,71,87,.06);border:1px solid rgba(255,71,87,.15);border-radius:8px;padding:.5rem .75rem;font-size:.74rem;color:var(--err);margin-bottom:.7rem">Alasan: ' + escHtml(o.statusNote) + '</div>' : '')
+    + delHtml
+    + '<div class="modal-actions">' + waActions + '<button class="modal-btn secondary" onclick="closeModal()"><i class="fas fa-times"></i>&nbsp;Tutup</button></div>');
 }
 
-/* ─── Stok ─── */
-function renderStock(){
-  var html='<div class="stk-list">';
-  PRODS.forEach(function(p){
-    var tot=p.plans.reduce(function(s,pl){return s+sc(p.brand,pl);},0);
-    var tcol=tot===0?'var(--err)':tot<=5?'var(--warn)':'var(--sp)';
-    html+='<div class="stk-card"><div class="stk-head">'
-      +'<div class="stk-icon '+BRAND_CLS[p.brand]+'"><i class="'+p.icon+'"></i></div>'
-      +'<div><div class="stk-name">'+p.name+'<span class="stk-sync">⟳ toko</span></div>'
-      +'<div style="font-family:\'JetBrains Mono\',monospace;font-size:.62rem;color:'+tcol+'">'+tot+' akun tersedia</div></div>'
-      +'</div><div class="stk-rows">';
-    p.plans.forEach(function(pl){
-      var n=sc(p.brand,pl);
-      var cls=n===0?'empty':n<=3?'warn':'ok';
-      html+='<div class="stk-row"><span class="stk-dur">'+pl+'</span><span class="stk-cnt '+cls+'">'+n+'</span>'
-        +'<div class="stk-row-acts">'
-        +'<button class="abtn confirm" onclick="openAddStk(\''+p.brand+'\',\''+p.name+'\',\''+pl+'\')"><i class="fas fa-plus"></i> Tambah</button>'
-        +'<button class="abtn ghost" onclick="viewStk(\''+p.brand+'\',\''+p.name+'\',\''+pl+'\')"><i class="fas fa-eye"></i></button>'
-        +'</div></div>';
+/* ═══════════ STOK ═══════════ */
+function renderStock() {
+  var html = '<div class="stk-list">';
+  PRODS.forEach(function (p) {
+    var tot = p.plans.reduce(function (s, pl) { return s + sc(p.brand, pl); }, 0);
+    var tcol = tot === 0 ? 'var(--err)' : tot <= 5 ? 'var(--warn)' : 'var(--sp)';
+    html += '<div class="stk-card"><div class="stk-head">'
+      + '<div class="stk-icon">' + p.icon + '</div>'
+      + '<div><div class="stk-name">' + p.name + '<span class="stk-sync">⟳ toko</span></div>'
+      + '<div style="font-family:\'JetBrains Mono\',monospace;font-size:.62rem;color:' + tcol + '">' + tot + ' akun tersedia</div></div>'
+      + '</div><div class="stk-rows">';
+    p.plans.forEach(function (pl) {
+      var n = sc(p.brand, pl);
+      var cls = n === 0 ? 'empty' : n <= 3 ? 'warn' : 'ok';
+      html += '<div class="stk-row"><span class="stk-dur">' + pl + '</span><span class="stk-cnt ' + cls + '">' + n + '</span>'
+        + '<div class="stk-row-acts">'
+        + '<button class="abtn confirm" onclick="openAddStk(\'' + p.brand + '\',\'' + escHtml(p.name) + '\',\'' + pl + '\')"><i class="fas fa-plus"></i> Tambah</button>'
+        + '<button class="abtn ghost" onclick="viewStk(\'' + p.brand + '\',\'' + escHtml(p.name) + '\',\'' + pl + '\')"><i class="fas fa-eye"></i></button>'
+        + '</div></div>';
     });
-    html+='</div></div>';
+    html += '</div></div>';
   });
-  html+='</div>';
-  html+='<div class="import-card"><div class="import-title"><i class="fas fa-file-import" style="color:var(--gold)"></i>&nbsp;Import Stok Massal</div>'
-    +'<div class="import-sub">Tambah banyak akun sekaligus, satu akun per baris.</div>'
-    +'<div class="form-row">'
-    +'<div><label class="flabel">Produk</label><select class="finp" id="impBrand">'+PRODS.map(function(p){return '<option value="'+p.brand+'">'+p.name+'</option>';}).join('')+'</select></div>'
-    +'<div><label class="flabel">Paket</label><select class="finp" id="impPlan"><option>1 Hari</option><option>3 Hari</option><option>1 Minggu</option><option>2 Minggu</option><option>1 Bulan</select></div>'
-    +'</div>'
-    +'<label class="flabel">Daftar Akun</label>'
-    +'<textarea class="finp" id="impKeys" placeholder="username:pass1&#10;username2:pass2&#10;kode_akun3..."></textarea>'
-    +'<div class="fhelp">Satu baris = satu key · Otomatis tersinkron ke stok toko</div>'
-    +'<button class="green-btn" onclick="doImport()"><i class="fas fa-upload"></i>&nbsp;Import Sekarang</button></div>';
-  document.getElementById('pageScroll').innerHTML=html;
+  html += '</div>';
+  html += '<div class="import-card"><div class="import-title"><i class="fas fa-file-import" style="color:var(--gold)"></i>&nbsp;Import Stok Massal</div>'
+    + '<div class="import-sub">Tambah banyak akun sekaligus, satu akun per baris.</div>'
+    + '<div class="form-row">'
+    + '<div><label class="flabel">Produk</label><select class="finp" id="impBrand">'
+    + PRODS.map(function (p) { return '<option value="' + p.brand + '">' + p.name + '</option>'; }).join('')
+    + '</select></div>'
+    + '<div><label class="flabel">Paket</label><select class="finp" id="impPlan"><option>1 Hari</option><option>3 Hari</option><option>1 Minggu</option><option>2 Minggu</option><option>1 Bulan</option></select></div>'
+    + '</div>'
+    + '<label class="flabel">Daftar Akun</label>'
+    + '<textarea class="finp" id="impKeys" placeholder="username:pass1&#10;username2:pass2&#10;kode_akun3..."></textarea>'
+    + '<div class="fhelp">Satu baris = satu key · Otomatis tersinkron ke stok toko</div>'
+    + '<button class="green-btn" onclick="doImport()"><i class="fas fa-upload"></i>&nbsp;Import Sekarang</button></div>';
+  document.getElementById('pageScroll').innerHTML = html;
 }
 
-function openAddStk(brand,name,plan){
-  openModal('<div class="modal-title">➕ Tambah Stok</div><div class="modal-sub">'+name+' · '+plan+' · Saat ini: '+sc(brand,plan)+' akun</div>'
-    +'<div><label class="flabel">LICENSE / KUNCI (satu per baris)</label><textarea class="finp" id="newStkKeys" placeholder="email:password&#10;kode_akun..." style="min-height:110px"></textarea></div>'
-    +'<div class="modal-actions"><button class="modal-btn primary" onclick="doAddStk(\''+brand+'\',\''+plan+'\')"><i class="fas fa-plus"></i>&nbsp;Tambah Stok</button><button class="modal-btn secondary" onclick="closeModal()">Batal</button></div>');
+function openAddStk(brand, name, plan) {
+  openModal('<div class="modal-title">➕ Tambah Stok</div><div class="modal-sub">' + escHtml(name) + ' · ' + escHtml(plan) + ' · Saat ini: ' + sc(brand, plan) + ' akun</div>'
+    + '<div><label class="flabel">LICENSE / KUNCI (satu per baris)</label><textarea class="finp" id="newStkKeys" placeholder="email:password&#10;kode_akun..." style="min-height:110px"></textarea></div>'
+    + '<div class="modal-actions"><button class="modal-btn primary" onclick="doAddStk(\'' + brand + '\',\'' + plan + '\')"><i class="fas fa-plus"></i>&nbsp;Tambah Stok</button><button class="modal-btn secondary" onclick="closeModal()">Batal</button></div>');
 }
-function doAddStk(brand,plan){
-  var keys=document.getElementById('newStkKeys').value.trim().split('\n').map(function(s){return s.trim();}).filter(Boolean);
-  if(!keys.length){toast('Masukkan minimal 1 akun','err');return;}
-  var k=sKey(brand,plan);if(!STOCK[k])STOCK[k]=[];
-  STOCK[k]=STOCK[k].concat(keys);
-  saveStock();closeModal();renderStock();
-  toast('✅ '+keys.length+' akun ditambahkan & tersinkron ke toko!');
+function doAddStk(brand, plan) {
+  var keys = document.getElementById('newStkKeys').value.trim().split('\n').map(function (s) { return s.trim(); }).filter(Boolean);
+  if (!keys.length) { toast('Masukkan minimal 1 akun', 'err'); return; }
+  var k = sKey(brand, plan); if (!STOCK[k]) STOCK[k] = [];
+  STOCK[k] = STOCK[k].concat(keys);
+  saveStock(); closeModal(); renderStock();
+  toast('✅ ' + keys.length + ' akun ditambahkan & tersinkron ke toko!');
 }
-function viewStk(brand,name,plan){
-  var items=(STOCK[sKey(brand,plan)]||[]);
-  var listHtml=items.length?items.map(function(it,i){
-    return '<div style="display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:8px;padding:.38rem .65rem;margin-bottom:.3rem;gap:.4rem">'
-      +'<span style="font-family:\'JetBrains Mono\',monospace;font-size:.72rem;color:var(--sp);word-break:break-all;flex:1">'+it+'</span>'
-      +'<button class="abtn del" onclick="rmStk(\''+brand+'\',\''+plan+'\','+i+')"><i class="fas fa-times"></i></button></div>';
-  }).join(''):'<div class="empty"><div class="empty-ico">📦</div><div class="empty-t">Stok kosong</div></div>';
-  openModal('<div class="modal-title">Stok: '+name+'</div><div class="modal-sub">'+plan+' · '+items.length+' akun</div>'
-    +'<div style="max-height:300px;overflow-y:auto">'+listHtml+'</div>'
-    +'<div class="modal-actions">'+(items.length?'<button class="modal-btn danger" onclick="clearStk(\''+brand+'\',\''+plan+'\')"><i class="fas fa-trash"></i>&nbsp;Hapus Semua</button>':'')
-    +'<button class="modal-btn secondary" onclick="closeModal()">Tutup</button></div>');
+function viewStk(brand, name, plan) {
+  var items = (STOCK[sKey(brand, plan)] || []);
+  var listHtml = items.length
+    ? items.map(function (it, i) {
+      return '<div style="display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:8px;padding:.38rem .65rem;margin-bottom:.3rem;gap:.4rem">'
+        + '<span style="font-family:\'JetBrains Mono\',monospace;font-size:.72rem;color:var(--sp);word-break:break-all;flex:1">' + escHtml(it) + '</span>'
+        + '<button class="abtn del" onclick="rmStk(\'' + brand + '\',\'' + plan + '\',' + i + ')"><i class="fas fa-times"></i></button></div>';
+    }).join('')
+    : '<div class="empty"><div class="empty-ico">📦</div><div class="empty-t">Stok kosong</div></div>';
+  openModal('<div class="modal-title">Stok: ' + escHtml(name) + '</div><div class="modal-sub">' + escHtml(plan) + ' · ' + items.length + ' akun</div>'
+    + '<div style="max-height:300px;overflow-y:auto">' + listHtml + '</div>'
+    + '<div class="modal-actions">' + (items.length ? '<button class="modal-btn danger" onclick="clearStk(\'' + brand + '\',\'' + plan + '\')"><i class="fas fa-trash"></i>&nbsp;Hapus Semua</button>' : '')
+    + '<button class="modal-btn secondary" onclick="closeModal()">Tutup</button></div>');
 }
-function rmStk(brand,plan,idx){
-  var k=sKey(brand,plan);if(STOCK[k])STOCK[k].splice(idx,1);
-  saveStock();closeModal();renderStock();toast('License dihapus dari stok','warn');
+function rmStk(brand, plan, idx) {
+  var k = sKey(brand, plan); if (STOCK[k]) STOCK[k].splice(idx, 1);
+  saveStock(); closeModal(); renderStock(); toast('License dihapus dari stok', 'warn');
 }
-function clearStk(brand,plan){
-  if(!confirm('Hapus semua stok?'))return;
-  STOCK[sKey(brand,plan)]=[];saveStock();closeModal();renderStock();toast('Stok dikosongkan','warn');
+function clearStk(brand, plan) {
+  if (!confirm('Hapus semua stok?')) return;
+  STOCK[sKey(brand, plan)] = []; saveStock(); closeModal(); renderStock(); toast('Stok dikosongkan', 'warn');
 }
-function doImport(){
-  var brand=document.getElementById('impBrand').value;
-  var plan=document.getElementById('impPlan').value;
-  var keys=document.getElementById('impKeys').value.trim().split('\n').map(function(s){return s.trim();}).filter(Boolean);
-  if(!keys.length){toast('Masukkan minimal 1 akun','err');return;}
-  var k=sKey(brand,plan);if(!STOCK[k])STOCK[k]=[];
-  STOCK[k]=STOCK[k].concat(keys);
-  saveStock();document.getElementById('impKeys').value='';
-  renderStock();toast('✅ '+keys.length+' license diimport & tersinkron ke toko!');
-}
-
-/* ═══════════════════════════════════════
-   SETTINGS (dengan WhatsApp section)
-═══════════════════════════════════════ */
-function renderSettings(){
-  var rawOrders=[];
-  try{var o=localStorage.getItem('wxvn_ord');rawOrders=o?JSON.parse(o):[];}catch(e){}
-  var totStk=Object.values(STOCK).reduce(function(s,a){return s+a.length;},0);
-
-  var html='';
-
-  /* ── WhatsApp Settings Block ── */
-  html+='<div class="setting-block wa-block">'
-    +'<div class="setting-title"><i class="fab fa-whatsapp"></i>&nbsp; WhatsApp Notifikasi</div>'
-    +'<div class="setting-sub">Konfigurasi notifikasi otomatis via WhatsApp untuk order baru & konfirmasi ke customer.</div>'
-
-    /* Nomor Admin */
-    +'<div><label class="flabel">Nomor WhatsApp Admin (untuk terima notif)</label>'
-    +'<input class="finp" id="waAdminNum" placeholder="Contoh: 081234567890 atau 6281234567890" value="'+(WA_CFG.adminNumber||'')+'" style="margin-bottom:.3rem">'
-    +'<div class="fhelp">Format: 6285173360622 (tanpa + dan spasi) · 0 di awal otomatis diganti 62</div></div>'
-
-    /* Toggle: notif enabled */
-    +'<div style="margin:.8rem 0">'
-    +'<div class="wa-toggle-row">'
-    +'<div class="wa-toggle-info">'
-    +'<div class="wa-toggle-title"><i class="fab fa-whatsapp" style="color:var(--wa)"></i> Notif Order Baru ke Admin</div>'
-    +'<div class="wa-toggle-sub">Admin WA dibuka otomatis saat ada order masuk</div></div>'
-    +'<label class="toggle-switch"><input type="checkbox" id="togNotif"'+(WA_CFG.notifEnabled?' checked':'')+' onchange="WA_CFG.notifEnabled=this.checked"><span class="toggle-slider"></span></label>'
-    +'</div>'
-
-    +'<div class="wa-toggle-row">'
-    +'<div class="wa-toggle-info">'
-    +'<div class="wa-toggle-title"><i class="fas fa-bolt" style="color:var(--gold)"></i> Auto-Open WhatsApp</div>'
-    +'<div class="wa-toggle-sub">Langsung buka WA saat notif (jika mati, simpan antrian dulu)</div></div>'
-    +'<label class="toggle-switch"><input type="checkbox" id="togAutoOpen"'+(WA_CFG.autoOpen?' checked':'')+' onchange="WA_CFG.autoOpen=this.checked"><span class="toggle-slider"></span></label>'
-    +'</div></div>'
-
-    /* Template messages */
-    +'<div style="margin-top:.6rem"><button class="sec-action" onclick="toggleWaTpls()" style="width:100%;justify-content:center"><i class="fas fa-sliders-h"></i>&nbsp; Edit Template Pesan WA</button></div>'
-    +'<div id="waTplsBlock" style="display:none">'
-    /* Template order baru */
-    +'<div class="tpl-block" style="margin-top:.65rem">'
-    +'<div class="tpl-title"><i class="fas fa-bell"></i> Template: Notif Order Baru (ke Admin)</div>'
-    +'<div class="tpl-vars">'
-    +['ORDER_ID','NAMA','PRODUK','TOTAL','KONTAK','WAKTU'].map(function(v){return '<span class="tpl-var" onclick="insertVar(\'tplNewOrder\',\'{'+v+'}\')">'+'{'+v+'}</span>';}).join('')
-    +'</div>'
-    +'<textarea class="finp" id="tplNewOrder" style="min-height:100px">'+WA_CFG.tplNewOrder+'</textarea></div>'
-
-    /* Template konfirmasi */
-    +'<div class="tpl-block">'
-    +'<div class="tpl-title"><i class="fas fa-check"></i> Template: Konfirmasi ke Customer</div>'
-    +'<div class="tpl-vars">'
-    +['ORDER_ID','NAMA','PRODUK','TOTAL'].map(function(v){return '<span class="tpl-var" onclick="insertVar(\'tplConfirm\',\'{'+v+'}\')">'+'{'+v+'}</span>';}).join('')
-    +'</div>'
-    +'<textarea class="finp" id="tplConfirm" style="min-height:100px">'+WA_CFG.tplConfirm+'</textarea></div>'
-
-    /* Template deliver */
-    +'<div class="tpl-block">'
-    +'<div class="tpl-title"><i class="fas fa-paper-plane"></i> Template: Kirim Akun ke Customer</div>'
-    +'<div class="tpl-vars">'
-    +['ORDER_ID','NAMA','PRODUK','AKUN'].map(function(v){return '<span class="tpl-var" onclick="insertVar(\'tplDeliver\',\'{'+v+'}\')">'+'{'+v+'}</span>';}).join('')
-    +'</div>'
-    +'<textarea class="finp" id="tplDeliver" style="min-height:110px">'+WA_CFG.tplDeliver+'</textarea></div>'
-
-    /* Template reject */
-    +'<div class="tpl-block">'
-    +'<div class="tpl-title"><i class="fas fa-times"></i> Template: Penolakan ke Customer</div>'
-    +'<div class="tpl-vars">'
-    +['ORDER_ID','NAMA','ALASAN'].map(function(v){return '<span class="tpl-var" onclick="insertVar(\'tplReject\',\'{'+v+'}\')">'+'{'+v+'}</span>';}).join('')
-    +'</div>'
-    +'<textarea class="finp" id="tplReject" style="min-height:90px">'+WA_CFG.tplReject+'</textarea></div>'
-    +'</div>' /* end waTplsBlock */
-
-    +'<button class="green-btn" onclick="saveWaSettings()"><i class="fab fa-whatsapp"></i>&nbsp;Simpan Pengaturan WhatsApp</button>'
-
-    /* Test button */
-    +'<button class="green-btn" style="background:rgba(37,211,102,.15);color:var(--wa);border:1px solid rgba(37,211,102,.3);margin-top:.45rem" onclick="testWaNotif()"><i class="fas fa-paper-plane"></i>&nbsp;Kirim Pesan Test ke Admin</button>'
-    +'</div>';
-
-  /* ── Kredensial ── */
-  html+='<div class="setting-block"><div class="setting-title">🔐 Kredensial Admin</div><div class="setting-sub">Ubah username dan password login</div>'
-    +'<div><label class="flabel">Username Baru</label><input class="finp" id="newUser" value="'+CREDS.user+'" style="margin-bottom:.65rem"></div>'
-    +'<div><label class="flabel">Password Baru</label><input class="finp" type="password" id="newPass" placeholder="Kosongkan jika tidak diubah" style="margin-bottom:.65rem"></div>'
-    +'<div><label class="flabel">Konfirmasi Password</label><input class="finp" type="password" id="confPass" placeholder="Ulangi password baru"></div>'
-    +'<button class="green-btn" onclick="doSaveCreds()"><i class="fas fa-save"></i>&nbsp;Simpan Kredensial</button></div>';
-
-  /* ── Data Management ── */
-  html+='<div class="setting-block"><div class="setting-title">🗑️ Manajemen Data</div><div class="setting-sub">Hapus atau reset data toko</div>'
-    +'<div class="danger-zone">'
-    +'<button class="danger-btn" onclick="clearDoneOrders()"><i class="fas fa-broom"></i>&nbsp;Hapus Order Selesai & Ditolak</button>'
-    +'<button class="danger-btn" onclick="clearAllOrders()"><i class="fas fa-times-circle"></i>&nbsp;Hapus SEMUA Order</button>'
-    +'<button class="danger-btn" onclick="clearAllStk()"><i class="fas fa-trash-alt"></i>&nbsp;Reset Semua Stok</button>'
-    +'</div></div>';
-
-  /* ── Info Sistem ── */
-  html+='<div class="setting-block"><div class="setting-title">ℹ️ Info Sistem</div><div class="info-grid">'
-    +'<div class="info-row"><span class="info-key">Status</span><span class="info-val" style="color:var(--sp)">🟢 Online</span></div>'
-    +'<div class="info-row"><span class="info-key">Total Order</span><span class="info-val">'+rawOrders.length+'</span></div>'
-    +'<div class="info-row"><span class="info-key">Total Stok</span><span class="info-val">'+totStk+' akun</span></div>'
-    +'<div class="info-row"><span class="info-key">Total Produk</span><span class="info-val" style="color:var(--sp)">21 produk</span></div>'
-    +'<div class="info-row"><span class="info-key">WA Notif</span><span class="info-val" style="color:'+(WA_CFG.adminNumber&&WA_CFG.notifEnabled?'var(--wa)':'var(--muted)')+'">'+(WA_CFG.adminNumber&&WA_CFG.notifEnabled?'✅ Aktif':'⚪ Nonaktif')+'</span></div>'
-    +'<div class="info-row"><span class="info-key">Storage</span><span class="info-val">localStorage (shared)</span></div>'
-    +'<div class="info-row"><span class="info-key">Versi Panel</span><span class="info-val" style="color:var(--gold)">v2.1.0-WA</span></div>'
-    +'<div class="info-row"><span class="info-key">Link Toko</span><a href="index.html" target="_blank" style="color:var(--sp);font-size:.78rem;font-weight:600">Buka Toko <i class="fas fa-external-link-alt"></i></a></div>'
-    +'</div></div>';
-
-  document.getElementById('pageScroll').innerHTML=html;
+function doImport() {
+  var brand = document.getElementById('impBrand').value;
+  var plan  = document.getElementById('impPlan').value;
+  var keys  = document.getElementById('impKeys').value.trim().split('\n').map(function (s) { return s.trim(); }).filter(Boolean);
+  if (!keys.length) { toast('Masukkan minimal 1 akun', 'err'); return; }
+  var k = sKey(brand, plan); if (!STOCK[k]) STOCK[k] = [];
+  STOCK[k] = STOCK[k].concat(keys);
+  saveStock(); document.getElementById('impKeys').value = '';
+  renderStock(); toast('✅ ' + keys.length + ' license diimport & tersinkron ke toko!');
 }
 
-function toggleWaTpls(){
-  var el=document.getElementById('waTplsBlock');
-  if(el)el.style.display=(el.style.display==='none'?'block':'none');
+/* ═══════════ SETTINGS ═══════════ */
+function renderSettings() {
+  var rawOrders = [];
+  try { var o = localStorage.getItem('wxvn_ord'); rawOrders = o ? JSON.parse(o) : []; } catch (e) {}
+  var totStk = Object.values(STOCK).reduce(function (s, a) { return s + a.length; }, 0);
+  var html = '';
+
+  /* WhatsApp Block */
+  html += '<div class="setting-block wa-block">'
+    + '<div class="setting-title"><i class="fab fa-whatsapp"></i>&nbsp; WhatsApp Notifikasi</div>'
+    + '<div class="setting-sub">Konfigurasi notifikasi otomatis via WhatsApp untuk order baru & konfirmasi ke customer.</div>'
+    + '<div><label class="flabel">Nomor WhatsApp Admin</label>'
+    + '<input class="finp" id="waAdminNum" placeholder="Contoh: 081234567890" value="' + escHtml(WA_CFG.adminNumber || '') + '" style="margin-bottom:.3rem">'
+    + '<div class="fhelp">Format: 6285173360622 · 0 di awal otomatis diganti 62</div></div>'
+    + '<div style="margin:.8rem 0">'
+    + '<div class="wa-toggle-row">'
+    + '<div class="wa-toggle-info"><div class="wa-toggle-title"><i class="fab fa-whatsapp" style="color:var(--wa)"></i> Notif Order Baru ke Admin</div>'
+    + '<div class="wa-toggle-sub">Admin WA dibuka otomatis saat ada order masuk</div></div>'
+    + '<label class="toggle-switch"><input type="checkbox" id="togNotif"' + (WA_CFG.notifEnabled ? ' checked' : '') + ' onchange="WA_CFG.notifEnabled=this.checked"><span class="toggle-slider"></span></label>'
+    + '</div>'
+    + '<div class="wa-toggle-row">'
+    + '<div class="wa-toggle-info"><div class="wa-toggle-title"><i class="fas fa-bolt" style="color:var(--gold)"></i> Auto-Open WhatsApp</div>'
+    + '<div class="wa-toggle-sub">Langsung buka WA saat notif diterima</div></div>'
+    + '<label class="toggle-switch"><input type="checkbox" id="togAutoOpen"' + (WA_CFG.autoOpen ? ' checked' : '') + ' onchange="WA_CFG.autoOpen=this.checked"><span class="toggle-slider"></span></label>'
+    + '</div></div>'
+    + '<div style="margin-top:.6rem"><button class="sec-action" onclick="toggleWaTpls()" style="width:100%;justify-content:center"><i class="fas fa-sliders-h"></i>&nbsp; Edit Template Pesan WA</button></div>'
+    + '<div id="waTplsBlock" style="display:none">'
+    + '<div class="tpl-block" style="margin-top:.65rem">'
+    + '<div class="tpl-title"><i class="fas fa-bell"></i> Template: Notif Order Baru (ke Admin)</div>'
+    + '<div class="tpl-vars">' + ['ORDER_ID','NAMA','PRODUK','TOTAL','KONTAK','WAKTU'].map(function (v) { return '<span class="tpl-var" onclick="insertVar(\'tplNewOrder\',\'{' + v + '}\')">{ ' + v + ' }</span>'; }).join('') + '</div>'
+    + '<textarea class="finp" id="tplNewOrder" style="min-height:100px">' + escHtml(WA_CFG.tplNewOrder) + '</textarea></div>'
+    + '<div class="tpl-block"><div class="tpl-title"><i class="fas fa-check"></i> Template: Konfirmasi ke Customer</div>'
+    + '<div class="tpl-vars">' + ['ORDER_ID','NAMA','PRODUK','TOTAL'].map(function (v) { return '<span class="tpl-var" onclick="insertVar(\'tplConfirm\',\'{' + v + '}\')">{ ' + v + ' }</span>'; }).join('') + '</div>'
+    + '<textarea class="finp" id="tplConfirm" style="min-height:100px">' + escHtml(WA_CFG.tplConfirm) + '</textarea></div>'
+    + '<div class="tpl-block"><div class="tpl-title"><i class="fas fa-paper-plane"></i> Template: Kirim Akun ke Customer</div>'
+    + '<div class="tpl-vars">' + ['ORDER_ID','NAMA','PRODUK','AKUN'].map(function (v) { return '<span class="tpl-var" onclick="insertVar(\'tplDeliver\',\'{' + v + '}\')">{ ' + v + ' }</span>'; }).join('') + '</div>'
+    + '<textarea class="finp" id="tplDeliver" style="min-height:110px">' + escHtml(WA_CFG.tplDeliver) + '</textarea></div>'
+    + '<div class="tpl-block"><div class="tpl-title"><i class="fas fa-times"></i> Template: Penolakan ke Customer</div>'
+    + '<div class="tpl-vars">' + ['ORDER_ID','NAMA','ALASAN'].map(function (v) { return '<span class="tpl-var" onclick="insertVar(\'tplReject\',\'{' + v + '}\')">{ ' + v + ' }</span>'; }).join('') + '</div>'
+    + '<textarea class="finp" id="tplReject" style="min-height:90px">' + escHtml(WA_CFG.tplReject) + '</textarea></div>'
+    + '</div>'
+    + '<button class="green-btn" onclick="saveWaSettings()"><i class="fab fa-whatsapp"></i>&nbsp;Simpan Pengaturan WhatsApp</button>'
+    + '<button class="green-btn" style="background:rgba(37,211,102,.15);color:var(--wa);border:1px solid rgba(37,211,102,.3);margin-top:.45rem" onclick="testWaNotif()"><i class="fas fa-paper-plane"></i>&nbsp;Kirim Pesan Test ke Admin</button>'
+    + '</div>';
+
+  /* Kredensial */
+  html += '<div class="setting-block"><div class="setting-title">🔐 Kredensial Admin</div><div class="setting-sub">Ubah username dan password login</div>'
+    + '<div><label class="flabel">Username Baru</label><input class="finp" id="newUser" value="' + escHtml(CREDS.user) + '" style="margin-bottom:.65rem"></div>'
+    + '<div><label class="flabel">Password Baru</label><input class="finp" type="password" id="newPass" placeholder="Kosongkan jika tidak diubah" style="margin-bottom:.65rem"></div>'
+    + '<div><label class="flabel">Konfirmasi Password</label><input class="finp" type="password" id="confPass" placeholder="Ulangi password baru"></div>'
+    + '<button class="green-btn" onclick="doSaveCreds()"><i class="fas fa-save"></i>&nbsp;Simpan Kredensial</button></div>';
+
+  /* Data Management */
+  html += '<div class="setting-block"><div class="setting-title">🗑️ Manajemen Data</div><div class="setting-sub">Hapus atau reset data toko</div>'
+    + '<div class="danger-zone">'
+    + '<button class="danger-btn" onclick="clearDoneOrders()"><i class="fas fa-broom"></i>&nbsp;Hapus Order Selesai & Ditolak</button>'
+    + '<button class="danger-btn" onclick="clearAllOrders()"><i class="fas fa-times-circle"></i>&nbsp;Hapus SEMUA Order</button>'
+    + '<button class="danger-btn" onclick="clearAllStk()"><i class="fas fa-trash-alt"></i>&nbsp;Reset Semua Stok</button>'
+    + '</div></div>';
+
+  /* Info Sistem */
+  html += '<div class="setting-block"><div class="setting-title">ℹ️ Info Sistem</div><div class="info-grid">'
+    + '<div class="info-row"><span class="info-key">Status</span><span class="info-val" style="color:var(--sp)">🟢 Online</span></div>'
+    + '<div class="info-row"><span class="info-key">Total Order</span><span class="info-val">' + rawOrders.length + '</span></div>'
+    + '<div class="info-row"><span class="info-key">Total Stok</span><span class="info-val">' + totStk + ' akun</span></div>'
+    + '<div class="info-row"><span class="info-key">Total Produk</span><span class="info-val" style="color:var(--sp)">' + PRODS.length + ' produk</span></div>'
+    + '<div class="info-row"><span class="info-key">WA Notif</span><span class="info-val" style="color:' + (WA_CFG.adminNumber && WA_CFG.notifEnabled ? 'var(--wa)' : 'var(--muted)') + '">' + (WA_CFG.adminNumber && WA_CFG.notifEnabled ? '✅ Aktif' : '⚪ Nonaktif') + '</span></div>'
+    + '<div class="info-row"><span class="info-key">Versi Panel</span><span class="info-val" style="color:var(--gold)">v2.1.0-WA</span></div>'
+    + '<div class="info-row"><span class="info-key">Link Toko</span><a href="index.html" target="_blank" style="color:var(--sp);font-size:.78rem;font-weight:600">Buka Toko <i class="fas fa-external-link-alt"></i></a></div>'
+    + '</div></div>';
+
+  document.getElementById('pageScroll').innerHTML = html;
 }
 
-function insertVar(fieldId, varStr){
-  var el=document.getElementById(fieldId);
-  if(!el)return;
-  var start=el.selectionStart, end=el.selectionEnd;
-  el.value=el.value.substring(0,start)+varStr+el.value.substring(end);
-  el.focus();el.setSelectionRange(start+varStr.length,start+varStr.length);
+function toggleWaTpls() {
+  var el = document.getElementById('waTplsBlock');
+  if (el) el.style.display = (el.style.display === 'none' ? 'block' : 'none');
 }
-
-function saveWaSettings(){
-  var num=document.getElementById('waAdminNum').value.trim();
-  WA_CFG.adminNumber=formatWaNum(num)||num;
-  WA_CFG.notifEnabled=document.getElementById('togNotif').checked;
-  WA_CFG.autoOpen=document.getElementById('togAutoOpen').checked;
-  /* Simpan templates jika blok terbuka */
-  var tplBlock=document.getElementById('waTplsBlock');
-  if(tplBlock&&tplBlock.style.display!=='none'){
-    var t1=document.getElementById('tplNewOrder');
-    var t2=document.getElementById('tplConfirm');
-    var t3=document.getElementById('tplDeliver');
-    var t4=document.getElementById('tplReject');
-    if(t1)WA_CFG.tplNewOrder=t1.value;
-    if(t2)WA_CFG.tplConfirm=t2.value;
-    if(t3)WA_CFG.tplDeliver=t3.value;
-    if(t4)WA_CFG.tplReject=t4.value;
+function insertVar(fieldId, varStr) {
+  var el = document.getElementById(fieldId); if (!el) return;
+  var start = el.selectionStart, end = el.selectionEnd;
+  el.value = el.value.substring(0, start) + varStr + el.value.substring(end);
+  el.focus(); el.setSelectionRange(start + varStr.length, start + varStr.length);
+}
+function saveWaSettings() {
+  var num = document.getElementById('waAdminNum').value.trim();
+  WA_CFG.adminNumber = formatWaNum(num) || num;
+  WA_CFG.notifEnabled = document.getElementById('togNotif').checked;
+  WA_CFG.autoOpen = document.getElementById('togAutoOpen').checked;
+  var tplBlock = document.getElementById('waTplsBlock');
+  if (tplBlock && tplBlock.style.display !== 'none') {
+    var t1 = document.getElementById('tplNewOrder');
+    var t2 = document.getElementById('tplConfirm');
+    var t3 = document.getElementById('tplDeliver');
+    var t4 = document.getElementById('tplReject');
+    if (t1) WA_CFG.tplNewOrder = t1.value;
+    if (t2) WA_CFG.tplConfirm = t2.value;
+    if (t3) WA_CFG.tplDeliver = t3.value;
+    if (t4) WA_CFG.tplReject = t4.value;
   }
-  saveWaCfg();
-  updateWaTopBtn();
-  renderSettings();
-  toast('✅ Pengaturan WhatsApp disimpan!','wa');
+  saveWaCfg(); updateWaTopBtn(); renderSettings();
+  toast('✅ Pengaturan WhatsApp disimpan!', 'wa');
+}
+function testWaNotif() {
+  var num = document.getElementById('waAdminNum').value.trim();
+  if (!num) { toast('Masukkan nomor WA admin dulu!', 'err'); return; }
+  var testOrder = { id: 'TEST-' + Date.now(), name: 'Customer Test', items: [{ name: 'Drip Client', plan: '1 Hari' }], total: 29000, contact: '085173360622', date: new Date().toLocaleString('id-ID') };
+  var msg = buildWaMsg(WA_CFG.tplNewOrder, testOrder);
+  openWa(num, msg);
+  toast('📲 Pesan test dikirim!', 'wa');
+}
+function doSaveCreds() {
+  var u = document.getElementById('newUser').value.trim();
+  var p = document.getElementById('newPass').value;
+  var c = document.getElementById('confPass').value;
+  if (!u) { toast('Username kosong!', 'err'); return; }
+  if (p && p !== c) { toast('Konfirmasi password tidak cocok!', 'err'); return; }
+  CREDS.user = u; if (p) CREDS.pass = p; saveCreds(); toast('✅ Kredensial disimpan!');
+}
+function clearDoneOrders() {
+  if (!confirm('Hapus order selesai & ditolak?')) return;
+  var rawOrders = [];
+  try { var o = localStorage.getItem('wxvn_ord'); rawOrders = o ? JSON.parse(o) : []; } catch (e) {}
+  rawOrders = rawOrders.filter(function (o) { return o.status === 'pending' || o.status === 'confirmed'; });
+  try { localStorage.setItem('wxvn_ord', JSON.stringify(rawOrders)); } catch (e) {}
+  loadAll(); renderSettings(); toast('Selesai', 'warn');
+}
+function clearAllOrders() {
+  if (!confirm('HAPUS SEMUA ORDER? Tidak bisa dibatalkan!')) return;
+  try { localStorage.setItem('wxvn_ord', JSON.stringify([])); } catch (e) {}
+  loadAll(); renderSettings(); toast('Semua order dihapus', 'err');
+}
+function clearAllStk() {
+  if (!confirm('RESET SEMUA STOK? Tidak bisa dibatalkan!')) return;
+  STOCK = {}; saveStock(); loadAll(); renderSettings(); toast('Semua stok direset', 'err');
 }
 
-function testWaNotif(){
-  var num=document.getElementById('waAdminNum').value.trim();
-  if(!num){toast('Masukkan nomor WA admin dulu!','err');return;}
-  var testOrder={
-    id:'TEST-'+Date.now(),
-    name:'Customer Test',
-    items:[{name:'Drip Client',plan:'1 Hari'}],
-    total:29000,
-    contact:'085173360622',
-    date:new Date().toLocaleString('id-ID')
-  };
-  var msg=buildWaMsg(WA_CFG.tplNewOrder||'🛍️ *ORDER BARU!*\n\nID: {ORDER_ID}\nNama: {NAMA}\nProduk: {PRODUK}\nTotal: {TOTAL}',testOrder);
-  openWa(num,msg);
-  toast('📲 Pesan test dikirim!','wa');
-}
-
-function doSaveCreds(){
-  var u=document.getElementById('newUser').value.trim();
-  var p=document.getElementById('newPass').value;
-  var c=document.getElementById('confPass').value;
-  if(!u){toast('Username kosong!','err');return;}
-  if(p&&p!==c){toast('Konfirmasi password tidak cocok!','err');return;}
-  CREDS.user=u;if(p)CREDS.pass=p;saveCreds();toast('✅ Kredensial disimpan!');
-}
-function clearDoneOrders(){
-  if(!confirm('Hapus order selesai & ditolak?'))return;
-  var rawOrders=[];
-  try{var o=localStorage.getItem('wxvn_ord');rawOrders=o?JSON.parse(o):[];}catch(e){}
-  rawOrders=rawOrders.filter(function(o){return o.status==='pending'||o.status==='confirmed';});
-  try{localStorage.setItem('wxvn_ord',JSON.stringify(rawOrders));}catch(e){}
-  loadAll();renderSettings();toast('Selesai','warn');
-}
-function clearAllOrders(){
-  if(!confirm('HAPUS SEMUA ORDER? Tidak bisa dibatalkan!'))return;
-  try{localStorage.setItem('wxvn_ord',JSON.stringify([]));}catch(e){}
-  loadAll();renderSettings();toast('Semua order dihapus','err');
-}
-function clearAllStk(){
-  if(!confirm('RESET SEMUA STOK? Tidak bisa dibatalkan!'))return;
-  STOCK={};saveStock();loadAll();renderSettings();toast('Semua stok direset','err');
-}
-
-/* ═══════════════════════════════════════
-   AUTO-DETECT ORDER BARU (Polling localStorage)
-   Deteksi order pending baru → trigger notif WA ke admin
-═══════════════════════════════════════ */
-var _lastOrderCount=-1;
-var _lastOrderIds=null;
-
-function checkNewOrders(){
-  if(document.getElementById('adminPage').style.display==='none')return;
-  var rawOrders=[];
-  try{var o=localStorage.getItem('wxvn_ord');rawOrders=o?JSON.parse(o):[];}catch(e){}
-  var pendingOrders=rawOrders.filter(function(o){return o.status==='pending';});
-  var currentIds=pendingOrders.map(function(o){return o.id;}).join(',');
-  if(_lastOrderIds===null){
-    _lastOrderIds=currentIds;
-    _lastOrderCount=pendingOrders.length;
-    return;
-  }
-  /* Cek order baru: ada ID yang belum ada sebelumnya */
-  var prevIds=_lastOrderIds?_lastOrderIds.split(',').filter(Boolean):[];
-  var newOrders=pendingOrders.filter(function(o){return!prevIds.includes(o.id);});
-  if(newOrders.length){
-    newOrders.forEach(function(o){
-      var normalized=normalizeOrder(o);
-      /* Notif WA ke admin */
-      if(WA_CFG.notifEnabled&&WA_CFG.adminNumber){
-        notifyAdminNewOrder(normalized);
-      } else {
-        toast('🛍️ Order baru: '+normalized.name+'! ('+normalized.id+')');
-      }
+/* ═══════════ AUTO-DETECT ORDER BARU ═══════════ */
+function checkNewOrders() {
+  if (document.getElementById('adminPage').style.display === 'none') return;
+  var rawOrders = [];
+  try { var o = localStorage.getItem('wxvn_ord'); rawOrders = o ? JSON.parse(o) : []; } catch (e) {}
+  var pendingOrders = rawOrders.filter(function (o) { return o.status === 'pending'; });
+  var currentIds = pendingOrders.map(function (o) { return o.id; }).join(',');
+  if (_lastOrderIds === null) { _lastOrderIds = currentIds; _lastOrderCount = pendingOrders.length; return; }
+  var prevIds = _lastOrderIds ? _lastOrderIds.split(',').filter(Boolean) : [];
+  var newOrders = pendingOrders.filter(function (o) { return !prevIds.includes(o.id); });
+  if (newOrders.length) {
+    newOrders.forEach(function (o) {
+      var normalized = normalizeOrder(o);
+      if (WA_CFG.notifEnabled && WA_CFG.adminNumber) notifyAdminNewOrder(normalized);
+      else toast('🛍️ Order baru: ' + normalized.name + '! (' + normalized.id + ')');
     });
-    /* Refresh tampilan */
-    loadAll();updateBadge();
-    if(curPage==='orders')renderOrders();
-    else if(curPage==='dashboard')renderDashboard();
-    /* Efek pulse pada badge */
-    var badge=document.getElementById('pendBadge');
-    if(badge){badge.classList.add('wa-pulse');setTimeout(function(){badge.classList.remove('wa-pulse');},3000);}
+    loadAll(); updateBadge();
+    if (curPage === 'orders') renderOrders();
+    else if (curPage === 'dashboard') renderDashboard();
+    var badge = document.getElementById('pendBadge');
+    if (badge) { badge.classList.add('wa-pulse'); setTimeout(function () { badge.classList.remove('wa-pulse'); }, 3000); }
   }
-  _lastOrderIds=currentIds;
-  _lastOrderCount=pendingOrders.length;
+  _lastOrderIds = currentIds;
+  _lastOrderCount = pendingOrders.length;
 }
 
-/* ─── Modal ─── */
-function openModal(html){document.getElementById('modalBody').innerHTML=html;document.getElementById('modal').classList.add('on');}
-function closeModal(){document.getElementById('modal').classList.remove('on');}
-function handleModalBgClick(e){if(e.target===document.getElementById('modal'))closeModal();}
-document.addEventListener('keydown',function(e){if(e.key==='Escape')closeModal();});
+/* ═══════════ MODAL ═══════════ */
+function openModal(html) { document.getElementById('modalBody').innerHTML = html; document.getElementById('modal').classList.add('on'); }
+function closeModal() { document.getElementById('modal').classList.remove('on'); }
+function handleModalBgClick(e) { if (e.target === document.getElementById('modal')) closeModal(); }
+document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeModal(); });
 
-/* ─── Toast ─── */
-function toast(msg,type){
-  var t=document.createElement('div');
-  t.className='toast'+(type==='err'?' err':type==='warn'?' warn':type==='wa'?' wa':'');
-  t.innerHTML='<span>'+(type==='err'?'❌':type==='warn'?'⚠️':type==='wa'?'📲':'✅')+'</span><span>'+msg+'</span>';
+/* ═══════════ TOAST ═══════════ */
+function toast(msg, type) {
+  var t = document.createElement('div');
+  t.className = 'toast' + (type === 'err' ? ' err' : type === 'warn' ? ' warn' : type === 'wa' ? ' wa' : '');
+  t.innerHTML = '<span>' + (type === 'err' ? '❌' : type === 'warn' ? '⚠️' : type === 'wa' ? '📲' : '✅') + '</span><span>' + escHtml(msg) + '</span>';
   document.getElementById('toasts').appendChild(t);
-  setTimeout(function(){t.style.transition='all .3s';t.style.opacity='0';t.style.transform='translateY(8px)';setTimeout(function(){t.remove();},320);},3500);
+  setTimeout(function () {
+    t.style.transition = 'all .3s'; t.style.opacity = '0'; t.style.transform = 'translateY(8px)';
+    setTimeout(function () { t.remove(); }, 320);
+  }, 3500);
 }
 
-/* ─── Polling: cek order baru tiap 10 detik ─── */
+/* ═══════════ POLLING ═══════════ */
 setInterval(checkNewOrders, 10000);
-/* ─── Refresh badge tiap 30 detik ─── */
-setInterval(function(){
-  if(document.getElementById('adminPage').style.display!=='none'){
-    loadAll();updateBadge();
-  }
-},30000);
+setInterval(function () {
+  if (document.getElementById('adminPage').style.display !== 'none') { loadAll(); updateBadge(); }
+}, 30000);
 
 loadAll();
 </script>
