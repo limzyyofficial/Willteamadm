@@ -326,7 +326,7 @@ textarea.finp{resize:vertical;min-height:90px;font-family:'JetBrains Mono',monos
         <span id="loginBtnLbl"><i class="fas fa-sign-in-alt"></i>&nbsp;Masuk ke Panel</span>
         <div class="ls-spin" id="loginSpin"></div>
       </button>
-      <div class="login-hint">Default: admin / admin123</div>
+      <div class="login-hint">Default: WilzXiterZ / 8899</div>
     </div>
   </div>
 </div>
@@ -515,27 +515,37 @@ function toggleWaQuick(){
 
 /* ── Daftar produk premium ── */
 var PRODS=[
-  {brand:'spotify',  name:'Spotify Premium',      icon:'fab fa-spotify',     plans:['1 Bulan','3 Bulan','6 Bulan','1 Tahun']},
-  {brand:'netflix',  name:'Netflix Premium',       icon:'fas fa-film',        plans:['1 Bulan','3 Bulan','6 Bulan','1 Tahun']},
-  {brand:'disney',   name:'Disney+ Hotstar',       icon:'fas fa-star',        plans:['1 Bulan','3 Bulan','6 Bulan','1 Tahun']},
-  {brand:'canva',    name:'Canva Pro',             icon:'fas fa-palette',     plans:['1 Bulan','3 Bulan','6 Bulan','1 Tahun']},
-  {brand:'youtube',  name:'YouTube Premium',       icon:'fab fa-youtube',     plans:['1 Bulan','3 Bulan','6 Bulan','1 Tahun']},
-  {brand:'chatgpt',  name:'ChatGPT Plus',          icon:'fas fa-robot',       plans:['1 Bulan','3 Bulan','6 Bulan','1 Tahun']},
-  {brand:'adobe',    name:'Adobe Creative Cloud',  icon:'fab fa-adobe',       plans:['1 Bulan','3 Bulan','6 Bulan','1 Tahun']},
-  {brand:'microsoft',name:'Microsoft 365',         icon:'fab fa-microsoft',   plans:['1 Bulan','3 Bulan','6 Bulan','1 Tahun']},
-  {brand:'duolingo', name:'Duolingo Plus',         icon:'fas fa-language',    plans:['1 Bulan','3 Bulan','6 Bulan','1 Tahun']},
-  {brand:'nordvpn',  name:'NordVPN Premium',       icon:'fas fa-shield-alt',  plans:['1 Bulan','3 Bulan','6 Bulan','1 Tahun']},
-  {brand:'grammarly',name:'Grammarly Premium',     icon:'fas fa-spell-check', plans:['1 Bulan','3 Bulan','6 Bulan','1 Tahun']}
+  {brand:'dripclient',  name:'Drip Client Apk Mod',      icon:'fab fa-dripclient',     plans:['1 Hari','3 Hari','1 Minggu','2 Minggu','1 Bulan']},
+  {brand:'dripclientroot',  name:'Drip Client Root',       icon:'fas fa-dripclientroot',        plans:['1 Hari','3 Hari','1 Minggu','2 Minggu','1 Bulan']},
+  {brand:'dripclientpc',   name:'Drip Client Pc',       icon:'fas fa-dripclientpc',        plans:['1 Hari','3 Hari','1 Minggu','2 Minggu','1 Bulan']},
+  {brand:'alphaxstore',    name:'Alpha X Store',             icon:'fas fa-alphaxstore',     plans:['1 Hari','3 Hari','1 Minggu','2 Minggu','1 Bulan']},
+  {brand:'brmodv3',  name:'Br Mod V3',       icon:'fab fa-brmodv3',     plans:['1 Hari','3 Hari','1 Minggu','2 Minggu','1 Bulan']},
+  {brand:'yoonsobutterfly',  name:'Yoonso Butterfly',          icon:'fas fa-yoonsobutterfly',       plans:['1 Hari','3 Hari','1 Minggu','2 Minggu','1 Bulan']},
+  {brand:'kiwmodzexe',    name:'Kiwmodz Exe',  icon:'fab fa-kiwmodzexe',       plans:['1 Hari','3 Hari','1 Minggu','2 Minggu','1 Bulan']},
+  {brand:'vvipmod',name:'Vvip Mods',         icon:'fab fa-vvipmod',   plans:['1 Hari','3 Hari','1 Minggu','2 Minggu','1 Bulan']},
+  {brand:'hexblade', name:'Hex Blade',         icon:'fas fa-hexblade',    plans:['1 Hari','3 Hari','1 Minggu','2 Minggu','1 Bulan']},
+  {brand:'auroravn',  name:'Aurora VN',       icon:'fas fa-shield-auroravn',  plans:['1 Hari','3 Hari','1 Minggu','2 Minggu','1 Bulan']},
+  {brand:'booyahpanel',name:'Booyah Panel',     icon:'fas fa-spell-booyahpanel', plans:['1 Hari','3 Hari','1 Minggu','2 Minggu','1 Bulan']},
+  {brand:'lkteam',  name:'Lk Team',      icon:'fab fa-lkteam',     plans:['1 Hari','3 Hari','1 Minggu','2 Minggu','1 Bulan']},
+  {brand:'ballpool',  name:'8 Ball Pool',       icon:'fas fa-ballpool',        plans:['1 Hari','3 Hari','1 Minggu','2 Minggu','1 Bulan']},
+  {brand:'angrymod',   name:'Angry Mod',       icon:'fas fa-angrymod',        plans:['1 Hari','3 Hari','1 Minggu','2 Minggu','1 Bulan']},
+  {brand:'rapidcore',    name:'Rapid Core',             icon:'fas fa-rapidcore',     plans:['1 Hari','3 Hari','1 Minggu','2 Minggu','1 Bulan']},
+  {brand:'comingsoonc',  name:'Comingsoonc',       icon:'fab fa-comingsoonc',     plans:['1 Hari','3 Hari','1 Minggu','2 Minggu','1 Bulan']},
+  {brand:'comingsoonv',  name:'Comingsoonv',          icon:'fas fa-comingsoonv',       plans:['1 Hari','3 Hari','1 Minggu','2 Minggu','1 Bulan']},
+  {brand:'comingsoonb',    name:'Comingsoonb',  icon:'fab fa-comingsoonb',       plans:['1 Hari','3 Hari','1 Minggu','2 Minggu','1 Bulan']},
+  {brand:'comingsoonn',name:'Comingsoonn',         icon:'fab fa-comingsoonn',   plans:['1 Hari','3 Hari','1 Minggu','2 Minggu','1 Bulan']},
 ];
 
 var BRAND_TO_PRODID={
-  spotify:'p9',netflix:'p10',disney:'p18',canva:'p12',youtube:'p11',
-  chatgpt:'p13',adobe:'p17',microsoft:'p16',duolingo:'p19',nordvpn:'p15',grammarly:'p14'
+  dripclient:'p1',dripclientroot:'p2',dripclientpc:'p3',alphaxstore:'p4',brmodv3:'p5',
+  yoonsobutterfly:'p6',kiwmodzexe:'p7',vvipmod:'p8',hexblade:'p9',auroravn:'p10',booyahpanel:'p11',lkteam:'p12',ballpool:'p13',angrymod:'p14'
+  ,rapidcore:'p15',comingsoonc:'p16',comingsoonv:'p17',comingsoonb:'p18',comingsoonn:'p19'
 };
 var BRAND_CLS={
-  spotify:'spotify',netflix:'netflix',disney:'disney',canva:'canva',
-  youtube:'youtube',chatgpt:'chatgpt',adobe:'adobe',microsoft:'microsoft',
-  duolingo:'duolingo',nordvpn:'nordvpn',grammarly:'grammarly'
+  dripclient:'dripclient',dripclientroot:'dripclientroot',dripclientpc:'dripclientpc',alphaxstore:'alphaxstore',
+  brmodv3:'brmodv3',yoonsobutterfly:'yoonsobutterfly',kiwmodzexe:'kiwmodzexe',vvipmod:'vvipmod',
+  hexblade:'hexblade',auroravn:'auroravn',booyahpanel:'booyahpanel',lkteam:'lkteam',ballpool:'ballpool',angrymod:'angrymod',
+  rapidcore:'rapidcore',comingsoonc:'comingsoonc',comingsoonv:'comingsoonv',comingsoonb:'comingsoonb',comingsoonn:'comingsoonn'
 };
 
 function sKey(b,p){return b+'_'+p.replace(/\s+/g,'').toLowerCase();}
@@ -584,8 +594,9 @@ function normalizeOrder(o){
   };
 }
 function getBrandFromProdId(pid){
-  var m={p9:'spotify',p10:'netflix',p18:'disney',p12:'canva',p11:'youtube',
-         p13:'chatgpt',p17:'adobe',p16:'microsoft',p19:'duolingo',p15:'nordvpn',p14:'grammarly'};
+  var m={p1:'dripclient',p2:'dripclientroot',p3:'dripclientpc',p4:'alphaxstore',p5:'brmodv3',
+         p6:'yoonsobutterfly',p7:'kiwmodzexe',p8:'vvipmod',p9:'hexblade',p10:'auroravn',
+         p11:'booyahpanel',p12:'lkteam',p13:'ballpool',p14:'angrymod',p15:'rapidcore',p16:'comingsoonc',p17:'comingsoonv',p18:'comingsoonb',p19:'comingsoonn'};
   return m[pid]||'';
 }
 function saveOrderById(id,updatedFields){
@@ -1223,7 +1234,7 @@ function renderSettings(){
     /* Nomor Admin */
     +'<div><label class="flabel">Nomor WhatsApp Admin (untuk terima notif)</label>'
     +'<input class="finp" id="waAdminNum" placeholder="Contoh: 081234567890 atau 6281234567890" value="'+(WA_CFG.adminNumber||'')+'" style="margin-bottom:.3rem">'
-    +'<div class="fhelp">Format: 6281234567890 (tanpa + dan spasi) · 0 di awal otomatis diganti 62</div></div>'
+    +'<div class="fhelp">Format: 6285173360622 (tanpa + dan spasi) · 0 di awal otomatis diganti 62</div></div>'
 
     /* Toggle: notif enabled */
     +'<div style="margin:.8rem 0">'
@@ -1355,9 +1366,9 @@ function testWaNotif(){
   var testOrder={
     id:'TEST-'+Date.now(),
     name:'Customer Test',
-    items:[{name:'Spotify Premium',plan:'1 Bulan'}],
+    items:[{name:'Drip Client',plan:'1 Hari'}],
     total:29000,
-    contact:'081234567890',
+    contact:'085173360622',
     date:new Date().toLocaleString('id-ID')
   };
   var msg=buildWaMsg(WA_CFG.tplNewOrder||'🛍️ *ORDER BARU!*\n\nID: {ORDER_ID}\nNama: {NAMA}\nProduk: {PRODUK}\nTotal: {TOTAL}',testOrder);
