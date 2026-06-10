@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-<title>WILZXITERZ | Official</title>
+<title>WILZXITERZ | Official Store</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Orbitron:wght@400;600;700;800;900&family=Exo+2:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -13,7 +13,6 @@
   --pink:#ff2d78;--gold:#ffd700;--blue:#1565ff;--purple:#9c27b0;
   --text:#e8f4ff;--muted:#4a6080;--dim:#1e2d45;
   --border:rgba(0,229,255,.12);--border2:rgba(0,229,255,.25);
-  --glow-c:rgba(0,229,255,.15);--glow-g:rgba(0,255,136,.12);
   --err:#ff4757;--warn:#ffa502;--wa:#25d366;
   --r:12px;--rxl:18px;--t:all .28s cubic-bezier(.4,0,.2,1)
 }
@@ -283,12 +282,12 @@ select.finp{cursor:pointer}
 .empty-ico{font-size:2.5rem;opacity:.3;margin-bottom:.6rem}
 .empty-title{font-family:'Orbitron',monospace;font-size:.85rem;font-weight:700;color:var(--muted);margin-bottom:.3rem}
 .empty-sub{font-size:.78rem;color:var(--dim)}
-.fb-overlay{position:fixed;inset:0;background:rgba(0,0,0,.85);backdrop-filter:blur(16px);z-index:5000;display:none;align-items:center;justify-content:center;flex-direction:column;gap:1rem}
-.fb-overlay.on{display:flex}
+.fb-overlay{position:fixed;inset:0;background:rgba(0,0,0,.85);backdrop-filter:blur(16px);z-index:5000;display:none;align-items:center;justify-content:flex-direction:column;gap:1rem}
+.fb-overlay.on{display:flex;flex-direction:column;align-items:center;justify-content:center}
 .fb-spinner{width:44px;height:44px;border:3px solid rgba(0,229,255,.2);border-top-color:var(--cyan);border-radius:50%;animation:spin .8s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
 .fb-overlay-txt{font-family:'Orbitron',monospace;font-size:.8rem;color:var(--cyan);letter-spacing:1px}
-.order-update-notif{position:fixed;top:70px;left:.8rem;right:.8rem;z-index:9998;background:linear-gradient(135deg,rgba(0,229,255,.12),rgba(0,255,136,.08));border:1px solid rgba(0,255,136,.35);border-radius:12px;padding:.85rem 1rem;display:none;align-items:center;gap:.7rem;animation:toastIn .35s ease;box-shadow:0 4px 24px rgba(0,0,0,.5)}
+.order-update-notif{position:fixed;top:70px;left:.8rem;right:.8rem;z-index:9998;background:linear-gradient(135deg,rgba(0,229,255,.12),rgba(0,255,136,.08));border:1px solid rgba(0,255,136,.35);border-radius:12px;padding:.85rem 1rem;display:none;align-items:center;gap:.7rem;box-shadow:0 4px 24px rgba(0,0,0,.5)}
 .order-update-notif.on{display:flex}
 .oun-ico{font-size:1.4rem;flex-shrink:0}
 .oun-body{flex:1}
@@ -296,13 +295,24 @@ select.finp{cursor:pointer}
 .oun-sub{font-size:.72rem;color:var(--muted);margin-top:.1rem}
 .oun-close{cursor:pointer;color:var(--muted);font-size:.75rem;padding:4px;transition:var(--t)}
 .oun-close:hover{color:var(--err)}
+/* AUTO-DELIVERY CELEBRATION */
+.celebrate-box{background:linear-gradient(135deg,rgba(0,255,136,.1),rgba(0,229,255,.08));border:2px solid rgba(0,255,136,.4);border-radius:14px;padding:1.2rem;text-align:center;margin:.5rem 0;position:relative;overflow:hidden}
+.celebrate-box::before{content:'';position:absolute;inset:0;background:linear-gradient(45deg,transparent 40%,rgba(0,255,136,.05) 50%,transparent 60%);animation:shimmer 2s infinite}
+@keyframes shimmer{0%{transform:translateX(-100%)}100%{transform:translateX(100%)}}
+.celebrate-ico{font-size:2.5rem;margin-bottom:.5rem;display:block}
+.celebrate-title{font-family:'Orbitron',monospace;font-size:1rem;font-weight:900;color:var(--green);margin-bottom:.3rem}
+.celebrate-sub{font-family:'Rajdhani',sans-serif;font-size:.8rem;color:var(--muted);margin-bottom:.8rem}
+.multi-key-box{background:rgba(0,0,0,.4);border:1px solid var(--border);border-radius:10px;padding:.75rem}
+.multi-key-item{margin-bottom:.65rem;padding-bottom:.65rem;border-bottom:1px solid var(--border)}
+.multi-key-item:last-child{margin-bottom:0;padding-bottom:0;border-bottom:none}
+.multi-key-label{font-family:'Rajdhani',sans-serif;font-size:.65rem;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:.3rem}
+.multi-key-val{font-family:'Orbitron',monospace;font-size:.78rem;color:var(--cyan);word-break:break-all;background:rgba(0,229,255,.05);padding:.4rem .6rem;border-radius:7px;display:flex;justify-content:space-between;align-items:center;gap:.4rem}
 .auth-logo{text-align:center;margin-bottom:1.2rem}
 .auth-logo-ico{width:58px;height:58px;border-radius:16px;margin:0 auto .6rem;background:linear-gradient(135deg,rgba(0,229,255,.15),rgba(0,255,136,.1));border:1px solid var(--border2);display:grid;place-items:center;font-size:1.5rem}
 .auth-wordmark{font-family:'Orbitron',monospace;font-size:1rem;font-weight:900;color:var(--cyan);letter-spacing:2px}
 .prod-detail-img{width:100%;aspect-ratio:16/9;border-radius:12px;overflow:hidden;margin-bottom:.9rem;position:relative;background:var(--bg2)}
 .prod-detail-img img{width:100%;height:100%;object-fit:cover;display:block}
 .prod-detail-img-fallback{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:4rem;background:linear-gradient(135deg,var(--bg2),var(--card2))}
-.prod-detail-icon{font-size:5rem;text-align:center;padding:1.5rem;background:linear-gradient(135deg,var(--bg2),var(--card2));border-radius:12px;margin-bottom:.9rem}
 #toasts{position:fixed;bottom:70px;left:.8rem;right:.8rem;z-index:9999;display:flex;flex-direction:column;gap:.3rem;align-items:center;pointer-events:none}
 .toast{background:var(--card2);border:1px solid var(--border);border-left:3px solid var(--cyan);padding:.5rem .85rem;border-radius:9px;font-family:'Rajdhani',sans-serif;font-size:.8rem;display:flex;align-items:center;gap:.4rem;max-width:320px;width:100%;color:var(--text);animation:toastIn .3s cubic-bezier(.34,1.4,.64,1);box-shadow:0 4px 20px rgba(0,0,0,.5);pointer-events:all}
 .toast.err{border-left-color:var(--err)}.toast.warn{border-left-color:var(--warn)}.toast.ok{border-left-color:var(--green)}.toast.wa{border-left-color:var(--wa)}
@@ -361,7 +371,7 @@ select.finp{cursor:pointer}
 <div class="hero" id="heroSection">
   <div class="hero-tag"><i class="fas fa-bolt"></i>&nbsp;PREMIUM ACCOUNTS & GAMING TOOLS</div>
   <h1>WILZXITERZ VN<br><span class="glow">STORE</span></h1>
-  <div class="hero-sub">Cheat Game, Mod APK & Script terpercaya. Harga murah, update rutin, stok selalu tersedia!</div>
+  <div class="hero-sub">Cheat Game, Mod APK &amp; Script terpercaya. Harga murah, update rutin, stok selalu tersedia!</div>
   <div class="hero-stats">
     <div class="hstat"><div class="hstat-n" id="statProds">21</div><div class="hstat-l">Produk</div></div>
     <div class="hstat"><div class="hstat-n">1K+</div><div class="hstat-l">Pembeli</div></div>
@@ -407,7 +417,7 @@ select.finp{cursor:pointer}
     <div class="sb-guest-ico">🧑‍💻</div>
     <div class="sb-guest-name">Mode Tamu</div>
     <div class="sb-guest-sub">Transaksi tanpa login, tapi history hilang saat tab ditutup.</div>
-    <div class="sb-guest-warn">⚠️ Login Google untuk history permanen & saldo.</div>
+    <div class="sb-guest-warn">⚠️ Login Google untuk history permanen &amp; saldo.</div>
     <button class="btn-cyan" onclick="openAuth();closeSB()" style="padding:.5rem"><i class="fab fa-google"></i>&nbsp;Login / Daftar</button>
   </div>
   <div class="sb-sep"></div>
@@ -428,7 +438,7 @@ select.finp{cursor:pointer}
   <div id="sbLogoutBtn" style="display:none;margin-top:.6rem">
     <button class="btn-outline" onclick="doLogout();closeSB()" style="border-color:rgba(255,71,87,.3);color:var(--err)"><i class="fas fa-sign-out-alt"></i>&nbsp;Logout</button>
   </div>
-  <div class="sb-foot">© 2026 WILZXITERZ VN<br>v3.6 · Fully Integrated</div>
+  <div class="sb-foot">© 2026 WILZXITERZ VN<br>v4.0 · Auto-Delivery Integrated</div>
 </div>
 <div id="ov"></div>
 
@@ -440,11 +450,10 @@ select.finp{cursor:pointer}
 <div id="toasts"></div>
 
 <script type="module">
-// ══════════════════════════════════════════════
-// KONFIGURASI FIREBASE
-// Ganti dengan konfigurasi project kamu di:
-// https://console.firebase.google.com
-// ══════════════════════════════════════════════
+/* ══════════════════════════════════
+   FIREBASE CONFIG — Isi project kamu
+   https://console.firebase.google.com
+══════════════════════════════════ */
 const FIREBASE_CONFIG = {
   apiKey: "YOUR_API_KEY",
   authDomain: "YOUR_PROJECT.firebaseapp.com",
@@ -483,110 +492,85 @@ try {
 
 <script>
 /* ══════════════════════════════════════════════
-   MASTER PRODUK LIST
-   ⚠️  brand key HARUS sama persis dengan admin.html
-   ══════════════════════════════════════════════ */
+   MASTER PRODUK LIST — brand key HARUS sama dengan admin.html
+══════════════════════════════════════════════ */
 var PRODS = [
   {id:'p1',  name:'DRIP CLIENT APKMOD',      cat:'android',    plat:'android',    free:false, icon:'🎮', brand:'dripclient',
    img:'https://raw.githubusercontent.com/limzyyofficial/Willteamadm/refs/heads/main/drip-client-icon.jpg',
    desc:'Drip Client APK Mod terbaru untuk Free Fire. Fitur: ESP, Aimbot, No Recoil, Wallhack. Update otomatis.', multiplan:true,
    plans:[{name:'1 Hari',price:10000},{name:'3 Hari',price:20000},{name:'1 Minggu',price:50000},{name:'2 Minggu',price:100000},{name:'1 Bulan',price:120000}]},
-
   {id:'p2',  name:'DRIP CLIENT ROOT',        cat:'android',    plat:'android',    free:false, icon:'🔓', brand:'dripclientroot',
    img:'https://raw.githubusercontent.com/limzyyofficial/Willteamadm/refs/heads/main/drip-client-icon.jpg',
    desc:'Versi root Drip Client dengan fitur unlock penuh. Butuh akses root. Kompatibel Android 8+.', multiplan:true,
    plans:[{name:'1 Hari',price:10000},{name:'3 Hari',price:20000},{name:'1 Minggu',price:50000},{name:'2 Minggu',price:100000},{name:'1 Bulan',price:120000}]},
-
   {id:'p3',  name:'DRIP CLIENT PC',          cat:'pc',         plat:'pc',         free:false, icon:'💻', brand:'dripclientpc',
    img:'https://raw.githubusercontent.com/limzyyofficial/Willteamadm/refs/heads/main/drip-client-icon.jpg',
    desc:'Drip Client untuk PC dengan fitur Aimkill. Kompatibel Windows 10/11.', multiplan:true,
    plans:[{name:'1 Hari',price:10000},{name:'3 Hari',price:20000},{name:'1 Minggu',price:50000},{name:'2 Minggu',price:100000},{name:'1 Bulan',price:120000}]},
-
   {id:'p4',  name:'ALPHA X STORE',           cat:'android',    plat:'android',    free:false, icon:'🦋', brand:'alphaxstore',
    img:'https://raw.githubusercontent.com/limzyyofficial/Willteamadm/refs/heads/main/ic_launcher.png',
    desc:'Delta Mod dengan support virtual space & root.', multiplan:true,
    plans:[{name:'1 Hari',price:10000},{name:'3 Hari',price:20000},{name:'1 Minggu',price:50000},{name:'2 Minggu',price:100000},{name:'1 Bulan',price:120000}]},
-
   {id:'p5',  name:'BR MODS V3',              cat:'android',    plat:'android',    free:false, icon:'⚡', brand:'brmodv3',
    img:'https://raw.githubusercontent.com/limzyyofficial/Willteamadm/refs/heads/main/share.jpg',
    desc:'BR Mods support root dan virtual. Fitur ESP, Aimbot, radar.', multiplan:true,
    plans:[{name:'1 Hari',price:10000},{name:'3 Hari',price:20000},{name:'1 Minggu',price:50000},{name:'2 Minggu',price:100000},{name:'1 Bulan',price:120000}]},
-
   {id:'p6',  name:'YOONSO BUTTERFLY',        cat:'android',    plat:'android',    free:false, icon:'🦋', brand:'yoonsobutterfly',
    img:'https://raw.githubusercontent.com/limzyyofficial/Willteamadm/refs/heads/main/5c.webp',
    desc:'Yoonso Butterfly mod lengkap. Update sesuai patch terbaru.', multiplan:true,
    plans:[{name:'1 Hari',price:10000},{name:'3 Hari',price:20000},{name:'1 Minggu',price:50000},{name:'2 Minggu',price:100000},{name:'1 Bulan',price:120000}]},
-
   {id:'p7',  name:'KIWMODZ EXE',             cat:'android',    plat:'android',    free:false, icon:'🎯', brand:'kiwmodzexe',
    img:'https://raw.githubusercontent.com/limzyyofficial/Willteamadm/refs/heads/main/iconkiw.png',
    desc:'Kiwmodz Exe support MOD dan ROOT. Garansi 7 hari.', multiplan:true,
    plans:[{name:'1 Hari',price:10000},{name:'3 Hari',price:20000},{name:'1 Minggu',price:50000},{name:'2 Minggu',price:100000},{name:'1 Bulan',price:120000}]},
-
   {id:'p8',  name:'VVIP MOD',                cat:'android',    plat:'android',    free:false, icon:'🔥', brand:'vvipmod',
    img:'https://raw.githubusercontent.com/limzyyofficial/Willteamadm/refs/heads/main/icon.png',
    desc:'Vvip Mod versi terbaru. Support root & virtual.', multiplan:true,
    plans:[{name:'1 Hari',price:10000},{name:'3 Hari',price:20000},{name:'1 Minggu',price:50000},{name:'2 Minggu',price:100000},{name:'1 Bulan',price:120000}]},
-
   {id:'p9',  name:'HEX BLADE',               cat:'android',    plat:'android',    free:false, icon:'🗡️', brand:'hexblade',
    img:'https://raw.githubusercontent.com/limzyyofficial/Willteamadm/refs/heads/main/ic_launcher%20(1).png',
    desc:'Hex Blade mod terbaru. Anti-ban system aktif.', multiplan:true,
    plans:[{name:'1 Hari',price:10000},{name:'3 Hari',price:20000},{name:'1 Minggu',price:50000},{name:'2 Minggu',price:100000},{name:'1 Bulan',price:120000}]},
-
   {id:'p10', name:'AURORA VN',               cat:'pc',         plat:'pc',         free:false, icon:'🌟', brand:'auroravn',
    img:'https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?w=400&q=80',
    desc:'Aurora VN untuk PC. Fitur lengkap, update otomatis.', multiplan:true,
    plans:[{name:'1 Hari',price:10000},{name:'3 Hari',price:20000},{name:'1 Minggu',price:50000},{name:'2 Minggu',price:100000},{name:'1 Bulan',price:120000}]},
-
   {id:'p11', name:'BOOYAH PANEL',            cat:'android',    plat:'android',    free:false, icon:'🏆', brand:'booyahpanel',
    img:'https://raw.githubusercontent.com/limzyyofficial/Willteamadm/refs/heads/main/logo.png',
    desc:'Booyah Panel mod eksklusif. Support semua device.', multiplan:true,
    plans:[{name:'1 Hari',price:10000},{name:'3 Hari',price:20000},{name:'1 Minggu',price:50000},{name:'2 Minggu',price:100000},{name:'1 Bulan',price:120000}]},
-
   {id:'p12', name:'LK TEAM',                 cat:'android',    plat:'android',    free:false, icon:'👥', brand:'lkteam',
    img:'https://raw.githubusercontent.com/limzyyofficial/Willteamadm/refs/heads/main/ic_launcher%20(2).png',
    desc:'LK Team mod dengan fitur eksklusif. Update rutin.', multiplan:true,
    plans:[{name:'1 Hari',price:10000},{name:'3 Hari',price:20000},{name:'1 Minggu',price:50000},{name:'2 Minggu',price:100000},{name:'1 Bulan',price:120000}]},
-
   {id:'p13', name:'DRIPCLIENT 8 BALL POOL',  cat:'android',    plat:'android',    free:false, icon:'🎱', brand:'ballpool',
    img:'https://raw.githubusercontent.com/limzyyofficial/Willteamadm/refs/heads/main/drip-client-icon.jpg',
    desc:'Drip Client khusus 8 Ball Pool. Aim helper & cue extender.', multiplan:true,
    plans:[{name:'1 Hari',price:10000},{name:'3 Hari',price:20000},{name:'1 Minggu',price:50000},{name:'2 Minggu',price:100000},{name:'1 Bulan',price:120000}]},
-
   {id:'p14', name:'ANGRY MOD',               cat:'android',    plat:'android',    free:false, icon:'😤', brand:'angrymod',
    img:'https://raw.githubusercontent.com/limzyyofficial/Willteamadm/refs/heads/main/IMG_20260609_224810_403.jpg',
    desc:'Angry Mod versi terbaru. Fitur lengkap & stabil.', multiplan:true,
    plans:[{name:'1 Hari',price:10000},{name:'3 Hari',price:20000},{name:'1 Minggu',price:50000},{name:'2 Minggu',price:100000},{name:'1 Bulan',price:120000}]},
-
   {id:'p15', name:'RAPID CORE',              cat:'android',    plat:'android',    free:false, icon:'🚀', brand:'rapidcore',
    img:'https://raw.githubusercontent.com/limzyyofficial/Willteamadm/refs/heads/main/ic_launcherrapid.png',
    desc:'Rapid Core mod. Kecepatan tinggi, anti lag.', multiplan:true,
    plans:[{name:'1 Hari',price:10000},{name:'3 Hari',price:20000},{name:'1 Minggu',price:50000},{name:'2 Minggu',price:100000},{name:'1 Bulan',price:120000}]},
-
-  {id:'p16', name:'COMING SOON',             cat:'comingsoon', plat:'comingsoon', free:false, icon:'⏳', brand:'comingsoonc',
-   img:'https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&q=80',
-   desc:'Produk baru segera hadir. Stay tuned!', multiplan:true,
+  {id:'p16', name:'COMING SOON', cat:'comingsoon', plat:'comingsoon', free:false, icon:'⏳', brand:'comingsoonc',
+   img:'https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&q=80', desc:'Produk baru segera hadir. Stay tuned!', multiplan:true,
    plans:[{name:'1 Hari',price:10000},{name:'3 Hari',price:20000},{name:'1 Minggu',price:50000},{name:'2 Minggu',price:100000},{name:'1 Bulan',price:120000}]},
-
-  {id:'p17', name:'COMING SOON',             cat:'comingsoon', plat:'comingsoon', free:false, icon:'⏳', brand:'comingsoonv',
-   img:'https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&q=80',
-   desc:'Produk baru segera hadir. Stay tuned!', multiplan:true,
+  {id:'p17', name:'COMING SOON', cat:'comingsoon', plat:'comingsoon', free:false, icon:'⏳', brand:'comingsoonv',
+   img:'https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&q=80', desc:'Produk baru segera hadir. Stay tuned!', multiplan:true,
    plans:[{name:'1 Hari',price:10000},{name:'3 Hari',price:20000},{name:'1 Minggu',price:50000},{name:'2 Minggu',price:100000},{name:'1 Bulan',price:120000}]},
-
-  {id:'p18', name:'COMING SOON',             cat:'comingsoon', plat:'comingsoon', free:false, icon:'⏳', brand:'comingsoonb',
-   img:'https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&q=80',
-   desc:'Produk baru segera hadir. Stay tuned!', multiplan:true,
+  {id:'p18', name:'COMING SOON', cat:'comingsoon', plat:'comingsoon', free:false, icon:'⏳', brand:'comingsoonb',
+   img:'https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&q=80', desc:'Produk baru segera hadir. Stay tuned!', multiplan:true,
    plans:[{name:'1 Hari',price:10000},{name:'3 Hari',price:20000},{name:'1 Minggu',price:50000},{name:'2 Minggu',price:100000},{name:'1 Bulan',price:120000}]},
-
-  {id:'p19', name:'COMING SOON',             cat:'comingsoon', plat:'comingsoon', free:false, icon:'⏳', brand:'comingsoonn',
-   img:'https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&q=80',
-   desc:'Produk baru segera hadir. Stay tuned!', multiplan:true,
+  {id:'p19', name:'COMING SOON', cat:'comingsoon', plat:'comingsoon', free:false, icon:'⏳', brand:'comingsoonn',
+   img:'https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&q=80', desc:'Produk baru segera hadir. Stay tuned!', multiplan:true,
    plans:[{name:'1 Hari',price:10000},{name:'3 Hari',price:20000},{name:'1 Minggu',price:50000},{name:'2 Minggu',price:100000},{name:'1 Bulan',price:120000}]},
-
-  {id:'p20', name:'STABILIZER AIM',          cat:'tools',      plat:'android',    free:true,  icon:'🎮', brand:null,
+  {id:'p20', name:'STABILIZER AIM', cat:'tools', plat:'android', free:true, icon:'🎮', brand:null,
    img:'https://images.unsplash.com/photo-1535016120720-40c646be5580?w=400&q=80',
    desc:'Script trigger otomatis menggunakan tombol volume. Gratis!', multiplan:false},
-
-  {id:'p21', name:'APK GALAXY SENSIX',       cat:'tools',      plat:'android',    free:true,  icon:'🎯', brand:null,
+  {id:'p21', name:'APK GALAXY SENSIX', cat:'tools', plat:'android', free:true, icon:'🎯', brand:null,
    img:'https://images.unsplash.com/photo-1552820728-8b83bb6b773f?w=400&q=80',
    desc:'Script headshot FF gratis. Update sesuai patch terbaru FF.', multiplan:false},
 ];
@@ -603,45 +587,39 @@ var curCat='all', curSearch='';
 var curPayProd=null, curPayPlan=null, curPayMethod='qris', curOrder=null;
 var topupAmt=0, topupMethod='qris';
 var TOPUP_OPTS=[10000,25000,50000,100000,150000,200000];
-var _prevOrderStatuses={}, _watcherInterval=null;
-var curPayTimer=null;
+var _prevOrderStatuses={}, _watcherInterval=null, curPayTimer=null;
+var curPg='home';
 
-/* ══ STOK HELPERS — Sinkron dengan admin ══ */
-function sKey(brand, plan){
-  return brand + '_' + String(plan).replace(/\s+/g,'').toLowerCase();
-}
+/* ══ STOK HELPERS — Sinkron dengan admin.html ══ */
+function sKey(brand, plan){ return brand+'_'+String(plan).replace(/\s+/g,'').toLowerCase(); }
 function adminStokArr(brand, plan){
-  try{var s=ls('wxvn_stk');if(!s)return[];var k=sKey(brand,plan);return s[k]||[];}catch(e){return[];}
+  try{var s=ls('wxvn_stk');if(!s)return[];return s[sKey(brand,plan)]||[];}catch(e){return[];}
 }
 function adminStokCount(brand, plan){ return adminStokArr(brand,plan).length; }
-
 function prodStokTotal(p){
-  if(!p.brand) return 99; // free / no-brand
-  if(p.multiplan && p.plans){
-    return p.plans.reduce(function(t,pl){return t+adminStokCount(p.brand,pl.name);},0);
-  }
+  if(!p.brand) return 99;
+  if(p.multiplan && p.plans) return p.plans.reduce(function(t,pl){return t+adminStokCount(p.brand,pl.name);},0);
   return adminStokCount(p.brand,'1 Bulan');
 }
 function planStok(brand, planName){ return adminStokCount(brand, planName); }
-
 function isHabis(p, planName){
   if(p.free) return false;
-  if(p.cat === 'comingsoon') return true; // coming soon always locked
-  if(p.multiplan && planName) return planStok(p.brand,planName) <= 0;
-  if(p.multiplan) return prodStokTotal(p) <= 0;
-  if(!p.brand){ var s=ls('stk_'+p.id); return (s!==null&&s!==undefined)?Number(s)<=0:(p.stk||0)<=0; }
-  return adminStokCount(p.brand,'1 Bulan') <= 0;
+  if(p.cat==='comingsoon') return true;
+  if(p.multiplan && planName) return planStok(p.brand,planName)<=0;
+  if(p.multiplan) return prodStokTotal(p)<=0;
+  if(!p.brand){var s=ls('stk_'+p.id);return(s!==null&&s!==undefined)?Number(s)<=0:(p.stk||0)<=0;}
+  return adminStokCount(p.brand,'1 Bulan')<=0;
 }
 
-// Deduct stok dari wxvn_stk dan update stk_pid
+/* ══ AUTO-DELIVERY: Ambil stok dari wxvn_stk admin ══ */
 function deductAdminStok(brand, planName){
   try{
     var stk=ls('wxvn_stk')||{};
     var k=sKey(brand,planName);
-    if(stk[k] && stk[k].length > 0){
-      var key=stk[k].shift();
+    if(stk[k]&&stk[k].length>0){
+      var key=stk[k].shift(); // Ambil akun pertama & hapus dari stok
       ss('wxvn_stk',stk);
-      // update stk_{pid} total
+      // Sync total stok ke stk_pid
       var p=PRODS.find(function(x){return x.brand===brand;});
       if(p){
         var total=p.plans?p.plans.reduce(function(s,pl){var k2=sKey(brand,pl.name);return s+(stk[k2]||[]).length;},0):0;
@@ -649,8 +627,32 @@ function deductAdminStok(brand, planName){
       }
       return key;
     }
-  }catch(e){}
+  }catch(e){console.error('deductAdminStok error:',e);}
   return null;
+}
+
+/* ══ AUTO-DELIVERY untuk transaksi QRIS/Transfer ══
+   Admin bisa deliver dari panel, atau sistem otomatis
+   jika stok tersedia saat admin konfirmasi */
+function attemptAutoDeliver(orderId){
+  var rawOrds=ls('wxvn_ord')||[];
+  var ord=rawOrds.find(function(o){return o.id===orderId;});
+  if(!ord||ord.status!=='confirmed') return false;
+  var brand=ord.items&&ord.items[0]?ord.items[0].brand:'';
+  var plan=ord.items&&ord.items[0]?ord.items[0].plan:'';
+  if(!brand||!plan||plan==='—') return false;
+  var key=deductAdminStok(brand,plan);
+  if(!key) return false;
+  var delivered=[{name:ord.prodName||ord.items[0].name,plan:plan,brand:brand,key:key}];
+  var idx=rawOrds.findIndex(function(o){return o.id===orderId;});
+  if(idx>=0){
+    rawOrds[idx].status='delivered';
+    rawOrds[idx].delivered=delivered;
+    rawOrds[idx].activationKey=key;
+    ss('wxvn_ord',rawOrds);
+    _prevOrderStatuses[orderId]='delivered';
+  }
+  return true;
 }
 
 function fmt(n){return 'Rp'+Number(n).toLocaleString('id-ID');}
@@ -659,7 +661,7 @@ function fmt(n){return 'Rp'+Number(n).toLocaleString('id-ID');}
 window._handleFirebaseUser=function(fbUser){
   var udata=ls('wxvn_udata_'+fbUser.uid)||{balance:0,createdAt:new Date().toISOString()};
   curUser={uid:fbUser.uid,name:fbUser.displayName||'User',email:fbUser.email||'',photo:fbUser.photoURL||'',balance:udata.balance||0,createdAt:udata.createdAt||new Date().toISOString()};
-  ss('wxvn_udata_'+curUser.uid,{balance:curUser.balance,createdAt:curUser.createdAt});
+  saveUserData(curUser.uid,{balance:curUser.balance,createdAt:curUser.createdAt});
   loadData(); updateUIForUser(); renderGrid();
   document.getElementById('fbOverlay').classList.remove('on');
   startOrderStatusWatcher();
@@ -704,15 +706,25 @@ function updateUIForUser(){
   }
 }
 
-function deductBalance(amount){if(!curUser)return;curUser.balance=Math.max(0,(curUser.balance||0)-amount);saveUserData(curUser.uid,{balance:curUser.balance,createdAt:curUser.createdAt});updateUIForUser();}
-function addBalance(amount){if(!curUser)return;curUser.balance=(curUser.balance||0)+amount;saveUserData(curUser.uid,{balance:curUser.balance,createdAt:curUser.createdAt});updateUIForUser();}
+function deductBalance(amount){
+  if(!curUser)return;
+  curUser.balance=Math.max(0,(curUser.balance||0)-amount);
+  saveUserData(curUser.uid,{balance:curUser.balance,createdAt:curUser.createdAt});
+  updateUIForUser();
+}
+function addBalance(amount){
+  if(!curUser)return;
+  curUser.balance=(curUser.balance||0)+amount;
+  saveUserData(curUser.uid,{balance:curUser.balance,createdAt:curUser.createdAt});
+  updateUIForUser();
+}
 
 /* ══ ORDER STATUS WATCHER ══ */
 function startOrderStatusWatcher(){
   if(_watcherInterval)clearInterval(_watcherInterval);
   var orders=ls('wxvn_ord')||[];
   orders.forEach(function(o){_prevOrderStatuses[o.id]=o.status;});
-  _watcherInterval=setInterval(checkOrderStatusChanges,8000);
+  _watcherInterval=setInterval(checkOrderStatusChanges,5000);
 }
 function checkOrderStatusChanges(){
   if(!curUser)return;
@@ -721,7 +733,10 @@ function checkOrderStatusChanges(){
   myOrders.forEach(function(o){
     var prev=_prevOrderStatuses[o.id];
     if(prev===undefined){_prevOrderStatuses[o.id]=o.status;return;}
-    if(prev!==o.status){_prevOrderStatuses[o.id]=o.status;handleOrderStatusUpdate(o,prev,o.status);}
+    if(prev!==o.status){
+      _prevOrderStatuses[o.id]=o.status;
+      handleOrderStatusUpdate(o,prev,o.status);
+    }
   });
   updatePendingBadge();
   if(curPg==='history'){loadData();renderHistory();}
@@ -729,9 +744,22 @@ function checkOrderStatusChanges(){
 function handleOrderStatusUpdate(order,oldSt,newSt){
   var notif=document.getElementById('orderUpdateNotif');
   var name=order.prodName||'Produk';
-  if(newSt==='confirmed'){document.getElementById('ounIco').textContent='✅';document.getElementById('ounTitle').textContent='Order Dikonfirmasi!';document.getElementById('ounSub').textContent=name+' — '+order.id+' sudah dikonfirmasi admin';toast('✅ Order '+order.id+' dikonfirmasi admin!','ok');}
-  else if(newSt==='delivered'){document.getElementById('ounIco').textContent='🎉';document.getElementById('ounTitle').textContent='Akun Sudah Dikirim!';document.getElementById('ounSub').textContent=name+' — cek history untuk lihat akun kamu';toast('🎉 Akun '+name+' sudah dikirimkan!','ok');}
-  else if(newSt==='rejected'){document.getElementById('ounIco').textContent='❌';document.getElementById('ounTitle').textContent='Order Ditolak';document.getElementById('ounSub').textContent=name+' — '+order.id+' ditolak.';toast('❌ Order '+order.id+' ditolak.','err');}
+  if(newSt==='confirmed'){
+    document.getElementById('ounIco').textContent='✅';
+    document.getElementById('ounTitle').textContent='Order Dikonfirmasi!';
+    document.getElementById('ounSub').textContent=name+' — sedang diproses admin';
+    toast('✅ Order '+order.id+' dikonfirmasi admin!','ok');
+  } else if(newSt==='delivered'){
+    document.getElementById('ounIco').textContent='🎉';
+    document.getElementById('ounTitle').textContent='Akun Sudah Dikirim!';
+    document.getElementById('ounSub').textContent=name+' — cek history untuk lihat akun kamu';
+    toast('🎉 Akun '+name+' sudah dikirimkan!','ok');
+  } else if(newSt==='rejected'){
+    document.getElementById('ounIco').textContent='❌';
+    document.getElementById('ounTitle').textContent='Order Ditolak';
+    document.getElementById('ounSub').textContent=name+' — '+order.id+' ditolak.';
+    toast('❌ Order '+order.id+' ditolak.','err');
+  }
   notif.classList.add('on');
   setTimeout(function(){notif.classList.remove('on');},8000);
 }
@@ -746,7 +774,7 @@ function updatePendingBadge(){
 }
 
 /* ══ TICKER ══ */
-var TICK_ITEMS=['⚡ WILZXITERZ VN','✅ Stok Selalu Update','🎮 Drip Client','🔥 BR Mods V3','🎮 Kiwmodz Exe','🎮 Vvip Mods','🌟 Aurora VN','🛡️ Anti-Spam System','📱 Cheat Root & No Root','💻 PC Cheats','⭐ 1000+ Pembeli','💬 CS 24 Jam','📦 Stok Real-time','🔐 Pembayaran Aman','👤 Bisa Beli Tanpa Login'];
+var TICK_ITEMS=['⚡ WILZXITERZ VN','✅ Auto-Delivery AKTIF','🎮 Drip Client','🔥 BR Mods V3','🎮 Kiwmodz Exe','🔥 Vvip Mods','🌟 Aurora VN','🛡️ Anti-Spam System','📱 Cheat Root & No Root','💻 PC Cheats','⭐ 1000+ Pembeli','💬 CS 24 Jam','📦 Stok Real-time','🔐 Pembayaran Aman','👤 Bisa Beli Tanpa Login'];
 function renderTicker(){
   var a=TICK_ITEMS.concat(TICK_ITEMS);
   document.getElementById('ticker').innerHTML=a.map(function(t,i){return '<span class="'+(i%4===0?'hi':'')+'">' +t+'</span>';}).join('');
@@ -775,25 +803,15 @@ function renderGrid(){
       :(p.multiplan&&p.plans?'<span class="pc-price">ab '+fmt(p.plans[0].price)+'</span>':'<span class="pc-price">'+fmt(p.price||0)+'</span>');
     var lowStk=(n>0&&n<=3&&!p.free&&!isCS)?'<div class="pc-low-stk">Sisa '+n+'</div>':'';
     var btns='';
-    if(isCS){
-      btns='<button class="pc-btn segera" disabled><i class="fas fa-clock"></i> SEGERA HADIR</button>';
-    } else if(p.free){
-      btns='<button class="pc-btn dl" onclick="event.stopPropagation();openDownload(\''+p.id+'\')"><i class="fas fa-download"></i> DOWNLOAD</button>';
-    } else if(habis){
-      btns='<button class="pc-btn habis" disabled><i class="fas fa-times-circle"></i> STOK HABIS</button>';
-    } else {
-      btns='<button class="pc-btn beli" onclick="event.stopPropagation();openPayFlow(\''+p.id+'\')"><i class="fas fa-cart-plus"></i> BELI</button>';
-    }
+    if(isCS) btns='<button class="pc-btn segera" disabled><i class="fas fa-clock"></i> SEGERA HADIR</button>';
+    else if(p.free) btns='<button class="pc-btn dl" onclick="event.stopPropagation();openDownload(\''+p.id+'\')"><i class="fas fa-download"></i> DOWNLOAD</button>';
+    else if(habis) btns='<button class="pc-btn habis" disabled><i class="fas fa-times-circle"></i> STOK HABIS</button>';
+    else btns='<button class="pc-btn beli" onclick="event.stopPropagation();openPayFlow(\''+p.id+'\')"><i class="fas fa-cart-plus"></i> BELI</button>';
     var thumbHtml=p.img
-      ?('<div class="pc-thumb">'
-        +'<img src="'+p.img+'" alt="'+p.name+'" loading="lazy" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'flex\'">'
-        +'<div class="pc-thumb-fallback" style="display:none">'+p.icon+'</div>'
-        +'<div class="pc-thumb-overlay"></div></div>')
+      ?('<div class="pc-thumb"><img src="'+p.img+'" alt="'+p.name+'" loading="lazy" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'flex\'"><div class="pc-thumb-fallback" style="display:none">'+p.icon+'</div><div class="pc-thumb-overlay"></div></div>')
       :('<div class="pc-thumb"><div class="pc-thumb-fallback">'+p.icon+'</div><div class="pc-thumb-overlay"></div></div>');
     return '<div class="pcard'+((habis&&!p.free&&!isCS)?' sold-out':'')+(isCS?' sold-out':'')+'" onclick="openProdDetail(\''+p.id+'\')">'
-      +lowStk
-      +'<div class="pc-plat '+platCls+'">'+platLbl+'</div>'
-      +thumbHtml
+      +lowStk+'<div class="pc-plat '+platCls+'">'+platLbl+'</div>'+thumbHtml
       +((habis&&!p.free&&!isCS)?'<div class="pc-sold-overlay"><div class="pc-sold-label">HABIS</div></div>':'')
       +(isCS?'<div class="pc-sold-overlay"><div class="pc-sold-label" style="color:var(--muted);border-color:var(--muted)">SOON</div></div>':'')
       +'<div class="pc-body"><div class="pc-name">'+p.name+'</div>'+priceStr+'<div class="pc-btns">'+btns+'</div></div></div>';
@@ -819,18 +837,13 @@ function openProdDetail(id){
   var platLbl=p.plat==='android'?'📱 Android':p.plat==='pc'?'💻 PC':p.plat==='comingsoon'?'⏳ Coming Soon':'🌐 All Platform';
   var actions='';
   if(isCS){
-    actions='<div style="background:rgba(120,144,156,.08);border:1px solid rgba(120,144,156,.2);border-radius:10px;padding:.85rem;text-align:center;margin-bottom:.7rem">'
-      +'<div style="font-size:1.5rem;margin-bottom:.3rem">⏳</div>'
-      +'<div style="font-family:\'Orbitron\',monospace;font-size:.78rem;font-weight:800;color:var(--muted)">SEGERA HADIR</div></div>';
+    actions='<div style="background:rgba(120,144,156,.08);border:1px solid rgba(120,144,156,.2);border-radius:10px;padding:.85rem;text-align:center;margin-bottom:.7rem"><div style="font-size:1.5rem;margin-bottom:.3rem">⏳</div><div style="font-family:\'Orbitron\',monospace;font-size:.78rem;font-weight:800;color:var(--muted)">SEGERA HADIR</div></div>';
   } else if(p.free){
     actions='<button class="btn-cyan" onclick="openDownload(\''+id+'\');closeModal(\'prodModal\')"><i class="fas fa-download"></i>&nbsp;DOWNLOAD GRATIS</button>';
   } else if(habis){
-    actions='<div style="background:rgba(255,71,87,.08);border:1px solid rgba(255,71,87,.25);border-radius:10px;padding:.85rem;text-align:center;margin-bottom:.7rem">'
-      +'<div style="font-size:1.5rem;margin-bottom:.3rem">😔</div>'
-      +'<div style="font-family:\'Orbitron\',monospace;font-size:.78rem;font-weight:800;color:var(--err)">STOK HABIS</div></div>'
+    actions='<div style="background:rgba(255,71,87,.08);border:1px solid rgba(255,71,87,.25);border-radius:10px;padding:.85rem;text-align:center;margin-bottom:.7rem"><div style="font-size:1.5rem;margin-bottom:.3rem">😔</div><div style="font-family:\'Orbitron\',monospace;font-size:.78rem;font-weight:800;color:var(--err)">STOK HABIS</div></div>'
       +'<a href="https://wa.me/6285173360622?text=Restock+'+encodeURIComponent(p.name)+'" target="_blank" class="wa-link" style="margin-top:.5rem"><i class="fab fa-whatsapp"></i>&nbsp;Tanya Restock</a>';
   } else if(p.multiplan && p.plans){
-    // plan picker
     var plansHtml='<div style="margin-bottom:.9rem"><div class="flabel">PILIH PAKET</div><div class="plan-grid">';
     p.plans.forEach(function(pl){
       var ps=planStok(p.brand,pl.name);
@@ -838,8 +851,7 @@ function openProdDetail(id){
       var stkLbl=ps===0?'Habis':ps<=3?'Sisa '+ps:ps+' tersedia';
       var disabled=ps===0?' disabled':'';
       plansHtml+='<div class="plan-opt'+disabled+'" onclick="'+(ps>0?'closeModal(\'prodModal\');openPayFlowWithPlan(\''+id+'\',\''+pl.name+'\')':'')+'">'
-        +'<div class="plan-name">'+pl.name+'</div>'
-        +'<div class="plan-price">'+fmt(pl.price)+'</div>'
+        +'<div class="plan-name">'+pl.name+'</div><div class="plan-price">'+fmt(pl.price)+'</div>'
         +'<div class="plan-stk '+cls+'">'+stkLbl+'</div></div>';
     });
     plansHtml+='</div></div>';
@@ -849,7 +861,7 @@ function openProdDetail(id){
   }
   var imgBanner=p.img
     ?('<div class="prod-detail-img"><img src="'+p.img+'" alt="'+p.name+'" onerror="this.parentElement.innerHTML=\'<div class=\\"prod-detail-img-fallback\\">'+p.icon+'</div>\'"></div>')
-    :('<div class="prod-detail-icon">'+p.icon+'</div>');
+    :('<div style="font-size:5rem;text-align:center;padding:1.5rem;background:linear-gradient(135deg,var(--bg2),var(--card2));border-radius:12px;margin-bottom:.9rem">'+p.icon+'</div>');
   document.getElementById('prodModalBody').innerHTML=imgBanner
     +'<div style="font-family:\'Orbitron\',monospace;font-size:.95rem;font-weight:800;margin-bottom:.35rem">'+p.name+'</div>'
     +'<div style="margin-bottom:.7rem"><span class="pc-plat '+platCls+'" style="position:static">'+platLbl+'</span></div>'
@@ -893,8 +905,7 @@ function openDownload(id){
 /* ══ PAY STEP 1 ══ */
 function renderPayStep1(){
   var p=curPayProd;var planName=curPayPlan;
-  var price=p.price||0;
-  if(p.multiplan&&planName&&p.plans){var pl=p.plans.find(function(x){return x.name===planName;});if(pl)price=pl.price;}
+  var price=getPrice(p, planName);
   var bal=curUser?curUser.balance:0;
   var guestWarn=isGuest()?'<div class="guest-warn-box"><strong>👤 MODE TAMU</strong>History hanya tersimpan selama tab ini terbuka. <span style="color:var(--cyan);cursor:pointer" onclick="closeModal(\'payModal\');openAuth()">Login Google →</span></div>':'';
   var methodHtml='';
@@ -925,6 +936,12 @@ function renderPayStep1(){
   renderPayMethodDetail();
 }
 
+function getPrice(p, planName){
+  var price=p.price||0;
+  if(p.multiplan&&planName&&p.plans){var pl=p.plans.find(function(x){return x.name===planName;});if(pl)price=pl.price;}
+  return price;
+}
+
 function selPayMethod(m){
   curPayMethod=m;
   var methods=curUser?['saldo','qris','transfer']:['qris','transfer'];
@@ -934,8 +951,7 @@ function selPayMethod(m){
 function renderPayMethodDetail(){
   var el=document.getElementById('payMethodDetail');if(!el)return;
   var p=curPayProd;var planName=curPayPlan;
-  var price=p.price||0;
-  if(p.multiplan&&planName&&p.plans){var pl=p.plans.find(function(x){return x.name===planName;});if(pl)price=pl.price;}
+  var price=getPrice(p,planName);
   var bal=curUser?curUser.balance:0;
   if(curPayMethod==='saldo'&&curUser){
     var ok=bal>=price;
@@ -944,7 +960,7 @@ function renderPayMethodDetail(){
   } else { el.innerHTML=''; }
 }
 
-/* ══ PROCEED PAY ══ */
+/* ══ PROCEED PAY — Core logic dengan AUTO-DELIVERY ══ */
 function proceedPay(){
   var name=(document.getElementById('payName')||{}).value||'';
   var contact=(document.getElementById('payContact')||{}).value||'';
@@ -954,11 +970,11 @@ function proceedPay(){
   if(isGuest()&&!guestEmail){toast('Masukkan email untuk konfirmasi!','err');return;}
   if(!contact.trim()){toast('Masukkan kontak WA/Telegram!','err');return;}
   var p=curPayProd;var planName=curPayPlan;
-  var price=p.price||0;
-  if(p.multiplan&&planName&&p.plans){var pl=p.plans.find(function(x){return x.name===planName;});if(pl)price=pl.price;}
+  var price=getPrice(p,planName);
   if(isHabis(p,planName)){toast('❌ Stok baru saja habis!','err');closeModal('payModal');renderGrid();return;}
   var bal=curUser?curUser.balance:0;
   if(curPayMethod==='saldo'&&curUser&&bal<price){toast('Saldo tidak mencukupi!','err');return;}
+
   var ordId='ORD'+Date.now();
   var userEmail=curUser?curUser.email:guestEmail;
   var items=[{name:p.name,brand:p.brand||'',plan:planName||'—',price:price}];
@@ -969,72 +985,110 @@ function proceedPay(){
     prodId:p.id,prodName:p.name+(planName?' ('+planName+')':''),
     prodIcon:p.icon,prodImg:p.img||'',
     items:items,plan:planName||'',total:price,method:curPayMethod,
-    status:'pending',date:new Date().toLocaleString('id-ID'),
-    timestamp:Date.now(),activationKey:'',delivered:[],statusNote:''
+    status:'pending',date:new Date().toLocaleString('id-ID'),timestamp:Date.now(),
+    activationKey:'',delivered:[],statusNote:''
   };
+
   if(curPayMethod==='saldo'&&curUser){
+    /* ══ SALDO: Langsung deduct + auto-deliver dari stok ══ */
     deductBalance(price);
+    var delivered=[];
     var akunKey=null;
-    if(p.brand&&planName){ akunKey=deductAdminStok(p.brand,planName); }
-    if(akunKey){
-      curOrder.status='delivered';curOrder.activationKey=akunKey;
-      curOrder.delivered=[{name:p.name,plan:planName||'',brand:p.brand||'',key:akunKey}];
+    if(p.brand&&planName){
+      akunKey=deductAdminStok(p.brand,planName);
+      if(akunKey){
+        delivered=[{name:p.name,plan:planName,brand:p.brand,key:akunKey}];
+        curOrder.status='delivered';
+        curOrder.activationKey=akunKey;
+        curOrder.delivered=delivered;
+      } else {
+        // Stok admin kosong, tunggu manual dari admin
+        curOrder.status='confirmed';
+      }
     } else {
       curOrder.status='confirmed';
     }
-    pushOrderToShared(curOrder);
-    if(akunKey){ renderSaldoDelivered(curOrder); }
+    pushOrder(curOrder);
+    renderGrid();updatePendingBadge();
+    if(akunKey){ renderAutoDelivered(curOrder); }
     else { renderSaldoConfirmed(curOrder); }
+
   } else {
-    if(isGuest()){GUEST_ORDERS.unshift(curOrder);saveGuestData();}
-    else{ORDERS.unshift(curOrder);saveData();}
-    pushOrderToShared(curOrder);
+    /* ══ QRIS / TRANSFER: Simpan sebagai pending, tunggu konfirmasi admin ══ */
+    pushOrder(curOrder);
+    renderGrid();updatePendingBadge();
     renderPayStep2();
   }
-  renderGrid();updatePendingBadge();
 }
 
-function pushOrderToShared(order){
+function pushOrder(order){
   var shared=ls('wxvn_ord')||[];
   var idx=shared.findIndex(function(o){return o.id===order.id;});
   if(idx>=0)shared[idx]=order;else shared.unshift(order);
   ss('wxvn_ord',shared);
   _prevOrderStatuses[order.id]=order.status;
-  // reload local state
   ORDERS=shared;
+  if(order.isGuest){
+    var gOrds=ses_get('wxvn_guest_ord')||[];
+    var gi=gOrds.findIndex(function(o){return o.id===order.id;});
+    if(gi>=0)gOrds[gi]=order;else gOrds.unshift(order);
+    ses_set('wxvn_guest_ord',gOrds);
+    GUEST_ORDERS=gOrds;
+  }
 }
 
+/* ══ TAMPILAN HASIL AUTO-DELIVERY (Saldo + stok tersedia) ══ */
+function renderAutoDelivered(ord){
+  var keysHtml='';
+  if(ord.delivered&&ord.delivered.length){
+    keysHtml='<div class="multi-key-box">';
+    ord.delivered.forEach(function(d){
+      var safeKey=d.key.replace(/'/g,"\\'");
+      keysHtml+='<div class="multi-key-item">'
+        +'<div class="multi-key-label">'+d.name+(d.plan?' · '+d.plan:'')+'</div>'
+        +'<div class="multi-key-val">'+d.key+' <button class="copy-btn" onclick="copyText(\''+safeKey+'\')"><i class="fas fa-copy"></i></button></div>'
+        +'</div>';
+    });
+    keysHtml+='</div>';
+  }
+  document.getElementById('payModalBody').innerHTML='<div class="step-indicator"><div class="step-seg done"></div><div class="step-seg done"></div><div class="step-seg active"></div></div>'
+    +'<div class="step-lbls"><span class="slbl done">Metode</span><span class="slbl done">Bayar</span><span class="slbl active">Selesai</span></div>'
+    +'<div class="celebrate-box">'
+    +'<span class="celebrate-ico">🎉</span>'
+    +'<div class="celebrate-title">AKUN LANGSUNG DITERIMA!</div>'
+    +'<div class="celebrate-sub">Pembayaran saldo berhasil · Akun otomatis dikirim</div>'
+    +'</div>'
+    +'<div class="key-box" style="margin:.8rem 0">'
+    +'<div class="key-box-title"><i class="fas fa-key"></i> DATA AKUN / LICENSE KEY</div>'
+    +keysHtml
+    +'</div>'
+    +'<div class="osum-box"><div class="osum-row"><span class="k">Produk</span><span class="v">'+ord.prodName+'</span></div>'
+    +'<div class="osum-row"><span class="k">Order ID</span><span class="v" style="font-family:\'Orbitron\',monospace;font-size:.7rem;color:var(--cyan)">'+ord.id+'</span></div>'
+    +'<div class="osum-row"><span class="k">Saldo Tersisa</span><span class="v" style="color:var(--green)">'+fmt(curUser?curUser.balance:0)+'</span></div></div>'
+    +'<div style="background:rgba(0,255,136,.05);border:1px solid rgba(0,255,136,.15);border-radius:9px;padding:.65rem .85rem;font-family:\'Rajdhani\',sans-serif;font-size:.76rem;color:var(--muted);margin-bottom:.9rem;line-height:1.7">'
+    +'⚠️ <strong style="color:var(--green)">Catat / Screenshot</strong> data akunmu. Admin tidak bertanggung jawab jika hilang setelah sesi berakhir.</div>'
+    +'<button class="btn-cyan" onclick="closeModal(\'payModal\');goPg(\'history\')"><i class="fas fa-history"></i>&nbsp;Lihat Riwayat</button>'
+    +'<button class="btn-outline" onclick="closeModal(\'payModal\')">Tutup</button>';
+  toast('🎉 Akun langsung dikirim otomatis!','ok');
+}
+
+/* ══ SALDO tapi stok admin kosong → menunggu manual ══ */
 function renderSaldoConfirmed(ord){
   document.getElementById('payModalBody').innerHTML='<div class="step-indicator"><div class="step-seg done"></div><div class="step-seg done"></div><div class="step-seg active"></div></div>'
     +'<div class="step-lbls"><span class="slbl done">Metode</span><span class="slbl done">Bayar</span><span class="slbl active">Selesai</span></div>'
     +'<div style="background:linear-gradient(135deg,rgba(0,229,255,.06),rgba(0,255,136,.06));border:1px solid rgba(0,255,136,.25);border-radius:14px;padding:1.2rem;text-align:center;margin:.5rem 0">'
     +'<div style="font-size:2.2rem;margin-bottom:.4rem">✅</div>'
     +'<div style="font-family:\'Orbitron\',monospace;font-size:.95rem;font-weight:800;color:var(--green);margin-bottom:.3rem">PEMBAYARAN BERHASIL!</div>'
-    +'<div style="font-family:\'Rajdhani\',sans-serif;font-size:.75rem;color:var(--muted)">Menunggu admin kirimkan akun</div>'
+    +'<div style="font-family:\'Rajdhani\',sans-serif;font-size:.75rem;color:var(--muted)">Admin sedang menyiapkan akunmu (5-15 menit)</div>'
     +'<div style="font-family:\'Orbitron\',monospace;font-size:.72rem;color:var(--gold);background:rgba(255,215,0,.07);border:1px solid rgba(255,215,0,.2);border-radius:7px;padding:.3rem .65rem;display:inline-block;margin:.5rem 0">'+ord.id+'</div></div>'
-    +'<div class="osum-box"><div class="osum-row"><span class="k">Paket</span><span class="v">'+ord.prodName+'</span></div>'
+    +'<div class="osum-box"><div class="osum-row"><span class="k">Produk</span><span class="v">'+ord.prodName+'</span></div>'
     +'<div class="osum-row"><span class="k">Saldo Tersisa</span><span class="v" style="color:var(--green)">'+fmt(curUser?curUser.balance:0)+'</span></div></div>'
     +'<button class="btn-cyan" onclick="closeModal(\'payModal\');goPg(\'history\')"><i class="fas fa-history"></i>&nbsp;Pantau Status</button>'
     +'<button class="btn-outline" onclick="closeModal(\'payModal\')">Tutup</button>';
-  toast('✅ Pembayaran saldo berhasil!','ok');
+  toast('✅ Bayar saldo berhasil! Admin segera kirim akun.','ok');
 }
 
-function renderSaldoDelivered(ord){
-  var akunKey=ord.activationKey||'—';
-  document.getElementById('payModalBody').innerHTML='<div class="step-indicator"><div class="step-seg done"></div><div class="step-seg done"></div><div class="step-seg active"></div></div>'
-    +'<div class="step-lbls"><span class="slbl done">Metode</span><span class="slbl done">Bayar</span><span class="slbl active">Selesai</span></div>'
-    +'<div style="background:linear-gradient(135deg,rgba(0,229,255,.06),rgba(0,255,136,.06));border:1px solid rgba(0,255,136,.25);border-radius:14px;padding:1.2rem;text-align:center;margin:.5rem 0">'
-    +'<div style="font-size:2.2rem;margin-bottom:.4rem">🎉</div>'
-    +'<div style="font-family:\'Orbitron\',monospace;font-size:.95rem;font-weight:800;color:var(--green);margin-bottom:.3rem">AKUN LANGSUNG DITERIMA!</div></div>'
-    +'<div class="key-box" style="margin:.7rem 0"><div class="key-box-title">🔑 DATA AKUN / KEY</div><div class="key-code">'+akunKey+' <button class="copy-btn" onclick="copyText(\''+akunKey.replace(/'/g,"\\'")+'\')" ><i class="fas fa-copy"></i></button></div></div>'
-    +'<div class="osum-box"><div class="osum-row"><span class="k">Paket</span><span class="v">'+ord.prodName+'</span></div>'
-    +'<div class="osum-row"><span class="k">Saldo Tersisa</span><span class="v" style="color:var(--green)">'+fmt(curUser?curUser.balance:0)+'</span></div></div>'
-    +'<button class="btn-cyan" style="margin-top:.7rem" onclick="closeModal(\'payModal\');goPg(\'history\')"><i class="fas fa-history"></i>&nbsp;Lihat Riwayat</button>'
-    +'<button class="btn-outline" onclick="closeModal(\'payModal\')">Tutup</button>';
-  toast('🎉 Akun langsung dikirim!','ok');
-}
-
-/* ══ PAY STEP 2 — instruksi bayar ══ */
+/* ══ PAY STEP 2 — instruksi bayar QRIS/Transfer ══ */
 function renderPayStep2(){
   var o=curOrder;var price=o.total;
   var payHtml='';
@@ -1071,21 +1125,21 @@ function startCdown(sec){
   },1000);
 }
 
-/* ══ PAY STEP 3 — selesai ══ */
+/* ══ PAY STEP 3 — tunggu konfirmasi admin ══ */
 function renderPayStep3(){
   if(curPayTimer){clearInterval(curPayTimer);curPayTimer=null;}
   var o=curOrder;
   var waMsg=encodeURIComponent('Halo! Sudah bayar Order ID *'+o.id+'*\nNama: '+o.userName+'\nProduk: '+o.prodName+'\nTotal: '+fmt(o.total)+'\nEmail: '+o.userEmail+'\nMohon konfirmasi!');
-  var guestReminder=o.isGuest?'<div class="session-notice"><div class="sn-ico">⚠️</div><div class="sn-body"><div class="sn-title">SIMPAN ORDER ID!</div><div class="sn-sub">Kamu transaksi sebagai tamu. Catat Order ID ini atau history akan hilang saat tab ditutup.</div><span class="sn-login" onclick="closeModal(\'payModal\');openAuth()"><i class="fab fa-google"></i>&nbsp;Login Google</span></div></div>':'';
+  var guestReminder=o.isGuest?'<div class="session-notice"><div class="sn-ico">⚠️</div><div class="sn-body"><div class="sn-title">SIMPAN ORDER ID!</div><div class="sn-sub">Kamu transaksi sebagai tamu. Catat Order ID ini!</div><span class="sn-login" onclick="closeModal(\'payModal\');openAuth()"><i class="fab fa-google"></i>&nbsp;Login Google</span></div></div>':'';
   document.getElementById('payModalBody').innerHTML='<div class="step-indicator"><div class="step-seg done"></div><div class="step-seg done"></div><div class="step-seg active"></div></div>'
     +'<div class="step-lbls"><span class="slbl done">Metode</span><span class="slbl done">Bayar</span><span class="slbl active">Selesai</span></div>'
     +'<div class="pending-box"><div class="pending-icon">⏳</div><div class="pending-title">MENUNGGU KONFIRMASI</div>'
     +'<div class="pending-id">'+o.id+'</div>'
-    +'<div class="pending-sub">Pembayaran sedang diverifikasi admin. Notifikasi akan muncul otomatis saat dikonfirmasi.</div>'
+    +'<div class="pending-sub">Setelah admin konfirmasi, <strong style="color:var(--green)">akun otomatis dikirim</strong> jika stok tersedia.</div>'
     +'<div style="background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:9px;padding:.7rem .9rem;margin-bottom:.8rem">'
-    +'<div class="p-step"><div class="p-step-n">1</div><div>Admin menerima notifikasi order kamu</div></div>'
-    +'<div class="p-step"><div class="p-step-n">2</div><div>Admin verifikasi bukti bayar</div></div>'
-    +'<div class="p-step"><div class="p-step-n">3</div><div>Akun dikirim (5–15 menit)</div></div></div>'
+    +'<div class="p-step"><div class="p-step-n">1</div><div>Kirim bukti bayar ke admin via WA</div></div>'
+    +'<div class="p-step"><div class="p-step-n">2</div><div>Admin verifikasi & konfirmasi</div></div>'
+    +'<div class="p-step"><div class="p-step-n">3</div><div>Akun <strong style="color:var(--green)">otomatis dikirim</strong> (5–15 menit)</div></div></div>'
     +'<a href="https://wa.me/6285138768886?text='+waMsg+'" target="_blank" class="wa-link"><i class="fab fa-whatsapp"></i> Kirim Bukti Transfer</a></div>'
     +guestReminder
     +'<button class="btn-outline" onclick="closeModal(\'payModal\');goPg(\'history\')"><i class="fas fa-history"></i>&nbsp;Pantau Status Order</button>';
@@ -1128,7 +1182,7 @@ function proceedTopUp(){
 function confirmTopUp(tuId){
   addBalance(topupAmt);
   var rec={id:tuId,userId:curUser.uid,userEmail:curUser.email,type:'topup',amount:topupAmt,method:topupMethod,date:new Date().toLocaleString('id-ID'),timestamp:Date.now()};
-  TOPUP_HIST.unshift(rec);saveData();
+  TOPUP_HIST.unshift(rec);ss('wxvn_topup',TOPUP_HIST);
   closeModal('topupModal');toast('💰 Top up '+fmt(topupAmt)+' berhasil!','ok');
 }
 
@@ -1138,7 +1192,7 @@ var stLbl={pending:'⏳ Pending',confirmed:'✅ Dikonfirmasi',rejected:'❌ Dito
 
 function getAllMyOrders(){
   var shared=ls('wxvn_ord')||[];
-  if(!curUser) return [];
+  if(!curUser)return[];
   return shared.filter(function(o){return o.userId===curUser.uid;});
 }
 
@@ -1195,10 +1249,14 @@ function renderOrderDetailModal(o){
   var deliveredHtml='';
   if(o.delivered&&Array.isArray(o.delivered)&&o.delivered.length){
     deliveredHtml='<div class="akun-delivered-card"><div class="akun-delivered-title">🎉 Akun Kamu Sudah Dikirim!</div>';
-    o.delivered.forEach(function(d){deliveredHtml+='<div class="akun-item"><div class="akun-label">'+d.name+(d.plan?' · '+d.plan:'')+'</div><div class="akun-key">'+d.key+' <button class="copy-btn" onclick="copyText(\''+d.key.replace(/'/g,"\\'")+'\')"><i class="fas fa-copy"></i></button></div></div>';});
+    o.delivered.forEach(function(d){
+      var safeKey=(d.key||'').replace(/'/g,"\\'");
+      deliveredHtml+='<div class="akun-item"><div class="akun-label">'+d.name+(d.plan?' · '+d.plan:'')+'</div><div class="akun-key">'+d.key+' <button class="copy-btn" onclick="copyText(\''+safeKey+'\')"><i class="fas fa-copy"></i></button></div></div>';
+    });
     deliveredHtml+='</div>';
   } else if(o.activationKey){
-    deliveredHtml='<div class="akun-delivered-card"><div class="akun-delivered-title">🔑 Key Aktivasi</div><div class="akun-item"><div class="akun-key">'+o.activationKey+' <button class="copy-btn" onclick="copyText(\''+o.activationKey.replace(/'/g,"\\'")+'\')"><i class="fas fa-copy"></i></button></div></div></div>';
+    var safeAKey=(o.activationKey||'').replace(/'/g,"\\'");
+    deliveredHtml='<div class="akun-delivered-card"><div class="akun-delivered-title">🔑 Key Aktivasi</div><div class="akun-item"><div class="akun-key">'+o.activationKey+' <button class="copy-btn" onclick="copyText(\''+safeAKey+'\')"><i class="fas fa-copy"></i></button></div></div></div>';
   }
   var rejectNote=o.statusNote&&status==='rejected'?'<div style="background:rgba(255,71,87,.06);border:1px solid rgba(255,71,87,.18);border-radius:8px;padding:.5rem .75rem;font-size:.74rem;color:var(--err);margin-bottom:.7rem">Alasan: '+o.statusNote+'</div>':'';
   document.getElementById('genModalBody').innerHTML='<div class="modal-title">Detail Order</div>'
@@ -1213,7 +1271,8 @@ function renderOrderDetailModal(o){
     +'<div class="osum-row osum-total"><span class="k">Total</span><span class="v">'+fmt(o.total)+'</span></div></div>'
     +'<div style="text-align:center;margin-bottom:.7rem"><span class="hist-status '+(stMap[status]||'st-pending')+'">'+(stLbl[status]||'⏳ Pending')+'</span></div>'
     +rejectNote+deliveredHtml
-    +(status==='pending'?'<div style="background:rgba(255,165,2,.04);border:1px solid rgba(255,165,2,.15);border-radius:9px;padding:.65rem;font-family:\'Rajdhani\',sans-serif;font-size:.74rem;color:var(--muted);margin-bottom:.7rem">⏳ Menunggu konfirmasi admin. Kamu akan dapat notifikasi otomatis saat status berubah.</div>':'')
+    +(status==='pending'?'<div style="background:rgba(255,165,2,.04);border:1px solid rgba(255,165,2,.15);border-radius:9px;padding:.65rem;font-family:\'Rajdhani\',sans-serif;font-size:.74rem;color:var(--muted);margin-bottom:.7rem">⏳ Menunggu konfirmasi admin. Notifikasi otomatis saat status berubah.</div>':'')
+    +(status==='confirmed'?'<div style="background:rgba(0,229,255,.04);border:1px solid rgba(0,229,255,.15);border-radius:9px;padding:.65rem;font-family:\'Rajdhani\',sans-serif;font-size:.74rem;color:var(--muted);margin-bottom:.7rem">✅ Dikonfirmasi · Akun akan segera dikirim otomatis.</div>':'')
     +'<button class="btn-outline" onclick="closeModal(\'genModal\')">Tutup</button>';
   openModal('genModal');
 }
@@ -1221,7 +1280,7 @@ function renderOrderDetailModal(o){
 /* ══ CEK ORDER ══ */
 function openCekOrder(){
   document.getElementById('genModalBody').innerHTML='<div class="modal-title">🔍 Cek Status Order</div>'
-    +'<div class="modal-sub">Masukkan Order ID untuk cek status terbaru dari admin</div>'
+    +'<div class="modal-sub">Masukkan Order ID untuk cek status terbaru</div>'
     +'<div class="cek-row"><input class="cek-inp" id="cekOrdId" placeholder="ORD..."><button class="cek-btn" onclick="doCekOrder()"><i class="fas fa-search"></i></button></div>'
     +'<div id="cekResult"></div>';
   openModal('genModal');
@@ -1237,7 +1296,7 @@ function doCekOrder(){
   var status=o.status||'pending';
   var deliveredInfo='';
   if((o.delivered&&o.delivered.length)||o.activationKey){
-    deliveredInfo='<div style="margin-top:.5rem;background:rgba(0,255,136,.05);border:1px solid rgba(0,255,136,.18);border-radius:8px;padding:.5rem .7rem;font-size:.74rem;color:var(--green)">🎉 Akun sudah dikirim! Buka detail order untuk lihat.</div>';
+    deliveredInfo='<div style="margin-top:.5rem;background:rgba(0,255,136,.05);border:1px solid rgba(0,255,136,.18);border-radius:8px;padding:.5rem .7rem;font-size:.74rem;color:var(--green)">🎉 Akun sudah dikirim! Buka detail untuk lihat.</div>';
   }
   res.innerHTML='<div class="osum-box" style="margin-top:.85rem">'
     +'<div class="osum-row"><span class="k">ID</span><span class="v" style="font-family:\'Orbitron\',monospace;font-size:.68rem;color:var(--cyan)">'+o.id+'</span></div>'
@@ -1246,7 +1305,7 @@ function doCekOrder(){
     +'<div class="osum-row"><span class="k">Tanggal</span><span class="v" style="font-size:.75rem">'+o.date+'</span></div>'
     +'<div style="text-align:center;margin-top:.5rem"><span class="hist-status '+(stMap[status]||'st-pending')+'">'+(stLbl[status]||'⏳ Pending')+'</span></div></div>'
     +deliveredInfo
-    +(status!=='pending'?'<button class="btn-outline" style="margin-top:.5rem" onclick="viewOrderDetailById(\''+o.id+'\');closeModal(\'genModal\')">Lihat Detail Lengkap</button>':'');
+    +'<button class="btn-outline" style="margin-top:.5rem" onclick="viewOrderDetailById(\''+o.id+'\');closeModal(\'genModal\')">Lihat Detail Lengkap</button>';
 }
 
 /* ══ PROFILE ══ */
@@ -1283,8 +1342,7 @@ function renderProfile(){
     +'</div></div>';
 }
 
-/* ══ NAVIGATION ══ */
-var curPg='home';
+/* ══ NAVIGASI ══ */
 function goPg(pg){
   curPg=pg;
   document.querySelectorAll('.bn-item').forEach(function(b){b.classList.toggle('on',b.dataset.pg===pg);});
@@ -1311,7 +1369,7 @@ function goPg(pg){
 function openAuth(){renderAuthModal();openModal('authModal');}
 function renderAuthModal(){
   var firebaseOk=window._fbReady;
-  var cfgNotice=!firebaseOk?'<div style="background:rgba(255,165,2,.06);border:1px solid rgba(255,165,2,.2);border-radius:10px;padding:.8rem;margin-bottom:.9rem;font-family:\'Rajdhani\',sans-serif;font-size:.75rem;color:var(--warn);line-height:1.6"><strong style="color:var(--gold);display:block;margin-bottom:.3rem">⚙️ FIREBASE BELUM DIKONFIGURASI</strong>Isi FIREBASE_CONFIG di bagian script. Daftar gratis di console.firebase.google.com</div>':'';
+  var cfgNotice=!firebaseOk?'<div style="background:rgba(255,165,2,.06);border:1px solid rgba(255,165,2,.2);border-radius:10px;padding:.8rem;margin-bottom:.9rem;font-family:\'Rajdhani\',sans-serif;font-size:.75rem;color:var(--warn);line-height:1.6"><strong style="color:var(--gold);display:block;margin-bottom:.3rem">⚙️ FIREBASE BELUM DIKONFIGURASI</strong>Isi FIREBASE_CONFIG di bagian script.</div>':'';
   document.getElementById('authBody').innerHTML='<div class="auth-logo"><div class="auth-logo-ico">🛡️</div><div class="auth-wordmark">WILZXITERZ VN</div></div>'
     +'<div class="modal-title">Login Akun</div>'
     +'<div class="modal-sub">Login untuk history permanen & akses saldo</div>'
@@ -1322,14 +1380,13 @@ function renderAuthModal(){
     +'<div style="margin-top:.9rem;background:rgba(0,229,255,.04);border:1px solid var(--border);border-radius:10px;padding:.75rem;font-family:\'Rajdhani\',sans-serif;font-size:.72rem;color:var(--muted);line-height:1.7">🔒 Login Google → History permanen + saldo.<br>👤 Mode Tamu → Bisa beli, tapi history hilang saat tab ditutup.</div>';
 }
 function loginWithGoogle(){
-  if(!window._fbReady){toast('⚙️ Firebase belum dikonfigurasi! Isi FIREBASE_CONFIG terlebih dahulu.','err');return;}
-  var overlay=document.getElementById('fbOverlay');
+  if(!window._fbReady){toast('⚙️ Firebase belum dikonfigurasi!','err');return;}
   document.getElementById('fbOverlayTxt').textContent='Membuka Google Sign-In...';
-  overlay.classList.add('on');
+  document.getElementById('fbOverlay').classList.add('on');
   window._fbSignInPopup(window._fbAuth,window._fbGProvider)
     .then(function(result){closeModal('authModal');toast('✅ Login berhasil! Halo, '+result.user.displayName,'ok');})
     .catch(function(err){
-      overlay.classList.remove('on');
+      document.getElementById('fbOverlay').classList.remove('on');
       if(err.code==='auth/popup-closed-by-user'){toast('Login dibatalkan','warn');}
       else if(err.code==='auth/unauthorized-domain'){toast('⚠️ Domain belum di-whitelist Firebase!','err');}
       else{toast('❌ Login gagal: '+err.message,'err');}
@@ -1368,34 +1425,32 @@ function copyText(text){
   else{var ta=document.createElement('textarea');ta.value=text;document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);toast('Disalin!','ok');}
 }
 
-/* ══ STORAGE EVENT — react to admin changes ══ */
+/* ══ STORAGE EVENT — react to admin changes & auto-deliver ══ */
 window.addEventListener('storage',function(e){
-  if(!e.key) return;
+  if(!e.key)return;
   if(e.key==='wxvn_stk'||e.key.startsWith('stk_')){
-    if(curPg==='home'||curPg==='produk') renderGrid();
+    if(curPg==='home'||curPg==='produk')renderGrid();
   }
   if(e.key==='wxvn_ord'){
-    loadData(); updatePendingBadge();
-    if(curUser) checkOrderStatusChanges();
-    if(curPg==='history') renderHistory();
+    loadData();updatePendingBadge();
+    if(curUser)checkOrderStatusChanges();
+    if(curPg==='history')renderHistory();
   }
   if(e.key==='wxvn_topup'){
     loadData();
-    if(curPg==='history') renderHistory();
+    if(curPg==='history')renderHistory();
   }
 });
 
 /* ══ INIT ══ */
-loadData();
-renderTicker();
-renderGrid();
-updateUIForUser();
+loadData();renderTicker();renderGrid();updateUIForUser();
 
-// Polling setiap 15 detik untuk refresh stok & badge
+// Polling 10 detik: refresh stok, badge, dan cek status order
 setInterval(function(){
-  if(curPg==='home'||curPg==='produk') renderGrid();
+  if(curPg==='home'||curPg==='produk')renderGrid();
   updatePendingBadge();
-},15000);
+  if(curUser)checkOrderStatusChanges();
+},10000);
 </script>
 </body>
 </html>
