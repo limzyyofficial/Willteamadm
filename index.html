@@ -1137,11 +1137,11 @@ function renderPayStep2(){
   var o=curOrder;var price=o.total;
   var payHtml='';
   if(o.method==='qris'){
-    payHtml='<div class="qwrap"><img class="qimg" src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=QRIS-WXVN-'+o.id+'&bgcolor=ffffff&color=000000" alt="QRIS"><div class="q-lbl">NOMINAL</div><div class="q-amt">'+fmt(price)+'</div><div class="q-banks"><span class="q-bank">GoPay</span><span class="q-bank">OVO</span><span class="q-bank">Dana</span><span class="q-bank">ShopeePay</span></div></div>';
+    payHtml='<div class="qwrap"><img class="qimg" src="https://raw.githubusercontent.com/LimzyyEzy/webimage/refs/heads/main/qr_ID1026517728527_11.05.26_1778502192_1778502192495.jpeg" alt="QRIS"><div class="q-lbl">NOMINAL</div><div class="q-amt">'+fmt(price)+'</div><div class="q-banks"><span class="q-bank">GoPay</span><span class="q-bank">OVO</span><span class="q-bank">Dana</span><span class="q-bank">ShopeePay</span></div></div>';
   } else {
     payHtml='<div class="bank-list">'
-      +'<div class="bank-item"><div><div class="bank-name">🏦 BCA</div><div class="bank-no">1234567890 <button class="copy-btn" onclick="copyText(\'1234567890\')"><i class="fas fa-copy"></i></button></div><div class="bank-an">a/n WILZXITERZ VN</div></div></div>'
-      +'<div class="bank-item"><div><div class="bank-name">🏦 BRI</div><div class="bank-no">0987654321 <button class="copy-btn" onclick="copyText(\'0987654321\')"><i class="fas fa-copy"></i></button></div><div class="bank-an">a/n WILZXITERZ VN</div></div></div>'
+      +'<div class="bank-item"><div><div class="bank-name">🏦 BINANCE</div><div class="bank-no">1067125846 <button class="copy-btn" onclick="copyText(\'1234567890\')"><i class="fas fa-copy"></i></button></div><div class="bank-an">a/n WILZXITERZ VN</div></div></div>'
+      +'<div class="bank-item"><div><div class="bank-name">🏦 SEABANK</div><div class="bank-no">901713874089 <button class="copy-btn" onclick="copyText(\'0987654321\')"><i class="fas fa-copy"></i></button></div><div class="bank-an">a/n WILZXITERZ VN</div></div></div>'
       +'<div style="text-align:center;margin-top:.4rem"><div class="q-lbl">NOMINAL</div><div class="q-amt">'+fmt(price)+'</div></div></div>';
   }
   document.getElementById('payModalBody').innerHTML='<div class="modal-title">💳 Instruksi Bayar</div>'
