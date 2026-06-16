@@ -107,6 +107,8 @@ body{background:var(--bg);font-family:'Exo 2',sans-serif;color:var(--text);min-h
 .pc-btn.beli:hover{background:var(--cyan);color:#000}
 .pc-btn.dl{background:rgba(0,255,136,.1);border:1px solid rgba(0,255,136,.25);color:var(--green)}
 .pc-btn.dl:hover{background:var(--green);color:#000}
+.pc-btn.po{background:rgba(255,165,2,.1);border:1px solid rgba(255,165,2,.3);color:var(--warn)}
+.pc-btn.po:hover{background:var(--warn);color:#000}
 .pc-btn.habis{background:rgba(255,71,87,.05);border:1px solid rgba(255,71,87,.15);color:var(--err);cursor:not-allowed;opacity:.6;pointer-events:none}
 .pc-btn.segera{background:rgba(120,144,156,.08);border:1px solid rgba(120,144,156,.2);color:var(--muted);cursor:not-allowed;pointer-events:none}
 .pc-sold-overlay{position:absolute;inset:0;background:rgba(0,0,0,.65);display:flex;align-items:center;justify-content:center;z-index:5;border-radius:14px}
@@ -466,7 +468,7 @@ const FIREBASE_CONFIG = {
 };
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged }
+import { getAuth, GoogleAuthProvider, signInWithPopup, signInWithRedirect, getRedirectResult, setPersistence, browserLocalPersistence, signOut, onAuthStateChanged }
   from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
 try {
@@ -475,12 +477,29 @@ try {
   const gProvider = new GoogleAuthProvider();
   gProvider.addScope('email');
   gProvider.addScope('profile');
+  gProvider.setCustomParameters({ prompt: 'select_account' });
   window._fbAuth = auth;
   window._fbGProvider = gProvider;
   window._fbSignInPopup = signInWithPopup;
+  window._fbSignInRedirect = signInWithRedirect;
   window._fbSignOut = signOut;
   window._fbOnAuthChange = onAuthStateChanged;
   window._fbReady = true;
+
+  setPersistence(auth, browserLocalPersistence).catch(function(e){ console.warn('Persistence warn:', e && e.message); });
+
+  // Tangani hasil login via redirect (fallback ketika popup gagal/diblokir)
+  getRedirectResult(auth).then(function(result){
+    if (result && result.user) {
+      window._toastSafe && window._toastSafe('✅ Login berhasil! Halo, ' + result.user.displayName, 'ok');
+    }
+  }).catch(function(err){
+    console.warn('Redirect login error:', err && err.code, err && err.message);
+    if (err && err.code && window._toastSafe) {
+      window._toastSafe('❌ Login gagal: ' + (err.message || err.code), 'err');
+    }
+  });
+
   onAuthStateChanged(auth, (user) => {
     if (user) { window._handleFirebaseUser(user); }
     else      { window._handleFirebaseLogout(); }
@@ -803,18 +822,21 @@ function renderGrid(){
     var priceStr=p.free
       ?'<span class="pc-price free">GRATIS</span>'
       :(p.multiplan&&p.plans?'<span class="pc-price">ab '+fmt(p.plans[0].price)+'</span>':'<span class="pc-price">'+fmt(p.price||0)+'</span>');
-    var lowStk=(n>0&&n<=3&&!p.free&&!isCS)?'<div class="pc-low-stk">Sisa '+n+'</div>':'';
+    var lowStk='';
+    if(!p.free&&!isCS){
+      if(habis) lowStk='<div class="pc-low-stk">Pre-Order</div>';
+      else if(n>0&&n<=3) lowStk='<div class="pc-low-stk">Sisa '+n+'</div>';
+    }
     var btns='';
     if(isCS) btns='<button class="pc-btn segera" disabled><i class="fas fa-clock"></i> SEGERA HADIR</button>';
     else if(p.free) btns='<button class="pc-btn dl" onclick="event.stopPropagation();openDownload(\''+p.id+'\')"><i class="fas fa-download"></i> DOWNLOAD</button>';
-    else if(habis) btns='<button class="pc-btn habis" disabled><i class="fas fa-times-circle"></i> STOK HABIS</button>';
+    else if(habis) btns='<button class="pc-btn po" onclick="event.stopPropagation();openPayFlow(\''+p.id+'\')"><i class="fas fa-clock"></i> PESAN (PO)</button>';
     else btns='<button class="pc-btn beli" onclick="event.stopPropagation();openPayFlow(\''+p.id+'\')"><i class="fas fa-cart-plus"></i> BELI</button>';
     var thumbHtml=p.img
       ?('<div class="pc-thumb"><img src="'+p.img+'" alt="'+p.name+'" loading="lazy" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'flex\'"><div class="pc-thumb-fallback" style="display:none">'+p.icon+'</div><div class="pc-thumb-overlay"></div></div>')
       :('<div class="pc-thumb"><div class="pc-thumb-fallback">'+p.icon+'</div><div class="pc-thumb-overlay"></div></div>');
-    return '<div class="pcard'+((habis&&!p.free&&!isCS)?' sold-out':'')+(isCS?' sold-out':'')+'" onclick="openProdDetail(\''+p.id+'\')">'
+    return '<div class="pcard'+(isCS?' sold-out':'')+'" onclick="openProdDetail(\''+p.id+'\')">'
       +lowStk+'<div class="pc-plat '+platCls+'">'+platLbl+'</div>'+thumbHtml
-      +((habis&&!p.free&&!isCS)?'<div class="pc-sold-overlay"><div class="pc-sold-label">HABIS</div></div>':'')
       +(isCS?'<div class="pc-sold-overlay"><div class="pc-sold-label" style="color:var(--muted);border-color:var(--muted)">SOON</div></div>':'')
       +'<div class="pc-body"><div class="pc-name">'+p.name+'</div>'+priceStr+'<div class="pc-btns">'+btns+'</div></div></div>';
   }).join('');
@@ -833,8 +855,8 @@ function openProdDetail(id){
   var isCS=(p.cat==='comingsoon');
   var habis=isHabis(p);
   var n=prodStokTotal(p);
-  var stkTxt=p.free?'GRATIS':isCS?'SEGERA HADIR':habis?'STOK HABIS':n<=3?'SISA '+n+' UNIT':'STOK: '+n+' unit';
-  var stkCol=p.free?'var(--green)':isCS?'var(--muted)':habis?'var(--err)':n<=3?'var(--warn)':'var(--green)';
+  var stkTxt=p.free?'GRATIS':isCS?'SEGERA HADIR':habis?'PRE-ORDER · diproses manual':n<=3?'SISA '+n+' UNIT':'STOK: '+n+' unit';
+  var stkCol=p.free?'var(--green)':isCS?'var(--muted)':habis?'var(--warn)':n<=3?'var(--warn)':'var(--green)';
   var platCls=p.plat==='android'?'android':p.plat==='pc'?'pc':'all';
   var platLbl=p.plat==='android'?'📱 Android':p.plat==='pc'?'💻 PC':p.plat==='comingsoon'?'⏳ Coming Soon':'🌐 All Platform';
   var actions='';
@@ -842,24 +864,22 @@ function openProdDetail(id){
     actions='<div style="background:rgba(120,144,156,.08);border:1px solid rgba(120,144,156,.2);border-radius:10px;padding:.85rem;text-align:center;margin-bottom:.7rem"><div style="font-size:1.5rem;margin-bottom:.3rem">⏳</div><div style="font-family:\'Orbitron\',monospace;font-size:.78rem;font-weight:800;color:var(--muted)">SEGERA HADIR</div></div>';
   } else if(p.free){
     actions='<button class="btn-cyan" onclick="openDownload(\''+id+'\');closeModal(\'prodModal\')"><i class="fas fa-download"></i>&nbsp;DOWNLOAD GRATIS</button>';
-  } else if(habis){
-    actions='<div style="background:rgba(255,71,87,.08);border:1px solid rgba(255,71,87,.25);border-radius:10px;padding:.85rem;text-align:center;margin-bottom:.7rem"><div style="font-size:1.5rem;margin-bottom:.3rem">😔</div><div style="font-family:\'Orbitron\',monospace;font-size:.78rem;font-weight:800;color:var(--err)">STOK HABIS</div></div>'
-      +'<a href="https://wa.me/6285173360622?text=Restock+'+encodeURIComponent(p.name)+'" target="_blank" class="wa-link" style="margin-top:.5rem"><i class="fab fa-whatsapp"></i>&nbsp;Tanya Restock</a>';
   } else if(p.multiplan && p.plans){
-    var plansHtml='<div style="margin-bottom:.9rem"><div class="flabel">PILIH PAKET</div><div class="plan-grid">';
+    var poNotice=habis?'<div style="background:rgba(255,165,2,.06);border:1px solid rgba(255,165,2,.18);border-radius:9px;padding:.55rem .75rem;margin-bottom:.7rem;font-family:\'Rajdhani\',sans-serif;font-size:.74rem;color:var(--warn);line-height:1.6">⏳ Semua paket pre-order — pesanan tetap bisa dibuat &amp; akan diproses manual oleh admin begitu stok siap.</div>':'';
+    var plansHtml=poNotice+'<div style="margin-bottom:.9rem"><div class="flabel">PILIH PAKET</div><div class="plan-grid">';
     p.plans.forEach(function(pl){
       var ps=planStok(p.brand,pl.name);
       var cls=ps===0?'empty':ps<=3?'low':'';
-      var stkLbl=ps===0?'Habis':ps<=3?'Sisa '+ps:ps+' tersedia';
-      var disabled=ps===0?' disabled':'';
-      plansHtml+='<div class="plan-opt'+disabled+'" onclick="'+(ps>0?'closeModal(\'prodModal\');openPayFlowWithPlan(\''+id+'\',\''+pl.name+'\')':'')+'">'
+      var stkLbl=ps===0?'Pre-Order':ps<=3?'Sisa '+ps:ps+' tersedia';
+      plansHtml+='<div class="plan-opt" onclick="closeModal(\'prodModal\');openPayFlowWithPlan(\''+id+'\',\''+pl.name+'\')">'
         +'<div class="plan-name">'+pl.name+'</div><div class="plan-price">'+fmt(pl.price)+'</div>'
         +'<div class="plan-stk '+cls+'">'+stkLbl+'</div></div>';
     });
     plansHtml+='</div></div>';
     actions=plansHtml+'<div style="font-size:.72rem;color:var(--muted);text-align:center;margin-bottom:.7rem">Klik paket untuk langsung checkout</div>';
   } else {
-    actions='<button class="btn-cyan" onclick="closeModal(\'prodModal\');openPayFlow(\''+id+'\')"><i class="fas fa-shopping-cart"></i>&nbsp;BELI SEKARANG</button>';
+    actions=(habis?'<div style="background:rgba(255,165,2,.06);border:1px solid rgba(255,165,2,.18);border-radius:9px;padding:.55rem .75rem;margin-bottom:.7rem;font-family:\'Rajdhani\',sans-serif;font-size:.74rem;color:var(--warn);line-height:1.6">⏳ Stok kosong — pesanan tetap bisa dibuat &amp; akan diproses manual oleh admin.</div>':'')
+      +'<button class="btn-cyan" onclick="closeModal(\'prodModal\');openPayFlow(\''+id+'\')"><i class="fas fa-shopping-cart"></i>&nbsp;BELI SEKARANG</button>';
   }
   var imgBanner=p.img
     ?('<div class="prod-detail-img"><img src="'+p.img+'" alt="'+p.name+'" onerror="this.parentElement.innerHTML=\'<div class=\\"prod-detail-img-fallback\\">'+p.icon+'</div>\'"></div>')
@@ -879,7 +899,6 @@ function openProdDetail(id){
 
 function openPayFlowWithPlan(id, planName){
   var p=PRODS.find(function(x){return x.id===id;});if(!p)return;
-  if(isHabis(p,planName)){toast('❌ Stok '+planName+' habis!','err');return;}
   curPayProd=p;curPayPlan=planName;curPayMethod=curUser?'saldo':'qris';
   renderPayStep1();openModal('payModal');
 }
@@ -887,7 +906,6 @@ function openPayFlow(id){
   var p=PRODS.find(function(x){return x.id===id;});if(!p)return;
   if(p.cat==='comingsoon'){toast('⏳ Produk ini belum tersedia!','warn');return;}
   if(p.multiplan&&p.plans){openProdDetail(id);return;}
-  if(isHabis(p)){toast('❌ Stok habis!','err');renderGrid();return;}
   curPayProd=p;curPayPlan=null;curPayMethod=curUser?'saldo':'qris';
   renderPayStep1();openModal('payModal');
 }
@@ -909,7 +927,9 @@ function renderPayStep1(){
   var p=curPayProd;var planName=curPayPlan;
   var price=getPrice(p, planName);
   var bal=curUser?curUser.balance:0;
+  var habisNow=isHabis(p,planName);
   var guestWarn=isGuest()?'<div class="guest-warn-box"><strong>👤 MODE TAMU</strong>History hanya tersimpan selama tab ini terbuka. <span style="color:var(--cyan);cursor:pointer" onclick="closeModal(\'payModal\');openAuth()">Login Google →</span></div>':'';
+  var poWarn=habisNow?'<div class="guest-warn-box" style="border-color:rgba(255,165,2,.25)"><strong style="color:var(--warn)">⏳ PRE-ORDER</strong>Stok sedang kosong. Order tetap diterima &amp; akan diproses manual oleh admin.</div>':'';
   var methodHtml='';
   if(curUser){
     methodHtml='<div class="pay-methods">'
@@ -925,7 +945,7 @@ function renderPayStep1(){
   document.getElementById('payModalBody').innerHTML='<div class="modal-title">🛒 Checkout</div>'
     +'<div class="step-indicator"><div class="step-seg active"></div><div class="step-seg"></div><div class="step-seg"></div></div>'
     +'<div class="step-lbls"><span class="slbl active">Metode</span><span class="slbl">Bayar</span><span class="slbl">Selesai</span></div>'
-    +guestWarn
+    +guestWarn+poWarn
     +'<div class="osum-box"><div class="osum-row"><span class="k">Produk</span><span class="v">'+p.name+'</span></div>'
     +(planName?'<div class="osum-row"><span class="k">Paket</span><span class="v">'+planName+'</span></div>':'')
     +'<div class="osum-row osum-total"><span class="k">Total</span><span class="v">'+fmt(price)+'</span></div></div>'
@@ -973,7 +993,6 @@ function proceedPay(){
   if(!contact.trim()){toast('Masukkan kontak WA/Telegram!','err');return;}
   var p=curPayProd;var planName=curPayPlan;
   var price=getPrice(p,planName);
-  if(isHabis(p,planName)){toast('❌ Stok baru saja habis!','err');closeModal('payModal');renderGrid();return;}
   var bal=curUser?curUser.balance:0;
   if(curPayMethod==='saldo'&&curUser&&bal<price){toast('Saldo tidak mencukupi!','err');return;}
 
@@ -992,7 +1011,7 @@ function proceedPay(){
   };
 
   if(curPayMethod==='saldo'&&curUser){
-    /* ══ SALDO: Langsung deduct + auto-deliver dari stok ══ */
+    /* ══ SALDO: Langsung deduct + auto-deliver dari stok (jika ada) ══ */
     deductBalance(price);
     var delivered=[];
     var akunKey=null;
@@ -1004,7 +1023,7 @@ function proceedPay(){
         curOrder.activationKey=akunKey;
         curOrder.delivered=delivered;
       } else {
-        // Stok admin kosong, tunggu manual dari admin
+        // Stok admin kosong (pre-order), tunggu manual dari admin
         curOrder.status='confirmed';
       }
     } else {
@@ -1074,20 +1093,20 @@ function renderAutoDelivered(ord){
   toast('🎉 Akun langsung dikirim otomatis!','ok');
 }
 
-/* ══ SALDO tapi stok admin kosong → menunggu manual ══ */
+/* ══ SALDO tapi stok admin kosong → menunggu manual (pre-order) ══ */
 function renderSaldoConfirmed(ord){
   document.getElementById('payModalBody').innerHTML='<div class="step-indicator"><div class="step-seg done"></div><div class="step-seg done"></div><div class="step-seg active"></div></div>'
     +'<div class="step-lbls"><span class="slbl done">Metode</span><span class="slbl done">Bayar</span><span class="slbl active">Selesai</span></div>'
     +'<div style="background:linear-gradient(135deg,rgba(0,229,255,.06),rgba(0,255,136,.06));border:1px solid rgba(0,255,136,.25);border-radius:14px;padding:1.2rem;text-align:center;margin:.5rem 0">'
     +'<div style="font-size:2.2rem;margin-bottom:.4rem">✅</div>'
     +'<div style="font-family:\'Orbitron\',monospace;font-size:.95rem;font-weight:800;color:var(--green);margin-bottom:.3rem">PEMBAYARAN BERHASIL!</div>'
-    +'<div style="font-family:\'Rajdhani\',sans-serif;font-size:.75rem;color:var(--muted)">Admin sedang menyiapkan akunmu (5-15 menit)</div>'
+    +'<div style="font-family:\'Rajdhani\',sans-serif;font-size:.75rem;color:var(--muted)">Admin sedang menyiapkan akunmu (pre-order, mungkin perlu waktu lebih)</div>'
     +'<div style="font-family:\'Orbitron\',monospace;font-size:.72rem;color:var(--gold);background:rgba(255,215,0,.07);border:1px solid rgba(255,215,0,.2);border-radius:7px;padding:.3rem .65rem;display:inline-block;margin:.5rem 0">'+ord.id+'</div></div>'
     +'<div class="osum-box"><div class="osum-row"><span class="k">Produk</span><span class="v">'+ord.prodName+'</span></div>'
     +'<div class="osum-row"><span class="k">Saldo Tersisa</span><span class="v" style="color:var(--green)">'+fmt(curUser?curUser.balance:0)+'</span></div></div>'
     +'<button class="btn-cyan" onclick="closeModal(\'payModal\');goPg(\'history\')"><i class="fas fa-history"></i>&nbsp;Pantau Status</button>'
     +'<button class="btn-outline" onclick="closeModal(\'payModal\')">Tutup</button>';
-  toast('✅ Bayar saldo berhasil! Admin segera kirim akun.','ok');
+  toast('✅ Bayar saldo berhasil! Order pre-order, admin segera kirim akun.','ok');
 }
 
 /* ══ PAY STEP 2 — instruksi bayar QRIS/Transfer ══ */
@@ -1137,11 +1156,11 @@ function renderPayStep3(){
     +'<div class="step-lbls"><span class="slbl done">Metode</span><span class="slbl done">Bayar</span><span class="slbl active">Selesai</span></div>'
     +'<div class="pending-box"><div class="pending-icon">⏳</div><div class="pending-title">MENUNGGU KONFIRMASI</div>'
     +'<div class="pending-id">'+o.id+'</div>'
-    +'<div class="pending-sub">Setelah admin konfirmasi, <strong style="color:var(--green)">akun otomatis dikirim</strong> jika stok tersedia.</div>'
+    +'<div class="pending-sub">Setelah admin konfirmasi, <strong style="color:var(--green)">akun otomatis dikirim</strong> jika stok tersedia, atau diproses manual jika pre-order.</div>'
     +'<div style="background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:9px;padding:.7rem .9rem;margin-bottom:.8rem">'
     +'<div class="p-step"><div class="p-step-n">1</div><div>Kirim bukti bayar ke admin via WA</div></div>'
     +'<div class="p-step"><div class="p-step-n">2</div><div>Admin verifikasi & konfirmasi</div></div>'
-    +'<div class="p-step"><div class="p-step-n">3</div><div>Akun <strong style="color:var(--green)">otomatis dikirim</strong> (5–15 menit)</div></div></div>'
+    +'<div class="p-step"><div class="p-step-n">3</div><div>Akun <strong style="color:var(--green)">dikirim</strong> (otomatis bila stok ada, atau manual bila pre-order)</div></div></div>'
     +'<a href="https://wa.me/6285138768886?text='+waMsg+'" target="_blank" class="wa-link"><i class="fab fa-whatsapp"></i> Kirim Bukti Transfer</a></div>'
     +guestReminder
     +'<button class="btn-outline" onclick="closeModal(\'payModal\');goPg(\'history\')"><i class="fas fa-history"></i>&nbsp;Pantau Status Order</button>';
@@ -1274,7 +1293,7 @@ function renderOrderDetailModal(o){
     +'<div style="text-align:center;margin-bottom:.7rem"><span class="hist-status '+(stMap[status]||'st-pending')+'">'+(stLbl[status]||'⏳ Pending')+'</span></div>'
     +rejectNote+deliveredHtml
     +(status==='pending'?'<div style="background:rgba(255,165,2,.04);border:1px solid rgba(255,165,2,.15);border-radius:9px;padding:.65rem;font-family:\'Rajdhani\',sans-serif;font-size:.74rem;color:var(--muted);margin-bottom:.7rem">⏳ Menunggu konfirmasi admin. Notifikasi otomatis saat status berubah.</div>':'')
-    +(status==='confirmed'?'<div style="background:rgba(0,229,255,.04);border:1px solid rgba(0,229,255,.15);border-radius:9px;padding:.65rem;font-family:\'Rajdhani\',sans-serif;font-size:.74rem;color:var(--muted);margin-bottom:.7rem">✅ Dikonfirmasi · Akun akan segera dikirim otomatis.</div>':'')
+    +(status==='confirmed'?'<div style="background:rgba(0,229,255,.04);border:1px solid rgba(0,229,255,.15);border-radius:9px;padding:.65rem;font-family:\'Rajdhani\',sans-serif;font-size:.74rem;color:var(--muted);margin-bottom:.7rem">✅ Dikonfirmasi · Akun akan segera dikirim (otomatis bila stok ada, atau manual bila pre-order).</div>':'')
     +'<button class="btn-outline" onclick="closeModal(\'genModal\')">Tutup</button>';
   openModal('genModal');
 }
@@ -1372,33 +1391,58 @@ function openAuth(){renderAuthModal();openModal('authModal');}
 function renderAuthModal(){
   var firebaseOk=window._fbReady;
   var cfgNotice=!firebaseOk?'<div style="background:rgba(255,165,2,.06);border:1px solid rgba(255,165,2,.2);border-radius:10px;padding:.8rem;margin-bottom:.9rem;font-family:\'Rajdhani\',sans-serif;font-size:.75rem;color:var(--warn);line-height:1.6"><strong style="color:var(--gold);display:block;margin-bottom:.3rem">⚙️ FIREBASE BELUM DIKONFIGURASI</strong>Isi FIREBASE_CONFIG di bagian script.</div>':'';
+  var protoNotice=(location.protocol==='file:')?'<div style="background:rgba(255,71,87,.06);border:1px solid rgba(255,71,87,.2);border-radius:10px;padding:.8rem;margin-bottom:.9rem;font-family:\'Rajdhani\',sans-serif;font-size:.75rem;color:var(--err);line-height:1.6"><strong style="color:var(--err);display:block;margin-bottom:.3rem">⚠️ DIBUKA DARI FILE LOKAL</strong>Login Google butuh halaman dibuka via http(s):// (server), bukan langsung file://. Jalankan lewat hosting/local server lalu buka via alamat http/https.</div>':'';
   document.getElementById('authBody').innerHTML='<div class="auth-logo"><div class="auth-logo-ico">🛡️</div><div class="auth-wordmark">WILZXITERZ VN</div></div>'
     +'<div class="modal-title">Login Akun</div>'
     +'<div class="modal-sub">Login untuk history permanen & akses saldo</div>'
-    +cfgNotice
+    +cfgNotice+protoNotice
     +'<button class="btn-google" onclick="loginWithGoogle()"><img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" style="width:20px;height:20px" onerror="this.style.display=\'none\'"><span>Masuk dengan Google</span></button>'
     +'<div style="display:flex;align-items:center;gap:.6rem;margin:.75rem 0;color:var(--muted);font-size:.72rem;font-family:\'Rajdhani\',sans-serif"><div style="flex:1;height:1px;background:var(--border)"></div>atau<div style="flex:1;height:1px;background:var(--border)"></div></div>'
     +'<button class="btn-guest" onclick="closeModal(\'authModal\');toast(\'Mode tamu aktif. History hanya tersimpan selama tab terbuka.\',\'warn\')"><i class="fas fa-user-clock"></i>&nbsp;Lanjut Tanpa Login</button>'
     +'<div style="margin-top:.9rem;background:rgba(0,229,255,.04);border:1px solid var(--border);border-radius:10px;padding:.75rem;font-family:\'Rajdhani\',sans-serif;font-size:.72rem;color:var(--muted);line-height:1.7">🔒 Login Google → History permanen + saldo.<br>👤 Mode Tamu → Bisa beli, tapi history hilang saat tab ditutup.</div>';
 }
+var _loginInProgress=false;
 function loginWithGoogle(){
   if(!window._fbReady){toast('⚙️ Firebase belum dikonfigurasi!','err');return;}
+  if(_loginInProgress)return;
+  _loginInProgress=true;
   document.getElementById('fbOverlayTxt').textContent='Membuka Google Sign-In...';
   document.getElementById('fbOverlay').classList.add('on');
   window._fbSignInPopup(window._fbAuth,window._fbGProvider)
-    .then(function(result){closeModal('authModal');toast('✅ Login berhasil! Halo, '+result.user.displayName,'ok');})
-    .catch(function(err){
+    .then(function(result){
+      _loginInProgress=false;
       document.getElementById('fbOverlay').classList.remove('on');
-      if(err.code==='auth/popup-closed-by-user'){toast('Login dibatalkan','warn');}
-      else if(err.code==='auth/unauthorized-domain'){toast('⚠️ Domain belum di-whitelist Firebase!','err');}
-      else{toast('❌ Login gagal: '+err.message,'err');}
+      closeModal('authModal');
+      toast('✅ Login berhasil! Halo, '+result.user.displayName,'ok');
+    })
+    .catch(function(err){
+      _loginInProgress=false;
+      document.getElementById('fbOverlay').classList.remove('on');
+      var code=err&&err.code?err.code:'';
+      if(code==='auth/popup-closed-by-user'||code==='auth/cancelled-popup-request'){
+        toast('Login dibatalkan','warn');
+      } else if(code==='auth/unauthorized-domain'){
+        toast('⚠️ Domain ini belum di-whitelist di Firebase Console (Authentication → Settings → Authorized domains).','err');
+      } else if(code==='auth/popup-blocked'){
+        // Fallback otomatis ke redirect kalau popup diblokir browser
+        toast('Popup diblokir browser, mencoba metode redirect...','warn');
+        try{ window._fbSignInRedirect(window._fbAuth,window._fbGProvider); }
+        catch(e2){ toast('❌ Login gagal: '+(e2&&e2.message?e2.message:'tidak diketahui'),'err'); }
+      } else if(code==='auth/operation-not-supported-in-this-environment'||location.protocol==='file:'){
+        toast('⚠️ Login Google tidak didukung dibuka langsung dari file lokal. Buka via http(s):// server.','err');
+      } else if(code==='auth/network-request-failed'){
+        toast('⚠️ Koneksi internet bermasalah, coba lagi.','err');
+      } else {
+        toast('❌ Login gagal: '+(err&&err.message?err.message:code||'tidak diketahui'),'err');
+      }
     });
 }
+window._toastSafe=function(msg,type){ try{toast(msg,type);}catch(e){} };
 function doLogout(){
   if(!window._fbReady){curUser=null;updateUIForUser();renderGrid();return;}
   document.getElementById('fbOverlay').classList.add('on');
   document.getElementById('fbOverlayTxt').textContent='Logging out...';
-  window._fbSignOut(window._fbAuth).then(function(){toast('Sudah logout','warn');});
+  window._fbSignOut(window._fbAuth).then(function(){toast('Sudah logout','warn');}).catch(function(){document.getElementById('fbOverlay').classList.remove('on');});
 }
 
 /* ══ MODAL HELPERS ══ */
