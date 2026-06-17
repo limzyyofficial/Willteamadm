@@ -125,6 +125,8 @@ body{background:var(--bg);font-family:'Exo 2',sans-serif;color:var(--text);min-h
 .pc-btn.po:hover{background:var(--warn);color:#000}
 .pc-btn.habis{background:rgba(255,71,87,.05);border:1px solid rgba(255,71,87,.15);color:var(--err);cursor:not-allowed;opacity:.6;pointer-events:none}
 .pc-btn.segera{background:rgba(120,144,156,.08);border:1px solid rgba(120,144,156,.2);color:var(--muted);cursor:not-allowed;pointer-events:none}
+.pc-btn.guide{background:rgba(255,165,2,.08);border:1px solid rgba(255,165,2,.22);color:var(--warn)}
+.pc-btn.guide:hover{background:var(--warn);color:#000}
 .pc-sold-overlay{position:absolute;inset:0;background:rgba(0,0,0,.65);display:flex;align-items:center;justify-content:center;z-index:5;border-radius:14px}
 .pc-sold-label{font-family:'Orbitron',monospace;font-size:.7rem;font-weight:700;color:var(--err);border:2px solid var(--err);padding:.3rem .7rem;border-radius:6px;transform:rotate(-15deg)}
 .pc-low-stk{position:absolute;top:7px;left:7px;background:rgba(255,165,2,.15);border:1px solid rgba(255,165,2,.35);color:var(--warn);font-family:'Rajdhani',sans-serif;font-size:.55rem;font-weight:700;padding:.12rem .38rem;border-radius:4px;z-index:3}
@@ -541,81 +543,98 @@ try {
 var PRODS = [
   {id:'p1',  name:'DRIP CLIENT APKMOD',      cat:'android',    plat:'android',    free:false, icon:'🎮', brand:'dripclient',
    img:'https://raw.githubusercontent.com/limzyyofficial/Willteamadm/refs/heads/main/drip-client-icon.jpg',
+   guideUrl:'#',
    desc:'Drip Client APK Mod terbaru untuk Free Fire. Fitur: ESP, Aimbot, No Recoil, Wallhack. Update otomatis.', multiplan:true,
    plans:[{name:'1 Hari',price:10000},{name:'3 Hari',price:20000},{name:'1 Minggu',price:50000},{name:'2 Minggu',price:100000},{name:'1 Bulan',price:120000}]},
   {id:'p2',  name:'DRIP CLIENT ROOT',        cat:'android',    plat:'android',    free:false, icon:'🔓', brand:'dripclientroot',
    img:'https://raw.githubusercontent.com/limzyyofficial/Willteamadm/refs/heads/main/drip-client-icon.jpg',
+   guideUrl:'#',
    desc:'Versi root Drip Client dengan fitur unlock penuh. Butuh akses root. Kompatibel Android 8+.', multiplan:true,
    plans:[{name:'1 Hari',price:10000},{name:'3 Hari',price:20000},{name:'1 Minggu',price:50000},{name:'2 Minggu',price:100000},{name:'1 Bulan',price:120000}]},
   {id:'p3',  name:'HAXXCKER PRO',          cat:'android',         plat:'android',         free:false, icon:'💻', brand:'dripclientpc',
    img:'https://raw.githubusercontent.com/limzyyofficial/Willteamadm/refs/heads/main/drip-client-icon.jpg',
+   guideUrl:'#',
    desc:'Drip Client untuk PC dengan fitur Aimkill. Kompatibel Windows 10/11.', multiplan:true,
    plans:[{name:'1 Hari',price:10000},{name:'3 Hari',price:20000},{name:'1 Minggu',price:50000},{name:'2 Minggu',price:100000},{name:'1 Bulan',price:120000}]},
   {id:'p4',  name:'ALPHA X STORE',           cat:'android',    plat:'android',    free:false, icon:'🦋', brand:'alphaxstore',
    img:'https://raw.githubusercontent.com/limzyyofficial/Willteamadm/refs/heads/main/ic_launcher.png',
+   guideUrl:'#',
    desc:'Delta Mod dengan support virtual space & root.', multiplan:true,
    plans:[{name:'1 Hari',price:10000},{name:'3 Hari',price:20000},{name:'1 Minggu',price:50000},{name:'2 Minggu',price:100000},{name:'1 Bulan',price:120000}]},
   {id:'p5',  name:'BR MODS',              cat:'android',    plat:'android',    free:false, icon:'⚡', brand:'brmodv3',
    img:'https://raw.githubusercontent.com/limzyyofficial/Willteamadm/refs/heads/main/share.jpg',
+   guideUrl:'#',
    desc:'BR Mods support root dan virtual. Fitur ESP, Aimbot, radar.', multiplan:true,
    plans:[{name:'1 Hari',price:10000},{name:'3 Hari',price:20000},{name:'1 Minggu',price:50000},{name:'2 Minggu',price:100000},{name:'1 Bulan',price:120000}]},
   {id:'p6',  name:'REAPER X PRO',        cat:'android',    plat:'android',    free:false, icon:'🦋', brand:'yoonsobutterfly',
    img:'https://raw.githubusercontent.com/limzyyofficial/Willteamadm/refs/heads/main/5c.webp',
+   guideUrl:'#',
    desc:'Yoonso Butterfly mod lengkap. Update sesuai patch terbaru.', multiplan:true,
    plans:[{name:'1 Hari',price:10000},{name:'3 Hari',price:20000},{name:'1 Minggu',price:50000},{name:'2 Minggu',price:100000},{name:'1 Bulan',price:120000}]},
   {id:'p7',  name:'REAPER X BRUTAL',             cat:'android',    plat:'android',    free:false, icon:'🎯', brand:'kiwmodzexe',
    img:'https://raw.githubusercontent.com/limzyyofficial/Willteamadm/refs/heads/main/iconkiw.png',
+   guideUrl:'#',
    desc:'Kiwmodz Exe support MOD dan ROOT. Garansi 7 hari.', multiplan:true,
    plans:[{name:'1 Hari',price:10000},{name:'3 Hari',price:20000},{name:'1 Minggu',price:50000},{name:'2 Minggu',price:100000},{name:'1 Bulan',price:120000}]},
   {id:'p8',  name:'KIWMODZ EXE',                cat:'android',    plat:'android',    free:false, icon:'🔥', brand:'vvipmod',
    img:'https://raw.githubusercontent.com/limzyyofficial/Willteamadm/refs/heads/main/icon.png',
+   guideUrl:'#',
    desc:'Vvip Mod versi terbaru. Support root & virtual.', multiplan:true,
    plans:[{name:'1 Hari',price:10000},{name:'3 Hari',price:20000},{name:'1 Minggu',price:50000},{name:'2 Minggu',price:100000},{name:'1 Bulan',price:120000}]},
   {id:'p9',  name:'RAPID CORE',               cat:'android',    plat:'android',    free:false, icon:'🗡️', brand:'hexblade',
    img:'https://raw.githubusercontent.com/limzyyofficial/Willteamadm/refs/heads/main/ic_launcher%20(1).png',
+   guideUrl:'#',
    desc:'Hex Blade mod terbaru. Anti-ban system aktif.', multiplan:true,
    plans:[{name:'1 Hari',price:10000},{name:'3 Hari',price:20000},{name:'1 Minggu',price:50000},{name:'2 Minggu',price:100000},{name:'1 Bulan',price:120000}]},
   {id:'p10', name:'GHOST ELITE STREAM',               cat:'android',         plat:'android',         free:false, icon:'🌟', brand:'auroravn',
    img:'https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?w=400&q=80',
+   guideUrl:'#',
    desc:'Aurora VN untuk PC. Fitur lengkap, update otomatis.', multiplan:true,
    plans:[{name:'1 Hari',price:10000},{name:'3 Hari',price:20000},{name:'1 Minggu',price:50000},{name:'2 Minggu',price:100000},{name:'1 Bulan',price:120000}]},
   {id:'p11', name:'XTFFH4X STREAM',            cat:'android',    plat:'android',    free:false, icon:'🏆', brand:'booyahpanel',
    img:'https://raw.githubusercontent.com/limzyyofficial/Willteamadm/refs/heads/main/logo.png',
+   guideUrl:'#',
    desc:'Booyah Panel mod eksklusif. Support semua device.', multiplan:true,
    plans:[{name:'1 Hari',price:10000},{name:'3 Hari',price:20000},{name:'1 Minggu',price:50000},{name:'2 Minggu',price:100000},{name:'1 Bulan',price:120000}]},
   {id:'p12', name:'BKL CHEAT',                 cat:'android',    plat:'android',    free:false, icon:'👥', brand:'lkteam',
    img:'https://raw.githubusercontent.com/limzyyofficial/Willteamadm/refs/heads/main/ic_launcher%20(2).png',
+   guideUrl:'#',
    desc:'LK Team mod dengan fitur eksklusif. Update rutin.', multiplan:true,
    plans:[{name:'1 Hari',price:10000},{name:'3 Hari',price:20000},{name:'1 Minggu',price:50000},{name:'2 Minggu',price:100000},{name:'1 Bulan',price:120000}]},
   {id:'p13', name:'PATO TEAM BLUE',  cat:'android',    plat:'android',    free:false, icon:'🎱', brand:'ballpool',
    img:'https://raw.githubusercontent.com/limzyyofficial/Willteamadm/refs/heads/main/drip-client-icon.jpg',
+   guideUrl:'#',
    desc:'Drip Client khusus 8 Ball Pool. Aim helper & cue extender.', multiplan:true,
    plans:[{name:'1 Hari',price:10000},{name:'3 Hari',price:20000},{name:'1 Minggu',price:50000},{name:'2 Minggu',price:100000},{name:'1 Bulan',price:120000}]},
   {id:'p14', name:'PATO TEAM ORANGE',               cat:'android',    plat:'android',    free:false, icon:'😤', brand:'angrymod',
    img:'https://raw.githubusercontent.com/limzyyofficial/Willteamadm/refs/heads/main/IMG_20260609_224810_403.jpg',
+   guideUrl:'#',
    desc:'Angry Mod versi terbaru. Fitur lengkap & stabil.', multiplan:true,
    plans:[{name:'1 Hari',price:10000},{name:'3 Hari',price:20000},{name:'1 Minggu',price:50000},{name:'2 Minggu',price:100000},{name:'1 Bulan',price:120000}]},
   {id:'p15', name:'HG CHEAT MOD',              cat:'android',    plat:'android',    free:false, icon:'🚀', brand:'rapidcore',
    img:'https://raw.githubusercontent.com/limzyyofficial/Willteamadm/refs/heads/main/ic_launcherrapid.png',
+   guideUrl:'#',
    desc:'Rapid Core mod. Kecepatan tinggi, anti lag.', multiplan:true,
    plans:[{name:'1 Hari',price:10000},{name:'3 Hari',price:20000},{name:'1 Minggu',price:50000},{name:'2 Minggu',price:100000},{name:'1 Bulan',price:120000}]},
   {id:'p16', name:'PRIME HOOX', cat:'android', plat:'android', free:false, icon:'⏳', brand:'comingsoonc',
-   img:'https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&q=80', desc:'Produk baru segera hadir. Stay tuned!', multiplan:true,
+   img:'https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&q=80', guideUrl:'#', desc:'Produk baru segera hadir. Stay tuned!', multiplan:true,
    plans:[{name:'1 Hari',price:10000},{name:'3 Hari',price:20000},{name:'1 Minggu',price:50000},{name:'2 Minggu',price:100000},{name:'1 Bulan',price:120000}]},
   {id:'p17', name:'FLOURITE IOS', cat:'ios', plat:'ios', free:false, icon:'⏳', brand:'comingsoonv',
-   img:'https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&q=80', desc:'Produk baru segera hadir. Stay tuned!', multiplan:true,
+   img:'https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&q=80', guideUrl:'#', desc:'Produk baru segera hadir. Stay tuned!', multiplan:true,
    plans:[{name:'1 Hari',price:10000},{name:'3 Hari',price:20000},{name:'1 Minggu',price:50000},{name:'2 Minggu',price:100000},{name:'1 Bulan',price:120000}]},
   {id:'p18', name:'GBOX CERTIFICATE', cat:'ios', plat:'ios', free:false, icon:'⏳', brand:'comingsoonb',
-   img:'https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&q=80', desc:'Produk baru segera hadir. Stay tuned!', multiplan:true,
+   img:'https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&q=80', guideUrl:'#', desc:'Produk baru segera hadir. Stay tuned!', multiplan:true,
    plans:[{name:'1 Hari',price:10000},{name:'3 Hari',price:20000},{name:'1 Minggu',price:50000},{name:'2 Minggu',price:100000},{name:'1 Bulan',price:120000}]},
   {id:'p19', name:'COMING SOON', cat:'comingsoon', plat:'comingsoon', free:false, icon:'⏳', brand:'comingsoonn',
-   img:'https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&q=80', desc:'Produk baru segera hadir. Stay tuned!', multiplan:true,
+   img:'https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&q=80', guideUrl:'#', desc:'Produk baru segera hadir. Stay tuned!', multiplan:true,
    plans:[{name:'1 Hari',price:10000},{name:'3 Hari',price:20000},{name:'1 Minggu',price:50000},{name:'2 Minggu',price:100000},{name:'1 Bulan',price:120000}]},
   {id:'p20', name:'STABILIZER AIM', cat:'tools', plat:'android', free:true, icon:'🎮', brand:null,
    img:'https://images.unsplash.com/photo-1535016120720-40c646be5580?w=400&q=80',
+   guideUrl:'#',
    desc:'Script trigger otomatis menggunakan tombol volume. Gratis!', multiplan:false},
   {id:'p21', name:'APK GALAXY SENSIX', cat:'tools', plat:'android', free:true, icon:'🎯', brand:null,
    img:'https://images.unsplash.com/photo-1552820728-8b83bb6b773f?w=400&q=80',
+   guideUrl:'#',
    desc:'Script headshot FF gratis. Update sesuai patch terbaru FF.', multiplan:false},
 ];
 
@@ -842,26 +861,24 @@ function renderGrid(){
     var n=prodStokTotal(p);
     var platCls=p.plat==='android'?'android':p.plat==='pc'?'pc':p.plat==='ios'?'ios':p.plat==='comingsoon'?'comingsoon':'all';
     var platLbl=p.plat==='android'?'ANDROID':p.plat==='pc'?'PC':p.plat==='comingsoon'?'SOON':p.plat==='ios'?'IOS':'ALL';
-    var priceStr=p.free
-      ?'<span class="pc-price free">GRATIS</span>'
-      :(p.multiplan&&p.plans?'<span class="pc-price">ab '+fmt(p.plans[0].price)+'</span>':'<span class="pc-price">'+fmt(p.price||0)+'</span>');
     var lowStk='';
     if(!p.free&&!isCS){
       if(habis) lowStk='<div class="pc-low-stk">Pre-Order</div>';
       else if(n>0&&n<=3) lowStk='<div class="pc-low-stk">Sisa '+n+'</div>';
     }
+    var guideBtn=p.guideUrl?('<button class="pc-btn guide" onclick="event.stopPropagation();openGuide(\''+p.id+'\')"><i class="fas fa-book"></i> PANDUAN</button>'):'';
     var btns='';
-    if(isCS) btns='<button class="pc-btn segera" disabled><i class="fas fa-clock"></i> SEGERA HADIR</button>';
-    else if(p.free) btns='<button class="pc-btn dl" onclick="event.stopPropagation();openDownload(\''+p.id+'\')"><i class="fas fa-download"></i> DOWNLOAD</button>';
-    else if(habis) btns='<button class="pc-btn po" onclick="event.stopPropagation();openPayFlow(\''+p.id+'\')"><i class="fas fa-clock"></i> PESAN (PO)</button>';
-    else btns='<button class="pc-btn beli" onclick="event.stopPropagation();openPayFlow(\''+p.id+'\')"><i class="fas fa-cart-plus"></i> BELI</button>';
+    if(isCS) btns='<button class="pc-btn segera" disabled><i class="fas fa-clock"></i> SEGERA HADIR</button>'+guideBtn;
+    else if(p.free) btns='<button class="pc-btn dl" onclick="event.stopPropagation();openDownload(\''+p.id+'\')"><i class="fas fa-download"></i> DOWNLOAD</button>'+guideBtn;
+    else if(habis) btns='<button class="pc-btn po" onclick="event.stopPropagation();openPayFlow(\''+p.id+'\')"><i class="fas fa-clock"></i> PESAN (PO)</button>'+guideBtn;
+    else btns='<button class="pc-btn beli" onclick="event.stopPropagation();openPayFlow(\''+p.id+'\')"><i class="fas fa-cart-plus"></i> ORDER</button>'+guideBtn;
     var thumbHtml=p.img
       ?('<div class="pc-thumb"><img src="'+p.img+'" alt="'+p.name+'" loading="lazy" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'flex\'"><div class="pc-thumb-fallback" style="display:none">'+p.icon+'</div><div class="pc-thumb-overlay"></div></div>')
       :('<div class="pc-thumb"><div class="pc-thumb-fallback">'+p.icon+'</div><div class="pc-thumb-overlay"></div></div>');
     return '<div class="pcard'+(isCS?' sold-out':'')+'" onclick="openProdDetail(\''+p.id+'\')">'
       +lowStk+'<div class="pc-plat '+platCls+'">'+platLbl+'</div>'+thumbHtml
       +(isCS?'<div class="pc-sold-overlay"><div class="pc-sold-label" style="color:var(--muted);border-color:var(--muted)">SOON</div></div>':'')
-      +'<div class="pc-body"><div class="pc-name">'+p.name+'</div>'+priceStr+'<div class="pc-btns">'+btns+'</div></div></div>';
+      +'<div class="pc-body"><div class="pc-name">'+p.name+'</div><div class="pc-btns">'+btns+'</div></div></div>';
   }).join('');
 }
 
@@ -882,11 +899,12 @@ function openProdDetail(id){
   var stkCol=p.free?'var(--green)':isCS?'var(--muted)':habis?'var(--warn)':n<=3?'var(--warn)':'var(--green)';
   var platCls=p.plat==='android'?'android':p.plat==='pc'?'pc':p.plat==='ios'?'ios':'all';
   var platLbl=p.plat==='android'?'📱 Android':p.plat==='pc'?'💻 PC':p.plat==='ios'?'🔱 IOS':p.plat==='comingsoon'?'⏳ Coming Soon':'🌐 All Platform';
+  var guideBtnFull=p.guideUrl?('<button class="btn-outline" onclick="openGuide(\''+id+'\')"><i class="fas fa-book"></i>&nbsp;PANDUAN INSTALASI</button>'):'';
   var actions='';
   if(isCS){
-    actions='<div style="background:rgba(120,144,156,.08);border:1px solid rgba(120,144,156,.2);border-radius:10px;padding:.85rem;text-align:center;margin-bottom:.7rem"><div style="font-size:1.5rem;margin-bottom:.3rem">⏳</div><div style="font-family:\'Orbitron\',monospace;font-size:.78rem;font-weight:800;color:var(--muted)">SEGERA HADIR</div></div>';
+    actions='<div style="background:rgba(120,144,156,.08);border:1px solid rgba(120,144,156,.2);border-radius:10px;padding:.85rem;text-align:center;margin-bottom:.7rem"><div style="font-size:1.5rem;margin-bottom:.3rem">⏳</div><div style="font-family:\'Orbitron\',monospace;font-size:.78rem;font-weight:800;color:var(--muted)">SEGERA HADIR</div></div>'+guideBtnFull;
   } else if(p.free){
-    actions='<button class="btn-cyan" onclick="openDownload(\''+id+'\');closeModal(\'prodModal\')"><i class="fas fa-download"></i>&nbsp;DOWNLOAD GRATIS</button>';
+    actions='<button class="btn-cyan" onclick="openDownload(\''+id+'\');closeModal(\'prodModal\')"><i class="fas fa-download"></i>&nbsp;DOWNLOAD GRATIS</button>'+guideBtnFull;
   } else if(p.multiplan && p.plans){
     var poNotice=habis?'<div style="background:rgba(255,165,2,.06);border:1px solid rgba(255,165,2,.18);border-radius:9px;padding:.55rem .75rem;margin-bottom:.7rem;font-family:\'Rajdhani\',sans-serif;font-size:.74rem;color:var(--warn);line-height:1.6">⏳ Semua paket pre-order — pesanan tetap bisa dibuat &amp; akan diproses manual oleh admin begitu stok siap.</div>':'';
     var plansHtml=poNotice+'<div style="margin-bottom:.9rem"><div class="flabel">PILIH PAKET</div><div class="plan-grid">';
@@ -899,10 +917,10 @@ function openProdDetail(id){
         +'<div class="plan-stk '+cls+'">'+stkLbl+'</div></div>';
     });
     plansHtml+='</div></div>';
-    actions=plansHtml+'<div style="font-size:.72rem;color:var(--muted);text-align:center;margin-bottom:.7rem">Klik paket untuk langsung checkout</div>';
+    actions=plansHtml+'<div style="font-size:.72rem;color:var(--muted);text-align:center;margin-bottom:.7rem">Klik paket untuk langsung checkout</div>'+guideBtnFull;
   } else {
     actions=(habis?'<div style="background:rgba(255,165,2,.06);border:1px solid rgba(255,165,2,.18);border-radius:9px;padding:.55rem .75rem;margin-bottom:.7rem;font-family:\'Rajdhani\',sans-serif;font-size:.74rem;color:var(--warn);line-height:1.6">⏳ Stok kosong — pesanan tetap bisa dibuat &amp; akan diproses manual oleh admin.</div>':'')
-      +'<button class="btn-cyan" onclick="closeModal(\'prodModal\');openPayFlow(\''+id+'\')"><i class="fas fa-shopping-cart"></i>&nbsp;BELI SEKARANG</button>';
+      +'<button class="btn-cyan" onclick="closeModal(\'prodModal\');openPayFlow(\''+id+'\')"><i class="fas fa-shopping-cart"></i>&nbsp;ORDER SEKARANG</button>'+guideBtnFull;
   }
   var imgBanner=p.img
     ?('<div class="prod-detail-img"><img src="'+p.img+'" alt="'+p.name+'" onerror="this.parentElement.innerHTML=\'<div class=\\"prod-detail-img-fallback\\">'+p.icon+'</div>\'"></div>')
@@ -918,6 +936,23 @@ function openProdDetail(id){
     +'<div style="font-size:.72rem;font-weight:600;color:'+stkCol+'">'+stkTxt+'</div></div>'
     +actions;
   openModal('prodModal');
+}
+
+/* ══ PANDUAN INSTALASI ══ */
+function openGuide(id){
+  var p=PRODS.find(function(x){return x.id===id;});if(!p)return;
+  var url=p.guideUrl||'#';
+  var hasUrl=url&&url!=='#';
+  document.getElementById('genModalBody').innerHTML='<div class="modal-title">📖 Panduan Instalasi</div>'
+    +'<div class="modal-sub">'+p.name+'</div>'
+    +'<div style="background:rgba(255,165,2,.05);border:1px solid rgba(255,165,2,.15);border-radius:10px;padding:.85rem;margin-bottom:.9rem">'
+    +'<div style="font-family:\'Orbitron\',monospace;font-size:.88rem;font-weight:800;color:var(--warn);margin-bottom:.5rem">'+p.icon+' '+p.name+'</div>'
+    +'<div style="font-size:.78rem;color:var(--muted);line-height:1.6">Ikuti panduan langkah-demi-langkah untuk instalasi &amp; aktivasi produk ini.</div></div>'
+    +(hasUrl
+      ?'<button class="btn-cyan" onclick="window.open(\''+url+'\',\'_blank\')"><i class="fas fa-book-open"></i>&nbsp;BUKA PANDUAN</button>'
+      :'<div style="background:rgba(255,71,87,.05);border:1px solid rgba(255,71,87,.15);border-radius:9px;padding:.65rem .8rem;font-family:\'Rajdhani\',sans-serif;font-size:.76rem;color:var(--err);margin-bottom:.7rem">Panduan belum tersedia. Hubungi admin via WhatsApp/Telegram.</div>')
+    +'<button class="btn-outline" onclick="closeModal(\'genModal\')">Tutup</button>';
+  openModal('genModal');
 }
 
 function openPayFlowWithPlan(id, planName){
@@ -941,6 +976,7 @@ function openDownload(id){
     +'<div style="font-family:\'Orbitron\',monospace;font-size:.88rem;font-weight:800;color:var(--green);margin-bottom:.5rem">'+p.icon+' '+p.name+'</div>'
     +'<div style="font-size:.78rem;color:var(--muted);line-height:1.6">'+p.desc+'</div></div>'
     +'<button class="btn-cyan" onclick="window.open(\''+(links[id]||'#')+'\',\'_blank\')"><i class="fas fa-download"></i>&nbsp;DOWNLOAD SEKARANG</button>'
+    +(p.guideUrl?'<button class="btn-outline" onclick="openGuide(\''+id+'\')"><i class="fas fa-book"></i>&nbsp;PANDUAN INSTALASI</button>':'')
     +'<button class="btn-outline" onclick="closeModal(\'genModal\')">Tutup</button>';
   openModal('genModal');
 }
